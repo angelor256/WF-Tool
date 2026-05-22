@@ -847,11 +847,48 @@ function assignDeposits(A,sh){
 function assignPayouts(A,sh){
   var g=A.filter(function(a){return a.group==='G'&&a.shift===sh;}),c=g.length;if(!c)return;
   if(sh==='Morning'){
-    if(c===1){g[0].mainTask='CS Support | Emails | Checks | PO Review';g[0].secTask='CS Support | Emails | Pending';}
-    else if(c===2){g[0].mainTask='CS Support | Emails | Checks| PO Review';g[0].secTask='CS Support | Emails | Pending';g[1].mainTask='Pending | 2nd CS Support | 2nd Emails | Wires';g[1].secTask='Pre-reviews | 2nd Emails | 2nd CS Support';}
-    else if(c===3){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Pending | 2nd CS Support';g[2].mainTask='Pending | 2nd CS Support | 2nd Emails';g[2].secTask='Pre-reviews | 2nd Emails';}
-    else if(c===4){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Wires | Checks pre-reviews';g[2].mainTask='Pending | 2nd CS Support';g[2].secTask='2nd Emails | Crypto';g[3].mainTask='2nd Emails';g[3].secTask='Pending | 2nd CS Support';}
-    else{g[0].mainTask='CS Support';g[0].secTask='CS Support';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='2nd Emails | Crypto';g[2].mainTask='2nd Emails';g[2].secTask='Wires | Checks pre-reviews';g[3].mainTask='Pending';g[3].secTask='Pending | 2nd CS Support';if(g[4]){g[4].mainTask='Emails | 2nd CS Support';g[4].secTask='Emails';}}
+    if(c===1){
+      g[0].mainTask='CS Support | Emails | Checks| PO Review';
+      g[0].secTask='CS Support | Emails | Pending';
+    }
+    else if(c===2){
+      g[0].mainTask='CS Support | Emails | Checks| PO Review';
+      g[0].secTask='CS Support | Emails | Pending';
+      g[1].mainTask='Pending | 2nd CS Support | 2nd Emails | Wires';
+      g[1].secTask='Pre-reviews | 2nd Emails | 2nd CS Support |PO Reviews';
+    }
+    else if(c===3){
+      g[0].mainTask='CS Support | Emails';
+      g[0].secTask='CS Support | Emails';
+      g[1].mainTask='Checks | Wires | PO Review';
+      g[1].secTask='Pending | 2nd CS Support';
+      g[2].mainTask='Pending | 2nd CS Support | 2nd Emails';
+      g[2].secTask='Pre-reviews | 2nd Emails |PO Reviews';
+    }
+    else if(c===4){
+      g[0].mainTask='CS Support | Emails';
+      g[0].secTask='CS Support | Emails';
+      g[1].mainTask='Checks | Wires | PO Review';
+      g[1].secTask='Wires | Checks pre-reviews |PO Reviews';
+      g[2].mainTask='Pending | 2nd CS Support';
+      g[2].secTask='2nd Emails | Crypto';
+      g[3].mainTask='2nd Emails';
+      g[3].secTask='Pending | 2nd CS Support';
+    }
+    else{
+      g[0].mainTask='CS Support';
+      g[0].secTask='CS Support';
+      g[1].mainTask='Checks | Wires | PO Review';
+      g[1].secTask='2nd Emails | Crypto';
+      g[2].mainTask='2nd Emails';
+      g[2].secTask='Wires | Checks pre-reviews |PO Reviews';
+      g[3].mainTask='Pending';
+      g[3].secTask='Pending | 2nd CS Support';
+      if(g[4]){
+        g[4].mainTask='Emails | 2nd CS Support';
+        g[4].secTask='Emails';
+      }
+    }
   }else{
     if(c===1)g[0].mainTask='CS Support | 2nd Emails | Pending | PO review';
     else if(c===2){g[0].mainTask='CS Support | 2nd Emails | Pending';g[1].mainTask='Emails | 2nd CS Support | PO review';}
