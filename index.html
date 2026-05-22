@@ -615,7 +615,7 @@ td.dim { color: var(--text3); }
             <tbody id="results-body"></tbody>
           </table>
         </div>
-        <div class="export-bar" style="padding: 14px;">
+        <div class="export-bar">
           <button class="btn btn-ghost btn-sm" onclick="downloadResultsCSV()">↓ DOWNLOAD CSV</button>
           <button class="btn btn-ghost btn-sm" onclick="copyResults()">⎘ COPY TO CLIPBOARD</button>
         </div>
@@ -626,7 +626,7 @@ td.dim { color: var(--text3); }
 
 <script>
 /* ════════════════════════════════════════════════
-   DATA & CONFIGS
+   DATA
    ════════════════════════════════════════════════ */
 var GM = {
   A:{label:'Casino Specialist',color:'hot'},
@@ -698,33 +698,27 @@ var roster=[], schedule=[], lastResults=[], resultFilter='all';
 function save(){try{localStorage.setItem('tm3r',JSON.stringify(roster));localStorage.setItem('tm3s',JSON.stringify(schedule));}catch(e){}}
 function load(){try{var r=localStorage.getItem('tm3r'),s=localStorage.getItem('tm3s');if(r)roster=JSON.parse(r);else roster=JSON.parse(JSON.stringify(DEF_ROSTER));if(s)schedule=JSON.parse(s);else schedule=JSON.parse(JSON.stringify(DEF_SCHED));}catch(e){roster=JSON.parse(JSON.stringify(DEF_ROSTER));schedule=JSON.parse(JSON.stringify(DEF_SCHED));}}
 
-function esc(str) {
-  if (!str) return '';
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
 /* ════════════════════════════════════════════════
-   NAV & CORE ENGINE
+   NAV
    ════════════════════════════════════════════════ */
 document.querySelectorAll('.nav-tab').forEach(function(t){
   t.addEventListener('click',function(){switchView(t.dataset.view);});
 });
 function switchView(v){
   document.querySelectorAll('.view').forEach(function(el){el.classList.remove('active');});
-  var target = document.getElementById('view-'+v);
-  if(target) target.classList.add('active');
+  document.getElementById('view-'+v).classList.add('active');
   document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.toggle('active',t.dataset.view===v);});
 }
 
+// Clock
 function tick(){
   var d=new Date();
-  var clockEl = document.getElementById('clock');
-  if(clockEl) clockEl.textContent=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+  document.getElementById('clock').textContent=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
 }
 tick(); setInterval(tick,1000);
 
 /* ════════════════════════════════════════════════
-   ROSTER LOGIC
+   ROSTER
    ════════════════════════════════════════════════ */
 function renderRoster(){
   roster.sort(function(a,b){return a.group<b.group?-1:a.group>b.group?1:a.name.localeCompare(b.name);});
@@ -761,247 +755,309 @@ function addAgent(){
   roster.push({name:n,group:g,queue:q});
   schedule.push({name:n,start:"06:00",end:"14:00",status:"off"});
   document.getElementById('new-name').value='';
-  renderRoster();
-  renderSchedule();
+  renderRoster();renderSchedule();
 }
-
 function removeAgent(i){
-  var dead = roster[i].name;
-  roster.splice(i,1);
-  schedule = schedule.filter(function(s){return s.name!==dead;});
-  renderRoster();
-  renderSchedule();
-}
-
-function exportRosterCSV(){
-  var csv=['Name,Group,Queue'];
-  roster.forEach(function(a){csv.push('"'+a.name.replace(/"/g,'""')+'",'+a.group+','+a.queue);});
-  var blob=new Blob([csv.join('\n')],{type:'text/csv;charset=utf-8;'});
-  var link=document.createElement("a");link.href=URL.createObjectURL(blob);link.setAttribute("download","roster.csv");link.click();
-}
-
-function importRosterCSV(e){
-  var f=e.target.files[0];if(!f)return;
-  var r=new FileReader();
-  r.onload=function(ev){
-    var lines=ev.target.result.split(/\r?\n/);
-    var targetR=[], targetS=[];
-    lines.forEach(function(l, idx){
-      if(idx===0 || !l.trim())return;
-      var p=l.split(',');
-      if(p.length>=3){
-        var name=p[0].replace(/^"|"$/g,'').trim();
-        var grp=p[1].trim().toUpperCase();
-        var q=p[2].trim();
-        targetR.push({name:name,group:grp,queue:q});
-        targetS.push({name:name,start:"06:00",end:"14:00",status:"off"});
-      }
-    });
-    if(targetR.length){ roster=targetR; schedule=targetS; renderRoster(); renderSchedule(); }
-  };
-  r.readAsText(f);
+  var n=roster[i].name;roster.splice(i,1);
+  schedule=schedule.filter(function(s){return s.name!==n;});
+  renderRoster();renderSchedule();
 }
 
 /* ════════════════════════════════════════════════
-   SCHEDULE LOGIC
+   SCHEDULE
    ════════════════════════════════════════════════ */
 function renderSchedule(){
+  var names={};schedule.forEach(function(s){names[s.name]=true;});
+  roster.forEach(function(a){if(!names[a.name])schedule.push({name:a.name,start:"06:00",end:"14:00",status:"working"});});
+  var rn={};roster.forEach(function(a){rn[a.name]=true;});
+  schedule=schedule.filter(function(s){return rn[s.name];});
+  var so={working:0,off:1,vac:2};
+  schedule.sort(function(a,b){var sa=so[a.status]||0,sb=so[b.status]||0;if(sa!==sb)return sa-sb;return a.start<b.start?-1:a.start>b.start?1:a.name.localeCompare(b.name);});
+  var wc=schedule.filter(function(s){return s.status==='working';}).length;
   var html='';
-  schedule.sort(function(a,b){return a.name.localeCompare(b.name);});
   schedule.forEach(function(s,i){
-    var match=roster.find(function(r){return r.name===s.name;})||{group:'G'};
-    var offCls=s.status!=='working'?' is-off':'';
-    html+='<div class="sched-row'+offCls+'" id="s-row-'+i+'">';
-    html+='<div><span class="g-chip g-'+match.group+'" style="width:22px;height:22px;font-size:10px;">'+match.group+'</span></div>';
-    html+='<div class="sched-name">'+esc(s.name)+'</div>';
-    html+='<input type="time" value Harvey="'+s.start+'" onchange="updateShift('+i+',\'start\',this.value)">';
-    html+='<input type="time" value="'+s.end+'" onchange="updateShift('+i+',\'end\',this.value)">';
-    html+='<select onchange="updateShift('+i+',\'status\',this.value)">';
-    html+='<option value="working" '+(s.status==='working'?'selected':'')+'>WORKING</option>';
-    html+='<option value="off" '+(s.status==='off'?'selected':'')+'>OFF</option>';
-    html+='<option value="vac" '+(s.status==='vac'?'selected':'')+'>VAC</option>';
-    html+='</select>';
+    var ag=roster.find(function(a){return a.name===s.name;})||{group:'?'};
+    var off=s.status!=='working';
+    html+='<div class="sched-row anim-row'+(off?' is-off':'')+'" style="animation-delay:'+(i*.015)+'s">';
+    html+='<span class="g-chip g-'+ag.group+'">'+ag.group+'</span>';
+    html+='<span class="sched-name">'+esc(s.name)+'</span>';
+    html+='<input type="time" value="'+s.start+'" onchange="updSched('+i+',\'start\',this.value)"'+(off?' disabled':'')+'>';
+    html+='<input type="time" value="'+s.end+'" onchange="updSched('+i+',\'end\',this.value)"'+(off?' disabled':'')+'>';
+    html+='<select onchange="updSched('+i+',\'status\',this.value)">';
+    html+='<option value="working"'+(s.status==='working'?' selected':'')+'>Working</option>';
+    html+='<option value="off"'+(s.status==='off'?' selected':'')+'>OFF</option>';
+    html+='<option value="vac"'+(s.status==='vac'?' selected':'')+'>Vacation</option></select>';
     html+='</div>';
   });
   document.getElementById('shift-grid').innerHTML=html;
-  document.getElementById('schedule-count').textContent=schedule.length+' entries';
+  document.getElementById('schedule-count').textContent=wc+' / '+schedule.length+' working';
   save();
 }
+function updSched(i,f,v){schedule[i][f]=v;renderSchedule();}
+function setAllWorking(){schedule.forEach(function(s){s.status='working';if(s.start==='00:00'){s.start='06:00';s.end='14:00';}});renderSchedule();}
+function setAllOff(){schedule.forEach(function(s){s.status='off';});renderSchedule();}
 
-function updateShift(i, key, val){
-  schedule[i][key]=val;
-  var row=document.getElementById('s-row-'+i);
-  if(row){
-    if(key==='status') row.classList.toggle('is-off', val!=='working');
-  }
-  save();
-}
+/* ════════════════════════════════════════════════
+   TASK ENGINE (VBA port)
+   ════════════════════════════════════════════════ */
+function agInfo(n){return roster.find(function(a){return a.name===n;})||{name:n,group:'?',queue:'Phones'};}
+function isP(n){return agInfo(n).queue==='Phones';}
 
-function setAllWorking(){ schedule.forEach(function(s){s.status='working';}); renderSchedule(); }
-function setAllOff(){ schedule.forEach(function(s){s.status='off';}); renderSchedule(); }
-
-/* ── DROP ZONE EVENT HANDLERS ── */
-var dz=document.getElementById('drop-zone');
-if(dz){
-  dz.addEventListener('dragover',function(e){e.preventDefault();dz.classList.add('dragover');});
-  dz.addEventListener('dragleave',function(){dz.classList.remove('dragover');});
-  dz.addEventListener('drop',function(e){
-    e.preventDefault();dz.classList.remove('dragover');
-    if(e.dataTransfer.files.length) handleSchedFile(e.dataTransfer.files[0]);
+function generateTasks(){
+  var w=schedule.filter(function(s){return s.status==='working';});
+  w.sort(function(a,b){return a.start<b.start?-1:a.start>b.start?1:0;});
+  var A=w.map(function(s){
+    var ag=agInfo(s.name),hr=parseInt(s.start.split(':')[0],10);
+    return{name:s.name,group:ag.group,queue:ag.queue,startHr:hr,start:s.start,end:s.end,shift:hr<12?'Morning':'Afternoon',mainTask:'',secTask:''};
   });
-  document.getElementById('browse-link').addEventListener('click',function(){document.getElementById('sched-file').click();});
-  document.getElementById('sched-file').addEventListener('change',function(e){if(e.target.files.length) handleSchedFile(e.target.files[0]);});
+  assignCasino(A);assignVIP(A,'Morning');assignVIP(A,'Afternoon');assignTier1(A);
+  assignDeposits(A,'Morning');assignDeposits(A,'Afternoon');
+  assignPayouts(A,'Morning');assignPayouts(A,'Afternoon');
+  assignFixed(A);assignBlasts(A);
+  lastResults=A;renderResults();switchView('results');
 }
 
-function handleSchedFile(f){
-  var r=new FileReader();
-  r.onload=function(ev){
-    var lines=ev.target.result.split(/\r?\n/);
-    var count=0;
-    lines.forEach(function(l){
-      if(!l.trim())return;
-      var p=l.split(',');
-      if(p.length>=3){
-        var name=p[0].replace(/^"|"$/g,'').trim();
-        var match=schedule.find(function(s){return s.name.toLowerCase()===name.toLowerCase();});
-        if(match){
-          match.start=p[1].trim();
-          match.end=p[2].trim();
-          match.status='working';
-          count++;
-        }
-      }
-    });
-    renderSchedule();
-    var succ=document.getElementById('upload-success');
-    succ.style.display='flex';
-    document.getElementById('us-detail').textContent='Matched '+count+' agents successfully from CSV.';
-  };
-  r.readAsText(f);
+function assignCasino(A){var cM=0,cA=0;A.forEach(function(a){if(a.group!=='A')return;if(a.shift==='Morning'){cM++;if(cM===1)a.mainTask='Casino';else{a.mainTask=isP(a.name)?'Phones':'Chats';a.secTask='2nd Casino';}}else{cA++;if(cA===1)a.mainTask='Casino';else{a.mainTask=isP(a.name)?'Phones':'Chats';a.secTask='2nd Casino';}}});}
+
+function assignVIP(A,sh){
+  var sa=A.filter(function(a){return a.shift===sh;}),ba=sa.filter(function(a){return a.group==='B';});
+  if(!ba.length)return;
+  var pC=sa.filter(function(a){return isP(a.name);}).length,cC=sa.filter(function(a){return !isP(a.name);}).length;
+  var ti=0;
+  if((pC-1)<2&&cC>=3){for(var i=0;i<ba.length;i++){if(!isP(ba[i].name)){ti=i;break;}}}
+  else{for(var i=0;i<ba.length;i++){if(isP(ba[i].name)){ti=i;break;}}}
+  ba[ti].mainTask='Emails';ba[ti].secTask='Tickets';
+  var rs=2,ta=false;
+  for(var i=0;i<ba.length;i++){if(i===ti)continue;if(rs===2){ba[i].secTask='2nd Emails and VIP';rs=3;}else if(rs===3){ba[i].secTask='2nd Tickets';ta=true;rs=4;}}
+  if(!ta){var cd=sa.filter(function(a){return(a.group==='C'||a.group==='D')&&a.secTask==='';});if(cd.length)cd[0].secTask='2nd Tickets';}
+}
+
+function assignTier1(A){A.forEach(function(a){if(a.group==='E')a.mainTask=isP(a.name)?'Phones':'Chats';});}
+
+function assignDeposits(A,sh){
+  var f=A.filter(function(a){return a.group==='F'&&a.shift===sh;}),c=f.length;if(!c)return;
+  var TA='Processors | Velocity | Scrubbers | Slack | 2nd Inbox',TB='CC - Certi Inbox | 2nd Slack | 2nd Processors | USU';
+  if(c===1){var h=f[0].startHr;if(h<=8||h>=13){f[0].mainTask='Processors | Velocity | Scrubbers';f[0].secTask='USU | Inbox | CC - Certi Inbox';}else f[0].mainTask=TB;}
+  else if(c===2){f[0].mainTask=TA;f[1].mainTask=TB;}
+  else if(c===3){f[0].mainTask='Processors | Velocity | Scrubbers | 2nd Slack';f[1].mainTask='CC - Certi Inbox | 2nd Processors | USU';f[2].mainTask='Slack | 2nd Inbox';}
+  else if(c===4){f[0].mainTask='CC - Certi Inbox | 2nd Slack';f[1].mainTask='Processors | Velocity | Scrubbers';f[2].mainTask='Slack | Inbox';f[3].mainTask='USU | 2nd Processors | Inbox';}
+  else{f[0].mainTask='CC - Certi Inbox';f[1].mainTask='Slack | Inbox';f[2].mainTask='Processors | Velocity';f[3].mainTask='USU | 2nd Processors';if(f[4])f[4].mainTask='Scrubbers | 2nd Slack';}
+}
+
+function assignPayouts(A,sh){
+  var g=A.filter(function(a){return a.group==='G'&&a.shift===sh;}),c=g.length;if(!c)return;
+  if(sh==='Morning'){
+    if(c===1){g[0].mainTask='CS Support | Emails | Checks | PO Review';g[0].secTask='CS Support | Emails | Pending';}
+    else if(c===2){g[0].mainTask='CS Support | Emails | Checks| PO Review';g[0].secTask='CS Support | Emails | Pending';g[1].mainTask='Pending | 2nd CS Support | 2nd Emails | Wires';g[1].secTask='Pre-reviews | 2nd Emails | 2nd CS Support';}
+    else if(c===3){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Pending | 2nd CS Support';g[2].mainTask='Pending | 2nd CS Support | 2nd Emails';g[2].secTask='Pre-reviews | 2nd Emails';}
+    else if(c===4){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Wires | Checks pre-reviews';g[2].mainTask='Pending | 2nd CS Support';g[2].secTask='2nd Emails | Crypto';g[3].mainTask='2nd Emails';g[3].secTask='Pending | 2nd CS Support';}
+    else{g[0].mainTask='CS Support';g[0].secTask='CS Support';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='2nd Emails | Crypto';g[2].mainTask='2nd Emails';g[2].secTask='Wires | Checks pre-reviews';g[3].mainTask='Pending';g[3].secTask='Pending | 2nd CS Support';if(g[4]){g[4].mainTask='Emails | 2nd CS Support';g[4].secTask='Emails';}}
+  }else{
+    if(c===1)g[0].mainTask='CS Support | 2nd Emails | Pending | PO review';
+    else if(c===2){g[0].mainTask='CS Support | 2nd Emails | Pending';g[1].mainTask='Emails | 2nd CS Support | PO review';}
+    else if(c===3){g[0].mainTask='CS Support | 2nd Emails';g[1].mainTask='Emails | 2nd CS Support';g[2].mainTask='Pending | PO review';}
+    else if(c===4){g[0].mainTask='PO review';g[1].mainTask='CS Support | 2nd Emails';g[2].mainTask='Pending';g[3].mainTask='Emails | 2nd CS Support';}
+    else{g[0].mainTask='CS Support';g[1].mainTask='2nd Emails';g[2].mainTask='Pending';g[3].mainTask='Crypto | PO review';if(g[4])g[4].mainTask='Emails | 2nd CS Support';}
+  }
+}
+
+function assignFixed(A){A.forEach(function(a){if(!a.mainTask)a.mainTask=isP(a.name)?'Phones':'Chats';});}
+
+function assignBlasts(A){
+  var t=['Tier 1 Blast | Zelle','Bonus Blast','2nd Bonus Blast','2nd Tier 1 Blast | 2nd Zelle','3rd Zelle'],tM=0,tA=0;
+  A.forEach(function(a){
+    if('AEFG'.indexOf(a.group)>=0||a.secTask)return;
+    if(a.shift==='Morning'&&tM<=4){a.secTask=t[tM];tM++;}
+    else if(a.shift==='Afternoon'&&tA<=4){a.secTask=t[tA];tA++;}
+  });
 }
 
 /* ════════════════════════════════════════════════
-   CORE LOGIC: TASK ENGINE & OUTPUTS
+   RESULTS
    ════════════════════════════════════════════════ */
-function generateTasks() {
-  lastResults = [];
-  var activeShifts = schedule.filter(function(s) { return s.status === 'working'; });
-  
-  if (!activeShifts.length) {
-    alert("No active working agents found in Schedule configuration.");
-    return;
+function renderResults(){
+  if(!lastResults.length){document.getElementById('results-empty').style.display='';document.getElementById('results-content').style.display='none';return;}
+  document.getElementById('results-empty').style.display='none';
+  document.getElementById('results-content').style.display='';
+  var d=new Date();
+  document.getElementById('results-sub').textContent='Generated '+d.toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'})+' at '+d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
+  var mC=lastResults.filter(function(r){return r.shift==='Morning';}).length;
+  var aC=lastResults.filter(function(r){return r.shift==='Afternoon';}).length;
+  var gc={};lastResults.forEach(function(r){gc[r.group]=(gc[r.group]||0)+1;});
+  var tg=Object.keys(gc).sort(function(a,b){return gc[b]-gc[a];})[0];
+  document.getElementById('results-summary').innerHTML=
+    '<div class="stat s-neon"><div class="stat-label">TOTAL ASSIGNED</div><div class="stat-val">'+lastResults.length+'</div><div class="stat-sub">agents on duty</div></div>'+
+    '<div class="stat s-amber"><div class="stat-label">MORNING</div><div class="stat-val">'+mC+'</div><div class="stat-sub">before 12:00</div></div>'+
+    '<div class="stat s-violet"><div class="stat-label">AFTERNOON</div><div class="stat-val">'+aC+'</div><div class="stat-sub">12:00+</div></div>'+
+    '<div class="stat s-lime"><div class="stat-label">GROUPS ACTIVE</div><div class="stat-val">'+Object.keys(gc).length+'</div><div class="stat-sub">top: '+tg+' ('+gc[tg]+')</div></div>';
+  renderResultsTable();
+}
+
+function renderResultsTable(){
+  var d=lastResults;
+  if(resultFilter==='morning')d=lastResults.filter(function(r){return r.shift==='Morning';});
+  if(resultFilter==='afternoon')d=lastResults.filter(function(r){return r.shift==='Afternoon';});
+  var html='';
+  d.forEach(function(r,i){
+    html+='<tr class="anim-row" style="animation-delay:'+(i*.018)+'s">';
+    html+='<td class="mono dim">'+(i+1)+'</td>';
+    html+='<td class="name-cell">'+esc(r.name)+'</td>';
+    html+='<td><span class="shift-tag shift-'+(r.shift==='Morning'?'am':'pm')+'">'+r.start+' – '+r.end+'</span></td>';
+    html+='<td><span class="g-chip g-'+r.group+'">'+r.group+'</span></td>';
+    html+='<td class="task-cell">'+esc(r.mainTask)+'</td>';
+    html+='<td class="task-cell" style="color:var(--text3);">'+esc(r.secTask)+'</td>';
+    html+='</tr>';
+  });
+  document.getElementById('results-body').innerHTML=html;
+  ['all','morning','afternoon'].forEach(function(f){
+    document.getElementById('f-'+f).classList.toggle('on',f===resultFilter);
+  });
+}
+function filterResults(f){resultFilter=f;renderResultsTable();}
+
+/* ════════════════════════════════════════════════
+   EXPORT
+   ════════════════════════════════════════════════ */
+function downloadResultsCSV(){
+  if(!lastResults.length)return;
+  var rows=['Name,Start,End,Shift,Group,Main Task,Secondary Task'];
+  lastResults.forEach(function(r){rows.push(['"'+r.name+'"',r.start,r.end,r.shift,r.group,'"'+r.mainTask+'"','"'+r.secTask+'"'].join(','));});
+  dl(rows.join('\n'),'tasks_'+td()+'.csv','text/csv');
+}
+function copyResults(){
+  if(!lastResults.length)return;
+  var l=['Name\tStart\tEnd\tGroup\tMain Task\tSecondary Task'];
+  lastResults.forEach(function(r){l.push([r.name,r.start,r.end,r.group,r.mainTask,r.secTask].join('\t'));});
+  navigator.clipboard.writeText(l.join('\n')).then(function(){alert('Copied!');});
+}
+function exportRosterCSV(){
+  var r=['Name,Group,Queue'];roster.forEach(function(a){r.push('"'+a.name+'",'+a.group+','+a.queue);});
+  dl(r.join('\n'),'roster_'+td()+'.csv','text/csv');
+}
+function importRosterCSV(e){
+  var f=e.target.files[0];if(!f)return;
+  var rd=new FileReader();rd.onload=function(ev){
+    var lines=ev.target.result.split('\n').filter(function(l){return l.trim();});
+    if(lines.length<2)return;var nr=[];
+    for(var i=1;i<lines.length;i++){var p=lines[i].split(',').map(function(x){return x.replace(/"/g,'').trim();});if(p.length>=3&&p[0])nr.push({name:p[0],group:p[1],queue:p[2]});}
+    if(nr.length){roster=nr;renderRoster();renderSchedule();}
+  };rd.readAsText(f);e.target.value='';
+}
+
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function td(){return new Date().toISOString().slice(0,10);}
+function dl(t,n,m){var b=new Blob([t],{type:m}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(u);}
+
+/* ════════════════════════════════════════════════
+   SCHEDULE CSV UPLOAD
+   ════════════════════════════════════════════════ */
+function parse12to24(str) {
+  str = str.trim().toUpperCase();
+  if (str === 'OFF' || str === 'VAC' || str === '') return null;
+  // Handle formats: "6:00 AM", "2:00 PM", "14:00", etc.
+  var ampm = str.match(/(AM|PM)$/);
+  var timePart = str.replace(/(AM|PM)/i, '').trim();
+  var parts = timePart.split(':');
+  var h = parseInt(parts[0], 10);
+  var m = parts[1] ? parseInt(parts[1], 10) : 0;
+  if (ampm) {
+    if (ampm[1] === 'PM' && h !== 12) h += 12;
+    if (ampm[1] === 'AM' && h === 12) h = 0;
   }
+  return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+}
 
-  // Engine core maps active agent metrics down to specific workflow assignments
-  activeShifts.forEach(function(s) {
-    var profile = roster.find(function(r) { return r.name === s.name; }) || { group: 'G', queue: 'Phones' };
-    
-    // Assignment Rules based on core capabilities Matrix
-    var mainTask = profile.queue;
-    var secondaryTask = "Backup Core";
+function loadScheduleCSV(text) {
+  var lines = text.replace(/\r/g, '').split('\n').filter(function(l) { return l.trim(); });
+  var newSchedule = [];
+  var loaded = 0, offCount = 0, vacCount = 0, unknownNames = [];
 
-    // Strategic optimization framework filters secondary workloads
-    if (profile.group === 'A') {
-      mainTask = "Casino / VIP Frontline";
-      secondaryTask = "None"; // Enforce zero parallel overflow tasks for Group A (Casino Specialists)
-    } else if (profile.group === 'B') {
-      mainTask = "VIP Managed Service";
-      secondaryTask = "Escalations Thread";
-    } else if (profile.group === 'C') {
-      mainTask = "Escalations Gatekeeper";
-      secondaryTask = "Tech Review";
-    } else if (profile.group === 'F') {
-      mainTask = "Deposits Channel Control";
-      secondaryTask = profile.queue;
-    } else if (profile.group === 'G') {
-      mainTask = "Payout Approvals Hub";
-      secondaryTask = "Verification Review";
+  lines.forEach(function(line) {
+    var parts = line.split(',');
+    if (parts.length < 2) return;
+    var name = parts[0].replace(/^\uFEFF/, '').trim();
+    if (!name || name.toLowerCase() === 'cc' || name === '') return;
+
+    var raw1 = (parts[1] || '').trim().toUpperCase();
+    var raw2 = (parts[2] || '').trim().toUpperCase();
+
+    var status, start, end;
+    if (raw1 === 'OFF') {
+      status = 'off'; start = '00:00'; end = '00:00'; offCount++;
+    } else if (raw1 === 'VAC') {
+      status = 'vac'; start = '00:00'; end = '00:00'; vacCount++;
+    } else {
+      start = parse12to24(parts[1]);
+      end = parse12to24(parts[2]);
+      if (!start || !end) { status = 'off'; start = '00:00'; end = '00:00'; offCount++; }
+      else { status = 'working'; loaded++; }
     }
 
-    // Determine AM/PM shift classification
-    var startHour = parseInt(s.start.split(':')[0]) || 0;
-    var shiftPeriod = (startHour < 12) ? 'morning' : 'afternoon';
-
-    lastResults.push({
-      name: s.name,
-      shift: s.start + ' - ' + s.end,
-      group: profile.group,
-      main: mainTask,
-      secondary: secondaryTask,
-      period: shiftPeriod
+    // Check if agent exists in roster
+    var found = roster.find(function(a) {
+      return a.name.toLowerCase().trim() === name.toLowerCase().trim();
     });
+    if (!found) unknownNames.push(name);
+
+    newSchedule.push({ name: name, start: start, end: end, status: status });
   });
 
-  document.getElementById('results-empty').style.display = 'none';
-  document.getElementById('results-content').style.display = 'block';
-  
-  // Calculate dynamic contextual tags
-  var amCount = lastResults.filter(function(r){return r.period==='morning';}).length;
-  var pmCount = lastResults.filter(function(r){return r.period==='afternoon';}).length;
-  
-  document.getElementById('results-sub').textContent = 'Generated distribution map for today\'s configuration context.';
-  
-  var statsHtml = '';
-  statsHtml += '<div class="stat s-neon"><div class="stat-label">TOTAL ASSIGNED</div><div class="stat-val">' + lastResults.length + '</div></div>';
-  statsHtml += '<div class="stat s-amber"><div class="stat-label">☀ MORNING SHIFT</div><div class="stat-val">' + amCount + '</div></div>';
-  statsHtml += '<div class="stat s-violet"><div class="stat-label">☽ AFTERNOON SHIFT</div><div class="stat-val">' + pmCount + '</div></div>';
-  document.getElementById('results-summary').innerHTML = statsHtml;
+  if (newSchedule.length === 0) return false;
 
-  filterResults('all');
-  switchView('results');
+  schedule = newSchedule;
+  renderSchedule();
+
+  // Show success banner
+  var banner = document.getElementById('upload-success');
+  banner.style.display = 'flex';
+  document.getElementById('us-text').textContent = loaded + ' agents working · ' + offCount + ' OFF' + (vacCount ? ' · ' + vacCount + ' VAC' : '');
+  var detail = newSchedule.length + ' rows loaded';
+  if (unknownNames.length) detail += ' — ' + unknownNames.length + ' not in roster: ' + unknownNames.slice(0, 3).join(', ') + (unknownNames.length > 3 ? '…' : '');
+  document.getElementById('us-detail').textContent = detail;
+
+  return true;
 }
 
-function filterResults(mode) {
-  resultFilter = mode;
-  document.querySelectorAll('.filt-btn').forEach(function(b){b.classList.remove('on');});
-  var targetedBtn = document.getElementById('f-' + mode);
-  if(targetedBtn) targetedBtn.classList.add('on');
+function handleScheduleFile(file) {
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var ok = loadScheduleCSV(e.target.result);
+    if (ok) {
+      // Auto-generate tasks after short delay for visual feedback
+      setTimeout(function() { generateTasks(); }, 400);
+    }
+  };
+  reader.readAsText(file);
+}
 
-  var html = '';
-  var idx = 1;
-  lastResults.forEach(function(res) {
-    if (mode !== 'all' && res.period !== mode) return;
+// Drop zone wiring
+(function() {
+  var dz = document.getElementById('drop-zone');
+  var fi = document.getElementById('sched-file');
+  var browseLink = document.getElementById('browse-link');
 
-    html += '<tr class="anim-row">';
-    html += '<td class="mono dim">' + (idx++) + '</td>';
-    html += '<td class="name-cell">' + esc(res.name) + '</td>';
-    html += '<td class="mono">' + res.shift + '</td>';
-    html += '<td><span class="g-chip g-' + res.group + '">' + res.group + '</span></td>';
-    <td class="task-cell" style="font-weight:600; color:var(--neon);">' + res.main + '</td>';
-    html += '<td class="task-cell">' + res.secondary + '</td>';
-    html += '</tr>';
+  dz.addEventListener('click', function() { fi.click(); });
+  browseLink.addEventListener('click', function(e) { e.stopPropagation(); fi.click(); });
+
+  dz.addEventListener('dragover', function(e) { e.preventDefault(); dz.classList.add('dragover'); });
+  dz.addEventListener('dragleave', function() { dz.classList.remove('dragover'); });
+  dz.addEventListener('drop', function(e) {
+    e.preventDefault(); dz.classList.remove('dragover');
+    var files = Array.from(e.dataTransfer.files);
+    var csv = files.find(function(f) { return f.name.endsWith('.csv') || f.name.endsWith('.txt'); });
+    if (csv) handleScheduleFile(csv);
   });
 
-  document.getElementById('results-body').innerHTML = html;
-}
-
-function downloadResultsCSV() {
-  if(!lastResults.length) return;
-  var csv = ['Agent,Shift,Group,Main Task,Secondary Task'];
-  lastResults.forEach(function(r){
-    csv.push('"' + r.name + '",' + r.shift + ',' + r.group + ',"' + r.main + '","' + r.secondary + '"');
+  fi.addEventListener('change', function() {
+    if (fi.files[0]) handleScheduleFile(fi.files[0]);
+    fi.value = '';
   });
-  var blob = new Blob([csv.join('\n')], {type: 'text/csv;charset=utf-8;'});
-  var link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.setAttribute("download", "task_assignments.csv"); link.click();
-}
-
-function copyResults() {
-  if(!lastResults.length) return;
-  var text = [];
-  lastResults.forEach(function(r){
-    text.push(r.name + '\t' + r.shift + '\t[' + r.group + ']\tMain: ' + r.main + '\tSecondary: ' + r.secondary);
-  });
-  navigator.clipboard.writeText(text.join('\n')).then(function(){ alert("Assignments compiled and saved to clipboard!"); });
-}
+})();
 
 /* ════════════════════════════════════════════════
-   INITIALIZATION
+   INIT
    ════════════════════════════════════════════════ */
-window.addEventListener('DOMContentLoaded', function() {
-  load();
-  renderRoster();
-  renderSchedule();
-});
+load();renderRoster();renderSchedule();
 </script>
 </body>
 </html>
