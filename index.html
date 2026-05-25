@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BetAnything Task Maker // Semanal</title>
+<title>BetAnything Task Maker // Operación Diaria</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════
@@ -76,7 +76,7 @@ nav {
 .logo { display: flex; align-items: center; gap: 12px; }
 .logo-icon {
   width: 32px; height: 32px; border-radius: 10px;
-  background: linear-gradient(135deg, var(--neon) 0%, var(--violet) 100%);
+  background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%);
   display: flex; align-items: center; justify-content: center;
   font-size: 13px; font-weight: 800; color: var(--void);
   box-shadow: var(--neon-glow);
@@ -111,6 +111,11 @@ nav {
 .view { display: none; }
 .view.active { display: block; animation: viewIn .4s ease; }
 @keyframes viewIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── CONFIG CONTROLS ── */
+.config-flow { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; background: var(--surface2); padding: 12px 18px; border-radius: var(--r-sm); border: 1px solid var(--border); }
+select { background: var(--surface3); border: 1px solid var(--border3); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 16px; border-radius: var(--r-sm); cursor: pointer; outline: none; }
+select:focus { border-color: var(--neon); }
 
 /* ── DAYS TABS ── */
 .days-container { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
@@ -169,10 +174,10 @@ td { padding: 12px 14px; white-space: nowrap; }
     <div class="logo">
       <div class="logo-icon">BA</div>
       <span class="logo-text">BetAnything Task Maker</span>
-      <span class="logo-ver">v3.0</span>
+      <span class="logo-ver">v3.5</span>
     </div>
     <div class="nav-tabs">
-      <button class="nav-tab active" id="tab-config" onclick="switchMainView('config')">CONFIGURACIÓN</button>
+      <button class="nav-tab active" id="tab-config" onclick="switchMainView('config')">CARGAR DATOS</button>
       <button class="nav-tab" id="tab-dashboard" onclick="switchMainView('dashboard')">TABLA DE TAREAS</button>
     </div>
   </div>
@@ -180,32 +185,46 @@ td { padding: 12px 14px; white-space: nowrap; }
 
 <div class="content">
 
+  <!-- VISTA 1: CONFIGURACIÓN -->
   <div id="view-config" class="view active">
     <div class="panel">
-      <div class="panel-head"><span class="panel-label">CARGAR CONTROL DE TURNOS SEMANAL (.CSV)</span></div>
+      <div class="panel-head"><span class="panel-label">CARGA DE AGENTES ACTIVOS POR DÍA</span></div>
       <div class="panel-body">
         
+        <div class="config-flow">
+          <label style="font-size:12px; font-weight:600; color:var(--text2)">1. Selecciona el Día de esta pestaña:</label>
+          <select id="select-dia-carga">
+            <option value="Lunes">LUNES</option>
+            <option value="Martes">MARTES</option>
+            <option value="Miercoles">MIÉRCOLES</option>
+            <option value="Jueves">JUEVES</option>
+            <option value="Viernes">VIERNES</option>
+            <option value="Sabado">SÁBADO</option>
+            <option value="Domingo">DOMINGO</option>
+          </select>
+        </div>
+
         <div class="drop-zone" id="drop-zone">
-          <div class="dz-icon">📁</div>
-          <div class="dz-title">Arrastra y suelta tu archivo CSV aquí</div>
-          <div class="dz-sub">o haz clic para <span>buscar archivo</span> en tu computadora</div>
+          <div class="dz-icon">📋</div>
+          <div class="dz-title">Arrastra el archivo CSV de este día aquí</div>
+          <div class="dz-sub">o haz clic para <span>buscar el archivo exportado</span></div>
           <input type="file" id="csv-file-input" accept=".csv,.txt" style="display:none">
         </div>
 
         <div class="upload-success" id="upload-status-box">
-          <span>✓</span> <span id="upload-status-text">Archivo cargado con éxito.</span>
+          <span>✓</span> <span id="upload-status-text">Listo.</span>
         </div>
 
         <div style="text-align: center; margin-top: 20px;">
-          <button class="btn btn-glow" onclick="procesarYGenerarTareas()">⚡ GENERAR Y ASIGNAR TAREAS</button>
+          <button class="btn btn-glow" onclick="procesarDiaActual()">⚡ ASIGNAR TAREAS PARA ESTE DÍA</button>
         </div>
 
       </div>
     </div>
   </div>
 
+  <!-- VISTA 2: DASHBOARD INTERACTIVO -->
   <div id="view-dashboard" class="view">
-    
     <div class="days-container">
       <button class="day-btn active" id="btn-Lunes" onclick="seleccionarDia('Lunes')">LUNES</button>
       <button class="day-btn" id="btn-Martes" onclick="seleccionarDia('Martes')">MARTES</button>
@@ -234,7 +253,7 @@ td { padding: 12px 14px; white-space: nowrap; }
           <tbody id="tabla-agentes-body">
             <tr>
               <td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">
-                No hay datos cargados aún. Sube un archivo en la pestaña de Configuración.
+                No hay datos cargados para este día. Selecciona el día e importa el CSV correspondiente.
               </td>
             </tr>
           </tbody>
@@ -246,14 +265,13 @@ td { padding: 12px 14px; white-space: nowrap; }
 </div>
 
 <script>
-// Almacenamiento de datos global por día
+// Memoria del sistema por día
 let datosSemanales = {
   "Lunes": [], "Martes": [], "Miercoles": [], "Jueves": [], "Viernes": [], "Sabado": [], "Domingo": []
 };
 let diaSeleccionadoActual = "Lunes";
 let contenidoCSVBruto = "";
 
-// Cambiar de vista principal
 function switchMainView(viewName) {
   document.getElementById('tab-config').classList.remove('active');
   document.getElementById('tab-dashboard').classList.remove('active');
@@ -270,14 +288,13 @@ function switchMainView(viewName) {
   }
 }
 
-// Configuración del Drag and Drop Zone
+// Drag & Drop
 const dropZone = document.getElementById('drop-zone');
 const fileInput = document.getElementById('csv-file-input');
 
 if (dropZone && fileInput) {
   dropZone.addEventListener('click', () => fileInput.click());
   fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
-
   dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
   dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
   dropZone.addEventListener('drop', (e) => {
@@ -293,20 +310,20 @@ function handleFile(file) {
   reader.onload = function(e) {
     contenidoCSVBruto = e.target.result;
     document.getElementById('upload-status-box').style.display = 'flex';
-    document.getElementById('upload-status-text').textContent = `Archivo "${file.name}" listo para ser procesado.`;
+    document.getElementById('upload-status-text').textContent = `Archivo "${file.name}" cargado en memoria.`;
   };
   reader.readAsText(file);
 }
 
-// Procesar el CSV semanal
-function procesarYGenerarTareas() {
+// Procesar Día a Día independiente
+function procesarDiaActual() {
   if(!contenidoCSVBruto) {
-    alert("Por favor, arrastra o selecciona primero tu archivo .csv guardado desde Excel.");
+    alert("Por favor, selecciona o arrastra el archivo .csv del día primero.");
     return;
   }
 
-  // Limpiar estados anteriores
-  Object.keys(datosSemanales).forEach(d => datosSemanales[d] = []);
+  let diaDestino = document.getElementById('select-dia-carga').value;
+  datosSemanales[diaDestino] = []; // Resetear ese día específico
 
   const lineas = contenidoCSVBruto.split(/\r?\n/);
   
@@ -316,78 +333,65 @@ function procesarYGenerarTareas() {
     let columnas = lineas[i].includes(';') ? lineas[i].split(';') : lineas[i].split(',');
     
     let agente = columnas[0]?.replace(/"/g, '').trim();
-    let diaRaw = columnas[1]?.replace(/"/g, '').trim();
-    let entrada = columnas[2]?.replace(/"/g, '').trim();
-    let salida = columnas[3]?.replace(/"/g, '').trim();
-    let estado = columnas[4]?.replace(/"/g, '').trim() || "OFF";
+    let entrada = columnas[1]?.replace(/"/g, '').trim();
+    let salida = columnas[2]?.replace(/"/g, '').trim();
 
-    if(!agente || !diaRaw) continue;
+    if(!agente) continue;
 
-    let diaKey = normalizarDia(diaRaw);
-    if (datosSemanales[diaKey]) {
-      datosSemanales[diaKey].push({
-        nombre: agente,
-        entrada: entrada,
-        salida: salida,
-        estado: estado,
-        tareaPrincipal: 'Pendiente',
-        tareaSecundaria: 'Ninguna'
-      });
-    }
+    // Al venir filtrados de tu Excel, el sistema sabe que todos están en WORK de fijo.
+    datosSemanales[diaDestino].push({
+      nombre: agente,
+      entrada: entrada || '--',
+      salida: salida || '--',
+      estado: 'WORK',
+      tareaPrincipal: 'Pendiente',
+      tareaSecundaria: 'Ninguna'
+    });
   }
 
-  ejecutarAlgoritmoDistribucion();
+  ejecutarAlgoritmoDia(diaDestino);
+  
+  // Te lleva automáticamente a ver el resultado del día procesado
+  diaSeleccionadoActual = diaDestino;
+  seleccionarDia(diaDestino);
   switchMainView('dashboard');
+  
+  // Limpiar el campo de carga para el siguiente archivo
+  contenidoCSVBruto = "";
+  document.getElementById('upload-status-box').style.display = 'none';
+  if(fileInput) fileInput.value = "";
 }
 
-function normalizarDia(dia) {
-  let d = dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  if (d.includes("lun")) return "Lunes";
-  if (d.includes("mar")) return "Martes";
-  if (d.includes("mie")) return "Miercoles";
-  if (d.includes("jue")) return "Jueves";
-  if (d.includes("vie")) return "Viernes";
-  if (d.includes("sab")) return "Sabado";
-  if (d.includes("dom")) return "Domingo";
-  return "Lunes";
-}
+function ejecutarAlgoritmoDia(dia) {
+  let activos = datosSemanales[dia];
+  
+  // Distribución cíclica basada en tu lista activa
+  activos.forEach((agente, index) => {
+    if (index % 3 === 0) {
+      agente.tareaPrincipal = 'Casino';
+    } else if (index % 3 === 1) {
+      agente.tareaPrincipal = 'VIP';
+    } else {
+      agente.tareaPrincipal = 'Soporte General';
+    }
+  });
 
-function ejecutarAlgoritmoDistribucion() {
-  Object.keys(datosSemanales).forEach(dia => {
-    let agentes = datosSemanales[dia];
-    let activos = agentes.filter(a => a.estado.toUpperCase() === 'WORK' || a.estado.toUpperCase() === 'W');
+  let secundarias = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
+  let idxSecundario = 0;
 
-    activos.forEach((agente, index) => {
-      if (index % 3 === 0) {
-        agente.tareaPrincipal = 'Casino';
-      } else if (index % 3 === 1) {
-        agente.tareaPrincipal = 'VIP';
-      } else {
-        agente.tareaPrincipal = 'Soporte General';
-      }
-    });
-
-    let secundarias = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
-    let idxSecundario = 0;
-
-    activos.forEach(agente => {
-      if (agente.tareaPrincipal === 'Casino') {
-        agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
-      } else {
-        agente.tareaSecundaria = secundarias[idxSecundario % secundarias.length];
-        idxSecundario++;
-      }
-    });
+  activos.forEach(agente => {
+    if (agente.tareaPrincipal === 'Casino') {
+      agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
+    } else {
+      agente.tareaSecundaria = secundarias[idxSecundario % secundarias.length];
+      idxSecundario++;
+    }
   });
 }
 
-// Control interactivo de los botones de los días (Corregidos)
 function seleccionarDia(dia) {
   diaSeleccionadoActual = dia;
-  
-  document.querySelectorAll('.day-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
+  document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
   
   const botonActivo = document.getElementById(`btn-${dia}`);
   if(botonActivo) botonActivo.classList.add('active');
@@ -404,7 +408,7 @@ function renderizarTablaDia(dia) {
     tbody.innerHTML = `
       <tr>
         <td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">
-          No hay agentes asignados o trabajando el día ${dia}. Asegúrate de procesar el archivo primero.
+          No hay datos cargados para el día ${dia}. Ve a la pestaña de carga e importa el archivo correspondiente.
         </td>
       </tr>`;
     return;
@@ -412,20 +416,17 @@ function renderizarTablaDia(dia) {
 
   let html = "";
   agentes.forEach(a => {
-    let esWork = a.estado.toUpperCase() === 'WORK' || a.estado.toUpperCase() === 'W';
     let clasePrincipal = "";
-    if (esWork) {
-      if(a.tareaPrincipal === 'Casino') clasePrincipal = 'class="tag-casino"';
-      if(a.tareaPrincipal === 'VIP') clasePrincipal = 'class="tag-vip"';
-    }
+    if(a.tareaPrincipal === 'Casino') clasePrincipal = 'class="tag-casino"';
+    if(a.tareaPrincipal === 'VIP') clasePrincipal = 'class="tag-vip"';
 
     html += `
       <tr>
         <td style="font-weight: 600; color: var(--text);">${a.nombre}</td>
-        <td style="font-family: 'IBM Plex Mono', monospace;">${a.entrada || '--'} - ${a.salida || '--'}</td>
-        <td style="font-weight:bold; color: ${esWork ? 'var(--lime)' : 'var(--hot)'};">${a.estado}</td>
-        <td ${clasePrincipal}>${esWork ? a.tareaPrincipal : '—'}</td>
-        <td class="tag-secundaria" style="opacity: ${a.tareaPrincipal === 'Casino' ? '0.4' : '1'};">${esWork ? a.tareaSecundaria : '—'}</td>
+        <td style="font-family: 'IBM Plex Mono', monospace;">${a.entrada} - ${a.salida}</td>
+        <td style="font-weight:bold; color: var(--lime);">ACTIVE</td>
+        <td ${clasePrincipal}>${a.tareaPrincipal}</td>
+        <td class="tag-secundaria" style="opacity: ${a.tareaPrincipal === 'Casino' ? '0.4' : '1'};">${a.tareaSecundaria}</td>
       </tr>
     `;
   });
