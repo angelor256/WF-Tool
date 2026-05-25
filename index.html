@@ -176,11 +176,11 @@ function procesarDiaActual() {
 
   const lineas = contenidoCSVBruto.split(/\r?\n/);
   
-  for (let i = 1; i < lineas.length; i++) {
+  for (let i = 0; i < lineas.length; i++) {
     let lineaLimpia = lineas[i].trim();
     if (!lineaLimpia) continue;
     
-    // DETECTOR UNIVERSAL: Prueba separar por Tabuladores (\t), Puntos y comas (;), o Comas (,)
+    // DETECTOR UNIVERSAL DE SEPARADORES
     let columnas = [];
     if (lineaLimpia.includes('\t')) {
       columnas = lineaLimpia.split('\t');
@@ -194,84 +194,14 @@ function procesarDiaActual() {
     let entrada = columnas[1]?.replace(/"/g, '').trim();
     let salida = columnas[2]?.replace(/"/g, '').trim();
 
-    if(!agente || agente.toLowerCase() === "agente" || agente === "") continue;
+    // IGNORAR FILAS BASURA: Si no hay agente o la fila es la cabecera/título autogenerado
+    if(!agente || agente === "" || agente.toLowerCase() === "agente" || agente.toLowerCase().includes("task maker") || agente.toLowerCase().includes("test")) {
+      continue;
+    }
 
     datosSemanales[diaDestino].push({
       nombre: agente,
       entrada: entrada || '--',
       salida: salida || '--',
       estado: 'WORK',
-      tareaPrincipal: 'Pendiente',
-      tareaSecundaria: 'Ninguna'
-    });
-  }
-
-  if(datosSemanales[diaDestino].length === 0) {
-    alert("El archivo se leyó pero no se encontraron agentes. Verifica que las columnas estén en orden: Agente, Entrada, Salida.");
-    return;
-  }
-
-  ejecutarAlgoritmoDia(diaDestino);
-  diaSeleccionadoActual = diaDestino;
-  seleccionarDia(diaDestino);
-  switchMainView('dashboard');
-  
-  contenidoCSVBruto = "";
-  document.getElementById('upload-status-box').style.display = 'none';
-  if(fileInput) fileInput.value = "";
-}
-
-function ejecutarAlgoritmoDia(dia) {
-  let activos = datosSemanales[dia];
-  activos.forEach((agente, index) => {
-    if (index % 3 === 0) { agente.tareaPrincipal = 'Casino'; }
-    else if (index % 3 === 1) { agente.tareaPrincipal = 'VIP'; }
-    else { agente.tareaPrincipal = 'Soporte General'; }
-  });
-
-  let secundarias = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
-  let idxSecundario = 0;
-  activos.forEach(agente => {
-    if (agente.tareaPrincipal === 'Casino') {
-      agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
-    } else {
-      agente.tareaSecundaria = secundarias[idxSecundario % secundarias.length];
-      idxSecundario++;
-    }
-  });
-}
-
-function seleccionarDia(dia) {
-  diaSeleccionadoActual = dia;
-  document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
-  const botonActivo = document.getElementById(`btn-${dia}`);
-  if(botonActivo) botonActivo.classList.add('active');
-  document.getElementById('tabla-titulo').textContent = `CRONOGRAMA DE OPERACIONES: ${dia.toUpperCase()}`;
-  renderizarTablaDia(dia);
-}
-
-function renderizarTablaDia(dia) {
-  const tbody = document.getElementById('tabla-agentes-body');
-  const agentes = datosSemanales[dia];
-  if (!agentes || agentes.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">No hay datos cargados para el día ${dia}.</td></tr>`;
-    return;
-  }
-  let html = "";
-  agentes.forEach(a => {
-    let clasePrincipal = "";
-    if(a.tareaPrincipal === 'Casino') clasePrincipal = 'class="tag-casino"';
-    if(a.tareaPrincipal === 'VIP') clasePrincipal = 'class="tag-vip"';
-    html += `<tr>
-      <td style="font-weight:600; color:var(--text);">${a.nombre}</td>
-      <td style="font-family:'IBM Plex Mono', monospace;">${a.entrada} - ${a.salida}</td>
-      <td style="font-weight:bold; color:var(--lime);">ACTIVE</td>
-      <td ${clasePrincipal}>${a.tareaPrincipal}</td>
-      <td class="tag-secundaria" style="opacity:${a.tareaPrincipal === 'Casino' ? '0.4' : '1'};">${a.tareaSecundaria}</td>
-    </tr>`;
-  });
-  tbody.innerHTML = html;
-}
-</script>
-</body>
-</html>
+      tareaPrincipal: 'Pendiente
