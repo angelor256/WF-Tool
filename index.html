@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BetAnything Task Maker</title>
+<title>BetAnything Task Maker // Semanal</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════
@@ -36,9 +36,6 @@
   --amber: #ffb057;
   --amber-dim: rgba(255,176,87,0.08);
   --amber-mid: rgba(255,176,87,0.15);
-  --violet: #b47aff;
-  --violet-dim: rgba(180,122,255,0.08);
-  --violet-mid: rgba(180,122,255,0.15);
   --blue: #4d8eff;
   --r: 12px;
   --r-sm: 8px;
@@ -185,7 +182,7 @@ td { padding: 12px 14px; white-space: nowrap; }
 
   <div id="view-config" class="view active">
     <div class="panel">
-      <div class="panel-head"><span class="panel-label">CARGAR CONTROL DE TURNOS (EXCEL / CSV)</span></div>
+      <div class="panel-head"><span class="panel-label">CARGAR CONTROL DE TURNOS SEMANAL (.CSV)</span></div>
       <div class="panel-body">
         
         <div class="drop-zone" id="drop-zone">
@@ -249,17 +246,19 @@ td { padding: 12px 14px; white-space: nowrap; }
 </div>
 
 <script>
-// Estructura de almacenamiento de datos global
+// Almacenamiento de datos global por día
 let datosSemanales = {
   "Lunes": [], "Martes": [], "Miercoles": [], "Jueves": [], "Viernes": [], "Sabado": [], "Domingo": []
 };
 let diaSeleccionadoActual = "Lunes";
 let contenidoCSVBruto = "";
 
-// Cambiar entre la pestaña de subida y la pestaña de visualización
+// Cambiar de vista principal
 function switchMainView(viewName) {
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('tab-config').classList.remove('active');
+  document.getElementById('tab-dashboard').classList.remove('active');
+  document.getElementById('view-config').classList.remove('active');
+  document.getElementById('view-dashboard').classList.remove('active');
   
   if(viewName === 'config') {
     document.getElementById('tab-config').classList.add('active');
@@ -280,4 +279,159 @@ if (dropZone && fileInput) {
   fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
 
   dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
-  dropZone.addEventListener('dragleave', () =>
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    if(e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
+  });
+}
+
+function handleFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    contenidoCSVBruto = e.target.result;
+    document.getElementById('upload-status-box').style.display = 'flex';
+    document.getElementById('upload-status-text').textContent = `Archivo "${file.name}" listo para ser procesado.`;
+  };
+  reader.readAsText(file);
+}
+
+// Procesar el CSV semanal
+function procesarYGenerarTareas() {
+  if(!contenidoCSVBruto) {
+    alert("Por favor, arrastra o selecciona primero tu archivo .csv guardado desde Excel.");
+    return;
+  }
+
+  // Limpiar estados anteriores
+  Object.keys(datosSemanales).forEach(d => datosSemanales[d] = []);
+
+  const lineas = contenidoCSVBruto.split(/\r?\n/);
+  
+  for (let i = 1; i < lineas.length; i++) {
+    if (!lineas[i].trim()) continue;
+    
+    let columnas = lineas[i].includes(';') ? lineas[i].split(';') : lineas[i].split(',');
+    
+    let agente = columnas[0]?.replace(/"/g, '').trim();
+    let diaRaw = columnas[1]?.replace(/"/g, '').trim();
+    let entrada = columnas[2]?.replace(/"/g, '').trim();
+    let salida = columnas[3]?.replace(/"/g, '').trim();
+    let estado = columnas[4]?.replace(/"/g, '').trim() || "OFF";
+
+    if(!agente || !diaRaw) continue;
+
+    let diaKey = normalizarDia(diaRaw);
+    if (datosSemanales[diaKey]) {
+      datosSemanales[diaKey].push({
+        nombre: agente,
+        entrada: entrada,
+        salida: salida,
+        estado: estado,
+        tareaPrincipal: 'Pendiente',
+        tareaSecundaria: 'Ninguna'
+      });
+    }
+  }
+
+  ejecutarAlgoritmoDistribucion();
+  switchMainView('dashboard');
+}
+
+function normalizarDia(dia) {
+  let d = dia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  if (d.includes("lun")) return "Lunes";
+  if (d.includes("mar")) return "Martes";
+  if (d.includes("mie")) return "Miercoles";
+  if (d.includes("jue")) return "Jueves";
+  if (d.includes("vie")) return "Viernes";
+  if (d.includes("sab")) return "Sabado";
+  if (d.includes("dom")) return "Domingo";
+  return "Lunes";
+}
+
+function ejecutarAlgoritmoDistribucion() {
+  Object.keys(datosSemanales).forEach(dia => {
+    let agentes = datosSemanales[dia];
+    let activos = agentes.filter(a => a.estado.toUpperCase() === 'WORK' || a.estado.toUpperCase() === 'W');
+
+    activos.forEach((agente, index) => {
+      if (index % 3 === 0) {
+        agente.tareaPrincipal = 'Casino';
+      } else if (index % 3 === 1) {
+        agente.tareaPrincipal = 'VIP';
+      } else {
+        agente.tareaPrincipal = 'Soporte General';
+      }
+    });
+
+    let secundarias = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
+    let idxSecundario = 0;
+
+    activos.forEach(agente => {
+      if (agente.tareaPrincipal === 'Casino') {
+        agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
+      } else {
+        agente.tareaSecundaria = secundarias[idxSecundario % secundarias.length];
+        idxSecundario++;
+      }
+    });
+  });
+}
+
+// Control interactivo de los botones de los días (Corregidos)
+function seleccionarDia(dia) {
+  diaSeleccionadoActual = dia;
+  
+  document.querySelectorAll('.day-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  const botonActivo = document.getElementById(`btn-${dia}`);
+  if(botonActivo) botonActivo.classList.add('active');
+
+  document.getElementById('tabla-titulo').textContent = `CRONOGRAMA DE OPERACIONES: ${dia.toUpperCase()}`;
+  renderizarTablaDia(dia);
+}
+
+function renderizarTablaDia(dia) {
+  const tbody = document.getElementById('tabla-agentes-body');
+  const agentes = datosSemanales[dia];
+
+  if (!agentes || agentes.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">
+          No hay agentes asignados o trabajando el día ${dia}. Asegúrate de procesar el archivo primero.
+        </td>
+      </tr>`;
+    return;
+  }
+
+  let html = "";
+  agentes.forEach(a => {
+    let esWork = a.estado.toUpperCase() === 'WORK' || a.estado.toUpperCase() === 'W';
+    let clasePrincipal = "";
+    if (esWork) {
+      if(a.tareaPrincipal === 'Casino') clasePrincipal = 'class="tag-casino"';
+      if(a.tareaPrincipal === 'VIP') clasePrincipal = 'class="tag-vip"';
+    }
+
+    html += `
+      <tr>
+        <td style="font-weight: 600; color: var(--text);">${a.nombre}</td>
+        <td style="font-family: 'IBM Plex Mono', monospace;">${a.entrada || '--'} - ${a.salida || '--'}</td>
+        <td style="font-weight:bold; color: ${esWork ? 'var(--lime)' : 'var(--hot)'};">${a.estado}</td>
+        <td ${clasePrincipal}>${esWork ? a.tareaPrincipal : '—'}</td>
+        <td class="tag-secundaria" style="opacity: ${a.tareaPrincipal === 'Casino' ? '0.4' : '1'};">${esWork ? a.tareaSecundaria : '—'}</td>
+      </tr>
+    `;
+  });
+  
+  tbody.innerHTML = html;
+}
+</script>
+</body>
+</html>
