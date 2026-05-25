@@ -24,7 +24,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        /* Contenedor de Pestañas Cyberpunk */
         .tabs-container {
             display: flex;
             justify-content: center;
@@ -55,7 +54,6 @@
             color: #000;
             box-shadow: 0 0 15px var(--neon-cyan);
         }
-        /* Tablas y Paneles de Visualización */
         .dashboard-panel {
             background-color: var(--panel-bg);
             border: 1px solid #222;
@@ -63,7 +61,6 @@
             border-radius: 4px;
             box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
         }
-        .hidden { display: none; }
         table.squad-table {
             width: 100%;
             border-collapse: collapse;
@@ -89,7 +86,6 @@
 
     <h1>// SQUAD CRONOGRAMA SEMANAL //</h1>
 
-    <!-- Pestañas de Navegación Diaria -->
     <div class="tabs-container" id="tabsMenu">
         <button class="tab-btn active" onclick="cambiarDia('Lunes')">[ Lunes ]</button>
         <button class="tab-btn" onclick="cambiarDia('Martes')">[ Martes ]</button>
@@ -100,192 +96,171 @@
         <button class="tab-btn" onclick="cambiarDia('Domingo')">[ Domingo ]</button>
     </div>
 
-    <!-- Panel Central de Datos -->
     <div class="dashboard-panel">
         <h2 id="currentDayTitle" style="color: var(--neon-cyan);">CRONOGRAMA: LUNES</h2>
         <div id="tablaContenedor"></div>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <script>
+        let datosSemanales = {
+            "Lunes": [],
+            "Martes": [],
+            "Miercoles": [],
+            "Jueves": [],
+            "Viernes": [],
+            "Sabado": [],
+            "Domingo": []
+        };
 
+        let diaActualActivo = "Lunes";
 
-
-3. Motor de Asignación y Procesamiento Semanal (`script.js`)
-Este script automatiza la lectura mediante un fetch hacia el archivo CSV local de tu repositorio. Segmenta la información por días de la semana y aplica la lógica interna de asignación de tareas de manera individual para cada jornada, blindando a los agentes asignados a Casino para que no adquieran responsabilidades complementarias.
-// Estructura maestra para indexar la semana de la squad
-let datosSemanales = {
-    "Lunes": [],
-    "Martes": [],
-    "Miercoles": [],
-    "Jueves": [],
-    "Viernes": [],
-    "Sabado": [],
-    "Domingo": []
-};
-
-let diaActualActivo = "Lunes";
-
-// Ejecución automatizada al iniciar la aplicación web
-document.addEventListener("DOMContentLoaded", () => {
-    cargarDatosDesdeCSV();
-});
-
-// Carga asíncrona del archivo CSV del repositorio de GitHub Pages
-function cargarDatosDesdeCSV() {
-    fetch('cronograma.csv')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("No se detectó el archivo cronograma.csv en el repositorio.");
-            }
-            return response.text();
-        })
-        .then(csvTexto => {
-            procesarCSV(csvTexto);
-            distribuirTareasSemanales();
-            renderizarDia(diaActualActivo);
-        })
-        .catch(err => {
-            document.getElementById('tablaContenedor').innerHTML = 
-                `<p style="color: #ff0055;">ERROR CATASTRÓFICO: ${err.message}</p>`;
+        document.addEventListener("DOMContentLoaded", () => {
+            cargarDatosDesdeCSV();
         });
-}
 
-// Lector de CSV orientado a estructurar datos por días
-function procesarCSV(texto) {
-    const lineas = texto.split(/\r?\n/);
-    // Asumimos encabezado: Agente,Dia,Entrada,Salida,Estado
-    for (let i = 1; i < lineas.length; i++) {
-        if (!lineas[i].trim()) continue;
-        const columnas = lineas[i].split(',');
-        
-        let agente = columnas[0]?.trim();
-        let diaUnformated = columnas[1]?.trim();
-        let entrada = columnas[2]?.trim();
-        let salida = columnas[3]?.trim();
-        let estado = columnas[4]?.trim();
+        function cargarDatosDesdeCSV() {
+            fetch('cronograma.csv')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("No se detectó el archivo cronograma.csv en el repositorio.");
+                    }
+                    return response.text();
+                })
+                .then(csvTexto => {
+                    procesarCSV(csvTexto);
+                    distribuirTareasSemanales();
+                    renderizarDia(diaActualActivo);
+                })
+                .catch(err => {
+                    document.getElementById('tablaContenedor').innerHTML = 
+                        `<p style="color: #ff0055;">ERROR CATASTRÓFICO: ${err.message}</p>`;
+                });
+        }
 
-        // Normalización de claves de días (Remoción de tildes para indexación sólida)
-        let diaKey = unificarNombreDia(diaUnformated);
+        function procesarCSV(texto) {
+            const lineas = texto.split(/\r?\n/);
+            for (let i = 1; i < lineas.length; i++) {
+                if (!lineas[i].trim()) continue;
+                const columnas = lineas[i].split(',');
+                
+                let agente = columnas[0]?.trim();
+                let diaUnformated = columnas[1]?.trim();
+                let entrada = columnas[2]?.trim();
+                let salida = columnas[3]?.trim();
+                let estado = columnas[4]?.trim();
 
-        if (datosSemanales[diaKey]) {
-            datosSemanales[diaKey].push({
-                nombre: agente,
-                entrada: entrada,
-                salida: salida,
-                estado: estado,
-                tareaPrincipal: 'Pendiente',
-                tareaSecundaria: 'Ninguna'
+                let diaKey = unificarNombreDia(diaUnformated);
+
+                if (datosSemanales[diaKey]) {
+                    datosSemanales[diaKey].push({
+                        nombre: agente,
+                        entrada: entrada,
+                        salida: salida,
+                        estado: estado,
+                        tareaPrincipal: 'Pendiente',
+                        tareaSecundaria: 'Ninguna'
+                    });
+                }
+            }
+        }
+
+        function unificarNombreDia(dia) {
+            if (!dia) return "Lunes";
+            let d = dia.toLowerCase();
+            if (d.includes("lun")) return "Lunes";
+            if (d.includes("mar")) return "Martes";
+            if (d.includes("mie") || d.includes("mié")) return "Miercoles";
+            if (d.includes("jue")) return "Jueves";
+            if (d.includes("vie")) return "Viernes";
+            if (d.includes("sab") || d.includes("sáb")) return "Sabado";
+            if (d.includes("dom")) return "Domingo";
+            return "Lunes";
+        }
+
+        function distribuirTareasSemanales() {
+            Object.keys(datosSemanales).forEach(dia => {
+                let agentesDelDia = datosSemanales[dia];
+                let agentesActivos = agentesDelDia.filter(a => a.estado.toLowerCase() === 'work');
+
+                agentesActivos.forEach((agente, index) => {
+                    if (index % 3 === 0) {
+                        agente.tareaPrincipal = 'Casino';
+                    } else if (index % 3 === 1) {
+                        agente.tareaPrincipal = 'VIP';
+                    } else {
+                        agente.tareaPrincipal = 'Soporte General';
+                    }
+                });
+
+                let rolesSecundarios = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
+                let secundarioIndex = 0;
+
+                agentesActivos.forEach(agente => {
+                    if (agente.tareaPrincipal === 'Casino') {
+                        agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
+                    } else {
+                        agente.tareaSecundaria = rolesSecundarios[secundarioIndex % rolesSecundarios.length];
+                        secundarioIndex++;
+                    }
+                });
             });
         }
-    }
-}
 
-function unificarNombreDia(dia) {
-    if (!dia) return "Lunes";
-    let d = dia.toLowerCase();
-    if (d.includes("lun")) return "Lunes";
-    if (d.includes("mar")) return "Martes";
-    if (d.includes("mie") || d.includes("mié")) return "Miercoles";
-    if (d.includes("jue")) return "Jueves";
-    if (d.includes("vie")) return "Viernes";
-    if (d.includes("sab") || d.includes("sáb")) return "Sabado";
-    if (d.includes("dom")) return "Domingo";
-    return "Lunes";
-}
+        function cambiarDia(diaTarget) {
+            diaActualActivo = diaTarget;
+            
+            const botones = document.querySelectorAll('.tab-btn');
+            botones.forEach(btn => {
+                if(btn.textContent.toLowerCase().includes(diaTarget.toLowerCase().replace('e','é').replace('a','á'))) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
 
-// Bucle de optimización de tareas para cada día de forma independiente
-function distribuirTareasSemanales() {
-    Object.keys(datosSemanales).forEach(dia => {
-        let agentesDelDia = datosSemanales[dia];
-        
-        // Filtrar únicamente los agentes activos que deben procesar tareas
-        let agentesActivos = agentesDelDia.filter(a => a.estado.toLowerCase() === 'work');
-
-        // REGLA MAESTRA AUTOMÁTICA: Asignación de Roles Principales
-        agentesActivos.forEach((agente, index) => {
-            // Ejemplo de lógica interna de asignación equilibrada
-            if (index % 3 === 0) {
-                agente.tareaPrincipal = 'Casino';
-            } else if (index % 3 === 1) {
-                agente.tareaPrincipal = 'VIP';
-            } else {
-                agente.tareaPrincipal = 'Soporte General';
-            }
-        });
-
-        // REGLA MAESTRA DE EXCLUSIVIDAD: Distribución de Blasts Secundarios
-        // Si el agente posee la tarea principal 'Casino', el sistema tiene prohibido darle roles secundarios.
-        let rolesSecundarios = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
-        let secundarioIndex = 0;
-
-        agentesActivos.forEach(agente => {
-            if (agente.tareaPrincipal === 'Casino') {
-                agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
-            } else {
-                agente.tareaSecundaria = rolesSecundarios[secundarioIndex % rolesSecundarios.length];
-                secundarioIndex++;
-            }
-        });
-    });
-}
-
-// Cambiar de día en la interfaz mediante interacción de pestañas
-function cambiarDia(diaTarget) {
-    diaActualActivo = diaTarget;
-    
-    // Actualizar estados visuales de los botones
-    const botones = document.querySelectorAll('.tab-btn');
-    botones.forEach(btn => {
-        if(btn.textContent.toLowerCase().includes(diaTarget.toLowerCase().replace('e','é').replace('a','á'))) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
+            document.getElementById('currentDayTitle').textContent = `CRONOGRAMA: ${diaTarget.toUpperCase()}`;
+            renderizarDia(diaTarget);
         }
-    });
 
-    document.getElementById('currentDayTitle').textContent = `CRONOGRAMA: ${diaTarget.toUpperCase()}`;
-    renderizarDia(diaTarget);
-}
+        function renderizarDia(dia) {
+            const contenedor = document.getElementById('tablaContenedor');
+            const agentes = datosSemanales[dia];
 
-// Generación dinámica de la interfaz de la squad basada en datos inyectados
-function renderizarDia(dia) {
-    const contenedor = document.getElementById('tablaContenedor');
-    const agentes = datosSemanales[dia];
+            if (!agentes || agentes.length === 0) {
+                contenedor.innerHTML = '<p style="color: #666;">No hay datos programados para este día.</p>';
+                return;
+            }
 
-    if (!agentes || agentes.length === 0) {
-        contenedor.innerHTML = '<p style="color: #666;">No hay datos programados para este día.</p>';
-        return;
-    }
+            let html = `
+                <table class="squad-table">
+                    <thead>
+                        <tr>
+                            <th>Agente</th>
+                            <th>Horario</th>
+                            <th>Estado</th>
+                            <th>Tarea Principal</th>
+                            <th>Responsabilidad Secundaria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
 
-    let html = `
-        <table class="squad-table">
-            <thead>
-                <tr>
-                    <th>Agente</th>
-                    <th>Horario</th>
-                    <th>Estado</th>
-                    <th>Tarea Principal</th>
-                    <th>Responsabilidad Secundaria</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
+            agentes.forEach(a => {
+                let esCasino = a.tareaPrincipal === 'Casino';
+                html += `
+                    <tr>
+                        <td style="font-weight: bold;">${a.nombre}</td>
+                        <td>${a.entrada} - ${a.salida}</td>
+                        <td style="color: ${a.estado.toLowerCase() === 'work' ? '#00ffcc' : '#ff0055'};">${a.estado}</td>
+                        <td class="${esCasino ? 'tag-casino' : ''}">${a.estado.toLowerCase() === 'work' ? a.tareaPrincipal : '-'}</td>
+                        <td class="tag-secundaria" style="opacity: ${esCasino ? '0.5' : '1'};">${a.estado.toLowerCase() === 'work' ? a.tareaSecundaria : '-'}</td>
+                    </tr>
+                `;
+            });
 
-    agentes.forEach(a => {
-        let esCasino = a.tareaPrincipal === 'Casino';
-        html += `
-            <tr>
-                <td style="font-weight: bold;">${a.nombre}</td>
-                <td>${a.entrada} - ${a.salida}</td>
-                <td style="color: ${a.estado.toLowerCase() === 'work' ? '#00ffcc' : '#ff0055'};">${a.estado}</td>
-                <td class="${esCasino ? 'tag-casino' : ''}">${a.estado.toLowerCase() === 'work' ? a.tareaPrincipal : '-'}</td>
-                <td class="tag-secundaria" style="opacity: ${esCasino ? '0.5' : '1'};">${a.estado.toLowerCase() === 'work' ? a.tareaSecundaria : '-'}</td>
-            </tr>
-        `;
-    });
-
-    html += '</tbody></table>';
-    contenedor.innerHTML = html;
-}
+            html += '</tbody></table>';
+            contenedor.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
