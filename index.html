@@ -70,38 +70,213 @@ nav {
   background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); 
   display: flex; 
   align-items: center; 
-  justify-content: center; font-size: 13px; font-weight: 800; color: var(--void); box-shadow: var(--neon-glow); font-family: 'Bricolage Grotesque', sans-serif; }
-.logo-text { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 700; }
-.nav-tabs { display: flex; gap: 2px; margin-left: 28px; background: var(--surface); border-radius: 10px; padding: 3px; border: 1px solid var(--border); }
-.nav-tab { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text3); padding: 7px 16px; border-radius: 8px; cursor: pointer; border: none; background: none; transition: all .2s; }
-.nav-tab.active { color: var(--neon); background: var(--neon-dim); }
-.content { max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px; }
-.view { display: none; } .view.active { display: block; }
-.config-flow { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; background: var(--surface2); padding: 12px 18px; border-radius: var(--r-sm); border: 1px solid var(--border); }
-select { background: var(--surface3); border: 1px solid var(--border3); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 16px; border-radius: var(--r-sm); outline: none; }
-.panel { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--r); overflow: hidden; margin-bottom: 20px; }
-.panel-head { padding: 14px 18px; border-bottom: 1px solid var(--border); }
-.panel-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--text3); text-transform: uppercase; }
-.panel-body { padding: 18px; }
-.drop-zone { border: 1.5px dashed var(--border3); border-radius: var(--r); padding: 40px 24px; text-align: center; cursor: pointer; background: var(--surface2); transition: all .25s; margin-bottom: 16px; }
-.drop-zone.dragover { border-color: var(--neon); background: var(--neon-dim); }
-.dz-icon { font-size: 32px; margin-bottom: 10px; }
-.dz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.dz-sub { font-size: 11px; color: var(--text3); }
-.dz-sub span { color: var(--neon); text-decoration: underline; }
-.days-container { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
-.day-btn { background: var(--surface2); border: 1px solid var(--border2); color: var(--text2); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: bold; padding: 8px 16px; border-radius: var(--r-sm); cursor: pointer; }
-.day-btn.active { background: var(--neon-dim); border-color: var(--neon); color: var(--neon); box-shadow: var(--neon-glow); }
-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-thead th { text-align: left; padding: 12px 14px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--text2); background: var(--surface2); border-bottom: 1px solid var(--border2); }
-tbody tr { border-bottom: 1px solid var(--border); }
-td { padding: 12px 14px; white-space: nowrap; }
-.tag-casino { color: var(--hot); font-weight: bold; font-family: 'IBM Plex Mono', monospace; }
-.tag-vip { color: var(--blue); font-weight: bold; font-family: 'IBM Plex Mono', monospace; }
-.tag-secundaria { color: var(--lime); font-family: 'IBM Plex Mono', monospace; }
-.btn { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; border: none; border-radius: var(--r-sm); padding: 12px 24px; cursor: pointer; text-transform: uppercase; }
-.btn-glow { background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); color: var(--void); font-weight: 800; box-shadow: var(--neon-glow); }
-.upload-success { display: none; align-items: center; gap: 12px; padding: 12px 16px; border-radius: var(--r-sm); background: var(--lime-dim); border: 1px solid var(--lime-mid); margin-bottom: 16px; color: var(--lime); font-size: 12px; }
+  justify-content: center; 
+  font-size: 13px; 
+  font-weight: 800; 
+  color: var(--void); 
+  box-shadow: var(--neon-glow); 
+  font-family: 'Bricolage Grotesque', sans-serif; 
+}
+.logo-text { 
+  font-family: 'Bricolage Grotesque', sans-serif; 
+  font-size: 18px; 
+  font-weight: 700; 
+}
+.nav-tabs { 
+  display: flex; 
+  gap: 2px; 
+  margin-left: 28px; 
+  background: var(--surface); 
+  border-radius: 10px; 
+  padding: 3px; 
+  border: 1px solid var(--border); 
+}
+.nav-tab { 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 11px; 
+  font-weight: 600; 
+  color: var(--text3); 
+  padding: 7px 16px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  border: none; 
+  background: none; 
+  transition: all .2s; 
+}
+.nav-tab.active { 
+  color: var(--neon); 
+  background: var(--neon-dim); 
+}
+.content { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  padding: 24px 28px 80px; 
+}
+.view { 
+  display: none; 
+} 
+.view.active { 
+  display: block; 
+}
+.config-flow { 
+  display: flex; 
+  gap: 16px; 
+  align-items: center; 
+  margin-bottom: 20px; 
+  background: var(--surface2); 
+  padding: 12px 18px; 
+  border-radius: var(--r-sm); 
+  border: 1px solid var(--border); 
+}
+select { 
+  background: var(--surface3); 
+  border: 1px solid var(--border3); 
+  color: var(--text); 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 12px; 
+  padding: 8px 16px; 
+  border-radius: var(--r-sm); 
+  outline: none; 
+}
+.panel { 
+  background: var(--surface); 
+  border: 1px solid var(--border2); 
+  border-radius: var(--r); 
+  overflow: hidden; 
+  margin-bottom: 20px; 
+}
+.panel-head { 
+  padding: 14px 18px; 
+  border-bottom: 1px solid var(--border); 
+}
+.panel-label { 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 10px; 
+  font-weight: 700; 
+  letter-spacing: .1em; 
+  color: var(--text3); 
+  text-transform: uppercase; 
+}
+.panel-body { 
+  padding: 18px; 
+}
+.drop-zone { 
+  border: 1.5px dashed var(--border3); 
+  border-radius: var(--r); 
+  padding: 40px 24px; 
+  text-align: center; 
+  cursor: pointer; 
+  background: var(--surface2); 
+  transition: all .25s; 
+  margin-bottom: 16px; 
+}
+.drop-zone.dragover { 
+  border-color: var(--neon); 
+  background: var(--neon-dim); 
+}
+.dz-icon { 
+  font-size: 32px; 
+  margin-bottom: 10px; 
+}
+.dz-title { 
+  font-size: 14px; 
+  font-weight: 700; 
+  margin-bottom: 4px; 
+}
+.dz-sub { 
+  font-size: 11px; 
+  color: var(--text3); 
+}
+.dz-sub span { 
+  color: var(--neon); 
+  text-decoration: underline; 
+}
+.days-container { 
+  display: flex; 
+  gap: 6px; 
+  margin-bottom: 24px; 
+  flex-wrap: wrap; 
+}
+.day-btn { 
+  background: var(--surface2); 
+  border: 1px solid var(--border2); 
+  color: var(--text2); 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 11px; 
+  font-weight: bold; 
+  padding: 8px 16px; 
+  border-radius: var(--r-sm); 
+  cursor: pointer; 
+}
+.day-btn.active { 
+  background: var(--neon-dim); 
+  border-color: var(--neon); 
+  color: var(--neon); 
+  box-shadow: var(--neon-glow); 
+}
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  font-size: 12px; 
+}
+thead th { 
+  text-align: left; 
+  padding: 12px 14px; 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 9px; 
+  color: var(--text2); 
+  background: var(--surface2); 
+  border-bottom: 1px solid var(--border2); 
+}
+tbody tr { 
+  border-bottom: 1px solid var(--border); 
+}
+td { 
+  padding: 12px 14px; 
+  white-space: nowrap; 
+}
+.tag-casino { 
+  color: var(--hot); 
+  font-weight: bold; 
+  font-family: 'IBM Plex Mono', monospace; 
+}
+.tag-vip { 
+  color: var(--blue); 
+  font-weight: bold; 
+  font-family: 'IBM Plex Mono', monospace; 
+}
+.tag-secundaria { 
+  color: var(--lime); 
+  font-family: 'IBM Plex Mono', monospace; 
+}
+.btn { 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 11px; 
+  font-weight: 700; 
+  border: none; 
+  border-radius: var(--r-sm); 
+  padding: 12px 24px; 
+  cursor: pointer; 
+  text-transform: uppercase; 
+}
+.btn-glow { 
+  background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); 
+  color: var(--void); 
+  font-weight: 800; 
+  box-shadow: var(--neon-glow); 
+}
+.upload-success { 
+  display: none; 
+  align-items: center; 
+  gap: 12px; 
+  padding: 12px 16px; 
+  border-radius: var(--r-sm); 
+  background: var(--lime-dim); 
+  border: 1px solid var(--lime-mid); 
+  margin-bottom: 16px; 
+  color: var(--lime); 
+  font-size: 12px; 
+}
 </style>
 </head>
 <body>
@@ -156,7 +331,7 @@ td { padding: 12px 14px; white-space: nowrap; }
       <button class="day-btn" id="btn-Miercoles" onclick="seleccionarDia('Miercoles')">MIÉRCOLES</button>
       <button class="day-btn" id="btn-Jueves" onclick="seleccionarDia('Jueves')">JUEVES</button>
       <button class="day-btn" id="btn-Viernes" onclick="seleccionarDia('Viernes')">VIERNES</button>
-      <button class="day-btn" id="btn-Sabado" onclick="seleccionarDia('Sabado')">SÁBADO</button>
+      <button class="day-btn" id="btn-Sabado" onclick="seleccionarDia('SÁBADO')">SÁBADO</button>
       <button class="day-btn" id="btn-Domingo" onclick="seleccionarDia('Domingo')">DOMINGO</button>
     </div>
     <div class="panel">
@@ -236,33 +411,55 @@ function procesarDiaActual() {
   let diaDestino = document.getElementById('select-dia-carga').value;
   datosSemanales[diaDestino] = []; 
 
-  const lineas = contenidoCSVBruto.split(/\r?\n/);
+  // Normalizamos saltos de línea para Mac (\r) y Windows (\r\n) de forma universal
+  const textoNormalizado = contenidoCSVBruto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  const lineas = textoNormalizado.split('\n');
   
   for (let i = 0; i < lineas.length; i++) {
     let lineaLimpia = lineas[i].trim();
     if (!lineaLimpia) continue;
     
-    let columnas = [];
-    if (lineaLimpia.includes('\t')) {
-      columnas = lineaLimpia.split('\t');
-    } else if (lineaLimpia.includes(';')) {
-      columnas = lineaLimpia.split(';');
-    } else {
-      columnas = lineaLimpia.split(',');
+    // Filtro anti basura para cabeceras de Excel
+    if (lineaLimpia.toLowerCase() === "agente" || lineaLimpia.toLowerCase().includes("task maker") || lineaLimpia.toLowerCase().includes("test")) {
+      continue;
     }
-    
-    let agente = columnas[0]?.replace(/"/g, '').trim();
-    let entrada = columnas[1]?.replace(/"/g, '').trim();
-    let salida = columnas[2]?.replace(/"/g, '').trim();
 
-    if(!agente || agente === "" || agente.toLowerCase() === "agente" || agente.toLowerCase().includes("task maker") || agente.toLowerCase().includes("test")) {
+    let agente = "";
+    let entrada = "--";
+    let salida = "--";
+
+    // EXPRESIÓN REGULAR INTELIGENTE: Busca patrones de horas tipo 6:00 AM, 11:00 AM, 2:00 PM, etc.
+    const patronHoras = /(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm))/g;
+    const coincidencias = lineaLimpia.match(patronHoras);
+
+    if (coincidencias && coincidencias.length >= 2) {
+      entrada = coincidencias[0].trim();
+      salida = coincidencias[1].trim();
+      
+      // El nombre del agente es todo lo que esté antes de la primera hora detectada
+      let indicePrimeraHora = lineaLimpia.indexOf(coincidencias[0]);
+      agente = lineaLimpia.substring(0, indicePrimeraHora).replace(/["\t;,]/g, '').trim();
+    } else {
+      // Fallback tradicional por si la línea no tiene formato de hora estándar
+      let columnas = [];
+      if (lineaLimpia.includes('\t')) columnas = lineaLimpia.split('\t');
+      else if (lineaLimpia.includes(';')) columnas = lineaLimpia.split(';');
+      else if (lineaLimpia.includes(',')) columnas = lineaLimpia.split(',');
+      else columnas = lineaLimpia.split(/\s{2,}/); // Mínimo dos espacios juntos
+
+      agente = columnas[0]?.replace(/"/g, '').trim();
+      entrada = columnas[1]?.replace(/"/g, '').trim() || '--';
+      salida = columnas[2]?.replace(/"/g, '').trim() || '--';
+    }
+
+    if(!agente || agente === "" || agente.toLowerCase() === "agente") {
       continue;
     }
 
     datosSemanales[diaDestino].push({
       nombre: agente,
-      entrada: entrada || '--',
-      salida: salida || '--',
+      entrada: entrada,
+      salida: salida,
       estado: 'WORK',
       tareaPrincipal: 'Pendiente',
       tareaSecundaria: 'Ninguna'
@@ -307,7 +504,12 @@ function ejecutarAlgoritmoDia(dia) {
 function seleccionarDia(dia) {
   diaSeleccionadoActual = dia;
   document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
-  const botonActivo = document.getElementById(`btn-${dia}`);
+  
+  // Mapeo seguro para el botón de sábado con tilde o sin tilde
+  let idBoton = `btn-${dia}`;
+  if(dia === 'Sabado') idBoton = 'btn-Sabado';
+  
+  const botonActivo = document.getElementById(idBoton);
   if(botonActivo) botonActivo.classList.add('active');
   document.getElementById('tabla-titulo').textContent = `CRONOGRAMA DE OPERACIONES: ${dia.toUpperCase()}`;
   renderizarTablaDia(dia);
