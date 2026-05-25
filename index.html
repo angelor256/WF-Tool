@@ -174,16 +174,17 @@ function procesarDiaActual() {
   let diaDestino = document.getElementById('select-dia-carga').value;
   datosSemanales[diaDestino] = []; 
 
-  // Separar líneas limpiando retornos de carro defectuosos
   const lineas = contenidoCSVBruto.split(/\r?\n/);
   
   for (let i = 1; i < lineas.length; i++) {
     let lineaLimpia = lineas[i].trim();
     if (!lineaLimpia) continue;
     
-    // Auto-detectar si Excel usó coma o punto y coma
+    // DETECTOR UNIVERSAL: Prueba separar por Tabuladores (\t), Puntos y comas (;), o Comas (,)
     let columnas = [];
-    if (lineaLimpia.includes(';')) {
+    if (lineaLimpia.includes('\t')) {
+      columnas = lineaLimpia.split('\t');
+    } else if (lineaLimpia.includes(';')) {
       columnas = lineaLimpia.split(';');
     } else {
       columnas = lineaLimpia.split(',');
@@ -193,7 +194,7 @@ function procesarDiaActual() {
     let entrada = columnas[1]?.replace(/"/g, '').trim();
     let salida = columnas[2]?.replace(/"/g, '').trim();
 
-    if(!agente || agente.toLowerCase() === "agente") continue;
+    if(!agente || agente.toLowerCase() === "agente" || agente === "") continue;
 
     datosSemanales[diaDestino].push({
       nombre: agente,
@@ -215,7 +216,6 @@ function procesarDiaActual() {
   seleccionarDia(diaDestino);
   switchMainView('dashboard');
   
-  // Limpieza de inputs
   contenidoCSVBruto = "";
   document.getElementById('upload-status-box').style.display = 'none';
   if(fileInput) fileInput.value = "";
