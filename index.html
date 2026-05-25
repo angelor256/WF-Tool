@@ -331,7 +331,7 @@ td {
       <button class="day-btn" id="btn-Miercoles" onclick="seleccionarDia('Miercoles')">MIÉRCOLES</button>
       <button class="day-btn" id="btn-Jueves" onclick="seleccionarDia('Jueves')">JUEVES</button>
       <button class="day-btn" id="btn-Viernes" onclick="seleccionarDia('Viernes')">VIERNES</button>
-      <button class="day-btn" id="btn-Sabado" onclick="seleccionarDia('SÁBADO')">SÁBADO</button>
+      <button class="day-btn" id="btn-Sabado" onclick="seleccionarDia('Sabado')">SÁBADO</button>
       <button class="day-btn" id="btn-Domingo" onclick="seleccionarDia('Domingo')">DOMINGO</button>
     </div>
     <div class="panel">
@@ -411,7 +411,6 @@ function procesarDiaActual() {
   let diaDestino = document.getElementById('select-dia-carga').value;
   datosSemanales[diaDestino] = []; 
 
-  // Normalizamos saltos de línea para Mac (\r) y Windows (\r\n) de forma universal
   const textoNormalizado = contenidoCSVBruto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const lineas = textoNormalizado.split('\n');
   
@@ -419,7 +418,6 @@ function procesarDiaActual() {
     let lineaLimpia = lineas[i].trim();
     if (!lineaLimpia) continue;
     
-    // Filtro anti basura para cabeceras de Excel
     if (lineaLimpia.toLowerCase() === "agente" || lineaLimpia.toLowerCase().includes("task maker") || lineaLimpia.toLowerCase().includes("test")) {
       continue;
     }
@@ -428,24 +426,20 @@ function procesarDiaActual() {
     let entrada = "--";
     let salida = "--";
 
-    // EXPRESIÓN REGULAR INTELIGENTE: Busca patrones de horas tipo 6:00 AM, 11:00 AM, 2:00 PM, etc.
     const patronHoras = /(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm))/g;
     const coincidencias = lineaLimpia.match(patronHoras);
 
     if (coincidencias && coincidencias.length >= 2) {
       entrada = coincidencias[0].trim();
       salida = coincidencias[1].trim();
-      
-      // El nombre del agente es todo lo que esté antes de la primera hora detectada
       let indicePrimeraHora = lineaLimpia.indexOf(coincidencias[0]);
       agente = lineaLimpia.substring(0, indicePrimeraHora).replace(/["\t;,]/g, '').trim();
     } else {
-      // Fallback tradicional por si la línea no tiene formato de hora estándar
       let columnas = [];
       if (lineaLimpia.includes('\t')) columnas = lineaLimpia.split('\t');
       else if (lineaLimpia.includes(';')) columnas = lineaLimpia.split(';');
       else if (lineaLimpia.includes(',')) columnas = lineaLimpia.split(',');
-      else columnas = lineaLimpia.split(/\s{2,}/); // Mínimo dos espacios juntos
+      else columnas = lineaLimpia.split(/\s{2,}/);
 
       agente = columnas[0]?.replace(/"/g, '').trim();
       entrada = columnas[1]?.replace(/"/g, '').trim() || '--';
@@ -467,11 +461,13 @@ function procesarDiaActual() {
   }
 
   if(datosSemanales[diaDestino].length === 0) {
-    alert("El archivo se leyó pero no se encontraron agentes válidos. Verifica que las columnas contengan los nombres.");
+    alert("El archivo se leyó pero no se encontraron agentes válidos.");
     return;
   }
 
+  // Ejecutamos tu algoritmo exacto del archivo DOCX
   ejecutarAlgoritmoDia(diaDestino);
+  
   diaSeleccionadoActual = diaDestino;
   seleccionarDia(diaDestino);
   switchMainView('dashboard');
@@ -483,20 +479,32 @@ function procesarDiaActual() {
 
 function ejecutarAlgoritmoDia(dia) {
   let activos = datosSemanales[dia];
+  if (activos.length === 0) return;
+
+  // REGLA ORIGINAL DOCX: Asignar Tareas Principales basadas estrictamente en la posición cronológica
   activos.forEach((agente, index) => {
-    if (index % 3 === 0) { agente.tareaPrincipal = 'Casino'; }
-    else if (index % 3 === 1) { agente.tareaPrincipal = 'VIP'; }
-    else { agente.tareaPrincipal = 'Soporte General'; }
+    if (index === 0) {
+      agente.tareaPrincipal = 'VIP';
+    } else if (index === 1) {
+      agente.tareaPrincipal = 'Casino';
+    } else {
+      agente.tareaPrincipal = 'Soporte General';
+    }
   });
 
-  let secundarias = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
-  let idxSecundario = 0;
+  // REGLA ORIGINAL DOCX: Asignar Responsabilidades Secundarias
+  let poolSecundarias = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
+  let countSecundario = 0;
+
   activos.forEach(agente => {
     if (agente.tareaPrincipal === 'Casino') {
       agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
+    } else if (agente.tareaPrincipal === 'VIP') {
+      agente.tareaSecundaria = 'EXENTO (VIP Dedicado)';
     } else {
-      agente.tareaSecundaria = secundarias[idxSecundario % secundarias.length];
-      idxSecundario++;
+      // Rotación cíclica para Soporte General
+      agente.tareaSecundaria = poolSecundarias[countSecundario % poolSecundarias.length];
+      countSecundario++;
     }
   });
 }
@@ -505,11 +513,7 @@ function seleccionarDia(dia) {
   diaSeleccionadoActual = dia;
   document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
   
-  // Mapeo seguro para el botón de sábado con tilde o sin tilde
-  let idBoton = `btn-${dia}`;
-  if(dia === 'Sabado') idBoton = 'btn-Sabado';
-  
-  const botonActivo = document.getElementById(idBoton);
+  const botonActivo = document.getElementById(`btn-${dia}`);
   if(botonActivo) botonActivo.classList.add('active');
   document.getElementById('tabla-titulo').textContent = `CRONOGRAMA DE OPERACIONES: ${dia.toUpperCase()}`;
   renderizarTablaDia(dia);
@@ -527,12 +531,15 @@ function renderizarTablaDia(dia) {
     let clasePrincipal = "";
     if(a.tareaPrincipal === 'Casino') clasePrincipal = 'class="tag-casino"';
     if(a.tareaPrincipal === 'VIP') clasePrincipal = 'class="tag-vip"';
+    
+    let estiloExento = (a.tareaSecundaria.includes('EXENTO')) ? 'style="opacity: 0.4;"' : '';
+
     html += `<tr>
       <td style="font-weight:600; color:var(--text);">${a.nombre}</td>
       <td style="font-family:'IBM Plex Mono', monospace;">${a.entrada} - ${a.salida}</td>
       <td style="font-weight:bold; color:var(--lime);">ACTIVE</td>
       <td ${clasePrincipal}>${a.tareaPrincipal}</td>
-      <td class="tag-secundaria" style="opacity:${a.tareaPrincipal === 'Casino' ? '0.4' : '1'};">${a.tareaSecundaria}</td>
+      <td class="tag-secundaria" ${estiloExento}>${a.tareaSecundaria}</td>
     </tr>`;
   });
   tbody.innerHTML = html;
