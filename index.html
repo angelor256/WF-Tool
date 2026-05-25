@@ -7,29 +7,97 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --void: #06080c; --deep: #0b0e14; --surface: #0f1219; --surface2: #141820; --surface3: #1a1f2a;
-  --border: rgba(255,255,255,0.05); --border2: rgba(255,255,255,0.08); --border3: rgba(255,255,255,0.12);
-  --text: #eaf0ff; --text2: #8892a8; --text3: #4e5670; --neon: #00f0ff;
-  --neon-dim: rgba(0,240,255,0.08); --neon-glow: 0 0 20px rgba(0,240,255,0.15);
-  --lime: #a3ff57; --lime-dim: rgba(163,255,87,0.08); --lime-mid: rgba(163,255,87,0.15);
-  --hot: #ff3d71; --blue: #4d8eff; --r: 12px; --r-sm: 8px;
+  --void: #06080c; 
+  --deep: #0b0e14; 
+  --surface: #0f1219; 
+  --surface2: #141820; 
+  --surface3: #1a1f2a;
+  --border: rgba(255,255,255,0.05); 
+  --border2: rgba(255,255,255,0.08); 
+  --border3: rgba(255,255,255,0.12);
+  --text: #eaf0ff; 
+  --text2: #8892a8; 
+  --text3: #4e5670; 
+  --neon: #00f0ff;
+  --neon-dim: rgba(0,240,255,0.08); 
+  --neon-glow: 0 0 20px rgba(0,240,255,0.15);
+  --lime: #a3ff57; 
+  --lime-dim: rgba(163,255,87,0.08); 
+  --lime-mid: rgba(163,255,87,0.15);
+  --hot: #ff3d71; 
+  --blue: #4d8eff; 
+  --r: 12px; 
+  --r-sm: 8px;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Figtree', sans-serif; background: var(--void); color: var(--text); min-height: 100vh; overflow-x: hidden; }
-nav { position: sticky; top: 0; z-index: 100; background: rgba(11,14,20,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border2); padding: 0 28px; }
-.nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 10px; }
-.logo { display: flex; align-items: center; gap: 12px; }
-.logo-icon { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: var(--void); box-shadow: var(--neon-glow); font-family: 'Bricolage Grotesque', sans-serif; }
-.logo-text { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 700; }
-.nav-tabs { display: flex; gap: 2px; margin-left: 28px; background: var(--surface); border-radius: 10px; padding: 3px; border: 1px solid var(--border); }
-.nav-tab { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text3); padding: 7px 16px; border-radius: 8px; cursor: pointer; border: none; background: none; transition: all .2s; }
-.nav-tab.active { color: var(--neon); background: var(--neon-dim); }
-.content { max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px; }
-.view { display: none; } .view.active { display: block; }
-.config-flow { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; background: var(--surface2); padding: 12px 18px; border-radius: var(--r-sm); border: 1px solid var(--border); }
-select { background: var(--surface3); border: 1px solid var(--border3); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 16px; border-radius: var(--r-sm); outline: none; }
-.panel { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--r); overflow: hidden; margin-bottom: 20px; }
-.panel-head { padding: 14px 18px; border-bottom: 1px solid var(--border); }
-.panel-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--text3); text-transform: uppercase; }
-.panel-body { padding: 18px; }
-.drop-zone { border: 1.5px dashed var(--border3); border-radius: var(--r); padding:
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+body { 
+  font-family: 'Figtree', sans-serif; 
+  background: var(--void); 
+  color: var(--text); 
+  min-height: 100vh; 
+  overflow-x: hidden; 
+}
+nav { 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+  background: rgba(11,14,20,0.85); 
+  backdrop-filter: blur(20px); 
+  border-bottom: 1px solid var(--border2); 
+  padding: 0 28px; 
+}
+.nav-inner { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  display: flex; 
+  align-items: center; 
+  height: 56px; 
+  gap: 10px; 
+}
+.logo { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+}
+.logo-icon { 
+  width: 32px; 
+  height: 32px; 
+  border-radius: 10px; 
+  background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 13px; 
+  font-weight: 800; 
+  color: var(--void); 
+  box-shadow: var(--neon-glow); 
+  font-family: 'Bricolage Grotesque', sans-serif; 
+}
+.logo-text { 
+  font-family: 'Bricolage Grotesque', sans-serif; 
+  font-size: 18px; 
+  font-weight: 700; 
+}
+.nav-tabs { 
+  display: flex; 
+  gap: 2px; 
+  margin-left: 28px; 
+  background: var(--surface); 
+  border-radius: 10px; 
+  padding: 3px; 
+  border: 1px solid var(--border); 
+}
+.nav-tab { 
+  font-family: 'IBM Plex Mono', monospace; 
+  font-size: 11px; 
+  font-weight: 600; 
+  color: var(--text3); 
+  padding: 7px 16px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  border: none; 
+  background: none;
