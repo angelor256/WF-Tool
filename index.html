@@ -6,164 +6,50 @@
 <title>BetAnything Task Maker // Operación Diaria</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════════════
-   THEME — dark cyberpunk command center
-    ═══════════════════════════════════════════════════  */
 :root {
-  --void: #06080c;
-  --deep: #0b0e14;
-  --surface: #0f1219;
-  --surface2: #141820;
-  --surface3: #1a1f2a;
-  --surface4: #222836;
-  --border: rgba(255,255,255,0.05);
-  --border2: rgba(255,255,255,0.08);
-  --border3: rgba(255,255,255,0.12);
-  --text: #eaf0ff;
-  --text2: #8892a8;
-  --text3: #4e5670;
-  --text4: #2d3444;
-  --neon: #00f0ff;
-  --neon-dim: rgba(0,240,255,0.08);
-  --neon-mid: rgba(0,240,255,0.18);
-  --neon-glow: 0 0 20px rgba(0,240,255,0.15), 0 0 60px rgba(0,240,255,0.06);
-  --lime: #a3ff57;
-  --lime-dim: rgba(163,255,87,0.08);
-  --lime-mid: rgba(163,255,87,0.15);
-  --hot: #ff3d71;
-  --hot-dim: rgba(255,61,113,0.08);
-  --hot-mid: rgba(255,61,113,0.15);
-  --amber: #ffb057;
-  --amber-dim: rgba(255,176,87,0.08);
-  --amber-mid: rgba(255,176,87,0.15);
-  --blue: #4d8eff;
-  --r: 12px;
-  --r-sm: 8px;
+  --void: #06080c; --deep: #0b0e14; --surface: #0f1219; --surface2: #141820; --surface3: #1a1f2a;
+  --border: rgba(255,255,255,0.05); --border2: rgba(255,255,255,0.08); --border3: rgba(255,255,255,0.12);
+  --text: #eaf0ff; --text2: #8892a8; --text3: #4e5670; --neon: #00f0ff;
+  --neon-dim: rgba(0,240,255,0.08); --neon-glow: 0 0 20px rgba(0,240,255,0.15);
+  --lime: #a3ff57; --lime-dim: rgba(163,255,87,0.08); --lime-mid: rgba(163,255,87,0.15);
+  --hot: #ff3d71; --blue: #4d8eff; --r: 12px; --r-sm: 8px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Figtree', sans-serif;
-  background: var(--void);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-body::before {
-  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(0,240,255,0.03) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(180,122,255,0.025) 0%, transparent 60%);
-}
-body::after {
-  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
-}
-nav {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(11,14,20,0.85);
-  backdrop-filter: blur(20px) saturate(1.5);
-  border-bottom: 1px solid var(--border2);
-  padding: 0 28px;
-}
-.nav-inner {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; align-items: center; height: 56px; gap: 10px;
-}
+body { font-family: 'Figtree', sans-serif; background: var(--void); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(11,14,20,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border2); padding: 0 28px; }
+.nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; height: 56px; gap: 10px; }
 .logo { display: flex; align-items: center; gap: 12px; }
-.logo-icon {
-  width: 32px; height: 32px; border-radius: 10px;
-  background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 800; color: var(--void);
-  box-shadow: var(--neon-glow);
-  font-family: 'Bricolage Grotesque', sans-serif;
-}
-.logo-text {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 18px; font-weight: 700; color: var(--text);
-}
-.logo-ver {
-  font-family: 'IBM Plex Mono', monospace; font-size: 9px;
-  color: var(--neon); background: var(--neon-dim);
-  border: 1px solid rgba(0,240,255,0.15);
-  padding: 2px 8px; border-radius: 99px;
-}
-.nav-tabs {
-  display: flex; gap: 2px; margin-left: 28px;
-  background: var(--surface); border-radius: 10px;
-  padding: 3px; border: 1px solid var(--border);
-}
-.nav-tab {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
-  color: var(--text3); padding: 7px 16px; border-radius: 8px;
-  cursor: pointer; transition: all .2s; border: none; background: none;
-}
-.nav-tab:hover { color: var(--text2); }
-.nav-tab.active {
-  color: var(--neon); background: var(--neon-dim);
-  box-shadow: inset 0 0 12px rgba(0,240,255,0.05);
-}
-.content { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px; }
-.view { display: none; }
-.view.active { display: block; animation: viewIn .4s ease; }
-@keyframes viewIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-
-/* ── CONFIG CONTROLS ── */
+.logo-icon { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: var(--void); box-shadow: var(--neon-glow); font-family: 'Bricolage Grotesque', sans-serif; }
+.logo-text { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 700; }
+.nav-tabs { display: flex; gap: 2px; margin-left: 28px; background: var(--surface); border-radius: 10px; padding: 3px; border: 1px solid var(--border); }
+.nav-tab { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text3); padding: 7px 16px; border-radius: 8px; cursor: pointer; border: none; background: none; transition: all .2s; }
+.nav-tab.active { color: var(--neon); background: var(--neon-dim); }
+.content { max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px; }
+.view { display: none; } .view.active { display: block; }
 .config-flow { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; background: var(--surface2); padding: 12px 18px; border-radius: var(--r-sm); border: 1px solid var(--border); }
-select { background: var(--surface3); border: 1px solid var(--border3); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 16px; border-radius: var(--r-sm); cursor: pointer; outline: none; }
-select:focus { border-color: var(--neon); }
-
-/* ── DAYS TABS ── */
-.days-container { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
-.day-btn {
-  background: var(--surface2); border: 1px solid var(--border2);
-  color: var(--text2); font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px; font-weight: bold; padding: 8px 16px;
-  border-radius: var(--r-sm); cursor: pointer; transition: all 0.2s;
-}
-.day-btn:hover { border-color: var(--text3); color: var(--text); }
-.day-btn.active {
-  background: var(--neon-dim); border-color: var(--neon); color: var(--neon);
-  box-shadow: var(--neon-glow);
-}
-
-/* ── PANELS & DRAG DROP ── */
+select { background: var(--surface3); border: 1px solid var(--border3); color: var(--text); font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 8px 16px; border-radius: var(--r-sm); outline: none; }
 .panel { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--r); overflow: hidden; margin-bottom: 20px; }
-.panel-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+.panel-head { padding: 14px 18px; border-bottom: 1px solid var(--border); }
 .panel-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--text3); text-transform: uppercase; }
 .panel-body { padding: 18px; }
-.drop-zone {
-  border: 1.5px dashed var(--border3); border-radius: var(--r);
-  padding: 40px 24px; text-align: center; cursor: pointer;
-  background: var(--surface2); transition: all .25s; margin-bottom: 16px;
-}
-.drop-zone:hover, .drop-zone.dragover { border-color: var(--neon); background: var(--neon-dim); }
+.drop-zone { border: 1.5px dashed var(--border3); border-radius: var(--r); padding: 40px 24px; text-align: center; cursor: pointer; background: var(--surface2); transition: all .25s; margin-bottom: 16px; }
+.drop-zone.dragover { border-color: var(--neon); background: var(--neon-dim); }
 .dz-icon { font-size: 32px; margin-bottom: 10px; }
 .dz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
 .dz-sub { font-size: 11px; color: var(--text3); }
-.dz-sub span { color: var(--neon); font-weight: 600; text-decoration: underline; }
-
-/* ── TABLES ── */
+.dz-sub span { color: var(--neon); text-decoration: underline; }
+.days-container { display: flex; gap: 6px; margin-bottom: 24px; flex-wrap: wrap; }
+.day-btn { background: var(--surface2); border: 1px solid var(--border2); color: var(--text2); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: bold; padding: 8px 16px; border-radius: var(--r-sm); cursor: pointer; }
+.day-btn.active { background: var(--neon-dim); border-color: var(--neon); color: var(--neon); box-shadow: var(--neon-glow); }
 table { width: 100%; border-collapse: collapse; font-size: 12px; }
-thead th { text-align: left; padding: 12px 14px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700; color: var(--text2); background: var(--surface2); border-bottom: 1px solid var(--border2); }
-tbody tr { border-bottom: 1px solid var(--border); transition: background .12s; }
-tbody tr:hover { background: rgba(0,240,255,0.02); }
+thead th { text-align: left; padding: 12px 14px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--text2); background: var(--surface2); border-bottom: 1px solid var(--border2); }
+tbody tr { border-bottom: 1px solid var(--border); }
 td { padding: 12px 14px; white-space: nowrap; }
 .tag-casino { color: var(--hot); font-weight: bold; font-family: 'IBM Plex Mono', monospace; }
 .tag-vip { color: var(--blue); font-weight: bold; font-family: 'IBM Plex Mono', monospace; }
 .tag-secundaria { color: var(--lime); font-family: 'IBM Plex Mono', monospace; }
-
-.btn {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
-  border: none; border-radius: var(--r-sm); padding: 12px 24px;
-  cursor: pointer; transition: all .2s; letter-spacing: .04em; text-transform: uppercase;
-}
+.btn { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700; border: none; border-radius: var(--r-sm); padding: 12px 24px; cursor: pointer; text-transform: uppercase; }
 .btn-glow { background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); color: var(--void); font-weight: 800; box-shadow: var(--neon-glow); }
-.btn-glow:hover { transform: translateY(-2px); }
 .upload-success { display: none; align-items: center; gap: 12px; padding: 12px 16px; border-radius: var(--r-sm); background: var(--lime-dim); border: 1px solid var(--lime-mid); margin-bottom: 16px; color: var(--lime); font-size: 12px; }
 </style>
 </head>
@@ -171,11 +57,7 @@ td { padding: 12px 14px; white-space: nowrap; }
 
 <nav>
   <div class="nav-inner">
-    <div class="logo">
-      <div class="logo-icon">BA</div>
-      <span class="logo-text">BetAnything Task Maker</span>
-      <span class="logo-ver">v3.5</span>
-    </div>
+    <div class="logo"><div class="logo-icon">BA</div><span class="logo-text">BetAnything Task Maker</span></div>
     <div class="nav-tabs">
       <button class="nav-tab active" id="tab-config" onclick="switchMainView('config')">CARGAR DATOS</button>
       <button class="nav-tab" id="tab-dashboard" onclick="switchMainView('dashboard')">TABLA DE TAREAS</button>
@@ -184,13 +66,10 @@ td { padding: 12px 14px; white-space: nowrap; }
 </nav>
 
 <div class="content">
-
-  <!-- VISTA 1: CONFIGURACIÓN -->
   <div id="view-config" class="view active">
     <div class="panel">
       <div class="panel-head"><span class="panel-label">CARGA DE AGENTES ACTIVOS POR DÍA</span></div>
       <div class="panel-body">
-        
         <div class="config-flow">
           <label style="font-size:12px; font-weight:600; color:var(--text2)">1. Selecciona el Día de esta pestaña:</label>
           <select id="select-dia-carga">
@@ -203,27 +82,22 @@ td { padding: 12px 14px; white-space: nowrap; }
             <option value="Domingo">DOMINGO</option>
           </select>
         </div>
-
         <div class="drop-zone" id="drop-zone">
           <div class="dz-icon">📋</div>
           <div class="dz-title">Arrastra el archivo CSV de este día aquí</div>
-          <div class="dz-sub">o haz clic para <span>buscar el archivo exportado</span></div>
+          <div class="dz-sub">o haz clic para <span>buscar el archivo</span></div>
           <input type="file" id="csv-file-input" accept=".csv,.txt" style="display:none">
         </div>
-
         <div class="upload-success" id="upload-status-box">
           <span>✓</span> <span id="upload-status-text">Listo.</span>
         </div>
-
         <div style="text-align: center; margin-top: 20px;">
           <button class="btn btn-glow" onclick="procesarDiaActual()">⚡ ASIGNAR TAREAS PARA ESTE DÍA</button>
         </div>
-
       </div>
     </div>
   </div>
 
-  <!-- VISTA 2: DASHBOARD INTERACTIVO -->
   <div id="view-dashboard" class="view">
     <div class="days-container">
       <button class="day-btn active" id="btn-Lunes" onclick="seleccionarDia('Lunes')">LUNES</button>
@@ -234,41 +108,24 @@ td { padding: 12px 14px; white-space: nowrap; }
       <button class="day-btn" id="btn-Sabado" onclick="seleccionarDia('Sabado')">SÁBADO</button>
       <button class="day-btn" id="btn-Domingo" onclick="seleccionarDia('Domingo')">DOMINGO</button>
     </div>
-
     <div class="panel">
-      <div class="panel-head">
-        <span class="panel-label" id="tabla-titulo">CRONOGRAMA DE OPERACIONES: LUNES</span>
-      </div>
+      <div class="panel-head"><span class="panel-label" id="tabla-titulo">CRONOGRAMA DE OPERACIONES: LUNES</span></div>
       <div style="overflow-x:auto;">
         <table>
           <thead>
-            <tr>
-              <th>AGENTE</th>
-              <th>HORARIO</th>
-              <th>ESTADO</th>
-              <th>TAREA PRINCIPAL</th>
-              <th>RESPONSABILIDAD SECUNDARIA</th>
-            </tr>
+            <tr><th>AGENTE</th><th>HORARIO</th><th>ESTADO</th><th>TAREA PRINCIPAL</th><th>RESPONSABILIDAD SECUNDARIA</th></tr>
           </thead>
           <tbody id="tabla-agentes-body">
-            <tr>
-              <td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">
-                No hay datos cargados para este día. Selecciona el día e importa el CSV correspondiente.
-              </td>
-            </tr>
+            <tr><td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">No hay datos cargados para este día.</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-
 </div>
 
 <script>
-// Memoria del sistema por día
-let datosSemanales = {
-  "Lunes": [], "Martes": [], "Miercoles": [], "Jueves": [], "Viernes": [], "Sabado": [], "Domingo": []
-};
+let datosSemanales = { "Lunes": [], "Martes": [], "Miercoles": [], "Jueves": [], "Viernes": [], "Sabado": [], "Domingo": [] };
 let diaSeleccionadoActual = "Lunes";
 let contenidoCSVBruto = "";
 
@@ -277,7 +134,6 @@ function switchMainView(viewName) {
   document.getElementById('tab-dashboard').classList.remove('active');
   document.getElementById('view-config').classList.remove('active');
   document.getElementById('view-dashboard').classList.remove('active');
-  
   if(viewName === 'config') {
     document.getElementById('tab-config').classList.add('active');
     document.getElementById('view-config').classList.add('active');
@@ -288,20 +144,14 @@ function switchMainView(viewName) {
   }
 }
 
-// Drag & Drop
 const dropZone = document.getElementById('drop-zone');
 const fileInput = document.getElementById('csv-file-input');
-
 if (dropZone && fileInput) {
   dropZone.addEventListener('click', () => fileInput.click());
   fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
   dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
   dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-  dropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropZone.classList.remove('dragover');
-    if(e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
-  });
+  dropZone.addEventListener('drop', (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); if(e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]); });
 }
 
 function handleFile(file) {
@@ -315,30 +165,36 @@ function handleFile(file) {
   reader.readAsText(file);
 }
 
-// Procesar Día a Día independiente
 function procesarDiaActual() {
-  if(!contenidoCSVBruto) {
+  if(!contenidoCSVBruto || contenidoCSVBruto.trim() === "") {
     alert("Por favor, selecciona o arrastra el archivo .csv del día primero.");
     return;
   }
 
   let diaDestino = document.getElementById('select-dia-carga').value;
-  datosSemanales[diaDestino] = []; // Resetear ese día específico
+  datosSemanales[diaDestino] = []; 
 
+  // Separar líneas limpiando retornos de carro defectuosos
   const lineas = contenidoCSVBruto.split(/\r?\n/);
   
   for (let i = 1; i < lineas.length; i++) {
-    if (!lineas[i].trim()) continue;
+    let lineaLimpia = lineas[i].trim();
+    if (!lineaLimpia) continue;
     
-    let columnas = lineas[i].includes(';') ? lineas[i].split(';') : lineas[i].split(',');
+    // Auto-detectar si Excel usó coma o punto y coma
+    let columnas = [];
+    if (lineaLimpia.includes(';')) {
+      columnas = lineaLimpia.split(';');
+    } else {
+      columnas = lineaLimpia.split(',');
+    }
     
     let agente = columnas[0]?.replace(/"/g, '').trim();
     let entrada = columnas[1]?.replace(/"/g, '').trim();
     let salida = columnas[2]?.replace(/"/g, '').trim();
 
-    if(!agente) continue;
+    if(!agente || agente.toLowerCase() === "agente") continue;
 
-    // Al venir filtrados de tu Excel, el sistema sabe que todos están en WORK de fijo.
     datosSemanales[diaDestino].push({
       nombre: agente,
       entrada: entrada || '--',
@@ -349,14 +205,17 @@ function procesarDiaActual() {
     });
   }
 
+  if(datosSemanales[diaDestino].length === 0) {
+    alert("El archivo se leyó pero no se encontraron agentes. Verifica que las columnas estén en orden: Agente, Entrada, Salida.");
+    return;
+  }
+
   ejecutarAlgoritmoDia(diaDestino);
-  
-  // Te lleva automáticamente a ver el resultado del día procesado
   diaSeleccionadoActual = diaDestino;
   seleccionarDia(diaDestino);
   switchMainView('dashboard');
   
-  // Limpiar el campo de carga para el siguiente archivo
+  // Limpieza de inputs
   contenidoCSVBruto = "";
   document.getElementById('upload-status-box').style.display = 'none';
   if(fileInput) fileInput.value = "";
@@ -364,21 +223,14 @@ function procesarDiaActual() {
 
 function ejecutarAlgoritmoDia(dia) {
   let activos = datosSemanales[dia];
-  
-  // Distribución cíclica basada en tu lista activa
   activos.forEach((agente, index) => {
-    if (index % 3 === 0) {
-      agente.tareaPrincipal = 'Casino';
-    } else if (index % 3 === 1) {
-      agente.tareaPrincipal = 'VIP';
-    } else {
-      agente.tareaPrincipal = 'Soporte General';
-    }
+    if (index % 3 === 0) { agente.tareaPrincipal = 'Casino'; }
+    else if (index % 3 === 1) { agente.tareaPrincipal = 'VIP'; }
+    else { agente.tareaPrincipal = 'Soporte General'; }
   });
 
   let secundarias = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
   let idxSecundario = 0;
-
   activos.forEach(agente => {
     if (agente.tareaPrincipal === 'Casino') {
       agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
@@ -392,10 +244,8 @@ function ejecutarAlgoritmoDia(dia) {
 function seleccionarDia(dia) {
   diaSeleccionadoActual = dia;
   document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
-  
   const botonActivo = document.getElementById(`btn-${dia}`);
   if(botonActivo) botonActivo.classList.add('active');
-
   document.getElementById('tabla-titulo').textContent = `CRONOGRAMA DE OPERACIONES: ${dia.toUpperCase()}`;
   renderizarTablaDia(dia);
 }
@@ -403,34 +253,23 @@ function seleccionarDia(dia) {
 function renderizarTablaDia(dia) {
   const tbody = document.getElementById('tabla-agentes-body');
   const agentes = datosSemanales[dia];
-
   if (!agentes || agentes.length === 0) {
-    tbody.innerHTML = `
-      <tr>
-        <td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">
-          No hay datos cargados para el día ${dia}. Ve a la pestaña de carga e importa el archivo correspondiente.
-        </td>
-      </tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">No hay datos cargados para el día ${dia}.</td></tr>`;
     return;
   }
-
   let html = "";
   agentes.forEach(a => {
     let clasePrincipal = "";
     if(a.tareaPrincipal === 'Casino') clasePrincipal = 'class="tag-casino"';
     if(a.tareaPrincipal === 'VIP') clasePrincipal = 'class="tag-vip"';
-
-    html += `
-      <tr>
-        <td style="font-weight: 600; color: var(--text);">${a.nombre}</td>
-        <td style="font-family: 'IBM Plex Mono', monospace;">${a.entrada} - ${a.salida}</td>
-        <td style="font-weight:bold; color: var(--lime);">ACTIVE</td>
-        <td ${clasePrincipal}>${a.tareaPrincipal}</td>
-        <td class="tag-secundaria" style="opacity: ${a.tareaPrincipal === 'Casino' ? '0.4' : '1'};">${a.tareaSecundaria}</td>
-      </tr>
-    `;
+    html += `<tr>
+      <td style="font-weight:600; color:var(--text);">${a.nombre}</td>
+      <td style="font-family:'IBM Plex Mono', monospace;">${a.entrada} - ${a.salida}</td>
+      <td style="font-weight:bold; color:var(--lime);">ACTIVE</td>
+      <td ${clasePrincipal}>${a.tareaPrincipal}</td>
+      <td class="tag-secundaria" style="opacity:${a.tareaPrincipal === 'Casino' ? '0.4' : '1'};">${a.tareaSecundaria}</td>
+    </tr>`;
   });
-  
   tbody.innerHTML = html;
 }
 </script>
