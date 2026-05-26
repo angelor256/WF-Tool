@@ -8,7 +8,7 @@
 <style>
 /* ═══════════════════════════════════════════════════
    THEME — dark cyberpunk command center
-    ═══════════════════════════════════════════════════  */
+   ═══════════════════════════════════════════════════ */
 :root {
   --void: #06080c;
   --deep: #0b0e14;
@@ -50,14 +50,18 @@
   --r: 12px;
   --r-sm: 8px;
 }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
   font-family: 'Figtree', sans-serif;
   background: var(--void);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
 }
+
 /* ── ANIMATED BG ── */
 body::before {
   content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -73,6 +77,7 @@ body::after {
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
 }
+
 /* ── NAV ── */
 nav {
   position: sticky; top: 0; z-index: 100;
@@ -85,9 +90,7 @@ nav {
   max-width: 1400px; margin: 0 auto;
   display: flex; align-items: center; height: 56px; gap: 10px;
 }
-.logo {
-  display: flex; align-items: center; gap: 12px;
-}
+.logo { display: flex; align-items: center; gap: 12px; }
 .logo-icon {
   width: 32px; height: 32px; border-radius: 10px;
   background: linear-gradient(135deg, var(--neon) 0%, var(--violet) 100%);
@@ -135,6 +138,7 @@ nav {
   animation: pulse 2s infinite;
 }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
 /* ── CONTENT ── */
 .content {
   position: relative; z-index: 1;
@@ -143,6 +147,7 @@ nav {
 .view { display: none; }
 .view.active { display: block; animation: viewIn .4s ease; }
 @keyframes viewIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
 /* ── SECTION HEADER ── */
 .sec-header { margin-bottom: 28px; }
 .sec-tag {
@@ -151,15 +156,14 @@ nav {
   color: var(--neon); letter-spacing: .1em; text-transform: uppercase;
   margin-bottom: 10px;
 }
-.sec-tag::before {
-  content: ''; width: 18px; height: 1px; background: var(--neon);
-}
+.sec-tag::before { content: ''; width: 18px; height: 1px; background: var(--neon); }
 .sec-title {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.02em;
   line-height: 1.05; color: var(--text); margin-bottom: 8px;
 }
 .sec-sub { font-size: 13px; color: var(--text2); line-height: 1.6; max-width: 600px; }
+
 /* ── PANELS ── */
 .panel {
   background: var(--surface);
@@ -179,10 +183,12 @@ nav {
   color: var(--text3);
 }
 .panel-body { padding: 18px; }
+
 /* ── GRID LAYOUTS ── */
 .grid-2 { display: grid; grid-template-columns: 1fr 320px; gap: 16px; }
 .grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 20px; }
 @media (max-width: 960px) { .grid-2 { grid-template-columns: 1fr; } }
+
 /* ── STAT CARDS ── */
 .stat {
   background: var(--surface);
@@ -190,9 +196,7 @@ nav {
   border-radius: var(--r); padding: 18px 20px;
   position: relative; overflow: hidden;
 }
-.stat::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-}
+.stat::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
 .stat.s-neon::before { background: linear-gradient(90deg, var(--neon), transparent); }
 .stat.s-lime::before { background: linear-gradient(90deg, var(--lime), transparent); }
 .stat.s-violet::before { background: linear-gradient(90deg, var(--violet), transparent); }
@@ -211,6 +215,7 @@ nav {
 .stat.s-violet .stat-val { color: var(--violet); }
 .stat.s-amber .stat-val { color: var(--amber); }
 .stat-sub { font-size: 11px; color: var(--text3); margin-top: 6px; }
+
 /* ── TABLE ── */
 table { width: 100%; border-collapse: collapse; font-size: 12px; }
 thead th {
@@ -221,10 +226,7 @@ thead th {
   border-bottom: 1px solid var(--border2);
   white-space: nowrap; position: sticky; top: 0; z-index: 2;
 }
-tbody tr {
-  border-bottom: 1px solid var(--border);
-  transition: background .12s;
-}
+tbody tr { border-bottom: 1px solid var(--border); transition: background .12s; }
 tbody tr:hover { background: rgba(0,240,255,0.02); }
 tbody tr:last-child { border-bottom: none; }
 td { padding: 9px 14px; white-space: nowrap; }
@@ -232,6 +234,7 @@ td.name-cell { font-weight: 600; color: var(--text); }
 td.task-cell { white-space: normal; max-width: 280px; font-size: 11px; color: var(--text2); line-height: 1.5; }
 td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
 td.dim { color: var(--text3); }
+
 /* ── GROUP CHIPS ── */
 .g-chip {
   display: inline-flex; align-items: center; justify-content: center;
@@ -246,26 +249,27 @@ td.dim { color: var(--text3); }
 .g-E { background: var(--coral-dim); color: var(--coral); border: 1px solid rgba(255,122,92,0.15); }
 .g-F { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(255,215,106,0.15); }
 .g-G { background: var(--slate-dim); color: var(--slate); border: 1px solid rgba(123,139,162,0.15); }
+
 .q-tag {
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
-  font-weight: 600; padding: 3px 10px; border-radius: 99px;
-  letter-spacing: .04em;
+  font-weight: 600; padding: 3px 10px; border-radius: 99px; letter-spacing: .04em;
 }
 .q-phones { background: var(--neon-dim); color: var(--neon); }
 .q-chats { background: var(--violet-dim); color: var(--violet); }
+
 .shift-tag {
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
   font-weight: 700; padding: 3px 10px; border-radius: 99px; letter-spacing: .04em;
 }
 .shift-am { background: var(--amber-dim); color: var(--amber); }
 .shift-pm { background: var(--violet-dim); color: var(--violet); }
+
 /* ── BUTTONS ── */
 .btn {
   font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
   border: none; border-radius: var(--r-sm); padding: 10px 20px;
   cursor: pointer; transition: all .2s; display: inline-flex;
-  align-items: center; gap: 8px; letter-spacing: .04em;
-  text-transform: uppercase;
+  align-items: center; gap: 8px; letter-spacing: .04em; text-transform: uppercase;
 }
 .btn-glow {
   background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%);
@@ -274,20 +278,17 @@ td.dim { color: var(--text3); }
 }
 .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20px rgba(0,240,255,0.15); }
 .btn-glow:active { transform: translateY(0); }
-.btn-ghost {
-  background: var(--surface2); color: var(--text2);
-  border: 1px solid var(--border2);
-}
+.btn-ghost { background: var(--surface2); color: var(--text2); border: 1px solid var(--border2); }
 .btn-ghost:hover { border-color: var(--border3); color: var(--text); background: var(--surface3); }
 .btn-sm { padding: 7px 14px; font-size: 10px; }
 .btn-danger { background: var(--hot-dim); color: var(--hot); border: 1px solid var(--hot-mid); }
 .btn-danger:hover { background: var(--hot-mid); }
+
 /* ── FORMS ── */
 .field { display: flex; flex-direction: column; gap: 5px; }
 .field label {
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
-  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--text3);
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text3);
 }
 .field input, .field select {
   font-family: 'Figtree', sans-serif; font-size: 13px;
@@ -298,8 +299,797 @@ td.dim { color: var(--text3); }
 .field input:focus, .field select:focus { border-color: var(--neon); box-shadow: 0 0 12px rgba(0,240,255,0.08); }
 .field select { cursor: pointer; }
 .field input::placeholder { color: var(--text4); }
+
 /* ── SCHEDULE ROWS ── */
 .sched-row {
-  display: grid;
-  grid-template-columns: 28px 1fr 100px 100px 110px;
-  gap:
+  display: grid; grid-template-columns: 28px 1fr 100px 100px 110px; gap: 10px; align-items: center;
+  padding: 8px 14px; border-bottom: 1px solid var(--border); transition: background .12s;
+}
+.sched-row:last-child { border-bottom: none; }
+.sched-row:hover { background: rgba(0,240,255,0.015); }
+.sched-row.is-off { opacity: .35; }
+.sched-row input[type="time"], .sched-row select {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  padding: 6px 8px; border-radius: 6px;
+  border: 1px solid var(--border2); background: var(--surface2);
+  color: var(--text); outline: none; transition: border-color .2s;
+}
+.sched-row input:focus, .sched-row select:focus { border-color: var(--neon); }
+.sched-name { font-size: 13px; font-weight: 600; }
+
+/* ── GROUP LEGEND ── */
+.legend-stack { display: flex; flex-direction: column; gap: 6px; }
+.legend-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: var(--r-sm);
+  background: var(--surface2); border: 1px solid var(--border);
+}
+.legend-name { font-size: 12px; font-weight: 600; flex: 1; }
+
+/* ── FILTER PILLS ── */
+.filters { display: flex; gap: 4px; flex-wrap: wrap; }
+.filt-btn {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700;
+  padding: 6px 14px; border-radius: 99px; cursor: pointer;
+  border: 1px solid var(--border2); background: var(--surface);
+  color: var(--text3); transition: all .15s; letter-spacing: .04em;
+}
+.filt-btn:hover { border-color: var(--border3); color: var(--text2); }
+.filt-btn.on { background: var(--neon-dim); color: var(--neon); border-color: rgba(0,240,255,0.2); }
+
+/* ── EMPTY STATE ── */
+.empty { text-align: center; padding: 80px 20px; color: var(--text3); }
+.empty-glyph { font-size: 56px; margin-bottom: 16px; opacity: .3; filter: grayscale(1); }
+.empty p { font-size: 14px; max-width: 420px; margin: 0 auto; line-height: 1.7; }
+.empty strong { color: var(--neon); }
+
+/* ── DROP ZONE ── */
+.drop-zone {
+  border: 1.5px dashed var(--border3); border-radius: var(--r); padding: 36px 24px;
+  text-align: center; cursor: pointer; transition: all .25s; background: var(--surface); margin-bottom: 16px;
+}
+.drop-zone:hover { border-color: var(--neon); background: var(--neon-dim); }
+.drop-zone.dragover { border-color: var(--neon); background: var(--neon-dim); box-shadow: var(--neon-glow); }
+.drop-zone .dz-icon {
+  width: 48px; height: 48px; margin: 0 auto 14px;
+  background: var(--surface3); border: 1px solid var(--border2);
+  border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; transition: all .25s;
+}
+.drop-zone:hover .dz-icon { background: var(--neon-dim); border-color: rgba(0,240,255,0.2); }
+.drop-zone .dz-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.drop-zone .dz-sub { font-size: 12px; color: var(--text3); }
+.drop-zone .dz-sub span { color: var(--neon); cursor: pointer; font-weight: 600; }
+
+.upload-success {
+  display: none; align-items: center; gap: 12px; padding: 14px 18px; border-radius: var(--r-sm);
+  background: var(--lime-dim); border: 1px solid var(--lime-mid); margin-bottom: 16px; animation: rowIn .3s ease;
+}
+.upload-success .us-icon { font-size: 18px; }
+.upload-success .us-text { font-size: 13px; font-weight: 600; color: var(--lime); }
+.upload-success .us-detail { font-size: 11px; color: var(--text2); }
+
+.export-bar { display: flex; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.mobile-tabs { display: none; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 14px; }
+  .content { padding: 16px 14px 60px; }
+  .nav-tabs { display: none; }
+  .mobile-tabs {
+    display: flex; gap: 4px; margin-bottom: 20px; background: var(--surface);
+    border-radius: 10px; padding: 3px; border: 1px solid var(--border); overflow-x: auto;
+  }
+  .sched-row { grid-template-columns: 28px 1fr; gap: 6px; }
+  .sched-row input[type="time"], .sched-row select { grid-column: span 1; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-stats { grid-template-columns: 1fr 1fr; }
+}
+
+@keyframes rowIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+.anim-row { animation: rowIn .25s ease both; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface4); border-radius: 99px; }
+.glow-line { height: 1px; border: none; margin: 0; background: linear-gradient(90deg, var(--neon), transparent 60%); opacity: .2; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-icon">BA</div>
+      <span class="logo-text">BetAnything Task Maker</span>
+      <span class="logo-ver">v3.0</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-view="roster">ROSTER</button>
+      <button class="nav-tab" data-view="schedule">SCHEDULE</button>
+      <button class="nav-tab" data-view="results">TASKS</button>
+    </div>
+    <div class="nav-spacer"></div>
+    <div class="nav-status">
+      <div class="pulse-dot"></div>
+      <span id="clock"></span>
+    </div>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="mobile-tabs" id="mobile-tabs">
+    <button class="nav-tab active" data-view="roster">ROSTER</button>
+    <button class="nav-tab" data-view="schedule">SCHEDULE</button>
+    <button class="nav-tab" data-view="results">TASKS</button>
+  </div>
+
+  <!-- ═══════ ROSTER VIEW ═══════ -->
+  <div class="view active" id="view-roster">
+    <div class="sec-header">
+      <div class="sec-tag">TEAM MANAGEMENT</div>
+      <div class="sec-title">Agent Roster</div>
+      <p class="sec-sub">Manage agents, groups, and queue assignments. All changes persist in your browser.</p>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-label">ALL AGENTS</span>
+          <span id="agent-count" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);"></span>
+        </div>
+        <div style="overflow-x:auto; max-height:520px; overflow-y:auto;">
+          <table>
+            <thead>
+              <tr><th>NAME</th><th>GRP</th><th>ROLE</th><th>QUEUE</th><th></th></tr>
+            </thead>
+            <tbody id="roster-body"></tbody>
+          </table>
+        </div>
+        <hr class="glow-line">
+        <div class="panel-body">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--neon); letter-spacing:.08em; margin-bottom:14px;">+ ADD AGENT</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end;">
+            <div class="field" style="flex:2; min-width:160px;">
+              <label>NAME</label>
+              <input type="text" id="new-name" placeholder="Full name">
+            </div>
+            <div class="field" style="min-width:100px;">
+              <label>GROUP</label>
+              <select id="new-group"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D" selected>D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
+            </div>
+            <div class="field" style="min-width:100px;">
+              <label>QUEUE</label>
+              <select id="new-queue"><option value="Phones">Phones</option><option value="Chats">Chats</option></select>
+            </div>
+            <button class="btn btn-glow btn-sm" onclick="addAgent()">ADD</button>
+          </div>
+        </div>
+      </div>
+      
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div class="panel">
+          <div class="panel-head"><span class="panel-label">GROUPS</span></div>
+          <div class="panel-body">
+            <div class="legend-stack" id="group-legend"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span class="panel-label">ACTIONS</span></div>
+          <div class="panel-body" style="display:flex; flex-direction:column; gap:8px;">
+            <button class="btn btn-ghost btn-sm" onclick="exportRosterCSV()">↓ EXPORT CSV</button>
+            <button class="btn btn-ghost btn-sm" onclick="document.getElementById('import-csv').click()">↑ IMPORT CSV</button>
+            <input type="file" id="import-csv" accept=".csv" style="display:none" onchange="importRosterCSV(event)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ SCHEDULE VIEW ═══════ -->
+  <div class="view" id="view-schedule">
+    <div class="sec-header">
+      <div class="sec-tag">DAILY CONFIG</div>
+      <div class="sec-title">Today's Schedule</div>
+      <p class="sec-sub">Upload the day's CSV schedule — tasks are generated automatically.</p>
+    </div>
+    <div class="drop-zone" id="drop-zone">
+      <div class="dz-icon">📄</div>
+      <div class="dz-title">Drop today's schedule CSV here</div>
+      <div class="dz-sub">or <span id="browse-link">browse files</span> — format: Name, Start, End</div>
+    </div>
+    <input type="file" id="sched-file" accept=".csv,.txt" style="display:none">
+    <div class="upload-success" id="upload-success">
+      <span class="us-icon">✓</span>
+      <div>
+        <div class="us-text" id="us-text">Schedule loaded</div>
+        <div class="us-detail" id="us-detail"></div>
+      </div>
+    </div>
+    <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+      <button class="btn btn-glow" onclick="generateTasks()" style="font-size:13px; padding:14px 32px;">▶ GENERATE TASKS</button>
+      <button class="btn btn-ghost" onclick="setAllWorking()">ALL WORKING</button>
+      <button class="btn btn-ghost" onclick="setAllOff()">ALL OFF</button>
+    </div>
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-label">SHIFTS</span>
+        <span id="schedule-count" style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text3);"></span>
+      </div>
+      <div style="max-height:600px; overflow-y:auto;">
+        <div id="shift-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ RESULTS VIEW ═══════ -->
+  <div class="view" id="view-results">
+    <div id="results-empty" class="empty">
+      <div class="empty-glyph">⚡</div>
+      <p>No tasks generated yet. Go to <strong>SCHEDULE</strong> and hit <strong>GENERATE TASKS</strong>.</p>
+    </div>
+    <div id="results-content" style="display:none;">
+      <div class="sec-header">
+        <div class="sec-tag">OUTPUT</div>
+        <div class="sec-title">Task Assignments</div>
+        <p class="sec-sub" id="results-sub"></p>
+      </div>
+      <div class="grid-stats" id="results-summary"></div>
+      <div class="panel">
+        <div class="panel-head">
+          <span class="panel-label">DETAIL</span>
+          <div class="filters">
+            <button class="filt-btn on" onclick="filterResults('all')" id="f-all">ALL</button>
+            <button class="filt-btn" onclick="filterResults('morning')" id="f-morning">☀ AM</button>
+            <button class="filt-btn" onclick="filterResults('afternoon')" id="f-afternoon">☽ PM</button>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="result-table">
+            <thead>
+              <tr><th>#</th><th>AGENT</th><th>SHIFT</th><th>GRP</th><th>MAIN TASK</th><th>SECONDARY TASK</th></tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+          </table>
+        </div>
+        <div class="export-bar">
+          <button class="btn btn-ghost btn-sm" onclick="downloadResultsCSV()">↓ DOWNLOAD CSV</button>
+          <button class="btn btn-ghost btn-sm" onclick="copyResults()">⎘ COPY TO CLIPBOARD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════ DATA ════════════════════════════════════════════════ */
+var GM = {
+  A:{label:'Casino Specialist',color:'hot'},
+  B:{label:'VIP',color:'blue'},
+  C:{label:'Senior',color:'lime'},
+  D:{label:'Tier 3 / Tier 2',color:'violet'},
+  E:{label:'Tier 1 / New Hire',color:'coral'},
+  F:{label:'Deposits',color:'gold'},
+  G:{label:'Payouts',color:'slate'}
+};
+
+var DEF_ROSTER = [
+  {n:"Naigell Beckford",g:"A",q:"Phones"},{n:"Nicole Román",g:"A",q:"Phones"},
+  {n:"Mariana Varela",g:"A",q:"Chats"},{n:"Tamara Donaire",g:"A",q:"Chats"},
+  {n:"Raquel Solano",g:"A",q:"Chats"},
+  {n:"Elliot Navarro",g:"B",q:"Chats"},{n:"Emerson Hernandez",g:"B",q:"Phones"},
+  {n:"Stephannie Cunningham",g:"B",q:"Phones"},{n:"Thimy Gonzalez",g:"B",q:"Phones"},
+  {n:"Yasser Quiros",g:"B",q:"Phones"},{n:"Elena Rojas",g:"B",q:"Chats"},
+  {n:"Isaac Porras",g:"B",q:"Chats"},{n:"Julian Mena",g:"B",q:"Chats"},
+  {n:"Sebastian Puerta",g:"B",q:"Chats"},
+  {n:"Rory Bulgarelli",g:"C",q:"Phones"},{n:"Naomy Sanchez",g:"C",q:"Chats"},
+  {n:"Andrey Castillo",g:"C",q:"Phones"},
+  {n:"Carlos Alejandro Amador Luna",g:"D",q:"Phones"},{n:"Carlos Ortiz",g:"D",q:"Phones"},
+  {n:"Carolina Castro",g:"D",q:"Chats"},{n:"David Vogler",g:"D",q:"Phones"},
+  {n:"Pablo Guzman",g:"D",q:"Phones"},{n:"Adrian Navarro",g:"D",q:"Chats"},
+  {n:"Daniel Leandro Rojas",g:"D",q:"Chats"},{n:"Isaac Barrantes Alvarado",g:"D",q:"Chats"},
+  {n:"Maria Jose Quiros Quiros",g:"D",q:"Chats"},{n:"Phillip Desanti",g:"D",q:"Chats"},
+  {n:"Charlene Rose",g:"E",q:"Phones"},{n:"Valerie Alfaro",g:"E",q:"Phones"},
+  {n:"Diego Matamoros",g:"F",q:"Phones"},{n:"Michelle Saborio",g:"F",q:"Chats"},
+  {n:"Mariana Bejarano",g:"F",q:"Chats"},{n:"Sebastian Rivera",g:"F",q:"Phones"},
+  {n:"Silvana Suarez",g:"F",q:"Chats"},{n:"Vanessa Umana",g:"F",q:"Chats"},
+  {n:"Eddison Prendas",g:"G",q:"Phones"},{n:"Carlos Amador",g:"G",q:"Chats"}
+];
+
+var roster = [];
+var schedule = [];
+var currentResults = [];
+var currentFilter = 'all';
+
+/* ════════════════════════════════════════════════ CORE APP ════════════════════════════════════════════════ */
+function init() {
+  setupTabs();
+  loadRoster();
+  renderRoster();
+  renderGroupLegend();
+  startClock();
+  
+  document.getElementById('sched-file').addEventListener('change', function(e) {
+    if(e.target.files[0]) handleScheduleFile(e.target.files[0]);
+  });
+}
+window.onload = init;
+
+function startClock() {
+  var el = document.getElementById('clock');
+  function up() {
+    var d = new Date();
+    var s = d.toTimeString().split(' ')[0];
+    el.textContent = s + " CST";
+  }
+  setInterval(up, 1000); up();
+}
+
+function setupTabs() {
+  var tabs = document.querySelectorAll('.nav-tab');
+  tabs.forEach(function(t) {
+    t.addEventListener('click', function() {
+      var view = t.getAttribute('data-view');
+      switchView(view);
+    });
+  });
+}
+
+function switchView(viewName) {
+  document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
+  document.querySelectorAll('.nav-tab').forEach(function(t) { t.classList.remove('active'); });
+  
+  var activeView = document.getElementById('view-' + viewName);
+  if(activeView) activeView.classList.add('active');
+  
+  document.querySelectorAll('.nav-tab[data-view="'+viewName+'"]').forEach(function(btn){
+    btn.classList.add('active');
+  });
+}
+
+/* ════════════════════════════════════════════════ ROSTER ════════════════════════════════════════════════ */
+function loadRoster() {
+  var stored = localStorage.getItem('ba_roster_v3');
+  if (stored) {
+    try { roster = JSON.parse(stored); } catch(e) { roster = DEF_ROSTER.slice(); }
+  } else {
+    roster = DEF_ROSTER.slice();
+    saveRoster();
+  }
+}
+
+function saveRoster() {
+  localStorage.setItem('ba_roster_v3', JSON.stringify(roster));
+}
+
+function renderRoster() {
+  var body = document.getElementById('roster-body');
+  body.innerHTML = '';
+  roster.sort(function(a,b){ return a.n.localeCompare(b.n); });
+  
+  roster.forEach(function(ag, idx) {
+    var tr = document.createElement('tr');
+    tr.className = "anim-row";
+    tr.style.animationDelay = (idx * 0.01) + "s";
+    
+    var info = GM[ag.g] || {label:'Unknown',color:'slate'};
+    var qClass = ag.q === 'Phones' ? 'q-phones' : 'q-chats';
+    
+    tr.innerHTML = `
+      <td class="name-cell">${escapeHtml(ag.n)}</td>
+      <td class="mono"><span class="g-chip g-${ag.g}">${ag.g}</span></td>
+      <td class="dim">${info.label}</td>
+      <td class="mono"><span class="q-tag ${qClass}">${ag.q.toUpperCase()}</span></td>
+      <td style="text-align:right;">
+        <button class="btn btn-danger btn-sm" style="padding:4px 8px;font-size:9px;" onclick="deleteAgent(${idx})">DEL</button>
+      </td>
+    `;
+    body.appendChild(tr);
+  });
+  document.getElementById('agent-count').textContent = roster.length + " AGENTS TOTAL";
+}
+
+function renderGroupLegend() {
+  var container = document.getElementById('group-legend');
+  container.innerHTML = '';
+  Object.keys(GM).forEach(function(k) {
+    var div = document.createElement('div');
+    div.className = 'legend-item';
+    div.innerHTML = `
+      <span class="g-chip g-${k}">${k}</span>
+      <div class="legend-name">${GM[k].label}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function addAgent() {
+  var nameIn = document.getElementById('new-name');
+  var name = nameIn.value.trim();
+  var group = document.getElementById('new-group').value;
+  var queue = document.getElementById('new-queue').value;
+  
+  if(!name) return;
+  roster.push({n: name, g: group, q: queue});
+  saveRoster();
+  renderRoster();
+  nameIn.value = '';
+  
+  if(schedule.length > 0) syncScheduleWithRoster();
+}
+
+function deleteAgent(idx) {
+  if(confirm("Remove this agent from the roster?")) {
+    roster.splice(idx, 1);
+    saveRoster();
+    renderRoster();
+    if(schedule.length > 0) syncScheduleWithRoster();
+  }
+}
+
+/* ════════════════════════════════════════════════ SCHEDULE PROCESSOR ════════════════════════════════════════════════ */
+function loadScheduleCSV(text) {
+  var lines = text.split(/\r?\n/);
+  var loaded = [];
+  lines.forEach(function(line) {
+    if(!line.trim()) return;
+    var parts = line.split(',');
+    if(parts.length >= 3) {
+      var name = parts[0].trim();
+      var start = parts[1].trim();
+      var end = parts[2].trim();
+      if(name.toLowerCase() === 'name' || name.toLowerCase() === 'agente') return;
+      loaded.push({ n: name, start: start, end: end, isOff: (start.toLowerCase() === 'off' || end.toLowerCase() === 'off') });
+    }
+  });
+  
+  if(loaded.length === 0) {
+    alert("No valid schedule rows found. Use format: Name, Start, End");
+    return false;
+  }
+  
+  schedule = loaded;
+  syncScheduleWithRoster();
+  
+  var successBox = document.getElementById('upload-success');
+  successBox.style.display = 'flex';
+  document.getElementById('us-detail').textContent = schedule.length + " records parsed.";
+  return true;
+}
+
+function syncScheduleWithRoster() {
+  var grid = document.getElementById('shift-grid');
+  grid.innerHTML = '';
+  
+  schedule.sort(function(a,b){ return a.n.localeCompare(b.n); });
+  document.getElementById('schedule-count').textContent = schedule.length + " SHIFTS LOADED";
+  
+  schedule.forEach(function(row, idx) {
+    var ag = roster.find(function(r){ return r.n.toLowerCase() === row.n.toLowerCase(); });
+    var grp = ag ? ag.g : 'D';
+    
+    var div = document.createElement('div');
+    div.className = "sched-row" + (row.isOff ? " is-off" : "");
+    div.id = "s-row-" + idx;
+    
+    div.innerHTML = `
+      <span class="g-chip g-${grp}">${grp}</span>
+      <div class="sched-name">${escapeHtml(row.n)}</div>
+      <input type="time" value="${row.isOff ? '08:00' : row.start}" id="start-${idx}" onchange="updateShiftTime(${idx}, 'start', this.value)" ${row.isOff?'disabled':''}>
+      <input type="time" value="${row.isOff ? '17:00' : row.end}" id="end-${idx}" onchange="updateShiftTime(${idx}, 'end', this.value)" ${row.isOff?'disabled':''}>
+      <select id="status-${idx}" onchange="updateShiftStatus(${idx}, this.value)">
+        <option value="working" ${!row.isOff?'selected':''}>WORKING</option>
+        <option value="off" ${row.isOff?'selected':''}>OFF</option>
+      </select>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function updateShiftTime(idx, key, val) {
+  if(schedule[idx]) schedule[idx][key] = val;
+}
+
+function updateShiftStatus(idx, val) {
+  if(!schedule[idx]) return;
+  var row = schedule[idx];
+  row.isOff = (val === 'off');
+  
+  var rEl = document.getElementById('s-row-' + idx);
+  var startIn = document.getElementById('start-' + idx);
+  var endIn = document.getElementById('end-' + idx);
+  
+  if(row.isOff) {
+    rEl.classList.add('is-off');
+    startIn.disabled = true;
+    endIn.disabled = true;
+  } else {
+    rEl.classList.remove('is-off');
+    startIn.disabled = false;
+    endIn.disabled = false;
+    row.start = startIn.value;
+    row.end = endIn.value;
+  }
+}
+
+function setAllWorking() {
+  schedule.forEach(function(s, idx) {
+    s.isOff = false;
+    var sel = document.getElementById('status-' + idx);
+    if(sel) { sel.value = 'working'; updateShiftStatus(idx, 'working'); }
+  });
+}
+
+function setAllOff() {
+  schedule.forEach(function(s, idx) {
+    s.isOff = true;
+    var sel = document.getElementById('status-' + idx);
+    if(sel) { sel.value = 'off'; updateShiftStatus(idx, 'off'); }
+  });
+}
+
+/* ════════════════════════════════════════════════ TASK ENGINE ════════════════════════════════════════════════ */
+function computeTaskForAgent(agent, start, end) {
+  if (agent.g === "F") {
+    return { main: "Deposits Management", secondary: "Pending Verification / Queue Support" };
+  }
+  if (agent.g === "G") {
+    return { main: "Payouts Processing", secondary: "Risk Assessment / Verification" };
+  }
+
+  var isEarlyShift = false;
+  if (start) {
+    var parts = start.split(':');
+    var hour = parseInt(parts[0], 10);
+    if (hour < 12) isEarlyShift = true;
+  }
+
+  var mainTask = "Customer Service Support";
+  var secondaryTask = "Email & Ticket Review";
+
+  if (agent.q === "Phones") {
+    if (agent.g === "A") {
+      mainTask = isEarlyShift ? "Casino Inbound Phones (AM)" : "Casino Premium Phones (PM)";
+      secondaryTask = "VIP Escalate Support";
+    } else if (agent.g === "B") {
+      mainTask = "VIP Priority Line Phones";
+      secondaryTask = "High Roller Account Review";
+    } else if (agent.g === "C") {
+      mainTask = "General Inbound Phones Tier 2";
+      secondaryTask = "SME Coaching & Floor Support";
+    } else {
+      mainTask = "Standard Customer Service Phones";
+      secondaryTask = "General Queue Monitoring";
+    }
+  } else if (agent.q === "Chats") {
+    if (agent.g === "A") {
+      mainTask = "Casino Live Chat Matrix";
+      secondaryTask = "Bonus Request Approvals";
+    } else if (agent.g === "B") {
+      mainTask = "VIP Exclusive Live Chats";
+      secondaryTask = "Retention Desk Handling";
+    } else if (agent.g === "C" || agent.g === "D") {
+      mainTask = "Multi-Chat Concurrent Sessions";
+      secondaryTask = "Escalated Case Resolution";
+    } else {
+      mainTask = "General Customer Service Chats";
+      secondaryTask = "Macro/Template Optimizations";
+    }
+  }
+
+  return { main: mainTask, secondary: secondaryTask };
+}
+
+function generateTasks() {
+  if (schedule.length === 0) {
+    alert("Please upload or load a schedule first.");
+    return;
+  }
+  
+  currentResults = [];
+  schedule.forEach(function(row) {
+    if(row.isOff) return;
+    
+    var ag = roster.find(function(r){ return r.n.toLowerCase() === row.n.toLowerCase(); });
+    if(!ag) ag = { n: row.n, g: 'D', q: 'Chats' };
+    
+    var t = computeTaskForAgent(ag, row.start, row.end);
+    
+    currentResults.push({
+      name: ag.n, group: ag.g, queue: ag.q,
+      start: row.start, end: row.end,
+      main: t.main, secondary: t.secondary
+    });
+  });
+  
+  renderResults();
+  switchView('results');
+}
+
+/* ════════════════════════════════════════════════ OUTPUT RENDERING ════════════════════════════════════════════════ */
+function renderResults() {
+  var empty = document.getElementById('results-empty');
+  var content = document.getElementById('results-content');
+  
+  if(currentResults.length === 0) {
+    empty.style.display = 'block';
+    content.style.display = 'none';
+    return;
+  }
+  
+  empty.style.display = 'none';
+  content.style.display = 'block';
+  
+  var activeResults = getFilteredResults();
+  document.getElementById('results-sub').textContent = `Generated ${currentResults.length} assignments (${activeResults.length} in current filter).`;
+  
+  var summary = document.getElementById('results-summary');
+  summary.innerHTML = '';
+  
+  var amCount = currentResults.filter(function(r) { return parseInt(r.start.split(':')[0],10) < 12; }).length;
+  var pmCount = currentResults.length - amCount;
+  
+  summary.appendChild(createStatCard('TOTAL ACTIVE', currentResults.length, 's-neon', 'On-floor agents today'));
+  summary.appendChild(createStatCard('MORNING (AM)', amCount, 's-amber', 'Shifts starting before 12:00'));
+  summary.appendChild(createStatCard('AFTERNOON (PM)', pmCount, 's-violet', 'Shifts starting 12:00 onwards'));
+  
+  var body = document.getElementById('results-body');
+  body.innerHTML = '';
+  
+  activeResults.sort(function(a,b) { return a.name.localeCompare(b.name); });
+  
+  activeResults.forEach(function(r, idx) {
+    var tr = document.createElement('tr');
+    tr.className = "anim-row";
+    tr.style.animationDelay = (idx * 0.008) + "s";
+    
+    var hStart = parseInt(r.start.split(':')[0], 10);
+    var sTag = hStart < 12 ? '<span class="shift-tag shift-am">AM</span>' : '<span class="shift-tag shift-pm">PM</span>';
+    
+    tr.innerHTML = `
+      <td class="dim mono">${idx + 1}</td>
+      <td class="name-cell">${escapeHtml(r.name)}</td>
+      <td class="mono">${sTag} ${r.start} - ${r.end}</td>
+      <td class="mono"><span class="g-chip g-${r.group}">${r.group}</span></td>
+      <td class="task-cell" style="font-weight:600; color:var(--text);">${escapeHtml(r.main)}</td>
+      <td class="task-cell">${escapeHtml(r.secondary)}</td>
+    `;
+    body.appendChild(tr);
+  });
+}
+
+function getFilteredResults() {
+  if (currentFilter === 'morning') {
+    return currentResults.filter(function(r) { return parseInt(r.start.split(':')[0], 10) < 12; });
+  } else if (currentFilter === 'afternoon') {
+    return currentResults.filter(function(r) { return parseInt(r.start.split(':')[0], 10) >= 12; });
+  }
+  return currentResults;
+}
+
+function filterResults(type) {
+  currentFilter = type;
+  document.querySelectorAll('.filt-btn').forEach(function(b){ b.classList.remove('on'); });
+  document.getElementById('f-' + type).classList.add('on');
+  renderResults();
+}
+
+function createStatCard(label, val, styleClass, subtext) {
+  var div = document.createElement('div');
+  div.className = `stat ${styleClass}`;
+  div.innerHTML = `
+    <div class="stat-label">${label}</div>
+    <div class="stat-val">${val}</div>
+    <div class="stat-sub">${subtext}</div>
+  `;
+  return div;
+}
+
+/* ════════════════════════════════════════════════ EXPORTS ════════════════════════════════════════════════ */
+function exportRosterCSV() {
+  var csv = "Name,Group,Queue\n";
+  roster.forEach(function(r) { csv += `"${r.n}",${r.g},${r.q}\n`; });
+  downloadBlob(csv, 'betanything_roster.csv', 'text/csv');
+}
+
+function importRosterCSV(event) {
+  var file = event.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var lines = e.target.result.split(/\r?\n/);
+    var newRoster = [];
+    lines.forEach(function(l) {
+      if(!l.trim()) return;
+      var p = l.split(',');
+      if(p.length >= 3) {
+        var n = p[0].replace(/"/g, '').trim();
+        var g = p[1].trim().toUpperCase();
+        var q = p[2].trim();
+        if(n.toLowerCase() === 'name') return;
+        if(['A','B','C','D','E','F','G'].indexOf(g) !== -1) {
+          newRoster.push({n: n, g: g, q: q});
+        }
+      }
+    });
+    if(newRoster.length > 0) {
+      roster = newRoster;
+      saveRoster();
+      renderRoster();
+      alert("Imported " + roster.length + " agents successfully!");
+    } else {
+      alert("No valid roster data found in CSV.");
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+function downloadResultsCSV() {
+  var csv = "Agent,Shift,Group,Queue,Main Task,Secondary Task\n";
+  currentResults.forEach(function(r) {
+    csv += `"${r.name}","${r.start} - ${r.end}",${r.group},${r.queue},"${r.main}","${r.secondary}"\n`;
+  });
+  downloadBlob(csv, 'task_assignments.csv', 'text/csv');
+}
+
+function copyResults() {
+  var txt = "BETANYTHING TASK ASSIGNMENTS\n\n";
+  currentResults.forEach(function(r) {
+    txt += `${r.name} [Group ${r.group} - ${r.queue}] (${r.start} - ${r.end})\n`;
+    txt += `  ▶ Main: ${r.main}\n`;
+    txt += `  ▶ Support: ${r.secondary}\n\n`;
+  });
+  
+  navigator.clipboard.writeText(txt).then(function() {
+    alert("Assignments copied to clipboard!");
+  }).catch(function() {
+    alert("Failed to copy automatically.");
+  });
+}
+
+function downloadBlob(content, filename, contentType) {
+  var blob = new Blob([content], { type: contentType + ';charset=utf-8;' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.setAttribute("download", filename);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function handleScheduleFile(file) {
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var ok = loadScheduleCSV(e.target.result);
+    if (ok) {
+      setTimeout(function() { generateTasks(); }, 400);
+    }
+  };
+  reader.readAsText(file);
+}
+
+// Drag & Drop
+(function() {
+  var dz = document.getElementById('drop-zone');
+  var fi = document.getElementById('sched-file');
+  var browseLink = document.getElementById('browse-link');
+  if(!dz) return;
+  dz.addEventListener('click', function() { fi.click(); });
+  if(browseLink) browseLink.addEventListener('click', function(e) { e.stopPropagation(); fi.click(); });
+  dz.addEventListener('dragover', function(e) { e.preventDefault(); dz.classList.add('dragover'); });
+  dz.addEventListener('dragleave', function() { dz.classList.remove('dragover'); });
+  dz.addEventListener('drop', function(e) {
+    e.preventDefault(); dz.classList.remove('dragover');
+    var files = Array.from(e.dataTransfer.files);
+    var csv = files.find(function(f) { return f.name.endsWith('.csv') || f.name.endsWith('.txt'); });
+    if (csv) handleScheduleFile(csv);
+  });
+})();
+
+function escapeHtml(str) {
+  if(!str) return '';
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}
+</script>
+</body>
+</html>
