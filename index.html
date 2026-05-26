@@ -269,6 +269,36 @@ td.task-cell { white-space: normal; max-width: 280px; font-size: 11px; color: va
 td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
 td.dim { color: var(--text3); }
 
+/* ── EDITABLE TEXT INPUTS IN TASKS TABLE ── */
+.editable-task-input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text2);
+  font-family: 'Figtree', sans-serif;
+  font-size: 11px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+.editable-task-input:hover {
+  background: var(--surface3);
+  border-color: var(--border3);
+}
+.editable-task-input:focus {
+  background: var(--surface4);
+  border-color: var(--neon);
+  color: var(--text);
+  outline: none;
+  box-shadow: 0 0 8px rgba(0,240,255,0.1);
+}
+.editable-task-input.sec-input {
+  color: var(--text3);
+}
+.editable-task-input.sec-input:focus {
+  color: var(--text2);
+}
+
 /* ── GROUP CHIPS ── */
 .g-chip {
   display: inline-flex; align-items: center; justify-content: center;
@@ -283,6 +313,7 @@ td.dim { color: var(--text3); }
 .g-E { background: var(--coral-dim); color: var(--coral); border: 1px solid rgba(255,122,92,0.15); }
 .g-F { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(255,215,106,0.15); }
 .g-G { background: var(--slate-dim); color: var(--slate); border: 1px solid rgba(123,139,162,0.15); }
+.g-unkn { background: var(--surface3); color: var(--text3); border: 1px solid var(--border3); }
 
 .q-tag {
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
@@ -291,6 +322,7 @@ td.dim { color: var(--text3); }
 }
 .q-phones { background: var(--neon-dim); color: var(--neon); }
 .q-chats { background: var(--violet-dim); color: var(--violet); }
+.q-unkn { background: var(--surface3); color: var(--text4); }
 
 .shift-tag {
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
@@ -475,7 +507,7 @@ td.dim { color: var(--text3); }
     <div class="logo">
       <div class="logo-icon">BA</div>
       <span class="logo-text">BetAnything Task Maker</span>
-      <span class="logo-ver">v3.1</span>
+      <span class="logo-ver">v3.2</span>
     </div>
     <div class="nav-tabs">
       <button class="nav-tab active" data-view="roster">ROSTER</button>
@@ -639,7 +671,7 @@ td.dim { color: var(--text3); }
 
       <div class="panel">
         <div class="panel-head">
-          <span class="panel-label">DETAIL</span>
+          <span class="panel-label">DETAIL (CLIC EN CUALQUIER TAREA PARA EDITAR EXPRESAMENTE)</span>
           <div class="filters">
             <button class="filt-btn on" onclick="filterResults('all')" id="f-all">ALL</button>
             <button class="filt-btn" onclick="filterResults('morning')" id="f-morning">☀ AM</button>
@@ -891,7 +923,6 @@ function renderSchedule(){
   roster.forEach(function(a){if(!names[a.name]) activeSched.push({name:a.name,start:"06:00",end:"14:00",status:"off"});});
   
   var rn={};roster.forEach(function(a){rn[a.name]=true;});
-  activeSched = activeSched.filter(function(s){return rn[s.name];});
   
   var so={working:0,off:1,vac:2};
   activeSched.sort(function(a,b){var sa=so[a.status]||0,sb=so[b.status]||0;if(sa!==sb)return sa-sb;return a.start<b.start?-1:a.start>b.start?1:a.name.localeCompare(b.name);});
@@ -901,10 +932,10 @@ function renderSchedule(){
   var wc=activeSched.filter(function(s){return s.status==='working';}).length;
   var html='';
   activeSched.forEach(function(s,i){
-    var ag=roster.find(function(a){return a.name===s.name;})||{group:'?'};
+    var ag=roster.find(function(a){return a.name===s.name;})||{group:'unkn'};
     var off=s.status!=='working';
     html+='<div class="sched-row anim-row'+(off?' is-off':'')+'" style="animation-delay:'+(i*.015)+'s">';
-    html+='<span class="g-chip g-'+ag.group+'">'+ag.group+'</span>';
+    html+='<span class="g-chip g-'+ag.group+'">'+(ag.group==='unkn'?'?':ag.group)+'</span>';
     html+='<span class="sched-name">'+esc(s.name)+'</span>';
     html+='<input type="time" value="'+s.start+'" onchange="updSched('+i+',\'start\',this.value)"'+(off?' disabled':'')+'>';
     html+='<input type="time" value="'+s.end+'" onchange="updSched('+i+',\'end\',this.value)"'+(off?' disabled':'')+'>';
@@ -937,7 +968,7 @@ function setAllOff(){
 /* ════════════════════════════════════════════════
    TASK ENGINE (VBA port)
    ════════════════════════════════════════════════ */
-function agInfo(n){return roster.find(function(a){return a.name===n;})||{name:n,group:'?',queue:'Phones'};}
+function agInfo(n){return roster.find(function(a){return a.name===n;})||{name:n,group:'unkn',queue:'unkn'};}
 function isP(n){return agInfo(n).queue==='Phones';}
 
 function generateTasks(){
@@ -994,6 +1025,7 @@ function assignDeposits(A,sh){
   else{f[0].mainTask='CC - Certi Inbox';f[1].mainTask='Slack | Inbox';f[2].mainTask='Processors | Velocity';f[3].mainTask='USU | 2nd Processors';if(f[4])f[4].mainTask='Scrubbers | 2nd Slack';}
 }
 
+/* LA PERSONA CON CASINO NO PUEDE TENER SECONDARY TASKS CORREGIDO */
 function assignPayouts(A,sh){
   var g=A.filter(function(a){return a.group==='G'&&a.shift===sh;}),c=g.length;if(!c)return;
   if(sh==='Morning'){
@@ -1014,7 +1046,11 @@ function assignPayouts(A,sh){
 function assignFixed(A){
   A.forEach(function(a){
     if(!a.mainTask) {
-      a.mainTask = isP(a.name) ? 'Phones' : 'Chats';
+      if(a.group === 'unkn') {
+        a.mainTask = 'No Auto Task';
+      } else {
+        a.mainTask = isP(a.name) ? 'Phones' : 'Chats';
+      }
     }
   });
 }
@@ -1026,7 +1062,7 @@ function assignBlasts(A){
       a.secTask = '';
       return;
     }
-    if('AEFG'.indexOf(a.group)>=0||a.secTask) return;
+    if('AEFG'.indexOf(a.group)>=0||a.secTask||a.group==='unkn') return;
     if(a.shift==='Morning'&&tM<=4){a.secTask=t[tM];tM++;}
     else if(a.shift==='Afternoon'&&tA<=4){a.secTask=t[tA];tA++;}
   });
@@ -1048,14 +1084,13 @@ function renderResults(){
   document.getElementById('results-empty').style.display='none';
   document.getElementById('results-content').style.display='';
   
-  var d=new Date();
   document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase();
-  document.getElementById('results-sub').textContent='Viewing active database records matching configuration state.';
+  document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.';
   
   var mC=activeDayResults.filter(function(r){return r.shift==='Morning';}).length;
   var aC=activeDayResults.filter(function(r){return r.shift==='Afternoon';}).length;
-  var gc={};activeDayResults.forEach(function(r){gc[r.group]=(gc[r.group]||0)+1;});
-  var tg=Object.keys(gc).sort(function(a,b){return gc[b]-gc[a];})[0] || 'None';
+  var gc={};activeDayResults.forEach(function(r){if(r.group!=='unkn') gc[r.group]=(gc[r.group]||0)+1;});
+  var tg = Object.keys(gc).sort(function(a,b){return gc[b]-gc[a];})[0] || 'None';
   var tgCount = gc[tg] || 0;
 
   document.getElementById('results-summary').innerHTML=
@@ -1076,13 +1111,17 @@ function renderResultsTable(){
   
   var html='';
   d.forEach(function(r,i){
-    html+='<tr class="anim-row" style="animation-delay:'+(i*.018)+'s">';
+    // Encontrar el índice original en el array global de ese día para actualizarlo correctamente
+    var globalIdx = activeDayResults.indexOf(r);
+    var displayGroup = r.group === 'unkn' ? '?' : r.group;
+    
+    html+='<tr class="anim-row" style="animation-delay:'+(i*.012)+'s">';
     html+='<td class="mono dim">'+(i+1)+'</td>';
     html+='<td class="name-cell">'+esc(r.name)+'</td>';
     html+='<td><span class="shift-tag shift-'+(r.shift==='Morning'?'am':'pm')+'">'+r.start+' – '+r.end+'</span></td>';
-    html+='<td><span class="g-chip g-'+r.group+'">'+r.group+'</span></td>';
-    html+='<td class="task-cell">'+esc(r.mainTask)+'</td>';
-    html+='<td class="task-cell" style="color:var(--text3);">'+esc(r.secTask)+'</td>';
+    html+='<td><span class="g-chip g-'+r.group+'">'+displayGroup+'</span></td>';
+    html+='<td><input type="text" class="editable-task-input" value="'+esc(r.mainTask)+'" onchange="updateManualTask('+globalIdx+', \'mainTask\', this.value)"></td>';
+    html+='<td><input type="text" class="editable-task-input sec-input" value="'+esc(r.secTask)+'" onchange="updateManualTask('+globalIdx+', \'secTask\', this.value)"></td>';
     html+='</tr>';
   });
   document.getElementById('results-body').innerHTML=html;
@@ -1090,6 +1129,13 @@ function renderResultsTable(){
   ['all','morning','afternoon'].forEach(function(f){
     document.getElementById('f-'+f).classList.toggle('on',f===resultFilter);
   });
+}
+
+function updateManualTask(globalIdx, field, val) {
+  if (lastResults[lastResultsDay] && lastResults[lastResultsDay][globalIdx]) {
+    lastResults[lastResultsDay][globalIdx][field] = val;
+    save(); // Guarda el cambio inmediatamente en LocalStorage
+  }
 }
 
 function filterResults(f){resultFilter=f;renderResultsTable();}
@@ -1101,7 +1147,7 @@ function downloadResultsCSV(){
   var activeDayResults = lastResults[lastResultsDay] || [];
   if(!activeDayResults.length)return;
   var rows=['Name,Start,End,Shift,Group,Main Task,Secondary Task'];
-  activeDayResults.forEach(function(r){rows.push(['"'+r.name+'"',r.start,r.end,r.shift,r.group,'"'+r.mainTask+'"','"'+r.secTask+'"'].join(','));});
+  activeDayResults.forEach(function(r){rows.push(['"'+r.name+'"',r.start,r.end,r.shift,r.group === 'unkn' ? '?' : r.group,'"'+r.mainTask+'"','"'+r.secTask+'"'].join(','));});
   dl(rows.join('\n'),'tasks_'+lastResultsDay.toLowerCase()+'_'+td()+'.csv','text/csv');
 }
 
@@ -1109,7 +1155,7 @@ function copyResults(){
   var activeDayResults = lastResults[lastResultsDay] || [];
   if(!activeDayResults.length)return;
   var l=['Name\tStart\tEnd\tGroup\tMain Task\tSecondary Task'];
-  activeDayResults.forEach(function(r){l.push([r.name,r.start,r.end,r.group,r.mainTask,r.secTask].join('\t'));});
+  activeDayResults.forEach(function(r){l.push([r.name,r.start,r.end,r.group === 'unkn' ? '?' : r.group,r.mainTask,r.secTask].join('\t'));});
   navigator.clipboard.writeText(l.join('\n')).then(function(){alert('Copied to clipboard!');});
 }
 
@@ -1173,9 +1219,9 @@ function loadScheduleCSV(text) {
     var raw2 = (parts[2] || '').trim().toUpperCase();
 
     var status, start, end;
-    if (raw1 === 'OFF') {
+    if (raw1 === 'OFF' || raw1 === 'OFF DUTY') {
       status = 'off'; start = '00:00'; end = '00:00'; offCount++;
-    } else if (raw1 === 'VAC') {
+    } else if (raw1 === 'VAC' || raw1 === 'VACATION') {
       status = 'vac'; start = '00:00'; end = '00:00'; vacCount++;
     } else {
       start = parse12to24(parts[1]);
@@ -1201,7 +1247,7 @@ function loadScheduleCSV(text) {
   banner.style.display = 'flex';
   document.getElementById('us-text').textContent = currentDay + ': ' + loaded + ' agents working · ' + offCount + ' OFF' + (vacCount ? ' · ' + vacCount + ' VAC' : '');
   var detail = newSchedule.length + ' rows loaded';
-  if (unknownNames.length) detail += ' — ' + unknownNames.length + ' not in roster: ' + unknownNames.slice(0, 3).join(', ') + (unknownNames.length > 3 ? '…' : '');
+  if (unknownNames.length) detail += ' — ' + unknownNames.length + ' not in database (marked as unassigned)';
   document.getElementById('us-detail').textContent = detail;
 
   return true;
