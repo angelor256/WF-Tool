@@ -1,227 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Roster & Filtros</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
-            margin: 20px;
-        }
-        h2, h3 {
-            color: #2c3e50;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        /* Sección de Filtros */
-        .filter-section {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eceff1;
-        }
-        .filter-btn {
-            background-color: #34495e;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin-right: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .filter-btn:hover {
-            background-color: #2c3e50;
-        }
-        .filter-btn.active {
-            background-color: #3498db;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BetAnything Task Maker</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   THEME — dark cyberpunk command center
+   ═══════════════════════════════════════════════════ */
+:root {
+  --void: #06080c;
+  --deep: #0b0e14;
+  --surface: #0f1219;
+  --surface2: #141820;
+  --surface3: #1a1f2a;
+  --surface4: #222836;
+  --border: rgba(255,255,255,0.05);
+  --border2: rgba(255,255,255,0.08);
+  --border3: rgba(255,255,255,0.12);
+  --text: #eaf0ff;
+  --text2: #8892a8;
+  --text3: #4e5670;
+  --text4: #2d3444;
 
-        /* Sección de Grupos (Roster) */
-        .groups-container {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .group-card {
-            background-color: #ecf0f1;
-            border: 1px solid #bdc3c7;
-            padding: 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s;
-            flex: 1;
-            text-align: center;
-        }
-        .group-card:hover {
-            background-color: #d5dbdb;
-            transform: translateY(-2px);
-        }
-        .group-card.selected {
-            background-color: #2ecc71;
-            color: white;
-            border-color: #27ae60;
-        }
+  --neon: #00f0ff;
+  --neon-dim: rgba(0,240,255,0.08);
+  --neon-mid: rgba(0,240,255,0.18);
+  --neon-glow: 0 0 20px rgba(0,240,255,0.15), 0 0 60px rgba(0,240,255,0.06);
 
-        /* Tablas y Listas */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .hidden {
-            display: none;
-        }
-        .view-title {
-            margin-top: 20px;
-            font-style: italic;
-            color: #7f8c8d;
-        }
-    </style>
-</head>
-<body>
+  --lime: #a3ff57;
+  --lime-dim: rgba(163,255,87,0.08);
+  --lime-mid: rgba(163,255,87,0.15);
 
-<div class="container">
-    <h2>Panel de Control - Roster</h2>
-    
-    <!-- 1. SECCIÓN DE FILTROS DE HORARIO -->
-    <div class="filter-section">
-        <h3>Filtros por Horario de Entrada</h3>
-        <button class="filter-btn active" onclick="filtrarPorHorario('todos', this)">Todos</button>
-        <button class="filter-btn" onclick="filtrarPorHorario('manana', this)">Mañana (Incluye 8AM a 11AM)</button>
-        <button class="filter-btn" onclick="filtrarPorHorario('tarde', this)">Tarde (9AM en adelante)</button>
-    </div>
+  --hot: #ff3d71;
+  --hot-dim: rgba(255,61,113,0.08);
+  --hot-mid: rgba(255,61,113,0.15);
 
-    <!-- 2. SECCIÓN DE GRUPOS DEL ROSTER -->
-    <div class="filter-section">
-        <h3>Grupos del Roster (Click para ver agentes asignados)</h3>
-        <div class="groups-container">
-            <!-- Usamos data-group para identificar la lógica de asignación -->
-            <div class="group-card" data-group="Casino" onclick="filtrarPorGrupo('Casino', this)">A- Casino specialist</div>
-            <div class="group-card" data-group="VIP" onclick="filtrarPorGrupo('VIP', this)">B- VIP</div>
-            <div class="group-card" data-group="Phones" onclick="filtrarPorGrupo('Phones', this)">C- Phones</div>
-        </div>
-    </div>
+  --amber: #ffb057;
+  --amber-dim: rgba(255,176,87,0.08);
+  --amber-mid: rgba(255,176,87,0.15);
 
-    <!-- 3. TABLA PRINCIPAL DE AGENTES -->
-    <h3 id="tabla-titulo" class="view-title">Mostrando: Todos los agentes</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre del Agente</th>
-                <th>Grupo</th>
-                <th>Hora de Entrada</th>
-            </tr>
-        </thead>
-        <tbody id="tbody-agentes">
-            <!-- Los datos se inyectarán dinámicamente con JavaScript -->
-        </tbody>
-    </table>
-</div>
+  --violet: #b47aff;
+  --violet-dim: rgba(180,122,255,0.08);
+  --violet-mid: rgba(180,122,255,0.15);
 
-<script>
-    // Base de datos simulada de tu equipo
-    const agentes = [
-        { nombre: "Angelo Ramirez", grupo: "Casino", entrada: 8 },  // 8 AM
-        { nombre: "Sofía Castro", grupo: "VIP", entrada: 6 },       // 6 AM
-        { nombre: "Carlos Mendoza", grupo: "Phones", entrada: 9 },  // 9 AM
-        { nombre: "Ana Gutiérrez", grupo: "Casino", entrada: 11 },  // 11 AM
-        { nombre: "Luis Arce", grupo: "VIP", entrada: 13 },         // 1 PM
-        { nombre: "Elena Gómez", grupo: "Phones", entrada: 15 },    // 3 PM
-        { nombre: "David Miranda", grupo: "Casino", entrada: 10 }   // 10 AM
-    ];
+  --blue: #4d8eff;
+  --blue-dim: rgba(77,142,255,0.08);
 
-    // Función inicial para cargar toda la tabla al abrir la página
-    function cargarTabla(listaAgentes) {
-        const tbody = document.getElementById('tbody-agentes');
-        tbody.innerHTML = ''; // Limpiar filas anteriores
+  --coral: #ff7a5c;
+  --coral-dim: rgba(255,122,92,0.08);
 
-        if (listaAgentes.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="3" style="text-align:center;">No hay agentes en este segmento.</td></tr>`;
-            return;
-        }
+  --gold: #ffd76a;
+  --gold-dim: rgba(255,215,106,0.08);
 
-        listaAgentes.forEach(agente => {
-            const fila = document.createElement('tr');
-            fila.innerHTML = `
-                <td><strong>${agente.nombre}</strong></td>
-                <td>${agente.grupo}</td>
-                <td>${agente.entrada}:00 AM/PM</td>
-            `;
-            tbody.appendChild(fila);
-        });
-    }
+  --slate: #7b8ba2;
+  --slate-dim: rgba(123,139,162,0.08);
 
-    // --- LÓGICA DE FILTRADO POR HORA (Solicitud 1) ---
-    function filtrarPorHorario(turno, boton) {
-        desmarcarBotonesYCards();
-        boton.classList.add('active');
-        
-        let filtrados = [];
-        const titulo = document.getElementById('tabla-titulo');
+  --r: 12px;
+  --r-sm: 8px;
+}
 
-        if (turno === 'todos') {
-            filtrados = agentes;
-            titulo.textContent = "Mostrando: Todos los agentes";
-        } 
-        else if (turno === 'manana') {
-            // Mañana: Entradas tempranas estándar (ej. 5-7 AM) + el rango solicitado de 8 AM a 11 AM
-            filtrados = agentes.filter(a => a.entrada >= 5 && a.entrada <= 11);
-            titulo.textContent = "Mostrando: Filtro Mañana (Entradas de 5:00 AM a 11:00 AM)";
-        } 
-        else if (turno === 'tarde') {
-            // Tarde: Todos los que entran desde las 9 AM en adelante (9, 10, 11, 13, 15, etc.)
-            filtrados = agentes.filter(a => a.entrada >= 9);
-            titulo.textContent = "Mostrando: Filtro Tarde (Entradas desde las 9:00 AM en adelante)";
-        }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        cargarTabla(filtrados);
-    }
+body {
+  font-family: 'Figtree', sans-serif;
+  background: var(--void);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    // --- LÓGICA DE INTERACTIVIDAD DE GRUPOS (Solicitud 2) ---
-    function filtrarPorGrupo(grupoNombre, elementoCard) {
-        desmarcarBotonesYCards();
-        elementoCard.classList.add('selected');
+/* ── ANIMATED BG ── */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(0,240,255,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(180,122,255,0.025) 0%, transparent 60%);
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
+}
 
-        // Filtrar el array global de agentes por la propiedad 'grupo'
-        const filtrados = agentes.filter(a => a.grupo === grupoNombre);
-        
-        const titulo = document.getElementById('tabla-titulo');
-        titulo.textContent = `Mostrando Agentes asignados al Grupo: ${grupoNombre}`;
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11,14,20,0.85);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid var(--border2);
+  padding: 0 28px;
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; height: 56px; gap: 10px;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+}
+.logo-icon {
+  width: 32px; height: 32px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--neon) 0%, var(--violet) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: var(--void);
+  box-shadow: var(--neon-glow);
+  font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: .02em;
+}
+.logo-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--text);
+}
+.logo-ver {
+  font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+  color: var(--neon); background: var(--neon-dim);
+  border: 1px solid rgba(0,240,255,0.15);
+  padding: 2px 8px; border-radius: 99px; letter-spacing: .06em;
+}
+.nav-tabs {
+  display: flex; gap: 2px; margin-left: 28px;
+  background: var(--surface); border-radius: 10px;
+  padding: 3px; border: 1px solid var(--border);
+}
+.nav-tab {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+  color: var(--text3); padding: 7px 16px; border-radius: 8px;
+  cursor: pointer; transition: all .2s; border: none; background: none;
+  letter-spacing: .03em; white-space: nowrap;
+}
+.nav-tab:hover { color: var(--text2); }
+.nav-tab.active {
+  color: var(--neon); background: var(--neon-dim);
+  box-shadow: inset 0 0 12px rgba(0,240,255,0.05);
+}
+.nav-spacer { flex: 1; }
+.nav-status {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  color: var(--text3); letter-spacing: .04em;
+}
+.pulse-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 8px var(--lime), 0 0 20px rgba(163,255,87,0.2);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
 
-        cargarTabla(filtrados);
-    }
+/* ── WEEK DAY SELECTOR ── */
+.day-selector {
+  display: flex; gap: 4px; background: var(--surface);
+  border: 1px solid var(--border); padding: 4px;
+  border-radius: var(--r-sm); margin-bottom: 20px;
+  overflow-x: auto;
+}
+.day-btn {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
+  color: var(--text3); background: transparent; border: none;
+  padding: 8px 16px; border-radius: 6px; cursor: pointer;
+  transition: all .2s; letter-spacing: .05em;
+}
+.day-btn:hover { color: var(--text2); background: var(--surface2); }
+.day-btn.active { color: var(--neon); background: var(--neon-dim); box-shadow: inset 0 0 8px rgba(0,240,255,0.05); }
 
-    // Función auxiliar para limpiar los estados visuales activos (clases CSS)
-    function desmarcarBotonesYCards() {
-        // Quitar estado activo de botones de hora
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        // Quitar estado seleccionado de las tarjetas de grupo
-        document.querySelectorAll('.group-card').forEach(card => card.classList.remove('selected'));
-    }
+/* ── CONTENT ── */
+.content {
+  position: relative; z-index: 1;
+  max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px;
+}
+.view { display: none; }
+.view.active { display: block; animation: viewIn .4s ease; }
+@keyframes viewIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 
-    // Carga inicial automatizada al abrir la app
-    window.onload = function() {
-        cargarTabla(agentes);
-    };
-</script>
-
-</body>
-</html>
+/* ── SECTION HEADER ── */
+.sec-header { margin-bottom: 28px; }
+.sec-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  color: var(--neon); letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.sec-tag::before {
+  content: ''; width:
