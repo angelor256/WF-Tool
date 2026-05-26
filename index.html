@@ -3,547 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BetAnything Task Maker // Operación Diaria</title>
+<title>BetAnything Task Maker</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ═══════════════════════════════════════════════════
+   THEME — dark cyberpunk command center
+    ═══════════════════════════════════════════════════  */
 :root {
-  --void: #06080c; 
-  --deep: #0b0e14; 
-  --surface: #0f1219; 
-  --surface2: #141820; 
+  --void: #06080c;
+  --deep: #0b0e14;
+  --surface: #0f1219;
+  --surface2: #141820;
   --surface3: #1a1f2a;
-  --border: rgba(255,255,255,0.05); 
-  --border2: rgba(255,255,255,0.08); 
+  --surface4: #222836;
+  --border: rgba(255,255,255,0.05);
+  --border2: rgba(255,255,255,0.08);
   --border3: rgba(255,255,255,0.12);
-  --text: #eaf0ff; 
-  --text2: #8892a8; 
-  --text3: #4e5670; 
+  --text: #eaf0ff;
+  --text2: #8892a8;
+  --text3: #4e5670;
+  --text4: #2d3444;
   --neon: #00f0ff;
-  --neon-dim: rgba(0,240,255,0.08); 
-  --neon-glow: 0 0 20px rgba(0,240,255,0.15);
-  --lime: #a3ff57; 
-  --lime-dim: rgba(163,255,87,0.08); 
+  --neon-dim: rgba(0,240,255,0.08);
+  --neon-mid: rgba(0,240,255,0.18);
+  --neon-glow: 0 0 20px rgba(0,240,255,0.15), 0 0 60px rgba(0,240,255,0.06);
+  --lime: #a3ff57;
+  --lime-dim: rgba(163,255,87,0.08);
   --lime-mid: rgba(163,255,87,0.15);
-  --hot: #ff3d71; 
-  --blue: #4d8eff; 
-  --r: 12px; 
+  --hot: #ff3d71;
+  --hot-dim: rgba(255,61,113,0.08);
+  --hot-mid: rgba(255,61,113,0.15);
+  --amber: #ffb057;
+  --amber-dim: rgba(255,176,87,0.08);
+  --amber-mid: rgba(255,176,87,0.15);
+  --violet: #b47aff;
+  --violet-dim: rgba(180,122,255,0.08);
+  --violet-mid: rgba(180,122,255,0.15);
+  --blue: #4d8eff;
+  --blue-dim: rgba(77,142,255,0.08);
+  --coral: #ff7a5c;
+  --coral-dim: rgba(255,122,92,0.08);
+  --gold: #ffd76a;
+  --gold-dim: rgba(255,215,106,0.08);
+  --slate: #7b8ba2;
+  --slate-dim: rgba(123,139,162,0.08);
+  --r: 12px;
   --r-sm: 8px;
 }
-* { 
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Figtree', sans-serif;
+  background: var(--void);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
-body { 
-  font-family: 'Figtree', sans-serif; 
-  background: var(--void); 
-  color: var(--text); 
-  min-height: 100vh; 
-  overflow-x: hidden; 
+/* ── ANIMATED BG ── */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(0,240,255,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(180,122,255,0.025) 0%, transparent 60%);
 }
-nav { 
-  position: sticky; 
-  top: 0; 
-  z-index: 100; 
-  background: rgba(11,14,20,0.85); 
-  backdrop-filter: blur(20px); 
-  border-bottom: 1px solid var(--border2); 
-  padding: 0 28px; 
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
 }
-.nav-inner { 
-  max-width: 1400px; 
-  margin: 0 auto; 
-  display: flex; 
-  align-items: center; 
-  height: 56px; 
-  gap: 10px; 
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(11,14,20,0.85);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid var(--border2);
+  padding: 0 28px;
 }
-.logo { 
-  display: flex; 
-  align-items: center; 
-  gap: 12px; 
+.nav-inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; height: 56px; gap: 10px;
 }
-.logo-icon { 
-  width: 32px; 
-  height: 32px; 
-  border-radius: 10px; 
-  background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  font-size: 13px; 
-  font-weight: 800; 
-  color: var(--void); 
-  box-shadow: var(--neon-glow); 
-  font-family: 'Bricolage Grotesque', sans-serif; 
+.logo {
+  display: flex; align-items: center; gap: 12px;
 }
-.logo-text { 
-  font-family: 'Bricolage Grotesque', sans-serif; 
-  font-size: 18px; 
-  font-weight: 700; 
+.logo-icon {
+  width: 32px; height: 32px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--neon) 0%, var(--violet) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: var(--void);
+  box-shadow: var(--neon-glow);
+  font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: .02em;
 }
-.nav-tabs { 
-  display: flex; 
-  gap: 2px; 
-  margin-left: 28px; 
-  background: var(--surface); 
-  border-radius: 10px; 
-  padding: 3px; 
-  border: 1px solid var(--border); 
+.logo-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--text);
 }
-.nav-tab { 
-  font-family: 'IBM Plex Mono', monospace; 
-  font-size: 11px; 
-  font-weight: 600; 
-  color: var(--text3); 
-  padding: 7px 16px; 
-  border-radius: 8px; 
-  cursor: pointer; 
-  border: none; 
-  background: none; 
-  transition: all .2s; 
+.logo-ver {
+  font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+  color: var(--neon); background: var(--neon-dim);
+  border: 1px solid rgba(0,240,255,0.15);
+  padding: 2px 8px; border-radius: 99px; letter-spacing: .06em;
 }
-.nav-tab.active { 
-  color: var(--neon); 
-  background: var(--neon-dim); 
+.nav-tabs {
+  display: flex; gap: 2px; margin-left: 28px;
+  background: var(--surface); border-radius: 10px;
+  padding: 3px; border: 1px solid var(--border);
 }
-.content { 
-  max-width: 1400px; 
-  margin: 0 auto; 
-  padding: 24px 28px 80px; 
+.nav-tab {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+  color: var(--text3); padding: 7px 16px; border-radius: 8px;
+  cursor: pointer; transition: all .2s; border: none; background: none;
+  letter-spacing: .03em; white-space: nowrap;
 }
-.view { 
-  display: none; 
-} 
-.view.active { 
-  display: block; 
+.nav-tab:hover { color: var(--text2); }
+.nav-tab.active {
+  color: var(--neon); background: var(--neon-dim);
+  box-shadow: inset 0 0 12px rgba(0,240,255,0.05);
 }
-.config-flow { 
-  display: flex; 
-  gap: 16px; 
-  align-items: center; 
-  margin-bottom: 20px; 
-  background: var(--surface2); 
-  padding: 12px 18px; 
-  border-radius: var(--r-sm); 
-  border: 1px solid var(--border); 
+.nav-spacer { flex: 1; }
+.nav-status {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  color: var(--text3); letter-spacing: .04em;
 }
-select { 
-  background: var(--surface3); 
-  border: 1px solid var(--border3); 
-  color: var(--text); 
-  font-family: 'IBM Plex Mono', monospace; 
-  font-size: 12px; 
-  padding: 8px 16px; 
-  border-radius: var(--r-sm); 
-  outline: none; 
+.pulse-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 8px var(--lime), 0 0 20px rgba(163,255,87,0.2);
+  animation: pulse 2s infinite;
 }
-.panel { 
-  background: var(--surface); 
-  border: 1px solid var(--border2); 
-  border-radius: var(--r); 
-  overflow: hidden; 
-  margin-bottom: 20px; 
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+/* ── CONTENT ── */
+.content {
+  position: relative; z-index: 1;
+  max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px;
 }
-.panel-head { 
-  padding: 14px 18px; 
-  border-bottom: 1px solid var(--border); 
+.view { display: none; }
+.view.active { display: block; animation: viewIn .4s ease; }
+@keyframes viewIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+/* ── SECTION HEADER ── */
+.sec-header { margin-bottom: 28px; }
+.sec-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  color: var(--neon); letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 10px;
 }
-.panel-label { 
-  font-family: 'IBM Plex Mono', monospace; 
-  font-size: 10px; 
-  font-weight: 700; 
-  letter-spacing: .1em; 
-  color: var(--text3); 
-  text-transform: uppercase; 
+.sec-tag::before {
+  content: ''; width: 18px; height: 1px; background: var(--neon);
 }
-.panel-body { 
-  padding: 18px; 
+.sec-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.02em;
+  line-height: 1.05; color: var(--text); margin-bottom: 8px;
 }
-.drop-zone { 
-  border: 1.5px dashed var(--border3); 
-  border-radius: var(--r); 
-  padding: 40px 24px; 
-  text-align: center; 
-  cursor: pointer; 
-  background: var(--surface2); 
-  transition: all .25s; 
-  margin-bottom: 16px; 
+.sec-sub { font-size: 13px; color: var(--text2); line-height: 1.6; max-width: 600px; }
+/* ── PANELS ── */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r); overflow: hidden;
+  transition: border-color .3s;
 }
-.drop-zone.dragover { 
-  border-color: var(--neon); 
-  background: var(--neon-dim); 
+.panel:hover { border-color: var(--border3); }
+.panel-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px; border-bottom: 1px solid var(--border);
+  gap: 12px; flex-wrap: wrap;
 }
-.dz-icon { 
-  font-size: 32px; 
-  margin-bottom: 10px; 
+.panel-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text3);
 }
-.dz-title { 
-  font-size: 14px; 
-  font-weight: 700; 
-  margin-bottom: 4px; 
+.panel-body { padding: 18px; }
+/* ── GRID LAYOUTS ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 320px; gap: 16px; }
+.grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 20px; }
+@media (max-width: 960px) { .grid-2 { grid-template-columns: 1fr; } }
+/* ── STAT CARDS ── */
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r); padding: 18px 20px;
+  position: relative; overflow: hidden;
 }
-.dz-sub { 
-  font-size: 11px; 
-  color: var(--text3); 
+.stat::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
 }
-.dz-sub span { 
-  color: var(--neon); 
-  text-decoration: underline; 
+.stat.s-neon::before { background: linear-gradient(90deg, var(--neon), transparent); }
+.stat.s-lime::before { background: linear-gradient(90deg, var(--lime), transparent); }
+.stat.s-violet::before { background: linear-gradient(90deg, var(--violet), transparent); }
+.stat.s-amber::before { background: linear-gradient(90deg, var(--amber), transparent); }
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 8px;
 }
-.days-container { 
-  display: flex; 
-  gap: 6px; 
-  margin-bottom: 24px; 
-  flex-wrap: wrap; 
+.stat-val {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px;
+  font-weight: 800; line-height: 1; letter-spacing: -.02em;
 }
-.day-btn { 
-  background: var(--surface2); 
-  border: 1px solid var(--border2); 
-  color: var(--text2); 
-  font-family: 'IBM Plex Mono', monospace; 
-  font-size: 11px; 
-  font-weight: bold; 
-  padding: 8px 16px; 
-  border-radius: var(--r-sm); 
-  cursor: pointer; 
+.stat.s-neon .stat-val { color: var(--neon); }
+.stat.s-lime .stat-val { color: var(--lime); }
+.stat.s-violet .stat-val { color: var(--violet); }
+.stat.s-amber .stat-val { color: var(--amber); }
+.stat-sub { font-size: 11px; color: var(--text3); margin-top: 6px; }
+/* ── TABLE ── */
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+thead th {
+  text-align: left; padding: 10px 14px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text4); background: var(--surface2);
+  border-bottom: 1px solid var(--border2);
+  white-space: nowrap; position: sticky; top: 0; z-index: 2;
 }
-.day-btn.active { 
-  background: var(--neon-dim); 
-  border-color: var(--neon); 
-  color: var(--neon); 
-  box-shadow: var(--neon-glow); 
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background .12s;
 }
-table { 
-  width: 100%; 
-  border-collapse: collapse; 
-  font-size: 12px; 
+tbody tr:hover { background: rgba(0,240,255,0.02); }
+tbody tr:last-child { border-bottom: none; }
+td { padding: 9px 14px; white-space: nowrap; }
+td.name-cell { font-weight: 600; color: var(--text); }
+td.task-cell { white-space: normal; max-width: 280px; font-size: 11px; color: var(--text2); line-height: 1.5; }
+td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+td.dim { color: var(--text3); }
+/* ── GROUP CHIPS ── */
+.g-chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: var(--r-sm);
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 13px;
+  letter-spacing: -.01em; font-weight: 700;
 }
-thead th { 
-  text-align: left; 
-  padding: 12px 14px; 
-  font-family: 'IBM Plex Mono', monospace; 
-  font-size: 9px; 
-  color: var(--text2); 
-  background: var(--surface2); 
-  border-bottom: 1px solid var(--border2); 
+.g-A { background: var(--hot-dim); color: var(--hot); border: 1px solid var(--hot-mid); }
+.g-B { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(77,142,255,0.15); }
+.g-C { background: var(--lime-dim); color: var(--lime); border: 1px solid var(--lime-mid); }
+.g-D { background: var(--violet-dim); color: var(--violet); border: 1px solid var(--violet-mid); }
+.g-E { background: var(--coral-dim); color: var(--coral); border: 1px solid rgba(255,122,92,0.15); }
+.g-F { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(255,215,106,0.15); }
+.g-G { background: var(--slate-dim); color: var(--slate); border: 1px solid rgba(123,139,162,0.15); }
+.q-tag {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  font-weight: 600; padding: 3px 10px; border-radius: 99px;
+  letter-spacing: .04em;
 }
-tbody tr { 
-  border-bottom: 1px solid var(--border); 
+.q-phones { background: var(--neon-dim); color: var(--neon); }
+.q-chats { background: var(--violet-dim); color: var(--violet); }
+.shift-tag {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  font-weight: 700; padding: 3px 10px; border-radius: 99px; letter-spacing: .04em;
 }
-td { 
-  padding: 12px 14px; 
-  white-space: nowrap; 
+.shift-am { background: var(--amber-dim); color: var(--amber); }
+.shift-pm { background: var(--violet-dim); color: var(--violet); }
+/* ── BUTTONS ── */
+.btn {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
+  border: none; border-radius: var(--r-sm); padding: 10px 20px;
+  cursor: pointer; transition: all .2s; display: inline-flex;
+  align-items: center; gap: 8px; letter-spacing: .04em;
+  text-transform: uppercase;
 }
-.tag-casino { 
-  color: var(--hot); 
-  font-weight: bold; 
-  font-family: 'IBM Plex Mono', monospace; 
+.btn-glow {
+  background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%);
+  color: var(--void); font-weight: 800;
+  box-shadow: 0 0 20px rgba(0,240,255,0.2), 0 0 60px rgba(0,240,255,0.06);
 }
-.tag-vip { 
-  color: var(--blue); 
-  font-weight: bold; 
-  font-family: 'IBM Plex Mono', monospace; 
+.btn-glow:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20px rgba(0,240,255,0.15); }
+.btn-glow:active { transform: translateY(0); }
+.btn-ghost {
+  background: var(--surface2); color: var(--text2);
+  border: 1px solid var(--border2);
 }
-.tag-secundaria { 
-  color: var(--lime); 
-  font-family: 'IBM Plex Mono', monospace; 
+.btn-ghost:hover { border-color: var(--border3); color: var(--text); background: var(--surface3); }
+.btn-sm { padding: 7px 14px; font-size: 10px; }
+.btn-danger { background: var(--hot-dim); color: var(--hot); border: 1px solid var(--hot-mid); }
+.btn-danger:hover { background: var(--hot-mid); }
+/* ── FORMS ── */
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text3);
 }
-.btn { 
-  font-family: 'IBM Plex Mono', monospace; 
-  font-size: 11px; 
-  font-weight: 700; 
-  border: none; 
-  border-radius: var(--r-sm); 
-  padding: 12px 24px; 
-  cursor: pointer; 
-  text-transform: uppercase; 
+.field input, .field select {
+  font-family: 'Figtree', sans-serif; font-size: 13px;
+  padding: 9px 14px; border-radius: var(--r-sm);
+  border: 1px solid var(--border2); background: var(--surface2);
+  color: var(--text); outline: none; transition: all .2s;
 }
-.btn-glow { 
-  background: linear-gradient(135deg, var(--neon) 0%, #00c4cc 100%); 
-  color: var(--void); 
-  font-weight: 800; 
-  box-shadow: var(--neon-glow); 
-}
-.upload-success { 
-  display: none; 
-  align-items: center; 
-  gap: 12px; 
-  padding: 12px 16px; 
-  border-radius: var(--r-sm); 
-  background: var(--lime-dim); 
-  border: 1px solid var(--lime-mid); 
-  margin-bottom: 16px; 
-  color: var(--lime); 
-  font-size: 12px; 
-}
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-inner">
-    <div class="logo"><div class="logo-icon">BA</div><span class="logo-text">BetAnything Task Maker</span></div>
-    <div class="nav-tabs">
-      <button class="nav-tab active" id="tab-config" onclick="switchMainView('config')">CARGAR DATOS</button>
-      <button class="nav-tab" id="tab-dashboard" onclick="switchMainView('dashboard')">TABLA DE TAREAS</button>
-    </div>
-  </div>
-</nav>
-
-<div class="content">
-  <div id="view-config" class="view active">
-    <div class="panel">
-      <div class="panel-head"><span class="panel-label">CARGA DE AGENTES ACTIVOS POR DÍA</span></div>
-      <div class="panel-body">
-        <div class="config-flow">
-          <label style="font-size:12px; font-weight:600; color:var(--text2)">1. Selecciona el Día de esta pestaña:</label>
-          <select id="select-dia-carga">
-            <option value="Lunes">LUNES</option>
-            <option value="Martes">MARTES</option>
-            <option value="Miercoles">MIÉRCOLES</option>
-            <option value="Jueves">JUEVES</option>
-            <option value="Viernes">VIERNES</option>
-            <option value="Sabado">SÁBADO</option>
-            <option value="Domingo">DOMINGO</option>
-          </select>
-        </div>
-        <div class="drop-zone" id="drop-zone">
-          <div class="dz-icon">📋</div>
-          <div class="dz-title">Arrastra el archivo CSV de este día aquí</div>
-          <div class="dz-sub">o haz clic para <span>buscar el archivo</span></div>
-          <input type="file" id="csv-file-input" accept=".csv,.txt" style="display:none">
-        </div>
-        <div class="upload-success" id="upload-status-box">
-          <span>✓</span> <span id="upload-status-text">Listo.</span>
-        </div>
-        <div style="text-align: center; margin-top: 20px;">
-          <button class="btn btn-glow" onclick="procesarDiaActual()">⚡ ASIGNAR TAREAS PARA ESTE DÍA</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="view-dashboard" class="view">
-    <div class="days-container">
-      <button class="day-btn active" id="btn-Lunes" onclick="seleccionarDia('Lunes')">LUNES</button>
-      <button class="day-btn" id="btn-Martes" onclick="seleccionarDia('Martes')">MARTES</button>
-      <button class="day-btn" id="btn-Miercoles" onclick="seleccionarDia('Miercoles')">MIÉRCOLES</button>
-      <button class="day-btn" id="btn-Jueves" onclick="seleccionarDia('Jueves')">JUEVES</button>
-      <button class="day-btn" id="btn-Viernes" onclick="seleccionarDia('Viernes')">VIERNES</button>
-      <button class="day-btn" id="btn-Sabado" onclick="seleccionarDia('Sabado')">SÁBADO</button>
-      <button class="day-btn" id="btn-Domingo" onclick="seleccionarDia('Domingo')">DOMINGO</button>
-    </div>
-    <div class="panel">
-      <div class="panel-head"><span class="panel-label" id="tabla-titulo">CRONOGRAMA DE OPERACIONES: LUNES</span></div>
-      <div style="overflow-x:auto;">
-        <table>
-          <thead>
-            <tr><th>AGENTE</th><th>HORARIO</th><th>ESTADO</th><th>TAREA PRINCIPAL</th><th>RESPONSABILIDAD SECUNDARIA</th></tr>
-          </thead>
-          <tbody id="tabla-agentes-body">
-            <tr><td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">No hay datos cargados para este día.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-let datosSemanales = { "Lunes": [], "Martes": [], "Miercoles": [], "Jueves": [], "Viernes": [], "Sabado": [], "Domingo": [] };
-let diaSeleccionadoActual = "Lunes";
-let contenidoCSVBruto = "";
-
-function switchMainView(viewName) {
-  document.getElementById('tab-config').classList.remove('active');
-  document.getElementById('tab-dashboard').classList.remove('active');
-  document.getElementById('view-config').classList.remove('active');
-  document.getElementById('view-dashboard').classList.remove('active');
-  
-  if(viewName === 'config') {
-    document.getElementById('tab-config').classList.add('active');
-    document.getElementById('view-config').classList.add('active');
-  } else {
-    document.getElementById('tab-dashboard').classList.add('active');
-    document.getElementById('view-dashboard').classList.add('active');
-    renderizarTablaDia(diaSeleccionadoActual);
-  }
-}
-
-const dropZone = document.getElementById('drop-zone');
-const fileInput = document.getElementById('csv-file-input');
-
-if (dropZone && fileInput) {
-  dropZone.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', (e) => {
-    if(e.target.files.length > 0) handleFile(e.target.files[0]);
-  });
-  dropZone.addEventListener('dragover', (e) => { 
-    e.preventDefault(); 
-    dropZone.classList.add('dragover'); 
-  });
-  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-  dropZone.addEventListener('drop', (e) => { 
-    e.preventDefault(); 
-    dropZone.classList.remove('dragover'); 
-    if(e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]); 
-  });
-}
-
-function handleFile(file) {
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    contenidoCSVBruto = e.target.result;
-    document.getElementById('upload-status-box').style.display = 'flex';
-    document.getElementById('upload-status-text').textContent = `Archivo "${file.name}" cargado en memoria.`;
-  };
-  reader.readAsText(file);
-}
-
-function procesarDiaActual() {
-  if(!contenidoCSVBruto || contenidoCSVBruto.trim() === "") {
-    alert("Por favor, selecciona o arrastra el archivo .csv del día primero.");
-    return;
-  }
-
-  let diaDestino = document.getElementById('select-dia-carga').value;
-  datosSemanales[diaDestino] = []; 
-
-  const textoNormalizado = contenidoCSVBruto.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-  const lineas = textoNormalizado.split('\n');
-  
-  for (let i = 0; i < lineas.length; i++) {
-    let lineaLimpia = lineas[i].trim();
-    if (!lineaLimpia) continue;
-    
-    if (lineaLimpia.toLowerCase() === "agente" || lineaLimpia.toLowerCase().includes("task maker") || lineaLimpia.toLowerCase().includes("test")) {
-      continue;
-    }
-
-    let agente = "";
-    let entrada = "--";
-    let salida = "--";
-
-    const patronHoras = /(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm))/g;
-    const coincidencias = lineaLimpia.match(patronHoras);
-
-    if (coincidencias && coincidencias.length >= 2) {
-      entrada = coincidencias[0].trim();
-      salida = coincidencias[1].trim();
-      let indicePrimeraHora = lineaLimpia.indexOf(coincidencias[0]);
-      agente = lineaLimpia.substring(0, indicePrimeraHora).replace(/["\t;,]/g, '').trim();
-    } else {
-      let columnas = [];
-      if (lineaLimpia.includes('\t')) columnas = lineaLimpia.split('\t');
-      else if (lineaLimpia.includes(';')) columnas = lineaLimpia.split(';');
-      else if (lineaLimpia.includes(',')) columnas = lineaLimpia.split(',');
-      else columnas = lineaLimpia.split(/\s{2,}/);
-
-      agente = columnas[0]?.replace(/"/g, '').trim();
-      entrada = columnas[1]?.replace(/"/g, '').trim() || '--';
-      salida = columnas[2]?.replace(/"/g, '').trim() || '--';
-    }
-
-    if(!agente || agente === "" || agente.toLowerCase() === "agente") {
-      continue;
-    }
-
-    datosSemanales[diaDestino].push({
-      nombre: agente,
-      entrada: entrada,
-      salida: salida,
-      estado: 'WORK',
-      tareaPrincipal: 'Pendiente',
-      tareaSecundaria: 'Ninguna'
-    });
-  }
-
-  if(datosSemanales[diaDestino].length === 0) {
-    alert("El archivo se leyó pero no se encontraron agentes válidos.");
-    return;
-  }
-
-  // Ejecutamos tu algoritmo exacto del archivo DOCX
-  ejecutarAlgoritmoDia(diaDestino);
-  
-  diaSeleccionadoActual = diaDestino;
-  seleccionarDia(diaDestino);
-  switchMainView('dashboard');
-  
-  contenidoCSVBruto = "";
-  document.getElementById('upload-status-box').style.display = 'none';
-  if(fileInput) fileInput.value = "";
-}
-
-function ejecutarAlgoritmoDia(dia) {
-  let activos = datosSemanales[dia];
-  if (activos.length === 0) return;
-
-  // REGLA ORIGINAL DOCX: Asignar Tareas Principales basadas estrictamente en la posición cronológica
-  activos.forEach((agente, index) => {
-    if (index === 0) {
-      agente.tareaPrincipal = 'VIP';
-    } else if (index === 1) {
-      agente.tareaPrincipal = 'Casino';
-    } else {
-      agente.tareaPrincipal = 'Soporte General';
-    }
-  });
-
-  // REGLA ORIGINAL DOCX: Asignar Responsabilidades Secundarias
-  let poolSecundarias = ['Zelle Blast', 'Bonus Check', 'Email FollowUp'];
-  let countSecundario = 0;
-
-  activos.forEach(agente => {
-    if (agente.tareaPrincipal === 'Casino') {
-      agente.tareaSecundaria = 'EXENTO (Casino Dedicado)';
-    } else if (agente.tareaPrincipal === 'VIP') {
-      agente.tareaSecundaria = 'EXENTO (VIP Dedicado)';
-    } else {
-      // Rotación cíclica para Soporte General
-      agente.tareaSecundaria = poolSecundarias[countSecundario % poolSecundarias.length];
-      countSecundario++;
-    }
-  });
-}
-
-function seleccionarDia(dia) {
-  diaSeleccionadoActual = dia;
-  document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
-  
-  const botonActivo = document.getElementById(`btn-${dia}`);
-  if(botonActivo) botonActivo.classList.add('active');
-  document.getElementById('tabla-titulo').textContent = `CRONOGRAMA DE OPERACIONES: ${dia.toUpperCase()}`;
-  renderizarTablaDia(dia);
-}
-
-function renderizarTablaDia(dia) {
-  const tbody = document.getElementById('tabla-agentes-body');
-  const agentes = datosSemanales[dia];
-  if (!agentes || agentes.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text3); padding:30px;">No hay datos cargados para el día ${dia}.</td></tr>`;
-    return;
-  }
-  let html = "";
-  agentes.forEach(a => {
-    let clasePrincipal = "";
-    if(a.tareaPrincipal === 'Casino') clasePrincipal = 'class="tag-casino"';
-    if(a.tareaPrincipal === 'VIP') clasePrincipal = 'class="tag-vip"';
-    
-    let estiloExento = (a.tareaSecundaria.includes('EXENTO')) ? 'style="opacity: 0.4;"' : '';
-
-    html += `<tr>
-      <td style="font-weight:600; color:var(--text);">${a.nombre}</td>
-      <td style="font-family:'IBM Plex Mono', monospace;">${a.entrada} - ${a.salida}</td>
-      <td style="font-weight:bold; color:var(--lime);">ACTIVE</td>
-      <td ${clasePrincipal}>${a.tareaPrincipal}</td>
-      <td class="tag-secundaria" ${estiloExento}>${a.tareaSecundaria}</td>
-    </tr>`;
-  });
-  tbody.innerHTML = html;
-}
-</script>
-</body>
-</html>
+.field input:focus, .field select:focus { border-color: var(--neon); box-shadow: 0 0 12px rgba(0,240,255,0.08); }
+.field select { cursor: pointer; }
+.field input::placeholder { color: var(--text4); }
+/* ── SCHEDULE ROWS ── */
+.sched-row {
+  display: grid;
+  grid-template-columns: 28px 1fr 100px 100px 110px;
+  gap:
