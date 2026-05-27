@@ -1195,12 +1195,12 @@ function assignTier1(A){A.forEach(function(a){if(a.group==='E')a.mainTask=isP(a.
 
 function assignDeposits(A,sh){
   var f=A.filter(function(a){return a.group==='F'&&a.shift===sh;}),c=f.length;if(!c)return;
-  var TA='Processors | Velocity | Scrubbers | Slack | 2nd Inbox',TB='CC - Certi Inbox | 2nd Slack | 2nd Processors | USU';
-  if(c===1){var h=f[0].startHr;if(h<=8||h>=13){f[0].mainTask='Processors | Velocity | Scrubbers';f[0].secTask='USU | Inbox | CC - Certi Inbox';}else f[0].mainTask=TB;}
+  var TA='Processors | Velocity | Scrubbers | Slack | 2nd Inbox',TB='CC - Certi Inbox | 2nd Slack | 2nd Processors';
+  if(c===1){var h=f[0].startHr;if(h<=8||h>=13){f[0].mainTask='Processors | Velocity | Scrubbers';f[0].secTask='Inbox | CC - Certi Inbox';}else f[0].mainTask=TB;}
   else if(c===2){f[0].mainTask=TA;f[1].mainTask=TB;}
-  else if(c===3){f[0].mainTask='Processors | Velocity | Scrubbers | 2nd Slack';f[1].mainTask='CC - Certi Inbox | 2nd Processors | USU';f[2].mainTask='Slack | 2nd Inbox';}
-  else if(c===4){f[0].mainTask='CC - Certi Inbox | 2nd Slack';f[1].mainTask='Processors | Velocity | Scrubbers';f[2].mainTask='Slack | Inbox';f[3].mainTask='USU | 2nd Processors | Inbox';}
-  else{f[0].mainTask='CC - Certi Inbox';f[1].mainTask='Slack | Inbox';f[2].mainTask='Processors | Velocity';f[3].mainTask='USU | 2nd Processors';if(f[4])f[4].mainTask='Scrubbers | 2nd Slack';}
+  else if(c===3){f[0].mainTask='Processors | Velocity | Scrubbers | 2nd Slack';f[1].mainTask='CC - Certi Inbox | 2nd Processors';f[2].mainTask='Slack | 2nd Inbox';}
+  else if(c===4){f[0].mainTask='CC - Certi Inbox | 2nd Slack';f[1].mainTask='Processors | Velocity | Scrubbers';f[2].mainTask='Slack | Inbox';f[3].mainTask='2nd Processors | Inbox';}
+  else{f[0].mainTask='CC - Certi Inbox';f[1].mainTask='Slack | Inbox';f[2].mainTask='Processors | Velocity';f[3].mainTask='2nd Processors';if(f[4])f[4].mainTask='Scrubbers | 2nd Slack';}
 }
 
 function assignPayouts(A,sh){
