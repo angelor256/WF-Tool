@@ -10,7 +10,8 @@
    THEME — dark cyberpunk command center
    ═══════════════════════════════════════════════════ */
 :root {
-  --void: #06080c;
+  /* CAMBIA ESTE VALOR POR EL COLOR DE FONDO QUE DESEES */
+  --void: #06080c; 
   --deep: #0b0e14;
   --surface: #0f1219;
   --surface2: #141820;
@@ -784,7 +785,7 @@ var lastResults = {
 var currentDay = "Lunes";       
 var lastResultsDay = "Lunes";   
 var resultFilter = 'all';
-var rosterGroupFilter = 'all'; // Para filtrar agentes por letra en la vista Roster
+var rosterGroupFilter = 'all'; 
 
 function save(){
   try {
@@ -1116,7 +1117,6 @@ function renderResults(){
   document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase();
   document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.';
   
-  // Contadores basados en las nuevas reglas de negocio
   var mC=activeDayResults.filter(function(r){return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);}).length;
   var aC=activeDayResults.filter(function(r){return r.startHr >= 9;}).length;
   
@@ -1137,16 +1137,13 @@ function renderResultsTable(){
   var activeDayResults = lastResults[lastResultsDay] || [];
   var d = activeDayResults;
   
-  // NUEVA LÓGICA DE FILTRADO DE HORAS SOLICITADA
   if(resultFilter==='morning') {
     d=activeDayResults.filter(function(r){
-      // Personas normales de la mañana (<9) Y TAMBIÉN personas en el rango de 8AM a 11AM
       return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);
     });
   }
   if(resultFilter==='afternoon') {
     d=activeDayResults.filter(function(r){
-      // Personas de la tarde: desde las 9 AM en adelante
       return r.startHr >= 9;
     });
   }
@@ -1330,9 +1327,7 @@ function handleScheduleFile(file) {
   });
 })();
 
-/* ════════════════════════════════════════════════
-   INIT
-   ════════════════════════════════════════════════ */
+/* ── INIT ── */
 load();renderRoster();renderSchedule();
 </script>
 </body>
