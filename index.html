@@ -12,7 +12,7 @@
 
 /* --- LIGHT MODE (Por Defecto) --- */
 :root {
-  --void: #f3f6fa;
+  --void: #f3f6fa; 
   --deep: #e7edf7;
   --surface: #ffffff;
   --surface2: #f8fafc;
@@ -30,6 +30,7 @@
   --neon-dim: rgba(0,151,167,0.08);
   --neon-mid: rgba(0,151,167,0.18);
   --neon-glow: 0 0 15px rgba(0,151,167,0.1), 0 0 40px rgba(0,151,167,0.04);
+
   --lime: #386a00;
   --lime-dim: rgba(56,106,0,0.08);
   --lime-mid: rgba(56,106,0,0.15);
@@ -57,6 +58,7 @@
 
   --slate: #475569;
   --slate-dim: rgba(71,85,105,0.08);
+
   --r: 12px;
   --r-sm: 8px;
   --bg-mix-1: rgba(0,151,167,0.02);
@@ -88,6 +90,7 @@ html.dark {
   --lime: #a3ff57;
   --lime-dim: rgba(163,255,87,0.08);
   --lime-mid: rgba(163,255,87,0.15);
+
   --hot: #ff3d71;
   --hot-dim: rgba(255,61,113,0.08);
   --hot-mid: rgba(255,61,113,0.15);
@@ -129,8 +132,7 @@ body {
 
 /* ── ANIMATED BG ── */
 body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background:
     radial-gradient(ellipse 80% 50% at 20% 0%, var(--bg-mix-1) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 100%, var(--bg-mix-2) 0%, transparent 60%);
@@ -146,8 +148,7 @@ body::after {
 
 /* ── NAV ── */
 nav {
-  position: sticky;
-  top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 100;
   background: var(--surface);
   box-shadow: 0 1px 0px var(--border2);
   backdrop-filter: blur(20px) saturate(1.5);
@@ -178,8 +179,7 @@ html.dark .logo-icon {
 }
 .logo-text {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 18px; font-weight: 700;
-  letter-spacing: -.01em; color: var(--text);
+  font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--text);
 }
 .logo-ver {
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
@@ -193,12 +193,10 @@ html.dark .logo-icon {
   padding: 3px; border: 1px solid var(--border);
 }
 .nav-tab {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
   color: var(--text3); padding: 7px 16px; border-radius: 8px;
   cursor: pointer; transition: all .2s; border: none; background: none;
-  letter-spacing: .03em;
-  white-space: nowrap;
+  letter-spacing: .03em; white-space: nowrap;
 }
 .nav-tab:hover { color: var(--text2); }
 .nav-tab.active {
@@ -219,8 +217,7 @@ html.dark .nav-tab.active {
 /* ── THEME SWITCHER TOGGLE ── */
 .theme-toggle-btn {
   background: none; border: none; cursor: pointer;
-  color: var(--text2); display: flex;
-  align-items: center; justify-content: center;
+  color: var(--text2); display: flex; align-items: center; justify-content: center;
   padding: 6px; border-radius: var(--r-sm); transition: all 0.2s;
 }
 .theme-toggle-btn:hover { background: var(--surface4); color: var(--text); }
@@ -236,8 +233,7 @@ html.dark .nav-tab.active {
 
 /* ── WEEK DAY SELECTOR ── */
 .day-selector {
-  display: flex;
-  gap: 4px; background: var(--surface);
+  display: flex; gap: 4px; background: var(--surface);
   border: 1px solid var(--border); padding: 4px;
   border-radius: var(--r-sm); margin-bottom: 20px;
   overflow-x: auto;
@@ -252,7 +248,7 @@ html.dark .nav-tab.active {
 .day-btn.active { 
   color: var(--neon); 
   background: var(--surface2); 
-  box-shadow: inset 0 0 0 1px var(--border2);
+  box-shadow: inset 0 0 0 1px var(--border2); 
 }
 html.dark .day-btn.active {
   background: var(--neon-dim);
@@ -271,8 +267,7 @@ html.dark .day-btn.active {
 /* ── SECTION HEADER ── */
 .sec-header { margin-bottom: 28px; }
 .sec-tag {
-  display: inline-flex;
-  align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: 6px;
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
   color: var(--neon); letter-spacing: .1em; text-transform: uppercase;
   margin-bottom: 10px;
@@ -291,8 +286,7 @@ html.dark .day-btn.active {
 .panel {
   background: var(--surface);
   border: 1px solid var(--border2);
-  border-radius: var(--r);
-  overflow: hidden;
+  border-radius: var(--r); overflow: hidden;
   transition: border-color .3s, background 0.3s;
 }
 .panel:hover { border-color: var(--border3); }
@@ -302,8 +296,7 @@ html.dark .day-btn.active {
   gap: 12px; flex-wrap: wrap;
 }
 .panel-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
   font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--text3);
 }
@@ -323,8 +316,7 @@ html.dark .day-btn.active {
   transition: background 0.3s;
 }
 .stat::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
 }
 .stat.s-neon::before { background: var(--neon); }
 .stat.s-lime::before { background: var(--lime); }
@@ -350,8 +342,7 @@ table { width: 100%; border-collapse: collapse; font-size: 12px; }
 thead th {
   text-align: left; padding: 10px 14px;
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
-  font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase;
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--text3); background: var(--surface2);
   border-bottom: 1px solid var(--border2);
   white-space: nowrap; position: sticky; top: 0; z-index: 2;
@@ -442,8 +433,7 @@ html.dark .g-G { border: 1px solid rgba(123,139,162,0.15); }
 /* ── BUTTONS ── */
 .btn {
   font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
-  border: none; border-radius: var(--r-sm);
-  padding: 10px 20px;
+  border: none; border-radius: var(--r-sm); padding: 10px 20px;
   cursor: pointer; transition: all .2s; display: inline-flex;
   align-items: center; gap: 8px; letter-spacing: .04em;
   text-transform: uppercase;
@@ -480,8 +470,7 @@ html.dark .btn-glow:hover { box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20p
 .field input, .field select {
   font-family: 'Figtree', sans-serif; font-size: 13px;
   padding: 9px 14px; border-radius: var(--r-sm);
-  border: 1px solid var(--border2);
-  background: var(--surface);
+  border: 1px solid var(--border2); background: var(--surface);
   color: var(--text); outline: none; transition: all .2s;
 }
 .field input:focus, .field select:focus { border-color: var(--neon); box-shadow: 0 0 8px var(--neon-dim); }
@@ -501,8 +490,7 @@ html.dark .btn-glow:hover { box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20p
 html.dark .sched-row:hover { background: rgba(0,240,255,0.015); }
 .sched-row.is-off { opacity: .4; }
 .sched-row input[type="time"], .sched-row select {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
   padding: 6px 8px; border-radius: 6px;
   border: 1px solid var(--border2); background: var(--surface2);
   color: var(--text); outline: none; transition: border-color .2s;
@@ -513,12 +501,10 @@ html.dark .sched-row:hover { background: rgba(0,240,255,0.015); }
 /* ── INTERACTIVE GROUP LEGEND ── */
 .legend-stack { display: flex; flex-direction: column; gap: 6px; }
 .legend-item {
-  display: flex;
-  align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 10px;
   padding: 10px 14px; border-radius: var(--r-sm);
   background: var(--surface2); border: 1px solid var(--border);
-  cursor: pointer;
-  transition: all 0.2s ease;
+  cursor: pointer; transition: all 0.2s ease;
 }
 .legend-item:hover {
   background: var(--surface3);
@@ -547,8 +533,7 @@ html.dark .legend-item.active-filter {
 
 /* ── EMPTY STATE ── */
 .empty {
-  text-align: center;
-  padding: 80px 20px; color: var(--text3);
+  text-align: center; padding: 80px 20px; color: var(--text3);
 }
 .empty-glyph {
   font-size: 56px; margin-bottom: 16px; opacity: .3;
@@ -561,17 +546,19 @@ html.dark .legend-item.active-filter {
 .drop-zone {
   border: 1.5px dashed var(--border3);
   border-radius: var(--r); padding: 36px 24px;
-  text-align: center;
-  cursor: pointer;
+  text-align: center; cursor: pointer;
   transition: all .25s; background: var(--surface);
   margin-bottom: 16px;
 }
 .drop-zone:hover { border-color: var(--neon); background: var(--surface2); }
 html.dark .drop-zone:hover { background: var(--neon-dim); }
+.drop-zone.dragover { border-color: var(--neon); background: var(--surface3); }
+html.dark .drop-zone.dragover { background: var(--neon-dim); box-shadow: var(--neon-glow); }
 .drop-zone .dz-icon {
-  width: 48px; height: 48px; border-radius: 12px; background: var(--surface2);
-  border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 14px; font-size: 20px; color: var(--text2); transition: all 0.2s;
+  width: 48px; height: 48px; margin: 0 auto 14px;
+  background: var(--surface3); border: 1px solid var(--border2);
+  border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; transition: all .25s;
 }
 .drop-zone:hover .dz-icon { background: var(--surface4); }
 html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color: rgba(0,240,255,0.2); }
@@ -581,7 +568,8 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 
 .upload-success {
   display: none; align-items: center; gap: 12px;
-  padding: 14px 18px; border-radius: var(--r-sm); background: var(--lime-dim); border: 1px solid var(--lime-mid);
+  padding: 14px 18px; border-radius: var(--r-sm);
+  background: var(--lime-dim); border: 1px solid var(--lime-mid);
   margin-bottom: 16px; animation: rowIn .3s ease;
 }
 .upload-success .us-icon { font-size: 18px; }
@@ -589,7 +577,10 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 .upload-success .us-detail { font-size: 11px; color: var(--text2); }
 
 /* ── EXPORT BAR ── */
-.export-bar { display: flex; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.export-bar {
+  display: flex; gap: 8px; margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
 
 /* ── MOBILE ── */
 .mobile-tabs { display: none; }
@@ -597,8 +588,36 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
   nav { padding: 0 14px; }
   .content { padding: 16px 14px 60px; }
   .nav-tabs { display: none; }
-  .mobile-tabs { display: flex; gap: 4px; margin-bottom: 20px; background: var(--surface); border-radius: 10px; padding: 3px; border: 1px solid var(--border); overflow-x: auto; }
+  .mobile-tabs {
+    display: flex; gap: 4px; margin-bottom: 20px;
+    background: var(--surface); border-radius: 10px;
+    padding: 3px; border: 1px solid var(--border);
+    overflow-x: auto;
+  }
   .sched-row { grid-template-columns: 28px 1fr; gap: 6px; }
+  .sched-row input[type="time"], .sched-row select { grid-column: span 1; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes rowIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.anim-row { animation: rowIn .25s ease both; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface4); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text4); }
+
+/* ── GLOW ACCENTS ── */
+.glow-line {
+  height: 1px; border: none; margin: 0;
+  background: linear-gradient(90deg, var(--neon), transparent 60%);
+  opacity: .2;
 }
 </style>
 </head>
@@ -608,18 +627,18 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
   <div class="nav-inner">
     <div class="logo">
       <div class="logo-icon">BA</div>
-      <div class="logo-text">BetAnything Task Maker</div>
-      <div class="logo-ver">v3.2</div>
+      <span class="logo-text">BetAnything Task Maker</span>
+      <span class="logo-ver">v3.4</span>
     </div>
-    <div class="nav-tabs" id="nav-tabs">
+    <div class="nav-tabs">
       <button class="nav-tab active" data-view="roster">ROSTER</button>
       <button class="nav-tab" data-view="schedule">SCHEDULE</button>
       <button class="nav-tab" data-view="results">TASKS</button>
     </div>
     <div class="nav-spacer"></div>
     <div class="nav-status">
-      <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme">
-        <svg id="sun-icon" viewBox="0 0 24 24" style="display:none;"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg>
+      <button id="theme-switcher" class="theme-toggle-btn" title="Alternar Modo Claro / Oscuro">
+        <svg id="sun-icon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg>
         <svg id="moon-icon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 0 11.5-11.5 10.3 10.3 0 0 1-9.6-8.3z"/></svg>
       </button>
       <div class="pulse-dot"></div>
@@ -641,35 +660,59 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
       <div class="sec-title">Agent Roster</div>
       <p class="sec-sub">Manage agents, groups, and queue assignments. Click on any right-side Group Card to quickly isolate agents.</p>
     </div>
+
     <div class="grid-2">
       <div class="panel">
         <div class="panel-head">
           <span class="panel-label" id="roster-table-label">ALL AGENTS</span>
           <div style="display: flex; align-items: center; gap: 8px;">
             <span id="agent-count" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);"></span>
-            <button class="btn btn-ghost btn-sm" id="btn-reset-roster-filter" onclick="clearRosterGroupFilter()" style="display:none;padding:4px 8px;font-size:10px;">RESET FILTER</button>
+            <button class="btn btn-ghost btn-sm" id="btn-reset-roster-filter" style="display:none; padding: 2px 8px; font-size: 9px;" onclick="clearRosterGroupFilter()">RESET</button>
           </div>
         </div>
-        <div style="max-height:620px; overflow-y:auto;">
+        <div style="overflow-x:auto;max-height:520px;overflow-y:auto;">
           <table>
-            <thead><tr><th>NAME</th><th>GRP</th><th>DESCRIPTION</th><th>QUEUE</th><th>ACTIONS</th></tr></thead>
+            <thead><tr>
+              <th>NAME</th><th>GRP</th><th>ROLE</th><th>QUEUE</th><th></th>
+            </tr></thead>
             <tbody id="roster-body"></tbody>
           </table>
         </div>
+        <hr class="glow-line">
+        <div class="panel-body">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--neon);letter-spacing:.08em;margin-bottom:14px;">+ ADD AGENT</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">
+            <div class="field" style="flex:2;min-width:160px;">
+              <label>NAME</label>
+              <input type="text" id="new-name" placeholder="Full name">
+            </div>
+            <div class="field" style="min-width:100px;">
+              <label>GROUP</label>
+              <select id="new-group"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D" selected>D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
+            </div>
+            <div class="field" style="min-width:100px;">
+              <label>QUEUE</label>
+              <select id="new-queue"><option value="Phones">Phones</option><option value="Chats">Chats</option></select>
+            </div>
+            <button class="btn btn-glow btn-sm" onclick="addAgent()">ADD</button>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="panel" style="margin-bottom:16px;">
-          <div class="panel-head"><span class="panel-label">ADD AGENT</span></div>
-          <div class="panel-body" style="display:flex;flex-direction:column;gap:14px;">
-            <div class="field"><label>Full Name</label><input type="text" id="new-name" placeholder="John Doe"></div>
-            <div class="field"><label>Group</label><select id="new-group"><option value="A">A — Tier 1 (Phones/Chats Focus)</option><option value="B">B — Tier 2 (Emails Focus)</option><option value="C">C — Escalations / Payouts</option><option value="D">D — Casino Support / High Value</option><option value="E">E — Hybrid / Cross-trained</option><option value="F">F — Deposits / Credit Cards</option><option value="G">G — Quality Assurance / Training</option></select></div>
-            <div class="field"><label>Default Queue Preference</label><select id="new-queue"><option value="Phones">Phones</option><option value="Chats">Chats</option></select></div>
-            <button class="btn btn-glow" onclick="addAgent()" style="justify-content:center;margin-top:4px;">+ ADD AGENT</button>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="panel">
+          <div class="panel-head"><span class="panel-label">GROUPS (FILTRAR LISTA)</span></div>
+          <div class="panel-body">
+            <div class="legend-stack" id="group-legend"></div>
           </div>
         </div>
         <div class="panel">
-          <div class="panel-head"><span class="panel-label">GROUPS FILTER</span></div>
-          <div class="panel-body legend-stack" id="group-legend"></div>
+          <div class="panel-head"><span class="panel-label">ACTIONS</span></div>
+          <div class="panel-body" style="display:flex;flex-direction:column;gap:8px;">
+            <button class="btn btn-ghost btn-sm" onclick="exportRosterCSV()">↓ EXPORT CSV</button>
+            <button class="btn btn-ghost btn-sm" onclick="document.getElementById('import-csv').click()">↑ IMPORT CSV</button>
+            <input type="file" id="import-csv" accept=".csv" style="display:none" onchange="importRosterCSV(event)">
+          </div>
         </div>
       </div>
     </div>
@@ -677,11 +720,12 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 
   <div class="view" id="view-schedule">
     <div class="sec-header">
-      <div class="sec-tag">DATABASE FEED</div>
-      <div class="sec-title">Shift Controller</div>
-      <p class="sec-sub">Upload your schedule or customize specific daily hours. Agents marked as 'OFF' or 'VAC' will be automatically skipped during algorithmic resource distributions.</p>
+      <div class="sec-tag">DAILY CONFIG</div>
+      <div class="sec-title">Weekly Schedule Planner</div>
+      <p class="sec-sub">Select a day of the week, upload its respective CSV schedule, and generate daily tasks.</p>
     </div>
-    <div class="day-selector" id="sched-day-tabs">
+
+    <div class="day-selector" id="day-tabs">
       <button class="day-btn active" data-day="Lunes">LUNES</button>
       <button class="day-btn" data-day="Martes">MARTES</button>
       <button class="day-btn" data-day="Miércoles">MIÉRCOLES</button>
@@ -690,12 +734,14 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
       <button class="day-btn" data-day="Sábado">SÁBADO</button>
       <button class="day-btn" data-day="Domingo">DOMINGO</button>
     </div>
+
     <div class="drop-zone" id="drop-zone">
-      <div class="dz-icon">↑</div>
-      <div class="dz-title">Drag & Drop Shift Schedule CSV here</div>
-      <div class="dz-sub">or <span id="browse-link">browse your files</span></div>
+      <div class="dz-icon">📄</div>
+      <div class="dz-title" id="dz-title">Drop Lunes schedule CSV here</div>
+      <div class="dz-sub">or <span id="browse-link">browse files</span> — format: Name, Start, End</div>
     </div>
     <input type="file" id="sched-file" accept=".csv,.txt" style="display:none">
+
     <div class="upload-success" id="upload-success">
       <span class="us-icon">✓</span>
       <div>
@@ -703,11 +749,13 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
         <div class="us-detail" id="us-detail"></div>
       </div>
     </div>
+
     <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
       <button class="btn btn-glow" onclick="generateTasks()" style="font-size:13px;padding:14px 32px;" id="btn-gen-tasks">▶ GENERATE TASKS FOR LUNES</button>
       <button class="btn btn-ghost" onclick="setAllWorking()">ALL WORKING</button>
       <button class="btn btn-ghost" onclick="setAllOff()">ALL OFF</button>
     </div>
+
     <div class="panel">
       <div class="panel-head">
         <span class="panel-label" id="panel-sched-label">SHIFTS (LUNES)</span>
@@ -729,17 +777,21 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
       <button class="day-btn" data-tday="Sábado">SÁBADO</button>
       <button class="day-btn" data-tday="Domingo">DOMINGO</button>
     </div>
+
     <div id="results-empty" class="empty">
       <div class="empty-glyph">⚡</div>
       <p>No tasks generated yet for <strong id="empty-day-name">Lunes</strong>. Go to <strong>SCHEDULE</strong> and hit <strong>GENERATE TASKS</strong>.</p>
     </div>
+
     <div id="results-content" style="display:none;">
       <div class="sec-header">
         <div class="sec-tag">OUTPUT</div>
         <div class="sec-title" id="results-title">Task Assignments</div>
         <p class="sec-sub" id="results-sub"></p>
       </div>
+
       <div class="grid-stats" id="results-summary"></div>
+
       <div class="panel">
         <div class="panel-head">
           <span class="panel-label">DETAIL (CLIC EN CUALQUIER TAREA PARA EDITAR EXPRESAMENTE)</span>
@@ -768,204 +820,86 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 
 <script>
 /* ════════════════════════════════════════════════
-   DATA & ROUTING ENGINE
+   DATA
    ════════════════════════════════════════════════ */
 var GM = {
-  'A': {label:'Tier 1 (Phones/Chats Focus)'},
-  'B': {label:'Tier 2 (Emails Focus)'},
-  'C': {label:'Escalations / Payouts'},
-  'D': {label:'Casino Support / High Value'},
-  'E': {label:'Hybrid / Cross-trained'},
-  'F': {label:'Deposits / Credit Cards'},
-  'G': {label:'Quality Assurance / Training'},
-  'unkn': {label:'Unmapped Group'}
+  A:{label:'Casino Specialist',color:'hot'},
+  B:{label:'VIP',color:'blue'},
+  C:{label:'Senior',color:'lime'},
+  D:{label:'Tier 3 / Tier 2',color:'violet'},
+  E:{label:'Tier 1 / New Hire',color:'coral'},
+  F:{label:'Deposits',color:'gold'},
+  G:{label:'Payouts',color:'slate'}
 };
 
 var DEF_ROSTER = [
-  {n:"Angelo Ramirez",g:"A",q:"Phones"},{n:"Adriana Chavarria",g:"A",q:"Chats"},
-  {n:"Jose David Gonzalez Mora",g:"B",q:"Chats"},{n:"Sariella Maria Marchena Artavia",g:"B",q:"Chats"},
-  {n:"Brandon Miranda",g:"C",q:"Phones"},{n:"Fabiola Chaves Obando",g:"C",q:"Chats"},
-  {n:"Daniel Arturo Salazar Rosales",g:"D",q:"Phones"},{n:"Kryssia Maria Quirós Fonseca",g:"D",q:"Chats"},
-  {n:"Esteban Hernandez Porras",g:"E",q:"Phones"},{n:"Monica Maria Sibaja Rodriguez",g:"E",q:"Chats"},
-  {n:"Yancy Chavarria Segura",g:"F",q:"Phones"},{n:"Jimena Acuña Marín",g:"F",q:"Chats"},
-  {n:"Sebastian Quiros Porras",g:"G",q:"Phones"},{n:"Karla Maria Gomez Solano",g:"G",q:"Chats"},
-  {n:"Aaron Gamboa",g:"A",q:"Phones"},{n:"Abelardo Ramirez",g:"A",q:"Phones"},
-  {n:"Alexander Cedeño",g:"A",q:"Phones"},{n:"Alonso Castillo",g:"A",q:"Phones"},
-  {n:"Alvaro Perez",g:"A",q:"Phones"},{n:"Andres Fallas",g:"A",q:"Phones"},
-  {n:"Andres Sanabria",g:"A",q:"Phones"},{n:"Anthony Valverde",g:"A",q:"Phones"},
-  {n:"Antony Chacon",g:"A",q:"Phones"},{n:"Ariel Nuñez",g:"A",q:"Phones"},
-  {n:"Arturo Arguedas",g:"A",q:"Phones"},{n:"Axel Bustos",g:"A",q:"Phones"},
-  {n:"Carlos Centeno",g:"A",q:"Phones"},{n:"Carlos Eduardo Amador Luna",g:"A",q:"Phones"},
-  {n:"Carlos Granados",g:"A",q:"Phones"},{n:"Carlos Gutierrez",g:"A",q:"Phones"},
-  {n:"Christian Castro",g:"A",q:"Phones"},{n:"Christian Jimenez",g:"A",q:"Phones"},
-  {n:"Christopher Solano",g:"A",q:"Phones"},{n:"Daniel Diaz",g:"A",q:"Phones"},
-  {n:"Daniel Fernandez",g:"A",q:"Phones"},{n:"Daniel Murillo",g:"A",q:"Phones"},
-  {n:"Daniel Quirós",g:"A",q:"Phones"},{n:"Daniel Rodriguez",g:"A",q:"Phones"},
-  {n:"Danny Nuñez",g:"A",q:"Phones"},{n:"David Arias",g:"A",q:"Phones"},
-  {n:"David Mora",g:"A",q:"Phones"},{n:"David Solis",g:"A",q:"Phones"},
-  {n:"Derian Chavarria",g:"A",q:"Phones"},{n:"Diego Cordero",g:"A",q:"Phones"},
-  {n:"Diego Miranda",g:"A",q:"Phones"},{n:"Dylan Saborio",g:"A",q:"Phones"},
-  {n:"Eduardo Herrera",g:"A",q:"Phones"},{n:"Eduardo Monge",g:"A",q:"Phones"},
-  {n:"Edward Meza",g:"A",q:"Phones"},{n:"Elias Gomez",g:"A",q:"Phones"},
-  {n:"Emanuel Alvarado",g:"A",q:"Phones"},{n:"Emmanuel Marin",g:"A",q:"Phones"},
-  {n:"Enderson Arguedas",g:"A",q:"Phones"},{n:"Enrique Villalobos",g:"A",q:"Phones"},
-  {n:"Eric Gonzalez",g:"A",q:"Phones"},{n:"Erick Escalante",g:"A",q:"Phones"},
-  {n:"Erick Mora",g:"A",q:"Phones"},{n:"Esteban Chaves",g:"A",q:"Phones"},
-  {n:"Esteban Quesada",g:"A",q:"Phones"},{n:"Esteban Solano",g:"A",q:"Phones"},
-  {n:"Fabian Martinez",g:"A",q:"Phones"},{n:"Fabian Murillo",g:"A",q:"Phones"},
-  {n:"Fabian Oviedo",g:"A",q:"Phones"},{n:"Fabian Soto",g:"A",q:"Phones"},
-  {n:"Gabriel Carvajal",g:"A",q:"Phones"},{n:"Gabriel Gamboa",g:"A",q:"Phones"},
-  {n:"Gabriel Vargas",g:"A",q:"Phones"},{n:"Geovanny Mora",g:"A",q:"Phones"},
-  {n:"Gerald Jimenez",g:"A",q:"Phones"},{n:"Gerardo Fallas",g:"A",q:"Phones"},
-  {n:"Giancarlo Angulo",g:"A",q:"Phones"},{n:"Guillermo Solano",g:"A",q:"Phones"},
-  {n:"Hansel Perez",g:"A",q:"Phones"},{n:"Ignacio Solis",g:"A",q:"Phones"},
-  {n:"Isaac Arroyo",g:"A",q:"Phones"},{n:"Isaac Castillo",g:"A",q:"Phones"},
-  {n:"Isaac Ramirez",g:"A",q:"Phones"},{n:"Ismael Jimenez",g:"A",q:"Phones"},
-  {n:"Jafet Chaves",g:"A",q:"Phones"},{n:"Javier Gomez",g:"A",q:"Phones"},
-  {n:"Javier Miranda",g:"A",q:"Phones"},{n:"Jean Carlo Rodriguez",g:"A",q:"Phones"},
-  {n:"Jeancarlo Gamboa",g:"A",q:"Phones"},{n:"Jeffrey Marin",g:"A",q:"Phones"},
-  {n:"Jeison Chacon",g:"A",q:"Phones"},{n:"Jendrick Alfaro",g:"A",q:"Phones"},
-  {n:"Jeremy Chaves",g:"A",q:"Phones"},{n:"Jeremy Solano",g:"A",q:"Phones"},
-  {n:"Jerson Cascante",g:"A",q:"Phones"},{n:"Jesús Cordero",g:"A",q:"Phones"},
-  {n:"Jesús Maria Amador Luna",g:"A",q:"Phones"},{n:"John Gomez",g:"A",q:"Phones"},
-  {n:"John Paul Rodriguez",g:"A",q:"Phones"},{n:"Jonathan Cedeño",g:"A",q:"Phones"},
-  {n:"Jonathan Monge",g:"A",q:"Phones"},{n:"Jorge Arturo Amador Luna",g:"A",q:"Phones"},
-  {n:"Jorge Castillo",g:"A",q:"Phones"},{n:"Jorge Gutierrez",g:"A",q:"Phones"},
-  {n:"Jose Angel Amador Luna",g:"A",q:"Phones"},{n:"Jose Antonio Castillo Rojas",g:"A",q:"Phones"},
-  {n:"Jose Daniel Amador Luna",g:"A",q:"Phones"},{n:"Jose David Gonzalez Mora",g:"A",q:"Phones"},
-  {n:"Jose Fernando Amador Luna",g:"A",q:"Phones"},{n:"Jose Gabriel Amador Luna",g:"A",q:"Phones"},
-  {n:"Jose Luis Amador Luna",g:"A",q:"Phones"},{n:"Jose Mario Amador Luna",g:"A",q:"Phones"},
-  {n:"Jose Pablo Amador Luna",g:"A",q:"Phones"},{n:"Joseph Alvarado",g:"A",q:"Phones"},
-  {n:"Joseph Marin",g:"A",q:"Phones"},{n:"Josué Arias",g:"A",q:"Phones"},
-  {n:"Josué Monge",g:"A",q:"Phones"},{n:"Juan De Dios Amador Luna",g:"A",q:"Phones"},
-  {n:"Juan Gabriel Amador Luna",g:"A",q:"Phones"},{n:"Juan José Amador Luna",g:"A",q:"Phones"},
-  {n:"Juan Pablo Amador Luna",g:"A",q:"Phones"},{n:"Julio Cesar Amador Luna",g:"A",q:"Phones"},
-  {n:"Justin Arias",g:"A",q:"Phones"},{n:"Kendall Gomez",g:"A",q:"Phones"},
-  {n:"Kenneth Marin",g:"A",q:"Phones"},{n:"Kevin Alvarado",g:"A",q:"Phones"},
-  {n:"Kevin Marin",g:"A",q:"Phones"},{n:"Kristhian Castro",g:"A",q:"Phones"},
-  {n:"Lautaro Rose",g:"A",q:"Phones"},{n:"Leandro Gomez",g:"A",q:"Phones"},
-  {n:"Leonardo Marin",g:"A",q:"Phones"},{n:"Luis Alejandro Amador Luna",g:"A",q:"Phones"},
-  {n:"Luis Carlos Amador Luna",g:"A",q:"Phones"},{n:"Luis Diego Amador Luna",g:"A",q:"Phones"},
-  {n:"Luis Fernando Amador Luna",g:"A",q:"Phones"},{n:"Luis Gabriel Amador Luna",g:"A",q:"Phones"},
-  {n:"Luis Guillermo Amador Luna",g:"A",q:"Phones"},{n:"Luis Javier Amador Luna",g:"A",q:"Phones"},
-  {n:"Luis Miguel Amador Luna",g:"A",q:"Phones"},{n:"Luis Pablo Amador Luna",g:"A",q:"Phones"},
-  {n:"Manrique Gomez",g:"A",q:"Phones"},{n:"Manuel Antonio Amador Luna",g:"A",q:"Phones"},
-  {n:"Marco Tulio Amador Luna",g:"A",q:"Phones"},{n:"Marcos Antonio Amador Luna",g:"A",q:"Phones"},
-  {n:"Mario Alberto Amador Luna",g:"A",q:"Phones"},{n:"Marlon Gomez",g:"A",q:"Phones"},
-  {n:"Mauricio Marin",g:"A",q:"Phones"},{n:"Maximiliano Rose",g:"A",q:"Phones"},
-  {n:"Michael Alvarado",g:"A",q:"Phones"},{n:"Nery Gomez",g:"A",q:"Phones"},
-  {n:"Nestor Marin",g:"A",q:"Phones"},{n:"Nicolas Rose",g:"A",q:"Phones"},
-  {n:"Oliver Gomez",g:"A",q:"Phones"},{n:"Oscar Mario Amador Luna",g:"A",q:"Phones"},
-  {n:"Pablo Antonio Amador Luna",g:"A",q:"Phones"},{n:"Paulo Gomez",g:"A",q:"Phones"},
-  {n:"Pedro Antonio Amador Luna",g:"A",q:"Phones"},{n:"Rafael Angel Amador Luna",g:"A",q:"Phones"},
-  {n:"Randal Gomez",g:"A",q:"Phones"},{n:"Randy Marin",g:"A",q:"Phones"},
-  {n:"Raul Antonio Amador Luna",g:"A",q:"Phones"},{n:"Reinaldo Gomez",g:"A",q:"Phones"},
-  {n:"Ricardo Antonio Amador Luna",g:"A",q:"Phones"},{n:"Roberto Carlos Amador Luna",g:"A",q:"Phones"},
-  {n:"Rodrigo Antonio Amador Luna",g:"A",q:"Phones"},{n:"Ronaldo Gomez",g:"A",q:"Phones"},
-  {n:"Roy Marin",g:"A",q:"Phones"},{n:"Ruben Antonio Amador Luna",g:"A",q:"Phones"},
-  {n:"Santiago Rose",g:"A",q:"Phones"},{n:"Saul Antonio Amador Luna",g:"A",q:"Phones"},
-  {n:"Sergio Antonio Amador Luna",g:"A",q:"Phones"},{n:"Steven Gomez",g:"A",q:"Phones"},
-  {n:"Tomas Rose",g:"A",q:"Phones"},{n:"Victor Hugo Amador Luna",g:"A",q:"Phones"},
-  {n:"Walter Gomez",g:"A",q:"Phones"},{n:"William Marin",g:"A",q:"Phones"},
-  {n:"Yader Gomez",g:"A",q:"Phones"},{n:"Zacarias Rose",g:"A",q:"Phones"}
+  {n:"Naigell Beckford",g:"A",q:"Phones"},{n:"Nicole Román",g:"A",q:"Phones"},
+  {n:"Mariana Varela",g:"A",q:"Chats"},{n:"Tamara Donaire",g:"A",q:"Chats"},
+  {n:"Raquel Solano",g:"A",q:"Chats"},
+  {n:"Elliot Navarro",g:"B",q:"Chats"},{n:"Emerson Hernandez",g:"B",q:"Phones"},
+  {n:"Stephannie Cunningham",g:"B",q:"Phones"},{n:"Thimy Gonzalez",g:"B",q:"Phones"},
+  {n:"Yasser Quiros",g:"B",q:"Phones"},{n:"Elena Rojas",g:"B",q:"Chats"},
+  {n:"Isaac Porras",g:"B",q:"Chats"},{n:"Julian Mena",g:"B",q:"Chats"},
+  {n:"Sebastian Puerta",g:"B",q:"Chats"},
+  {n:"Rory Bulgarelli",g:"C",q:"Phones"},{n:"Naomy Sanchez",g:"C",q:"Chats"},
+  {n:"Andrey Castillo",g:"C",q:"Phones"},
+  {n:"Carlos Alejandro Amador Luna",g:"D",q:"Phones"},{n:"Carlos Ortiz",g:"D",q:"Phones"},
+  {n:"Carolina Castro",g:"D",q:"Chats"},{n:"David Vogler",g:"D",q:"Phones"},
+  {n:"Pablo Guzman",g:"D",q:"Phones"},{n:"Adrian Navarro",g:"D",q:"Chats"},
+  {n:"Daniel Leandro Rojas",g:"D",q:"Chats"},{n:"Isaac Barrantes Alvarado",g:"D",q:"Chats"},
+  {n:"Maria Jose Quiros Quiros",g:"D",q:"Chats"},{n:"Phillip Desanti",g:"D",q:"Chats"},
+  {n:"Charlene Rose",g:"E",q:"Phones"},{n:"Valerie Alfaro",g:"E",q:"Phones"},
+  {n:"Diego Matamoros",g:"F",q:"Phones"},{n:"Michelle Saborio",g:"F",q:"Chats"},
+  {n:"Mariana Bejarano",g:"F",q:"Chats"},{n:"Sebastian Rivera",g:"F",q:"Phones"},
+  {n:"Silvana Suarez",g:"F",q:"Chats"},{n:"Vanessa Umana",g:"F",q:"Chats"},
+  {n:"Eddison Prendas",g:"G",q:"Phones"},{n:"Carlos Amador",g:"G",q:"Phones"},
+  {n:"Fer Blanco",g:"G",q:"Phones"},{n:"Ignacio Blanco",g:"G",q:"Phones"},
+  {n:"Kevin Zamora",g:"G",q:"Phones"},{n:"Paula Muñoz",g:"G",q:"Chats"},
+  {n:"Samuel Carballo",g:"G",q:"Phones"},{n:"Graciela Bravo",g:"G",q:"Chats"},
+  {n:"Sheydron Clark",g:"G",q:"Phones"},{n:"Israel Aburto",g:"G",q:"Phones"}
 ].map(function(r){return{name:r.n,group:r.g,queue:r.q}});
 
 var DEF_SCHED = [
-  {n:"Angelo Ramirez",s:"06:00",e:"14:00",st:"w"},{n:"Adriana Chavarria",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jose David Gonzalez Mora",s:"06:00",e:"14:00",st:"w"},{n:"Sariella Maria Marchena Artavia",s:"06:00",e:"14:00",st:"w"},
-  {n:"Brandon Miranda",s:"07:00",e:"15:00",st:"w"},{n:"Fabiola Chaves Obando",s:"07:00",e:"15:00",st:"w"},
-  {n:"Daniel Arturo Salazar Rosales",s:"08:00",e:"16:00",st:"w"},{n:"Kryssia Maria Quirós Fonseca",s:"08:00",e:"16:00",st:"w"},
-  {n:"Esteban Hernandez Porras",s:"09:00",e:"17:00",st:"w"},{n:"Monica Maria Sibaja Rodriguez",s:"09:00",e:"17:00",st:"w"},
-  {n:"Yancy Chavarria Segura",s:"10:00",e:"18:00",st:"w"},{n:"Jimena Acuña Marín",s:"10:00",e:"18:00",st:"w"},
-  {n:"Sebastian Quiros Porras",s:"11:00",e:"19:00",st:"w"},{n:"Karla Maria Gomez Solano",s:"11:00",e:"19:00",st:"w"},
-  {n:"Aaron Gamboa",s:"12:00",e:"20:00",st:"w"},{n:"Abelardo Ramirez",s:"13:00",e:"21:00",st:"w"},
-  {n:"Alexander Cedeño",s:"14:00",e:"22:00",st:"w"},{n:"Alonso Castillo",s:"14:00",e:"22:00",st:"w"},
-  {n:"Alvaro Perez",s:"14:00",e:"22:00",st:"w"},{n:"Andres Fallas",s:"15:00",e:"23:00",st:"w"},
-  {n:"Andres Sanabria",s:"15:00",e:"23:00",st:"w"},{n:"Anthony Valverde",s:"16:00",e:"00:00",st:"w"},
-  {n:"Antony Chacon",s:"16:00",e:"00:00",st:"w"},{n:"Ariel Nuñez",s:"16:00",e:"00:00",st:"w"},
-  {n:"Arturo Arguedas",s:"06:00",e:"14:00",st:"w"},{n:"Axel Bustos",s:"06:00",e:"14:00",st:"w"},
-  {n:"Carlos Centeno",s:"06:00",e:"14:00",st:"w"},{n:"Carlos Eduardo Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Carlos Granados",s:"06:00",e:"14:00",st:"w"},{n:"Carlos Gutierrez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Christian Castro",s:"06:00",e:"14:00",st:"w"},{n:"Christian Jimenez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Christopher Solano",s:"06:00",e:"14:00",st:"w"},{n:"Daniel Diaz",s:"06:00",e:"14:00",st:"w"},
-  {n:"Daniel Fernandez",s:"06:00",e:"14:00",st:"w"},{n:"Daniel Murillo",s:"06:00",e:"14:00",st:"w"},
-  {n:"Daniel Quirós",s:"06:00",e:"14:00",st:"w"},{n:"Daniel Rodriguez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Danny Nuñez",s:"06:00",e:"14:00",st:"w"},{n:"David Arias",s:"06:00",e:"14:00",st:"w"},
-  {n:"David Mora",s:"06:00",e:"14:00",st:"w"},{n:"David Solis",s:"06:00",e:"14:00",st:"w"},
-  {n:"Derian Chavarria",s:"06:00",e:"14:00",st:"w"},{n:"Diego Cordero",s:"06:00",e:"14:00",st:"w"},
-  {n:"Diego Miranda",s:"06:00",e:"14:00",st:"w"},{n:"Dylan Saborio",s:"06:00",e:"14:00",st:"w"},
-  {n:"Eduardo Herrera",s:"06:00",e:"14:00",st:"w"},{n:"Eduardo Monge",s:"06:00",e:"14:00",st:"w"},
-  {n:"Edward Meza",s:"06:00",e:"14:00",st:"w"},{n:"Elias Gomez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Emanuel Alvarado",s:"06:00",e:"14:00",st:"w"},{n:"Emmanuel Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Enderson Arguedas",s:"06:00",e:"14:00",st:"w"},{n:"Enrique Villalobos",s:"06:00",e:"14:00",st:"w"},
-  {n:"Eric Gonzalez",s:"06:00",e:"14:00",st:"w"},{n:"Erick Escalante",s:"06:00",e:"14:00",st:"w"},
-  {n:"Erick Mora",s:"06:00",e:"14:00",st:"w"},{n:"Esteban Chaves",s:"06:00",e:"14:00",st:"w"},
-  {n:"Esteban Quesada",s:"06:00",e:"14:00",st:"w"},{n:"Esteban Solano",s:"06:00",e:"14:00",st:"w"},
-  {n:"Fabian Martinez",s:"06:00",e:"14:00",st:"w"},{n:"Fabian Murillo",s:"06:00",e:"14:00",st:"w"},
-  {n:"Fabian Oviedo",s:"06:00",e:"14:00",st:"w"},{n:"Fabian Soto",s:"06:00",e:"14:00",st:"w"},
-  {n:"Gabriel Carvajal",s:"06:00",e:"14:00",st:"w"},{n:"Gabriel Gamboa",s:"06:00",e:"14:00",st:"w"},
-  {n:"Gabriel Vargas",s:"06:00",e:"14:00",st:"w"},{n:"Geovanny Mora",s:"06:00",e:"14:00",st:"w"},
-  {n:"Gerald Jimenez",s:"06:00",e:"14:00",st:"w"},{n:"Gerardo Fallas",s:"06:00",e:"14:00",st:"w"},
-  {n:"Giancarlo Angulo",s:"06:00",e:"14:00",st:"w"},{n:"Guillermo Solano",s:"06:00",e:"14:00",st:"w"},
-  {n:"Hansel Perez",s:"06:00",e:"14:00",st:"w"},{n:"Ignacio Solis",s:"06:00",e:"14:00",st:"w"},
-  {n:"Isaac Arroyo",s:"06:00",e:"14:00",st:"w"},{n:"Isaac Castillo",s:"06:00",e:"14:00",st:"w"},
-  {n:"Isaac Ramirez",s:"06:00",e:"14:00",st:"w"},{n:"Ismael Jimenez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jafet Chaves",s:"06:00",e:"14:00",st:"w"},{n:"Javier Gomez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Javier Miranda",s:"06:00",e:"14:00",st:"w"},{n:"Jean Carlo Rodriguez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jeancarlo Gamboa",s:"06:00",e:"14:00",st:"w"},{n:"Jeffrey Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jeison Chacon",s:"06:00",e:"14:00",st:"w"},{n:"Jendrick Alfaro",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jeremy Chaves",s:"06:00",e:"14:00",st:"w"},{n:"Jeremy Solano",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jerson Cascante",s:"06:00",e:"14:00",st:"w"},{n:"Jesús Cordero",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jesús Maria Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"John Gomez",s:"06:00",e:"14:00",st:"w"},
-  {n:"John Paul Rodriguez",s:"06:00",e:"14:00",st:"w"},{n:"Jonathan Cedeño",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jonathan Monge",s:"06:00",e:"14:00",st:"w"},{n:"Jorge Arturo Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jorge Castillo",s:"06:00",e:"14:00",st:"w"},{n:"Jorge Gutierrez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jose Angel Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Jose Antonio Castillo Rojas",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jose Daniel Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Jose Fernando Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jose Gabriel Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Jose Luis Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Jose Mario Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Jose Pablo Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Joseph Alvarado",s:"06:00",e:"14:00",st:"w"},{n:"Joseph Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Josué Arias",s:"06:00",e:"14:00",st:"w"},{n:"Josué Monge",s:"06:00",e:"14:00",st:"w"},
-  {n:"Juan De Dios Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Juan Gabriel Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Juan José Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Juan Pablo Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Julio Cesar Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Justin Arias",s:"06:00",e:"14:00",st:"w"},
-  {n:"Kendall Gomez",s:"06:00",e:"14:00",st:"w"},{n:"Kenneth Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Kevin Alvarado",s:"06:00",e:"14:00",st:"w"},{n:"Kevin Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Kristhian Castro",s:"06:00",e:"14:00",st:"w"},{n:"Lautaro Rose",s:"06:00",e:"14:00",st:"w"},
-  {n:"Leandro Gomez",s:"06:00",e:"14:00",st:"w"},{n:"Leonardo Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Luis Alejandro Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Luis Carlos Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Luis Diego Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Luis Fernando Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Luis Gabriel Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Luis Guillermo Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Luis Javier Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Luis Miguel Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Luis Pablo Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Manrique Gomez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Manuel Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Marco Tulio Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Marcos Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Mario Alberto Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Marlon Gomez",s:"06:00",e:"14:00",st:"w"},{n:"Mauricio Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Maximiliano Rose",s:"06:00",e:"14:00",st:"w"},{n:"Michael Alvarado",s:"06:00",e:"14:00",st:"w"},
-  {n:"Nery Gomez",s:"06:00",e:"14:00",st:"w"},{n:"Nestor Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Nicolas Rose",s:"06:00",e:"14:00",st:"w"},{n:"Oliver Gomez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Oscar Mario Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Pablo Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Paulo Gomez",s:"06:00",e:"14:00",st:"w"},{n:"Pedro Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Rafael Angel Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Randal Gomez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Randy Marin",s:"06:00",e:"14:00",st:"w"},{n:"Raul Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Reinaldo Gomez",s:"06:00",e:"14:00",st:"w"},{n:"Ricardo Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Roberto Carlos Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Rodrigo Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Ronaldo Gomez",s:"06:00",e:"14:00",st:"w"},{n:"Roy Marin",s:"06:00",e:"14:00",st:"w"},
-  {n:"Ruben Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Santiago Rose",s:"06:00",e:"14:00",st:"w"},
-  {n:"Saul Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Sergio Antonio Amador Luna",s:"06:00",e:"14:00",st:"w"},
-  {n:"Steven Gomez",s:"06:00",e:"14:00",st:"w"},{n:"Tomas Rose",s:"06:00",e:"14:00",st:"w"},
-  {n:"Victor Hugo Amador Luna",s:"06:00",e:"14:00",st:"w"},{n:"Walter Gomez",s:"06:00",e:"14:00",st:"w"},
-  {n:"William Marin",s:"06:00",e:"14:00",st:"w"},{n:"Yader Gomez",s:"06:00",e:"14:00",st:"w"},
-  {n:"Zacarias Rose",s:"06:00",e:"14:00",st:"w"}
+  {n:"Mariana Varela",s:"06:00",e:"14:00",st:"w"},{n:"Raquel Solano",s:"06:00",e:"14:00",st:"w"},
+  {n:"Emerson Hernandez",s:"06:00",e:"14:00",st:"w"},{n:"Julian Mena",s:"06:00",e:"14:00",st:"w"},
+  {n:"Phillip Desanti",s:"06:00",e:"14:00",st:"w"},{n:"Daniel Leandro Rojas",s:"06:00",e:"14:00",st:"w"},
+  {n:"Maria Jose Quiros Quiros",s:"06:00",e:"14:00",st:"w"},{n:"Sebastian Rivera",s:"06:00",e:"14:00",st:"w"},
+  {n:"Carlos Amador",s:"06:00",e:"14:00",st:"w"},{n:"Kevin Zamora",s:"06:00",e:"14:00",st:"w"},
+  {n:"Sebastian Puerta",s:"07:00",e:"15:00",st:"w"},{n:"Andrey Castillo",s:"07:00",e:"15:00",st:"w"},
+  {n:"Pablo Guzman",s:"07:00",e:"15:00",st:"w"},{n:"Adrian Navarro",s:"07:00",e:"15:00",st:"w"},
+  {n:"Ignacio Blanco",s:"07:00",e:"15:00",st:"w"},
+  {n:"Naigell Beckford",s:"11:00",e:"19:00",st:"w"},{n:"Silvana Suarez",s:"11:00",e:"19:00",st:"w"},
+  {n:"Elena Rojas",s:"14:00",e:"22:00",st:"w"},{n:"Rory Bulgarelli",s:"14:00",e:"22:00",st:"w"},
+  {n:"David Vogler",s:"14:00",e:"22:00",st:"w"},{n:"Michelle Saborio",s:"14:00",e:"22:00",st:"w"},
+  {n:"Paula Muñoz",s:"14:00",e:"22:00",st:"w"},
+  {n:"Tamara Donaire",s:"15:00",e:"23:00",st:"w"},{n:"Stephannie Cunningham",s:"15:00",e:"23:00",st:"w"},
+  {n:"Elliot Navarro",s:"15:00",e:"23:00",st:"w"},{n:"Naomy Sanchez",s:"15:00",e:"23:00",st:"w"},
+  {n:"Carlos Ortiz",s:"15:00",e:"23:00",st:"w"},{n:"Eddison Prendas",s:"15:00",e:"23:00",st:"w"},
+  {n:"Fer Blanco",s:"15:00",e:"23:00",st:"w"},
+  {n:"Nicole Román",s:"00:00",e:"00:00",st:"o"},{n:"Thimy Gonzalez",s:"00:00",e:"00:00",st:"o"},
+  {n:"Yasser Quiros",s:"00:00",e:"00:00",st:"o"},{n:"Isaac Porras",s:"00:00",e:"00:00",st:"o"},
+  {n:"Diego Matamoros",s:"00:00",e:"00:00",st:"o"},
+  {n:"Carlos Alejandro Amador Luna",s:"00:00",e:"00:00",st:"o"},
+  {n:"Carolina Castro",s:"00:00",e:"00:00",st:"o"},
+  {n:"Isaac Barrantes Alvarado",s:"00:00",e:"00:00",st:"o"},
+  {n:"Charlene Rose",s:"00:00",e:"00:00",st:"o"},{n:"Mariana Bejarano",s:"00:00",e:"00:00",st:"o"},
+  {n:"Vanessa Umana",s:"00:00",e:"00:00",st:"o"},{n:"Israel Aburto",s:"00:00",e:"00:00",st:"o"},
+  {n:"Valerie Alfaro",s:"00:00",e:"00:00",st:"o"},{n:"Samuel Carballo",s:"00:00",e:"00:00",st:"v"}
 ].map(function(r){return{name:r.n,start:r.s,end:r.e,status:r.st==='w'?'working':r.st==='v'?'vac':'off'}});
 
 var roster = [];
-var weeklySchedule = { "Lunes": [], "Martes": [], "Miércoles": [], "Jueves": [], "Viernes": [], "Sábado": [], "Domingo": [] };
-var lastResults = { "Lunes": [], "Martes": [], "Miércoles": [], "Jueves": [], "Viernes": [], "Sábado": [], "Domingo": [] };
-var currentDay = "Lunes";
-var lastResultsDay = "Lunes";
+var weeklySchedule = {
+  "Lunes": [], "Martes": [], "Miércoles": [], "Jueves": [], "Viernes": [], "Sábado": [], "Domingo": []
+};
+
+var lastResults = {
+  "Lunes": [], "Martes": [], "Miércoles": [], "Jueves": [], "Viernes": [], "Sábado": [], "Domingo": []
+};
+
+var currentDay = "Lunes";       
+var lastResultsDay = "Lunes";   
 var resultFilter = 'all';
-var rosterGroupFilter = 'all';
+var rosterGroupFilter = 'all'; 
 
 function save(){
   try {
@@ -980,6 +914,7 @@ function load(){
     var r = localStorage.getItem('tm3r');
     var ws = localStorage.getItem('tm3_weekly_sched');
     var lr = localStorage.getItem('tm3_last_results');
+    
     if(r) roster = JSON.parse(r);
     else roster = JSON.parse(JSON.stringify(DEF_ROSTER));
     
@@ -991,7 +926,10 @@ function load(){
         weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
       });
     }
-    if(lr) { lastResults = JSON.parse(lr); }
+
+    if(lr) {
+      lastResults = JSON.parse(lr);
+    }
   } catch(e){
     roster = JSON.parse(JSON.stringify(DEF_ROSTER));
     weeklySchedule["Lunes"] = JSON.parse(JSON.stringify(DEF_SCHED));
@@ -1004,72 +942,79 @@ function load(){
 /* ════════════════════════════════════════════════
    THEME LOGIC (LIGHT / DARK SYSTEM)
    ════════════════════════════════════════════════ */
-document.addEventListener("DOMContentLoaded", function() {
-  load();
-  initRouting();
-  initDays();
-  
-  // Theme Toggle setup
-  var currentTheme = localStorage.getItem('tm3_theme') || 'light';
-  if(currentTheme === 'dark') {
-    document.documentElement.classList.add('dark');
-    document.getElementById('sun-icon').style.display = 'block';
-    document.getElementById('moon-icon').style.display = 'none';
-  }
-  
-  document.getElementById('theme-toggle').addEventListener('click', function() {
-    var isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('tm3_theme', isDark ? 'dark' : 'light');
-    document.getElementById('sun-icon').style.display = isDark ? 'block' : 'none';
-    document.getElementById('moon-icon').style.display = isDark ? 'none' : 'block';
-  });
+(function() {
+  var switcher = document.getElementById('theme-switcher');
+  var sunIcon = document.getElementById('sun-icon');
+  var moonIcon = document.getElementById('moon-icon');
+  var html = document.documentElement;
 
-  renderRoster();
-  renderSchedule();
-  renderResults();
+  function applyTheme(isDark) {
+    if (isDark) {
+      html.classList.add('dark');
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    } else {
+      html.classList.remove('dark');
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+  }
+
+  // Carga inicial (Preferencia guardada, por defecto inicia en Dark si no hay registro)
+  var savedTheme = localStorage.getItem('theme-mode');
+  var prefersDark = savedTheme ? (savedTheme === 'dark') : true; 
+  applyTheme(prefersDark);
+
+  switcher.addEventListener('click', function() {
+    var nowDark = html.classList.contains('dark');
+    applyTheme(!nowDark);
+    localStorage.setItem('theme-mode', !nowDark ? 'dark' : 'light');
+  });
+})();
+
+/* ════════════════════════════════════════════════
+   NAV & WEEK DAY MANAGEMENT
+   ════════════════════════════════════════════════ */
+document.querySelectorAll('.nav-tab').forEach(function(t){
+  t.addEventListener('click',function(){switchView(t.dataset.view);});
+});
+function switchView(v){
+  document.querySelectorAll('.view').forEach(function(el){el.classList.remove('active');});
+  document.getElementById('view-'+v).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.toggle('active',t.dataset.view===v);});
+  if(v === 'results') {
+    renderResults();
+  }
+}
+
+document.querySelectorAll('#day-tabs .day-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('#day-tabs .day-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    currentDay = btn.dataset.day;
+    
+    document.getElementById('dz-title').textContent = "Drop " + currentDay + " schedule CSV here";
+    document.getElementById('btn-gen-tasks').textContent = "▶ GENERATE TASKS FOR " + currentDay.toUpperCase();
+    document.getElementById('panel-sched-label').textContent = "SHIFTS (" + currentDay.toUpperCase() + ")";
+    document.getElementById('upload-success').style.display = 'none';
+    
+    renderSchedule();
+  });
 });
 
-function initRouting(){
-  var tabs = document.querySelectorAll('#nav-tabs .nav-tab, #mobile-tabs .nav-tab');
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){
-      var v = t.getAttribute('data-view');
-      document.querySelectorAll('.nav-tab').forEach(function(x){
-        if(x.getAttribute('data-view')===v) x.classList.add('active');
-        else x.classList.remove('active');
-      });
-      document.querySelectorAll('.view').forEach(function(x){ x.classList.remove('active'); });
-      document.getElementById('view-'+v).classList.add('active');
-    });
+document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    lastResultsDay = btn.dataset.tday;
+    
+    renderResults();
   });
-}
-
-function initDays(){
-  document.querySelectorAll('#sched-day-tabs .day-btn').forEach(function(b){
-    b.addEventListener('click', function(){
-      document.querySelectorAll('#sched-day-tabs .day-btn').forEach(function(x){x.classList.remove('active');});
-      b.classList.add('active');
-      currentDay = b.getAttribute('data-day');
-      document.getElementById('panel-sched-label').textContent = 'SHIFTS ('+currentDay.toUpperCase()+')';
-      document.getElementById('btn-gen-tasks').textContent = '▶ GENERATE TASKS FOR ' + currentDay.toUpperCase();
-      renderSchedule();
-    });
-  });
-  document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(b){
-    b.addEventListener('click', function(){
-      document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(x){x.classList.remove('active');});
-      b.classList.add('active');
-      lastResultsDay = b.getAttribute('data-tday');
-      renderResults();
-    });
-  });
-}
-
-function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+});
 
 function tick(){
-  var d = new Date();
-  document.getElementById('clock').textContent = d.toLocaleTimeString('en-US',{hour12:true,hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  var d=new Date();
+  document.getElementById('clock').textContent=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
 }
 tick(); setInterval(tick,1000);
 
@@ -1082,6 +1027,7 @@ function filterRosterByGroup(g) {
   document.getElementById('roster-table-label').textContent = (g === 'all') ? 'ALL AGENTS' : 'AGENTS IN GROUP ' + g;
   renderRoster();
 }
+
 function clearRosterGroupFilter() {
   filterRosterByGroup('all');
 }
@@ -1091,8 +1037,8 @@ function renderRoster(){
   if (rosterGroupFilter !== 'all') {
     displayList = displayList.filter(function(a) { return a.group === rosterGroupFilter; });
   }
+
   displayList.sort(function(a,b){return a.group<b.group?-1:a.group>b.group?1:a.name.localeCompare(b.name);});
-  
   var html='';
   displayList.forEach(function(ag,i){
     var gm=GM[ag.group]||{};
@@ -1107,8 +1053,7 @@ function renderRoster(){
   });
   document.getElementById('roster-body').innerHTML=html;
   document.getElementById('agent-count').textContent=displayList.length + ' / ' + roster.length+' agents';
-  renderLegend();
-  save();
+  renderLegend(); save();
 }
 
 function renderLegend(){
@@ -1127,6 +1072,7 @@ function addAgent(){
   var n=document.getElementById('new-name').value.trim();if(!n)return;
   var g=document.getElementById('new-group').value,q=document.getElementById('new-queue').value;
   roster.push({name:n,group:g,queue:q});
+  
   for(var d in weeklySchedule) {
     weeklySchedule[d].push({name:n, start:"06:00", end:"14:00", status:"off"});
   }
@@ -1136,188 +1082,166 @@ function addAgent(){
 
 function removeAgent(globalIdx){
   if(globalIdx < 0 || globalIdx >= roster.length) return;
-  var n=roster[globalIdx].name;
-  roster.splice(globalIdx,1);
+  var n=roster[globalIdx].name;roster.splice(globalIdx,1);
   for(var d in weeklySchedule) {
-    weeklySchedule[d] = weeklySchedule[d].filter(function(x){return x.name!==n;});
+    weeklySchedule[d] = weeklySchedule[d].filter(function(s){return s.name!==n;});
   }
   renderRoster();renderSchedule();
 }
 
 /* ════════════════════════════════════════════════
-   SHIFT MANIPULATION LOGIC
+   SCHEDULE
    ════════════════════════════════════════════════ */
-function setAllWorking(){
-  var dayArr = weeklySchedule[currentDay] || [];
-  dayArr.forEach(function(x){ x.status='working'; });
-  renderSchedule(); save();
-}
-function setAllOff(){
-  var dayArr = weeklySchedule[currentDay] || [];
-  dayArr.forEach(function(x){ x.status='off'; });
-  renderSchedule(); save();
-}
-
 function renderSchedule(){
-  var dayArr = weeklySchedule[currentDay] || [];
-  if(dayArr.length === 0 && roster.length > 0) {
-    weeklySchedule[currentDay] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
-    dayArr = weeklySchedule[currentDay];
-  }
+  var activeSched = weeklySchedule[currentDay] || [];
   
-  dayArr.sort(function(a,b){
-    var agA = roster.find(function(x){return x.name===a.name;}) || {group:'unkn'};
-    var agB = roster.find(function(x){return x.name===b.name;}) || {group:'unkn'};
-    if(agA.group !== agB.group) return agA.group < agB.group ? -1 : 1;
-    return a.name.localeCompare(b.name);
-  });
+  var names={}; activeSched.forEach(function(s){names[s.name]=true;});
+  roster.forEach(function(a){if(!names[a.name]) activeSched.push({name:a.name,start:"06:00",end:"14:00",status:"off"});});
   
+  var rn={};roster.forEach(function(a){rn[a.name]=true;});
+  
+  var so={working:0,off:1,vac:2};
+  activeSched.sort(function(a,b){var sa=so[a.status]||0,sb=so[b.status]||0;if(sa!==sb)return sa-sb;return a.start<b.start?-1:a.start>b.start?1:a.name.localeCompare(b.name);});
+  
+  weeklySchedule[currentDay] = activeSched;
+  
+  var wc=activeSched.filter(function(s){return s.status==='working';}).length;
   var html='';
-  dayArr.forEach(function(row,i){
-    var ag = roster.find(function(x){return x.name===row.name;}) || {group:'unkn'};
-    var isOff = row.status!=='working';
-    html+='<div class="sched-row '+(isOff?'is-off':'')+'">';
-    html+='<div><span class="g-chip g-'+ag.group+'">'+ag.group+'</span></div>';
-    html+='<div class="sched-name">'+esc(row.name)+'</div>';
-    html+='<div><input type="time" value Harcourt="'+row.start+'" onchange="updateShiftTime(\''+esc(row.name)+'\',\'start\',this.value)"></div>';
-    html+='<div><input type="time" value="'+row.end+'" onchange="updateShiftTime(\''+esc(row.name)+'\',\'end\',this.value)"></div>';
-    html+='<div><select onchange="updateShiftStatus(\''+esc(row.name)+'\',this.value)">';
-    html+='<option value="working" '+(row.status==='working'?'selected':'')+'>WORKING</option>';
-    html+='<option value="off" '+(row.status==='off'?'selected':'')+'>OFF</option>';
-    html+='<option value="vac" '+(row.status==='vac'?'selected':'')+'>VACATION</option>';
-    html+='</select></div>';
+  activeSched.forEach(function(s,i){
+    var ag=roster.find(function(a){return a.name===s.name;})||{group:'unkn'};
+    var off=s.status!=='working';
+    html+='<div class="sched-row anim-row'+(off?' is-off':'')+'" style="animation-delay:'+(i*.015)+'s">';
+    html+='<span class="g-chip g-'+ag.group+'">'+(ag.group==='unkn'?'?':ag.group)+'</span>';
+    html+='<span class="sched-name">'+esc(s.name)+'</span>';
+    html+='<input type="time" value="'+s.start+'" onchange="updSched('+i+',\'start\',this.value)"'+(off?' disabled':'')+'>';
+    html+='<input type="time" value="'+s.end+'" onchange="updSched('+i+',\'end\',this.value)"'+(off?' disabled':'')+'>';
+    html+='<select onchange="updSched('+i+',\'status\',this.value)">';
+    html+='<option value="working"'+(s.status==='working'?' selected':'')+'>Working</option>';
+    html+='<option value="off"'+(s.status==='off'?' selected':'')+'>OFF</option>';
+    html+='<option value="vac"'+(s.status==='vac'?' selected':'')+'>Vacation</option></select>';
     html+='</div>';
   });
-  
-  document.getElementById('shift-grid').innerHTML = html || '<div class="empty">No roster agents found. Build roster first!</div>';
-  var wCount = dayArr.filter(function(x){return x.status==='working';}).length;
-  document.getElementById('schedule-count').textContent = wCount + ' agents active / ' + dayArr.length + ' total';
+  document.getElementById('shift-grid').innerHTML=html;
+  document.getElementById('schedule-count').textContent=wc+' / '+activeSched.length+' working';
+  save();
 }
 
-function updateShiftTime(name,field,val){
-  var row = (weeklySchedule[currentDay]||[]).find(function(x){return x.name===name;});
-  if(row) { row[field] = val; save(); }
+function updSched(i,f,v){
+  weeklySchedule[currentDay][i][f]=v;
+  renderSchedule();
 }
-function updateShiftStatus(name,val){
-  var row = (weeklySchedule[currentDay]||[]).find(function(x){return x.name===name;});
-  if(row) { 
-    row.status = val; 
-    renderSchedule(); 
-    save(); 
-  }
+
+function setAllWorking(){
+  weeklySchedule[currentDay].forEach(function(s){s.status='working';if(s.start==='00:00'){s.start='06:00';s.end='14:00';}});
+  renderSchedule();
+}
+
+function setAllOff(){
+  weeklySchedule[currentDay].forEach(function(s){s.status='off';});
+  renderSchedule();
 }
 
 /* ════════════════════════════════════════════════
-   CORE ALGORITHM ENGINE
+   TASK ENGINE (VBA port)
    ════════════════════════════════════════════════ */
+function agInfo(n){
+  return roster.find(function(a){return a.name===n;})||{name:n,group:'unkn',queue:'unkn'};
+}
+function isP(n){return agInfo(n).queue==='Phones';}
+
 function generateTasks(){
-  var dayArr = weeklySchedule[currentDay] || [];
-  var activeShifts = dayArr.filter(function(x){return x.status==='working';});
+  var activeSched = weeklySchedule[currentDay] || [];
+  var w = activeSched.filter(function(s){return s.status==='working';});
+  w.sort(function(a,b){return a.start<b.start?-1:a.start>b.start?1:0;});
   
-  if(!activeShifts.length){
-    alert("No hay agentes activos en 'WORKING' para este día.");
-    return;
-  }
-  
-  var outputs = [];
-  activeShifts.forEach(function(sh){
-    var ag = roster.find(function(x){return x.name===sh.name;}) || {group:'unkn', queue:'Phones'};
-    var shHr = parseInt(sh.start.split(':')[0],10);
-    var shMin = parseInt(sh.start.split(':')[1],10);
-    var decTime = shHr + (shMin/60);
-    
-    var shiftName = 'Afternoon';
-    if(decTime < 9 || (decTime >= 8 && decTime <= 11)) { shiftName = 'Morning'; }
-    
-    outputs.push({
-      name: sh.name,
-      group: ag.group,
-      queue: ag.queue,
-      startHr: decTime,
-      shiftStr: sh.start + ' - ' + sh.end,
-      shiftClass: shiftName,
-      mainTask: '',
-      secTask: ''
-    });
+  var A=w.map(function(s){
+    var ag=agInfo(s.name),hr=parseInt(s.start.split(':')[0],10);
+    return{name:s.name,group:ag.group,queue:ag.queue,startHr:hr,start:s.start,end:s.end,shift:hr<12?'Morning':'Afternoon',mainTask:'',secTask:''};
   });
   
-  var groups = {};
-  'ABCDEFGunkn'.split('').forEach(function(g){groups[g]=[];});
-  outputs.forEach(function(o){ groups[o.group].push(o); });
+  assignCasino(A);assignVIP(A,'Morning');assignVIP(A,'Afternoon');assignTier1(A);
+  assignDeposits(A,'Morning');
+  assignDeposits(A,'Afternoon');
+  assignPayouts(A,'Morning');assignPayouts(A,'Afternoon');
+  assignFixed(A);assignBlasts(A);
   
-  assignTier1(groups['A']);
-  assignEmails(outputs,'Morning');
-  assignEmails(outputs,'Afternoon');
-  assignTier1(groups['E']);
-  assignDeposits(outputs,'Morning');
-  assignDeposits(outputs,'Afternoon');
-  assignPayouts(outputs,'Morning');
-  assignPayouts(outputs,'Afternoon');
-  assignSecondaryTasks(outputs);
-  
-  lastResults[currentDay] = outputs;
-  lastResultsDay = currentDay;
-  
+  lastResults[currentDay] = A;
+  lastResultsDay = currentDay; 
+
   document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(b){
-    if(b.getAttribute('data-tday')===lastResultsDay) b.classList.add('active');
-    else b.classList.remove('active');
+    b.classList.toggle('active', b.dataset.tday === lastResultsDay);
   });
-  
-  renderResults();
+
   save();
-  
-  var tabs = document.querySelectorAll('#nav-tabs .nav-tab, #mobile-tabs .nav-tab');
-  tabs.forEach(function(x){
-    if(x.getAttribute('data-view')==='results') x.classList.add('active');
-    else x.classList.remove('active');
-  });
-  document.querySelectorAll('.view').forEach(function(x){ x.classList.remove('active'); });
-  document.getElementById('view-results').classList.add('active');
+  switchView('results');
 }
 
-function isP(n){
-  var r = roster.find(function(x){return x.name===n;});
-  return r ? r.queue==='Phones' : true;
-}
+function assignCasino(A){var cM=0,cA=0;A.forEach(function(a){if(a.group!=='A')return;if(a.shift==='Morning'){cM++;if(cM===1)a.mainTask='Casino';else{a.mainTask=isP(a.name)?'Phones':'Chats';a.secTask='2nd Casino';}}else{cA++;if(cA===1)a.mainTask='Casino';else{a.mainTask=isP(a.name)?'Phones':'Chats';a.secTask='2nd Casino';}}});}
 
-/* Algorithmic rules sub-functions */
-function assignEmails(A,sh){
-  var sa=A.filter(function(a){return a.shiftClass===sh;}), ba=sa.filter(function(a){return a.group==='B';});
+function assignVIP(A,sh){
+  var sa=A.filter(function(a){return a.shift===sh;}),ba=sa.filter(function(a){return a.group==='B';});
   if(!ba.length)return;
-  var pC=sa.filter(function(a){return isP(a.name);}).length, cC=sa.filter(function(a){return !isP(a.name);}).length;
+  var pC=sa.filter(function(a){return isP(a.name);}).length,cC=sa.filter(function(a){return !isP(a.name);}).length;
   var ti=0;
-  if((pC-1)<2&&cC> Harcourt=3){for(var i=0;i<ba.length;i++){if(!isP(ba[i].name)){ti=i;break;}}}
+  if((pC-1)<2&&cC>=3){for(var i=0;i<ba.length;i++){if(!isP(ba[i].name)){ti=i;break;}}}
   else{for(var i=0;i<ba.length;i++){if(isP(ba[i].name)){ti=i;break;}}}
   ba[ti].mainTask='Emails';ba[ti].secTask='Tickets';
   var rs=2,ta=false;
   for(var i=0;i<ba.length;i++){if(i===ti)continue;if(rs===2){ba[i].secTask='2nd Emails and VIP';rs=3;}else if(rs===3){ba[i].secTask='2nd Tickets';ta=true;rs=4;}}
   if(!ta){var cd=sa.filter(function(a){return(a.group==='C'||a.group==='D')&&a.secTask==='';});if(cd.length)cd[0].secTask='2nd Tickets';}
 }
-function assignTier1(A){A.forEach(function(a){if(a.group==='E'||a.group==='A')a.mainTask=isP(a.name)?'Phones':'Chats';});}
+
+function assignTier1(A){A.forEach(function(a){if(a.group==='E')a.mainTask=isP(a.name)?'Phones':'Chats';});}
+
 function assignDeposits(A,sh){
-  var f=A.filter(function(a){return a.group==='F'&&a.shiftClass===sh;}),c=f.length;if(!c)return;
+  var f=A.filter(function(a){return a.group==='F'&&a.shift===sh;}),c=f.length;if(!c)return;
   var TA='Processors | Velocity | Scrubbers | Slack | 2nd Inbox',TB='CC - Certi Inbox | 2nd Slack | 2nd Processors';
-  if(c===1){var h=f[0].startHr;if(h Harcourt<=8||h>=13){f[0].mainTask='Processors | Velocity | Scrubbers';f[0].secTask='Inbox | CC - Certi Inbox';}else f[0].mainTask=TB;}
+  if(c===1){var h=f[0].startHr;if(h<=8||h>=13){f[0].mainTask='Processors | Velocity | Scrubbers';f[0].secTask='Inbox | CC - Certi Inbox';}else f[0].mainTask=TB;}
   else if(c===2){f[0].mainTask=TA;f[1].mainTask=TB;}
   else if(c===3){f[0].mainTask='Processors | Velocity | Scrubbers | 2nd Slack';f[1].mainTask='CC - Certi Inbox | 2nd Processors';f[2].mainTask='Slack | 2nd Inbox';}
   else if(c===4){f[0].mainTask='CC - Certi Inbox | 2nd Slack';f[1].mainTask='Processors | Velocity | Scrubbers';f[2].mainTask='Slack | Inbox';f[3].mainTask='2nd Processors | Inbox';}
   else{f[0].mainTask='CC - Certi Inbox';f[1].mainTask='Slack | Inbox';f[2].mainTask='Processors | Velocity';f[3].mainTask='2nd Processors';if(f[4])f[4].mainTask='Scrubbers | 2nd Slack';}
 }
+
 function assignPayouts(A,sh){
-  var g=A.filter(function(a){return(a.group==='C'||a.group==='D'||a.group==='G')&&a.shiftClass===sh;});
-  g.forEach(function(a){
-    if(a.group==='C') { a.mainTask='Payouts'; }
-    else if(a.group==='D') { a.mainTask='Casino Support'; }
-    else if(a.group==='G') { a.mainTask='QA Checking | Slack Support'; }
+  var g=A.filter(function(a){return a.group==='G'&&a.shift===sh;}),c=g.length;if(!c)return;
+  if(sh==='Morning'){
+    if(c===1){g[0].mainTask='CS Support | Emails | Checks | PO Review';g[0].secTask='CS Support | Emails | Pending';}
+    else if(c===2){g[0].mainTask='CS Support | Emails | Checks| PO Review';g[0].secTask='CS Support | Emails | Pending';g[1].mainTask='Pending | 2nd CS Support | 2nd Emails | Wires';g[1].secTask='Pre-reviews | 2nd Emails | 2nd CS Support';}
+    else if(c===3){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Pending | 2nd CS Support';g[2].mainTask='Pending | 2nd CS Support | 2nd Emails';g[2].secTask='Pre-reviews | 2nd Emails';}
+    else if(c===4){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Wires | Checks pre-reviews';g[2].mainTask='Pending | 2nd CS Support';g[2].secTask='2nd Emails | Crypto';g[3].mainTask='2nd Emails';g[3].secTask='Pending | 2nd CS Support';}
+    else{g[0].mainTask='CS Support';g[0].secTask='CS Support';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='2nd Emails | Crypto';g[2].mainTask='2nd Emails';g[2].secTask='Wires | Checks pre-reviews';g[3].mainTask='Pending';g[3].secTask='Pending | 2nd CS Support';if(g[4]){g[4].mainTask='Emails | 2nd CS Support';g[4].secTask='Emails';}}
+  }else{
+    if(c===1)g[0].mainTask='CS Support | 2nd Emails | Pending | PO review';
+    else if(c===2){g[0].mainTask='CS Support | 2nd Emails | Pending';g[1].mainTask='Emails | 2nd CS Support | PO review';}
+    else if(c===3){g[0].mainTask='CS Support | 2nd Emails';g[1].mainTask='Emails | 2nd CS Support';g[2].mainTask='Pending | PO review';}
+    else if(c===4){g[0].mainTask='PO review';g[1].mainTask='CS Support | 2nd Emails';g[2].mainTask='Pending';g[3].mainTask='Emails | 2nd CS Support';}
+    else{g[0].mainTask='CS Support';g[1].mainTask='2nd Emails';g[2].mainTask='Pending';g[3].mainTask='Crypto | PO review';if(g[4])g[4].mainTask='Emails | 2nd CS Support';}
+  }
+}
+
+function assignFixed(A){
+  A.forEach(function(a){
+    if(!a.mainTask) {
+      if(a.group === 'unkn') {
+        a.mainTask = '';
+      } else {
+        a.mainTask = isP(a.name) ? 'Phones' : 'Chats';
+      }
+    }
   });
 }
-function assignSecondaryTasks(A){
-  var t=['Reviewing documents','Audit accounts','Handling VIP calls','Slack Help Desk','Callback requests'];
-  var tM=0,tA=0;
+
+function assignBlasts(A){
+  var t=['Tier 1 Blast | Zelle','Bonus Blast','2nd Bonus Blast','2nd Tier 1 Blast | 2nd Zelle','3rd Zelle'],tM=0,tA=0;
   A.forEach(function(a){
+    if(a.mainTask === 'Casino') {
+      a.secTask = '';
+      return;
+    }
     if('AEFG'.indexOf(a.group)>=0||a.secTask||a.group==='unkn') return;
-    if(a.shiftClass==='Morning'&&tM<=4){a.secTask=t[tM];tM++;}
-    else if(a.shiftClass==='Afternoon'&&tA<=4){a.secTask=t[tA];tA++;}
+    if(a.shift==='Morning'&&tM<=4){a.secTask=t[tM];tM++;}
+    else if(a.shift==='Afternoon'&&tA<=4){a.secTask=t[tA];tA++;}
   });
 }
 
@@ -1338,120 +1262,112 @@ function renderResults(){
   document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase();
   document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.';
   
-  // 1. Clasificación base de agentes por horario (Mañana vs Tarde) 
-  var morningAgents = activeDayResults.filter(function(r){
-    return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);
-  });
-  var afternoonAgents = activeDayResults.filter(function(r){
-    return r.startHr >= 9;
-  });
-
-  // 2. Conteo exacto en el bloque de la Mañana según su Main Task
-  var morningPhones = morningAgents.filter(function(r){ return r.mainTask === 'Phones'; }).length;
-  var morningChats  = morningAgents.filter(function(r){ return r.mainTask === 'Chats'; }).length;
+  var mC=activeDayResults.filter(function(r){return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);}).length;
+  var aC=activeDayResults.filter(function(r){return r.startHr >= 9;}).length;
   
-  // 3. Conteo exacto en el bloque de la Tarde según su Main Task
-  var afternoonPhones = afternoonAgents.filter(function(r){ return r.mainTask === 'Phones'; }).length;
-  var afternoonChats  = afternoonAgents.filter(function(r){ return r.mainTask === 'Chats'; }).length;
-  
-  // Análisis de grupos activos [cite: 450]
-  var gc={}; activeDayResults.forEach(function(r){if(r.group!=='unkn') gc[r.group]=(gc[r.group]||0)+1;});
+  var gc={};activeDayResults.forEach(function(r){if(r.group!=='unkn') gc[r.group]=(gc[r.group]||0)+1;});
   var tg = Object.keys(gc).sort(function(a,b){return gc[b]-gc[a];})[0] || 'None';
   var tgCount = gc[tg] || 0;
 
-  // Renderizado dinámico de las tarjetas estadísticas [cite: 451]
   document.getElementById('results-summary').innerHTML=
-    '<div class="stat s-neon">' +
-      '<div class="stat-label">TOTAL ASSIGNED</div>' +
-      '<div class="stat-val">' + activeDayResults.length + '</div>' +
-      '<div class="stat-sub">agents on duty</div>' +
-    '</div>' +
-    '<div class="stat s-amber">' +
-      '<div class="stat-label">MORNING (AM)</div>' +
-      '<div class="stat-val">' + morningAgents.length + '</div>' +
-      '<div class="stat-sub">☎ Phones: <strong>' + morningPhones + '</strong> | 💬 Chats: <strong>' + morningChats + '</strong></div>' +
-    '</div>' +
-    '<div class="stat s-violet">' +
-      '<div class="stat-label">AFTERNOON (PM)</div>' +
-      '<div class="stat-val">' + afternoonAgents.length + '</div>' +
-      '<div class="stat-sub">☎ Phones: <strong>' + afternoonPhones + '</strong> | 💬 Chats: <strong>' + afternoonChats + '</strong></div>' +
-    '</div>' +
-    '<div class="stat s-lime">' +
-      '<div class="stat-label">GROUPS ACTIVE</div>' +
-      '<div class="stat-val">' + Object.keys(gc).length + '</div>' +
-      '<div class="stat-sub">top: ' + tg + ' (' + tgCount + ')</div>' +
-    '</div>';
+    '<div class="stat s-neon"><div class="stat-label">TOTAL ASSIGNED</div><div class="stat-val">'+activeDayResults.length+'</div><div class="stat-sub">agents on duty</div></div>'+
+    '<div class="stat s-amber"><div class="stat-label">MORNING</div><div class="stat-val">'+mC+'</div><div class="stat-sub">Before 9AM + (8AM - 11AM)</div></div>'+
+    '<div class="stat s-violet"><div class="stat-label">AFTERNOON</div><div class="stat-val">'+aC+'</div><div class="stat-sub">09:00 AM+</div></div>'+
+    '<div class="stat s-lime"><div class="stat-label">GROUPS ACTIVE</div><div class="stat-val">'+Object.keys(gc).length+'</div><div class="stat-sub">top: '+tg+' ('+tgCount+')</div></div>';
   
-  renderResultsTable();
-}
-
-function filterResults(f){
-  resultFilter = f;
-  document.querySelectorAll('.filters .filt-btn').forEach(function(x){x.classList.remove('on');});
-  document.getElementById('f-'+f).classList.add('on');
   renderResultsTable();
 }
 
 function renderResultsTable(){
-  var arr = lastResults[lastResultsDay] || [];
-  if(resultFilter === 'morning') {
-    arr = arr.filter(function(r){ return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11); });
-  } else if(resultFilter === 'afternoon') {
-    arr = arr.filter(function(r){ return r.startHr >= 9; });
+  var activeDayResults = lastResults[lastResultsDay] || [];
+  var d = activeDayResults;
+  
+  if(resultFilter==='morning') {
+    d=activeDayResults.filter(function(r){
+      return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);
+    });
+  }
+  if(resultFilter==='afternoon') {
+    d=activeDayResults.filter(function(r){
+      return r.startHr >= 9;
+    });
   }
   
   var html='';
-  arr.forEach(function(r,i){
-    html+='<tr>';
-    html+='<td class="dim">'+(i+1)+'</td>';
-    html+='<td class="name-cell">'+esc(r.name)+'</td>';
-    html+='<td><span class="shift-tag shift-'+(r.shiftClass==='Morning'?'am':'pm')+'">'+r.shiftStr+'</span></td>';
-    html+='<div><td><span class="g-chip g-'+r.group+'">'+r.group+'</span></td></div>';
+  d.forEach(function(r,i){
+    var globalIdx = activeDayResults.indexOf(r);
+    var displayGroup = r.group === 'unkn' ? '?' : r.group;
     
-    // Inputs editables con sincronización interactiva para actualizar contadores en tiempo real
-    html+='<td><input type="text" class="editable-task-input" value Harcourt="'+esc(r.mainTask)+'" onchange="updateLiveTask(\''+esc(r.name)+'\',\'mainTask\',this.value)"></td>';
-    html+='<td><input type="text" class="editable-task-input sec-input" value="'+esc(r.secTask)+'" onchange="updateLiveTask(\''+esc(r.name)+'\',\'secTask\',this.value)"></td>';
+    html+='<tr class="anim-row" style="animation-delay:'+(i*.012)+'s">';
+    html+='<td class="mono dim">'+(i+1)+'</td>';
+    html+='<td class="name-cell">'+esc(r.name)+'</td>';
+    html+='<td><span class="shift-tag shift-'+(r.startHr < 9 ? 'am' : 'pm')+'">'+r.start+' – '+r.end+'</span></td>';
+    html+='<td><span class="g-chip g-'+r.group+'">'+displayGroup+'</span></td>';
+    html+='<td><input type="text" class="editable-task-input" value="'+esc(r.mainTask)+'" onchange="updateManualTask('+globalIdx+', \'mainTask\', this.value)"></td>';
+    html+='<td><input type="text" class="editable-task-input sec-input" value="'+esc(r.secTask)+'" onchange="updateManualTask('+globalIdx+', \'secTask\', this.value)"></td>';
     html+='</tr>';
   });
-  document.getElementById('results-body').innerHTML = html;
+  document.getElementById('results-body').innerHTML=html;
+  
+  ['all','morning','afternoon'].forEach(function(f){
+    document.getElementById('f-'+f).classList.toggle('on',f===resultFilter);
+  });
 }
 
-function updateLiveTask(name,field,val){
-  var dayArr = lastResults[lastResultsDay] || [];
-  var row = dayArr.find(function(x){return x.name===name;});
-  if(row){
-    row[field] = val;
-    save();
-    // Re-renderiza las estadísticas superiores inmediatamente al modificar una Main Task
-    renderResults(); 
+function updateManualTask(globalIdx, field, val) {
+  if (lastResults[lastResultsDay] && lastResults[lastResultsDay][globalIdx]) {
+    lastResults[lastResultsDay][globalIdx][field] = val;
+    save(); 
   }
 }
 
-function copyResults(){
-  var arr = lastResults[lastResultsDay] || [];
-  if(!arr.length)return;
-  var lines = ['AGENT\tSHIFT\tGRP\tMAIN TASK\tSECONDARY TASK'];
-  arr.forEach(function(r){
-    lines.push(r.name+'\t'+r.shiftStr+'\t'+r.group+'\t'+r.mainTask+'\t'+r.secTask);
-  });
-  navigator.clipboard.writeText(lines.join('\n')).then(function(){ alert("¡Copiado al portapapeles con éxito!"); });
+function filterResults(f){resultFilter=f;renderResultsTable();}
+
+/* ════════════════════════════════════════════════
+   EXPORT
+   ════════════════════════════════════════════════ */
+function downloadResultsCSV(){
+  var activeDayResults = lastResults[lastResultsDay] || [];
+  if(!activeDayResults.length)return;
+  var rows=['Name,Start,End,Shift,Group,Main Task,Secondary Task'];
+  activeDayResults.forEach(function(r){rows.push(['"'+r.name+'"',r.start,r.end,r.startHr < 9 ? 'Morning' : 'Afternoon',r.group === 'unkn' ? '?' : r.group,'"'+r.mainTask+'"','"'+r.secTask+'"'].join(','));});
+  dl(rows.join('\n'),'tasks_'+lastResultsDay.toLowerCase()+'_'+td()+'.csv','text/csv');
 }
 
-function downloadResultsCSV(){
-  var arr = lastResults[lastResultsDay] || [];
-  if(!arr.length)return;
-  var csv = ['Agente;Shift;Grupo;Main Task;Secondary Task'];
-  arr.forEach(function(r){
-    csv.push('"'+r.name+'";"'+r.shiftStr+'";"'+r.group+'";"'+r.mainTask+'";"'+r.secTask+'"');
-  });
-  var blob = new Blob(["\ufeff" + csv.join('\n')], {type:'text/csv;charset=utf-8;'});
-  var link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.setAttribute("download", "Tasks_" + lastResultsDay + ".csv");
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+function copyResults(){
+  var activeDayResults = lastResults[lastResultsDay] || [];
+  if(!activeDayResults.length)return;
+  var l=['Name\tStart\tEnd\tGroup\tMain Task\tSecondary Task'];
+  activeDayResults.forEach(function(r){l.push([r.name,r.start,r.end,r.group === 'unkn' ? '?' : r.group,r.mainTask,r.secTask].join('\t'));});
+  navigator.clipboard.writeText(l.join('\n')).then(function(){alert('Copied to clipboard!');});
 }
+
+function exportRosterCSV(){
+  var r=['Name,Group,Queue'];roster.forEach(function(a){r.push('"'+a.name+'",'+a.group+','+a.queue);});
+  dl(r.join('\n'),'roster_'+td()+'.csv','text/csv');
+}
+
+function importRosterCSV(e){
+  var f=e.target.files[0];if(!f)return;
+  var rd=new FileReader();rd.onload=function(ev){
+    var lines=ev.target.result.split('\n').filter(function(l){return l.trim();});
+    if(lines.length<2)return;var nr=[];
+    for(var i=1;i<lines.length;i++){var p=lines[i].split(',').map(function(x){return x.replace(/"/g,'').trim();});if(p.length>=3&&p[0])nr.push({name:p[0],group:p[1],queue:p[2]});}
+    if(nr.length){
+      roster=nr;
+      clearRosterGroupFilter();
+      for(var d in weeklySchedule){
+        weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
+        lastResults[d] = []; 
+      }
+      renderSchedule();
+    }
+  };rd.readAsText(f);e.target.value='';
+}
+
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function td(){return new Date().toISOString().slice(0,10);}
+function dl(t,n,m){var b=new Blob([t],{type:m}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(u);}
 
 /* ════════════════════════════════════════════════
    SCHEDULE CSV UPLOAD
@@ -1472,45 +1388,49 @@ function parse12to24(str) {
 }
 
 function loadScheduleCSV(text) {
-  var lines = text.split(/\r?\n/);
-  if(lines.length < 2) return false;
-  
-  var dayArr = weeklySchedule[currentDay] || [];
-  var updated = 0;
-  
+  var lines = text.replace(/\r/g, '').split('\n').filter(function(l) { return l.trim(); });
+  var newSchedule = [];
+  var loaded = 0, offCount = 0, vacCount = 0, unknownNames = [];
+
   lines.forEach(function(line) {
-    var parts = line.split(/[;,\t]/);
-    if(parts.length < 3) return;
-    var name = parts[0].replace(/"/g, '').trim();
-    var rawStart = parts[1] ? parts[1].replace(/"/g, '').trim() : '';
-    var rawEnd = parts[2] ? parts[2].replace(/"/g, '').trim() : '';
-    
-    if(!name || name.toLowerCase() === 'nombre' || name.toLowerCase() === 'agent') return;
-    
-    var tStart = parse12to24(rawStart);
-    var tEnd = parse12to24(rawEnd);
-    
-    var match = dayArr.find(function(x){return x.name.toLowerCase() === name.toLowerCase();});
-    if(match) {
-      if(!tStart || !tEnd) {
-        match.status = (rawStart.toUpperCase() === 'VAC') ? 'vac' : 'off';
-      } else {
-        match.start = tStart;
-        match.end = tEnd;
-        match.status = 'working';
-      }
-      updated++;
+    var parts = line.split(',');
+    if (parts.length < 2) return;
+    var name = parts[0].replace(/^\uFEFF/, '').trim();
+    if (!name || name.toLowerCase() === 'cc' || name === '') return;
+
+    var raw1 = (parts[1] || '').trim().toUpperCase();
+    var raw2 = (parts[2] || '').trim().toUpperCase();
+
+    var status, start, end;
+    if (raw1 === 'OFF' || raw1 === 'OFF DUTY') {
+      status = 'off'; start = '00:00'; end = '00:00'; offCount++;
+    } else if (raw1 === 'VAC' || raw1 === 'VACATION') {
+      status = 'vac'; start = '00:00'; end = '00:00'; vacCount++;
+    } else {
+      start = parse12to24(parts[1]);
+      end = parse12to24(parts[2]);
+      if (!start || !end) { status = 'off'; start = '00:00'; end = '00:00'; offCount++; }
+      else { status = 'working'; loaded++; }
     }
+
+    var found = roster.find(function(a) {
+      return a.name.toLowerCase().trim() === name.toLowerCase().trim();
+    });
+    if (!found) unknownNames.push(name);
+
+    newSchedule.push({ name: name, start: start, end: end, status: status });
   });
-  
+
+  if (newSchedule.length === 0) return false;
+
+  weeklySchedule[currentDay] = newSchedule;
   renderSchedule();
-  save();
-  
-  var us = document.getElementById('upload-success');
-  us.style.display = 'flex';
-  document.getElementById('us-text').textContent = 'Successfully processed schedule maps';
-  var detail = 'Matched ' + updated + ' agents out of ' + dayArr.length + ' registered profiles. ';
-  if(updated < dayArr.length) detail += (dayArr.length - updated) + ' remain untouched or not in database (marked as unassigned)';
+
+  var banner = document.getElementById('upload-success');
+  banner.style.display = 'flex';
+  document.getElementById('us-text').textContent = currentDay + ': ' + loaded + ' agents working · ' + offCount + ' OFF' + (vacCount ? ' · ' + vacCount + ' VAC' : '');
+  var detail = newSchedule.length + ' rows loaded';
+  if (unknownNames.length) detail += ' — ' + unknownNames.length + ' not in database (marked as unassigned)';
   document.getElementById('us-detail').textContent = detail;
 
   return true;
@@ -1542,22 +1462,18 @@ function handleScheduleFile(file) {
       e.preventDefault(); dz.classList.remove('dragover');
       var files = Array.from(e.dataTransfer.files);
       var csv = files.find(function(f) { return f.name.endsWith('.csv') || f.name.endsWith('.txt'); });
-      if(csv) {
-        handleScheduleFile(csv);
-      } else {
-        alert("Formato no válido. Sube un archivo estructurado .csv plano");
-      }
+      if (csv) handleScheduleFile(csv);
     });
   }
 
-  if(fi) {
-    fi.addEventListener('change', function(e) {
-      if(e.target.files.length > 0) {
-        handleScheduleFile(e.target.files[0]);
-      }
-    });
-  }
+  fi.addEventListener('change', function() {
+    if (fi.files[0]) handleScheduleFile(fi.files[0]);
+    fi.value = '';
+  });
 })();
+
+/* ── INIT ── */
+load();renderRoster();renderSchedule();
 </script>
 </body>
 </html>
