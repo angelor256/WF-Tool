@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
    THEME CONFIGURATION — Light / Dark Cyberpunk
    ═══════════════════════════════════════════════════ */
 
-/* --- LIGHT MODE (Por Defecto) --- */
+/* --- LIGHT MODE (Default) --- */
 :root {
   --void: #f3f6fa; 
   --deep: #e7edf7;
@@ -66,7 +66,7 @@
   --grid-color: rgba(0,0,0,0.015);
 }
 
-/* --- DARK MODE (Comando Central Cyberpunk) --- */
+/* --- DARK MODE (Central Cyberpunk Command) --- */
 html.dark {
   --void: #06080c;
   --deep: #0b0e14;
@@ -643,7 +643,7 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
     </div>
     <div class="nav-spacer"></div>
     <div class="nav-status">
-      <button id="theme-switcher" class="theme-toggle-btn" title="Alternar Modo Claro / Oscuro">
+      <button id="theme-switcher" class="theme-toggle-btn" title="Toggle Light / Dark Mode">
         <svg id="sun-icon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg>
         <svg id="moon-icon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 0 11.5-11.5 10.3 10.3 0 0 1-9.6-8.3z"/></svg>
       </button>
@@ -707,7 +707,7 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div class="panel">
-          <div class="panel-head"><span class="panel-label">GROUPS (FILTRAR LISTA)</span></div>
+          <div class="panel-head"><span class="panel-label">GROUPS (FILTER LIST)</span></div>
           <div class="panel-body">
             <div class="legend-stack" id="group-legend"></div>
           </div>
@@ -732,18 +732,18 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
     </div>
 
     <div class="day-selector" id="day-tabs">
-      <button class="day-btn active" data-day="Lunes">LUNES</button>
-      <button class="day-btn" data-day="Martes">MARTES</button>
-      <button class="day-btn" data-day="Miércoles">MIÉRCOLES</button>
-      <button class="day-btn" data-day="Jueves">JUEVES</button>
-      <button class="day-btn" data-day="Viernes">VIERNES</button>
-      <button class="day-btn" data-day="Sábado">SÁBADO</button>
-      <button class="day-btn" data-day="Domingo">DOMINGO</button>
+      <button class="day-btn active" data-day="Monday">MONDAY</button>
+      <button class="day-btn" data-day="Tuesday">TUESDAY</button>
+      <button class="day-btn" data-day="Wednesday">WEDNESDAY</button>
+      <button class="day-btn" data-day="Thursday">THURSDAY</button>
+      <button class="day-btn" data-day="Friday">FRIDAY</button>
+      <button class="day-btn" data-day="Saturday">SATURDAY</button>
+      <button class="day-btn" data-day="Sunday">SUNDAY</button>
     </div>
 
     <div class="drop-zone" id="drop-zone">
       <div class="dz-icon">📄</div>
-      <div class="dz-title" id="dz-title">Drop Lunes schedule CSV here</div>
+      <div class="dz-title" id="dz-title">Drop Monday schedule CSV here</div>
       <div class="dz-sub">or <span id="browse-link">browse files</span> — format: Name, Start, End</div>
     </div>
     <input type="file" id="sched-file" accept=".csv,.txt" style="display:none">
@@ -757,14 +757,14 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
     </div>
 
     <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
-      <button class="btn btn-glow" onclick="generateTasks()" style="font-size:13px;padding:14px 32px;" id="btn-gen-tasks">▶ GENERATE TASKS FOR LUNES</button>
+      <button class="btn btn-glow" onclick="generateTasks()" style="font-size:13px;padding:14px 32px;" id="btn-gen-tasks">▶ GENERATE TASKS FOR MONDAY</button>
       <button class="btn btn-ghost" onclick="setAllWorking()">ALL WORKING</button>
       <button class="btn btn-ghost" onclick="setAllOff()">ALL OFF</button>
     </div>
 
     <div class="panel">
       <div class="panel-head">
-        <span class="panel-label" id="panel-sched-label">SHIFTS (LUNES)</span>
+        <span class="panel-label" id="panel-sched-label">SHIFTS (MONDAY)</span>
         <span id="schedule-count" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);"></span>
       </div>
       <div style="max-height:600px;overflow-y:auto;">
@@ -775,18 +775,18 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 
   <div class="view" id="view-results">
     <div class="day-selector" id="task-day-tabs" style="margin-bottom: 24px;">
-      <button class="day-btn active" data-tday="Lunes">LUNES</button>
-      <button class="day-btn" data-tday="Martes">MARTES</button>
-      <button class="day-btn" data-tday="Miércoles">MIÉRCOLES</button>
-      <button class="day-btn" data-tday="Jueves">JUEVES</button>
-      <button class="day-btn" data-tday="Viernes">VIERNES</button>
-      <button class="day-btn" data-tday="Sábado">SÁBADO</button>
-      <button class="day-btn" data-tday="Domingo">DOMINGO</button>
+      <button class="day-btn active" data-tday="Monday">MONDAY</button>
+      <button class="day-btn" data-tday="Tuesday">TUESDAY</button>
+      <button class="day-btn" data-tday="Wednesday">WEDNESDAY</button>
+      <button class="day-btn" data-tday="Thursday">THURSDAY</button>
+      <button class="day-btn" data-tday="Friday">FRIDAY</button>
+      <button class="day-btn" data-tday="Saturday">SATURDAY</button>
+      <button class="day-btn" data-tday="Sunday">SUNDAY</button>
     </div>
 
     <div id="results-empty" class="empty">
       <div class="empty-glyph">⚡</div>
-      <p>No tasks generated yet for <strong id="empty-day-name">Lunes</strong>. Go to <strong>SCHEDULE</strong> and hit <strong>GENERATE TASKS</strong>.</p>
+      <p>No tasks generated yet for <strong id="empty-day-name">Monday</strong>. Go to <strong>SCHEDULE</strong> and hit <strong>GENERATE TASKS</strong>.</p>
     </div>
 
     <div id="results-content" style="display:none;">
@@ -800,7 +800,7 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 
       <div class="panel" style="margin-top: 10px;">
         <div class="panel-head">
-          <span class="panel-label">DETAIL (CLIC EN CUALQUIER TAREA PARA EDITAR EXPRESAMENTE)</span>
+          <span class="panel-label">DETAIL (CLICK DIRECTLY ON ANY TASK TO EDIT MANUALLY)</span>
           <div class="filters">
             <button class="filt-btn on" onclick="filterResults('all')" id="f-all">ALL</button>
             <button class="filt-btn" onclick="filterResults('morning')" id="f-morning">☀ AM</button>
@@ -895,15 +895,15 @@ var DEF_SCHED = [
 
 var roster = [];
 var weeklySchedule = {
-  "Lunes": [], "Martes": [], "Miércoles": [], "Jueves": [], "Viernes": [], "Sábado": [], "Domingo": []
+  "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [], "Saturday": [], "Sunday": []
 };
 
 var lastResults = {
-  "Lunes": [], "Martes": [], "Miércoles": [], "Jueves": [], "Viernes": [], "Sábado": [], "Domingo": []
+  "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [], "Saturday": [], "Sunday": []
 };
 
-var currentDay = "Lunes";       
-var lastResultsDay = "Lunes";   
+var currentDay = "Monday";       
+var lastResultsDay = "Monday";   
 var resultFilter = 'all';
 var rosterGroupFilter = 'all'; 
 
@@ -927,8 +927,8 @@ function load(){
     if(ws) {
       weeklySchedule = JSON.parse(ws);
     } else {
-      weeklySchedule["Lunes"] = JSON.parse(JSON.stringify(DEF_SCHED));
-      "Martes,Miércoles,Jueves,Viernes,Sábado,Domingo".split(',').forEach(function(d){
+      weeklySchedule["Monday"] = JSON.parse(JSON.stringify(DEF_SCHED));
+      "Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday".split(',').forEach(function(d){
         weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
       });
     }
@@ -938,8 +938,8 @@ function load(){
     }
   } catch(e){
     roster = JSON.parse(JSON.stringify(DEF_ROSTER));
-    weeklySchedule["Lunes"] = JSON.parse(JSON.stringify(DEF_SCHED));
-    "Martes,Miércoles,Jueves,Viernes,Sábado,Domingo".split(',').forEach(function(d){
+    weeklySchedule["Monday"] = JSON.parse(JSON.stringify(DEF_SCHED));
+    "Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday".split(',').forEach(function(d){
       weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
     });
   }
@@ -1267,7 +1267,7 @@ function renderResults(){
   document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase();
   document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.';
   
-  // Construye la estructura visual dividida para contadores de Morning y Afternoon de forma independiente
+  // Build UI metrics container block
   document.getElementById('results-summary-container').innerHTML = 
     '' +
     '<div class="shift-block-title">☀ MORNING SHIFT METRICS <span>Before 9AM / (8AM-11AM)</span></div>' +
@@ -1292,14 +1292,12 @@ function renderResults(){
 function recalculateMetrics() {
   var activeDayResults = lastResults[lastResultsDay] || [];
   
-  // Inicialización de contadores independientes para cada turno
   var morningTotal = 0, morningChats = 0, morningPhones = 0;
   var afternoonTotal = 0, afternoonChats = 0, afternoonPhones = 0;
   
   activeDayResults.forEach(function(r) {
     var main = String(r.mainTask || '').trim().toLowerCase();
     
-    // Determinar si pertenece a la lógica de Turno de la Mañana o Tarde
     if (r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11)) {
       morningTotal++;
       if (main === 'chats') morningChats++;
@@ -1311,7 +1309,6 @@ function recalculateMetrics() {
     }
   });
   
-  // Inyección de métricas limpia en los elementos correspondientes de la interfaz
   document.getElementById('m-count-total').textContent = morningTotal;
   document.getElementById('m-count-chats').textContent = morningChats;
   document.getElementById('m-count-phones').textContent = morningPhones;
