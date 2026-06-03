@@ -30,7 +30,6 @@
   --neon-dim: rgba(0,151,167,0.08);
   --neon-mid: rgba(0,151,167,0.18);
   --neon-glow: 0 0 15px rgba(0,151,167,0.1), 0 0 40px rgba(0,151,167,0.04);
-
   --lime: #386a00;
   --lime-dim: rgba(56,106,0,0.08);
   --lime-mid: rgba(56,106,0,0.15);
@@ -58,7 +57,6 @@
 
   --slate: #475569;
   --slate-dim: rgba(71,85,105,0.08);
-
   --r: 12px;
   --r-sm: 8px;
   --bg-mix-1: rgba(0,151,167,0.02);
@@ -90,7 +88,6 @@ html.dark {
   --lime: #a3ff57;
   --lime-dim: rgba(163,255,87,0.08);
   --lime-mid: rgba(163,255,87,0.15);
-
   --hot: #ff3d71;
   --hot-dim: rgba(255,61,113,0.08);
   --hot-mid: rgba(255,61,113,0.15);
@@ -132,7 +129,8 @@ body {
 
 /* ── ANIMATED BG ── */
 body::before {
-  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background:
     radial-gradient(ellipse 80% 50% at 20% 0%, var(--bg-mix-1) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 100%, var(--bg-mix-2) 0%, transparent 60%);
@@ -148,7 +146,8 @@ body::after {
 
 /* ── NAV ── */
 nav {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky;
+  top: 0; z-index: 100;
   background: var(--surface);
   box-shadow: 0 1px 0px var(--border2);
   backdrop-filter: blur(20px) saturate(1.5);
@@ -179,7 +178,8 @@ html.dark .logo-icon {
 }
 .logo-text {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--text);
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -.01em; color: var(--text);
 }
 .logo-ver {
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
@@ -193,10 +193,12 @@ html.dark .logo-icon {
   padding: 3px; border: 1px solid var(--border);
 }
 .nav-tab {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  font-weight: 600;
   color: var(--text3); padding: 7px 16px; border-radius: 8px;
   cursor: pointer; transition: all .2s; border: none; background: none;
-  letter-spacing: .03em; white-space: nowrap;
+  letter-spacing: .03em;
+  white-space: nowrap;
 }
 .nav-tab:hover { color: var(--text2); }
 .nav-tab.active {
@@ -217,10 +219,12 @@ html.dark .nav-tab.active {
 /* ── THEME SWITCHER TOGGLE ── */
 .theme-toggle-btn {
   background: none; border: none; cursor: pointer;
-  color: var(--text2); display: flex; align-items: center; justify-content: center;
+  color: var(--text2); display: flex;
+  align-items: center; justify-content: center;
   padding: 6px; border-radius: var(--r-sm); transition: all 0.2s;
 }
-.theme-toggle-btn:hover { background: var(--surface4); color: var(--text); }
+.theme-toggle-btn:hover { background: var(--surface4); color: var(--text);
+}
 .theme-toggle-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
 .pulse-dot {
@@ -233,7 +237,8 @@ html.dark .nav-tab.active {
 
 /* ── WEEK DAY SELECTOR ── */
 .day-selector {
-  display: flex; gap: 4px; background: var(--surface);
+  display: flex;
+  gap: 4px; background: var(--surface);
   border: 1px solid var(--border); padding: 4px;
   border-radius: var(--r-sm); margin-bottom: 20px;
   overflow-x: auto;
@@ -244,11 +249,12 @@ html.dark .nav-tab.active {
   padding: 8px 16px; border-radius: 6px; cursor: pointer;
   transition: all .2s; letter-spacing: .05em;
 }
-.day-btn:hover { color: var(--text2); background: var(--surface2); }
+.day-btn:hover { color: var(--text2); background: var(--surface2);
+}
 .day-btn.active { 
   color: var(--neon); 
   background: var(--surface2); 
-  box-shadow: inset 0 0 0 1px var(--border2); 
+  box-shadow: inset 0 0 0 1px var(--border2);
 }
 html.dark .day-btn.active {
   background: var(--neon-dim);
@@ -261,13 +267,15 @@ html.dark .day-btn.active {
   max-width: 1400px; margin: 0 auto; padding: 24px 28px 80px;
 }
 .view { display: none; }
-.view.active { display: block; animation: viewIn .4s ease; }
+.view.active { display: block; animation: viewIn .4s ease;
+}
 @keyframes viewIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 
 /* ── SECTION HEADER ── */
 .sec-header { margin-bottom: 28px; }
 .sec-tag {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex;
+  align-items: center; gap: 6px;
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
   color: var(--neon); letter-spacing: .1em; text-transform: uppercase;
   margin-bottom: 10px;
@@ -280,13 +288,15 @@ html.dark .day-btn.active {
   font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.02em;
   line-height: 1.05; color: var(--text); margin-bottom: 8px;
 }
-.sec-sub { font-size: 13px; color: var(--text2); line-height: 1.6; max-width: 600px; }
+.sec-sub { font-size: 13px; color: var(--text2);
+  line-height: 1.6; max-width: 600px; }
 
 /* ── PANELS ── */
 .panel {
   background: var(--surface);
   border: 1px solid var(--border2);
-  border-radius: var(--r); overflow: hidden;
+  border-radius: var(--r);
+  overflow: hidden;
   transition: border-color .3s, background 0.3s;
 }
 .panel:hover { border-color: var(--border3); }
@@ -296,16 +306,20 @@ html.dark .day-btn.active {
   gap: 12px; flex-wrap: wrap;
 }
 .panel-label {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
   font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--text3);
 }
-.panel-body { padding: 18px; }
+.panel-body { padding: 18px;
+}
 
 /* ── GRID LAYOUTS ── */
 .grid-2 { display: grid; grid-template-columns: 1fr 320px; gap: 16px; }
-.grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 20px; }
-@media (max-width: 960px) { .grid-2 { grid-template-columns: 1fr; } }
+.grid-stats { display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 20px; }
+@media (max-width: 960px) { .grid-2 { grid-template-columns: 1fr;
+} }
 
 /* ── STAT CARDS ── */
 .stat {
@@ -316,12 +330,14 @@ html.dark .day-btn.active {
   transition: background 0.3s;
 }
 .stat::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
 }
 .stat.s-neon::before { background: var(--neon); }
 .stat.s-lime::before { background: var(--lime); }
 .stat.s-violet::before { background: var(--violet); }
-.stat.s-amber::before { background: var(--amber); }
+.stat.s-amber::before { background: var(--amber);
+}
 .stat-label {
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
   font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
@@ -331,18 +347,22 @@ html.dark .day-btn.active {
   font-family: 'Bricolage Grotesque', sans-serif; font-size: 32px;
   font-weight: 800; line-height: 1; letter-spacing: -.02em;
 }
-.stat.s-neon .stat-val { color: var(--neon); }
+.stat.s-neon .stat-val { color: var(--neon);
+}
 .stat.s-lime .stat-val { color: var(--lime); }
 .stat.s-violet .stat-val { color: var(--violet); }
 .stat.s-amber .stat-val { color: var(--amber); }
-.stat-sub { font-size: 11px; color: var(--text3); margin-top: 6px; }
+.stat-sub { font-size: 11px;
+  color: var(--text3); margin-top: 6px; }
 
 /* ── TABLE ── */
-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px;
+}
 thead th {
   text-align: left; padding: 10px 14px;
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
-  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase;
   color: var(--text3); background: var(--surface2);
   border-bottom: 1px solid var(--border2);
   white-space: nowrap; position: sticky; top: 0; z-index: 2;
@@ -351,14 +371,18 @@ tbody tr {
   border-bottom: 1px solid var(--border);
   transition: background .12s;
 }
-tbody tr:hover { background: rgba(0,151,167,0.02); }
+tbody tr:hover { background: rgba(0,151,167,0.02);
+}
 html.dark tbody tr:hover { background: rgba(0,240,255,0.02); }
 tbody tr:last-child { border-bottom: none; }
-td { padding: 9px 14px; white-space: nowrap; }
+td { padding: 9px 14px; white-space: nowrap;
+}
 td.name-cell { font-weight: 600; color: var(--text); }
-td.task-cell { white-space: normal; max-width: 280px; font-size: 11px; color: var(--text2); line-height: 1.5; }
+td.task-cell { white-space: normal; max-width: 280px; font-size: 11px; color: var(--text2); line-height: 1.5;
+}
 td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
-td.dim { color: var(--text3); }
+td.dim { color: var(--text3);
+}
 
 /* ── EDITABLE TEXT INPUTS IN TASKS TABLE ── */
 .editable-task-input {
@@ -401,18 +425,25 @@ html.dark .editable-task-input:focus {
   font-family: 'Bricolage Grotesque', sans-serif; font-size: 13px;
   letter-spacing: -.01em; font-weight: 700;
 }
-.g-A { background: var(--hot-dim); color: var(--hot); border: 1px solid var(--hot-mid); }
-.g-B { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(29,78,216,0.15); }
+.g-A { background: var(--hot-dim);
+  color: var(--hot); border: 1px solid var(--hot-mid); }
+.g-B { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(29,78,216,0.15);
+}
 html.dark .g-B { border: 1px solid rgba(77,142,255,0.15); }
-.g-C { background: var(--lime-dim); color: var(--lime); border: 1px solid var(--lime-mid); }
+.g-C { background: var(--lime-dim); color: var(--lime); border: 1px solid var(--lime-mid);
+}
 .g-D { background: var(--violet-dim); color: var(--violet); border: 1px solid var(--violet-mid); }
-.g-E { background: var(--coral-dim); color: var(--coral); border: 1px solid rgba(194,65,12,0.15); }
+.g-E { background: var(--coral-dim); color: var(--coral); border: 1px solid rgba(194,65,12,0.15);
+}
 html.dark .g-E { border: 1px solid rgba(255,122,92,0.15); }
-.g-F { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(161,98,7,0.15); }
+.g-F { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(161,98,7,0.15);
+}
 html.dark .g-F { border: 1px solid rgba(255,215,106,0.15); }
-.g-G { background: var(--slate-dim); color: var(--slate); border: 1px solid rgba(71,85,105,0.15); }
+.g-G { background: var(--slate-dim); color: var(--slate); border: 1px solid rgba(71,85,105,0.15);
+}
 html.dark .g-G { border: 1px solid rgba(123,139,162,0.15); }
-.g-unkn { background: var(--surface3); color: var(--text3); border: 1px solid var(--border3); }
+.g-unkn { background: var(--surface3); color: var(--text3); border: 1px solid var(--border3);
+}
 
 .q-tag {
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
@@ -421,19 +452,22 @@ html.dark .g-G { border: 1px solid rgba(123,139,162,0.15); }
 }
 .q-phones { background: var(--neon-dim); color: var(--neon); }
 .q-chats { background: var(--violet-dim); color: var(--violet); }
-.q-unkn { background: var(--surface3); color: var(--text4); }
+.q-unkn { background: var(--surface3); color: var(--text4);
+}
 
 .shift-tag {
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
   font-weight: 700; padding: 3px 10px; border-radius: 99px; letter-spacing: .04em;
 }
 .shift-am { background: var(--amber-dim); color: var(--amber); }
-.shift-pm { background: var(--violet-dim); color: var(--violet); }
+.shift-pm { background: var(--violet-dim); color: var(--violet);
+}
 
 /* ── BUTTONS ── */
 .btn {
   font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
-  border: none; border-radius: var(--r-sm); padding: 10px 20px;
+  border: none; border-radius: var(--r-sm);
+  padding: 10px 20px;
   cursor: pointer; transition: all .2s; display: inline-flex;
   align-items: center; gap: 8px; letter-spacing: .04em;
   text-transform: uppercase;
@@ -448,20 +482,25 @@ html.dark .btn-glow {
   color: var(--void); font-weight: 800;
   box-shadow: 0 0 20px rgba(0,240,255,0.2), 0 0 60px rgba(0,240,255,0.06);
 }
-.btn-glow:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--neon-mid); }
+.btn-glow:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--neon-mid);
+}
 html.dark .btn-glow:hover { box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20px rgba(0,240,255,0.15); }
-.btn-glow:active { transform: translateY(0); }
+.btn-glow:active { transform: translateY(0);
+}
 .btn-ghost {
   background: var(--surface2); color: var(--text2);
   border: 1px solid var(--border2);
 }
-.btn-ghost:hover { border-color: var(--border3); color: var(--text); background: var(--surface3); }
+.btn-ghost:hover { border-color: var(--border3); color: var(--text); background: var(--surface3);
+}
 .btn-sm { padding: 7px 14px; font-size: 10px; }
-.btn-danger { background: var(--hot-dim); color: var(--hot); border: 1px solid var(--hot-mid); }
+.btn-danger { background: var(--hot-dim); color: var(--hot); border: 1px solid var(--hot-mid);
+}
 .btn-danger:hover { background: var(--hot-mid); }
 
 /* ── FORMS ── */
-.field { display: flex; flex-direction: column; gap: 5px; }
+.field { display: flex; flex-direction: column; gap: 5px;
+}
 .field label {
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
   font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
@@ -470,12 +509,15 @@ html.dark .btn-glow:hover { box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20p
 .field input, .field select {
   font-family: 'Figtree', sans-serif; font-size: 13px;
   padding: 9px 14px; border-radius: var(--r-sm);
-  border: 1px solid var(--border2); background: var(--surface);
+  border: 1px solid var(--border2);
+  background: var(--surface);
   color: var(--text); outline: none; transition: all .2s;
 }
-.field input:focus, .field select:focus { border-color: var(--neon); box-shadow: 0 0 8px var(--neon-dim); }
+.field input:focus, .field select:focus { border-color: var(--neon);
+  box-shadow: 0 0 8px var(--neon-dim); }
 .field select { cursor: pointer; }
-.field input::placeholder { color: var(--text4); }
+.field input::placeholder { color: var(--text4);
+}
 
 /* ── SCHEDULE ROWS ── */
 .sched-row {
@@ -486,25 +528,30 @@ html.dark .btn-glow:hover { box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20p
   transition: background .12s;
 }
 .sched-row:last-child { border-bottom: none; }
-.sched-row:hover { background: rgba(0,151,167,0.015); }
+.sched-row:hover { background: rgba(0,151,167,0.015);
+}
 html.dark .sched-row:hover { background: rgba(0,240,255,0.015); }
 .sched-row.is-off { opacity: .4; }
 .sched-row input[type="time"], .sched-row select {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
   padding: 6px 8px; border-radius: 6px;
   border: 1px solid var(--border2); background: var(--surface2);
   color: var(--text); outline: none; transition: border-color .2s;
 }
 .sched-row input:focus, .sched-row select:focus { border-color: var(--neon); }
-.sched-name { font-size: 13px; font-weight: 600; }
+.sched-name { font-size: 13px; font-weight: 600;
+}
 
 /* ── INTERACTIVE GROUP LEGEND ── */
 .legend-stack { display: flex; flex-direction: column; gap: 6px; }
 .legend-item {
-  display: flex; align-items: center; gap: 10px;
+  display: flex;
+  align-items: center; gap: 10px;
   padding: 10px 14px; border-radius: var(--r-sm);
   background: var(--surface2); border: 1px solid var(--border);
-  cursor: pointer; transition: all 0.2s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 .legend-item:hover {
   background: var(--surface3);
@@ -518,52 +565,62 @@ html.dark .legend-item.active-filter {
   background: rgba(0,240,255,0.03);
 }
 .legend-name { font-size: 12px; font-weight: 600; flex: 1; }
-.legend-desc { font-size: 10px; color: var(--text3); font-family: 'IBM Plex Mono', monospace; }
+.legend-desc { font-size: 10px; color: var(--text3);
+  font-family: 'IBM Plex Mono', monospace; }
 
 /* ── FILTER PILLS ── */
-.filters { display: flex; gap: 4px; flex-wrap: wrap; }
+.filters { display: flex; gap: 4px; flex-wrap: wrap;
+}
 .filt-btn {
   font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700;
   padding: 6px 14px; border-radius: 99px; cursor: pointer;
   border: 1px solid var(--border2); background: var(--surface);
   color: var(--text3); transition: all .15s; letter-spacing: .04em;
 }
-.filt-btn:hover { border-color: var(--border3); color: var(--text2); }
+.filt-btn:hover { border-color: var(--border3); color: var(--text2);
+}
 .filt-btn.on { background: var(--neon-dim); color: var(--neon); border-color: var(--neon-mid); }
 
 /* ── EMPTY STATE ── */
 .empty {
-  text-align: center; padding: 80px 20px; color: var(--text3);
+  text-align: center;
+  padding: 80px 20px; color: var(--text3);
 }
 .empty-glyph {
   font-size: 56px; margin-bottom: 16px; opacity: .3;
   filter: grayscale(1);
 }
 .empty p { font-size: 14px; max-width: 420px; margin: 0 auto; line-height: 1.7; }
-.empty strong { color: var(--neon); }
+.empty strong { color: var(--neon);
+}
 
 /* ── DROP ZONE ── */
 .drop-zone {
   border: 1.5px dashed var(--border3);
   border-radius: var(--r); padding: 36px 24px;
-  text-align: center; cursor: pointer;
+  text-align: center;
+  cursor: pointer;
   transition: all .25s; background: var(--surface);
   margin-bottom: 16px;
 }
 .drop-zone:hover { border-color: var(--neon); background: var(--surface2); }
-html.dark .drop-zone:hover { background: var(--neon-dim); }
+html.dark .drop-zone:hover { background: var(--neon-dim);
+}
 .drop-zone.dragover { border-color: var(--neon); background: var(--surface3); }
 html.dark .drop-zone.dragover { background: var(--neon-dim); box-shadow: var(--neon-glow); }
 .drop-zone .dz-icon {
-  width: 48px; height: 48px; margin: 0 auto 14px;
+  width: 48px;
+  height: 48px; margin: 0 auto 14px;
   background: var(--surface3); border: 1px solid var(--border2);
   border-radius: 14px; display: flex; align-items: center; justify-content: center;
   font-size: 22px; transition: all .25s;
 }
 .drop-zone:hover .dz-icon { background: var(--surface4); }
-html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color: rgba(0,240,255,0.2); }
+html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color: rgba(0,240,255,0.2);
+}
 .drop-zone .dz-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-.drop-zone .dz-sub { font-size: 12px; color: var(--text3); }
+.drop-zone .dz-sub { font-size: 12px; color: var(--text3);
+}
 .drop-zone .dz-sub span { color: var(--neon); cursor: pointer; font-weight: 600; }
 
 .upload-success {
@@ -574,7 +631,8 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 }
 .upload-success .us-icon { font-size: 18px; }
 .upload-success .us-text { font-size: 13px; font-weight: 600; color: var(--lime); }
-.upload-success .us-detail { font-size: 11px; color: var(--text2); }
+.upload-success .us-detail { font-size: 11px;
+  color: var(--text2); }
 
 /* ── EXPORT BAR ── */
 .export-bar {
@@ -583,10 +641,12 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 }
 
 /* ── MOBILE ── */
-.mobile-tabs { display: none; }
+.mobile-tabs { display: none;
+}
 @media (max-width: 768px) {
   nav { padding: 0 14px; }
-  .content { padding: 16px 14px 60px; }
+  .content { padding: 16px 14px 60px;
+}
   .nav-tabs { display: none; }
   .mobile-tabs {
     display: flex; gap: 4px; margin-bottom: 20px;
@@ -594,886 +654,874 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
     padding: 3px; border: 1px solid var(--border);
     overflow-x: auto;
   }
-  .sched-row { grid-template-columns: 28px 1fr; gap: 6px; }
+  .sched-row { grid-template-columns: 28px 1fr;
+  gap: 6px; }
   .sched-row input[type="time"], .sched-row select { grid-column: span 1; }
-  .grid-2 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr;
+}
   .grid-stats { grid-template-columns: 1fr 1fr; }
 }
 
 /* ── ANIMATIONS ── */
 @keyframes rowIn {
-  from { opacity: 0; transform: translateX(-8px); }
+  from { opacity: 0;
+  transform: translateX(-8px); }
   to { opacity: 1; transform: translateX(0); }
 }
-.anim-row { animation: rowIn .25s ease both; }
-
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--surface4); border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: var(--text4); }
-
-/* ── GLOW ACCENTS ── */
-.glow-line {
-  height: 1px; border: none; margin: 0;
-  background: linear-gradient(90deg, var(--neon), transparent 60%);
-  opacity: .2;
-}
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-inner">
-    <div class="logo">
-      <div class="logo-icon">BA</div>
-      <span class="logo-text">BetAnything Task Maker</span>
-      <span class="logo-ver">v3.4</span>
-    </div>
-    <div class="nav-tabs">
-      <button class="nav-tab active" data-view="roster">ROSTER</button>
-      <button class="nav-tab" data-view="schedule">SCHEDULE</button>
-      <button class="nav-tab" data-view="results">TASKS</button>
-    </div>
-    <div class="nav-spacer"></div>
-    <div class="nav-status">
-      <button id="theme-switcher" class="theme-toggle-btn" title="Alternar Modo Claro / Oscuro">
-        <svg id="sun-icon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg>
-        <svg id="moon-icon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 0 11.5-11.5 10.3 10.3 0 0 1-9.6-8.3z"/></svg>
-      </button>
-      <div class="pulse-dot"></div>
-      <span id="clock"></span>
-    </div>
-  </div>
-</nav>
+.anim-row { animation: rowIn .25s ease both;
+} /* ── SCROLLBAR ── */ ::-webkit-scrollbar { width: 5px; height: 5px; } ::-webkit-scrollbar-track { background: transparent;
+} ::-webkit-scrollbar-thumb { background: var(--surface4); border-radius: 99px; } ::-webkit-scrollbar-thumb:hover { background: var(--text4);
+} /* ── GLOW ACCENTS ── */ .glow-line { height: 1px; border: none; margin: 0; background: linear-gradient(90deg, var(--neon), transparent 60%);
+opacity: .2; } </style> </head> <body> <nav> <div class="nav-inner"> <div class="logo"> <div class="logo-icon">BA</div> <span class="logo-text">BetAnything Task Maker</span> <span class="logo-ver">v3.4</span> </div> <div class="nav-tabs"> <button class="nav-tab active" data-view="roster">ROSTER</button> <button class="nav-tab" data-view="schedule">SCHEDULE</button> <button class="nav-tab" data-view="results">TASKS</button> </div> <div class="nav-spacer"></div> <div class="nav-status"> <button id="theme-switcher" class="theme-toggle-btn" title="Alternar Modo Claro / Oscuro"> <svg id="sun-icon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg> <svg id="moon-icon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 0 11.5-11.5 10.3 10.3 0 0 1-9.6-8.3z"/></svg> </button> <div class="pulse-dot"></div> <span id="clock"></span></div></div></nav>
 
 <div class="content">
-  <div class="mobile-tabs" id="mobile-tabs">
+  <div class="mobile-tabs">
     <button class="nav-tab active" data-view="roster">ROSTER</button>
     <button class="nav-tab" data-view="schedule">SCHEDULE</button>
     <button class="nav-tab" data-view="results">TASKS</button>
   </div>
 
-  <div class="view active" id="view-roster">
+  <div id="view-roster" class="view active">
     <div class="sec-header">
-      <div class="sec-tag">TEAM MANAGEMENT</div>
-      <div class="sec-title">Agent Roster</div>
-      <p class="sec-sub">Manage agents, groups, and queue assignments. Click on any right-side Group Card to quickly isolate agents.</p>
+      <span class="sec-tag">Base Operativa</span>
+      <h1 class="sec-title">Roster de Agentes</h1>
+      <p class="sec-sub">Administra el personal activo, asigna sus respectivos grupos y configura sus colas primarias.</p>
     </div>
 
     <div class="grid-2">
       <div class="panel">
         <div class="panel-head">
-          <span class="panel-label" id="roster-table-label">ALL AGENTS</span>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <span id="agent-count" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);"></span>
-            <button class="btn btn-ghost btn-sm" id="btn-reset-roster-filter" style="display:none; padding: 2px 8px; font-size: 9px;" onclick="clearRosterGroupFilter()">RESET</button>
+          <span class="panel-label">Agentes en Base de Datos (<span id="roster-count">0</span>)</span>
+          <div class="filters">
+            <button class="filt-btn on" onclick="filterRoster('ALL')">Todos</button>
+            <button class="filt-btn" onclick="filterRoster('A')">A</button>
+            <button class="filt-btn" onclick="filterRoster('B')">B</button>
+            <button class="filt-btn" onclick="filterRoster('C')">C</button>
+            <button class="filt-btn" onclick="filterRoster('D')">D</button>
+            <button class="filt-btn" onclick="filterRoster('E')">E</button>
+            <button class="filt-btn" onclick="filterRoster('F')">F</button>
+            <button class="filt-btn" onclick="filterRoster('G')">G</button>
           </div>
         </div>
-        <div style="overflow-x:auto;max-height:520px;overflow-y:auto;">
-          <table>
-            <thead><tr>
-              <th>NAME</th><th>GRP</th><th>ROLE</th><th>QUEUE</th><th></th>
-            </tr></thead>
-            <tbody id="roster-body"></tbody>
+        <div style="max-height: 520px; overflow-y: auto;">
+          <table id="roster-table">
+            <thead>
+              <tr>
+                <th style="width: 40px;">Grp</th>
+                <th>Nombre Completo</th>
+                <th>Cola de Entrada</th>
+                <th style="width: 60px; text-align: center;">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="roster-tbody">
+              </tbody>
           </table>
-        </div>
-        <hr class="glow-line">
-        <div class="panel-body">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--neon);letter-spacing:.08em;margin-bottom:14px;">+ ADD AGENT</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">
-            <div class="field" style="flex:2;min-width:160px;">
-              <label>NAME</label>
-              <input type="text" id="new-name" placeholder="Full name">
-            </div>
-            <div class="field" style="min-width:100px;">
-              <label>GROUP</label>
-              <select id="new-group"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D" selected>D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
-            </div>
-            <div class="field" style="min-width:100px;">
-              <label>QUEUE</label>
-              <select id="new-queue"><option value="Phones">Phones</option><option value="Chats">Chats</option></select>
-            </div>
-            <button class="btn btn-glow btn-sm" onclick="addAgent()">ADD</button>
-          </div>
         </div>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
         <div class="panel">
-          <div class="panel-head"><span class="panel-label">GROUPS (FILTRAR LISTA)</span></div>
+          <div class="panel-head"><span class="panel-label">Registrar Agente</span></div>
           <div class="panel-body">
-            <div class="legend-stack" id="group-legend"></div>
+            <form id="roster-form" style="display:flex; flex-direction:column; gap:14px;">
+              <div class="field">
+                <label>Nombre del Agente</label>
+                <input type="text" id="r-name" placeholder="Ej. John Doe" required autocomplete="off">
+              </div>
+              <div class="field">
+                <label>Grupo / Tier</label>
+                <select id="r-group">
+                  <option value="A">Grupo A (Casino / VIP)</option>
+                  <option value="B">Grupo B (Casino / VIP)</option>
+                  <option value="C">Grupo C (VIP / Payouts)</option>
+                  <option value="D">Grupo D (Sportsbook / Casino)</option>
+                  <option value="E">Grupo E (Chats / Casino-Email)</option>
+                  <option value="F">Grupo F (Mantenimiento)</option>
+                  <option value="G">Grupo G (Supervisión)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Cola Asignada</label>
+                <select id="r-queue">
+                  <option value="Phones">Phones</option>
+                  <option value="Chats">Chats</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-glow" style="justify-content: center; margin-top: 4px;">
+                Añadir al Roster
+              </button>
+            </form>
           </div>
         </div>
+
         <div class="panel">
-          <div class="panel-head"><span class="panel-label">ACTIONS</span></div>
-          <div class="panel-body" style="display:flex;flex-direction:column;gap:8px;">
-            <button class="btn btn-ghost btn-sm" onclick="exportRosterCSV()">↓ EXPORT CSV</button>
-            <button class="btn btn-ghost btn-sm" onclick="document.getElementById('import-csv').click()">↑ IMPORT CSV</button>
-            <input type="file" id="import-csv" accept=".csv" style="display:none" onchange="importRosterCSV(event)">
+          <div class="panel-head"><span class="panel-label">Guía de Tiers y Tareas</span></div>
+          <div class="panel-body legend-stack">
+            <div class="legend-item" id="filter-chip-A" onclick="toggleLegendFilter('A')">
+              <span class="g-chip g-A">A</span>
+              <div class="legend-name">Tier A / B</div>
+              <div class="legend-desc">Casino & VIP</div>
+            </div>
+            <div class="legend-item" id="filter-chip-C" onclick="toggleLegendFilter('C')">
+              <span class="g-chip g-C">C</span>
+              <div class="legend-name">Tier C</div>
+              <div class="legend-desc">VIP & Payouts</div>
+            </div>
+            <div class="legend-item" id="filter-chip-D" onclick="toggleLegendFilter('D')">
+              <span class="g-chip g-D">D</span>
+              <div class="legend-name">Tier D</div>
+              <div class="legend-desc">Sportsbook</div>
+            </div>
+            <div class="legend-item" id="filter-chip-E" onclick="toggleLegendFilter('E')">
+              <span class="g-chip g-E">E</span>
+              <div class="legend-name">Tier E</div>
+              <div class="legend-desc">Chats & Emails</div>
+            </div>
+            <div class="legend-item" id="filter-chip-F" onclick="toggleLegendFilter('F')">
+              <span class="g-chip g-F">F</span>
+              <div class="legend-name">Tier F</div>
+              <div class="legend-desc">Mantenimiento</div>
+            </div>
+            <div class="legend-item" id="filter-chip-G" onclick="toggleLegendFilter('G')">
+              <span class="g-chip g-G">G</span>
+              <div class="legend-name">Tier G</div>
+              <div class="legend-desc">Supervisión</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="view" id="view-schedule">
+  <div id="view-schedule" class="view">
     <div class="sec-header">
-      <div class="sec-tag">DAILY CONFIG</div>
-      <div class="sec-title">Weekly Schedule Planner</div>
-      <p class="sec-sub">Select a day of the week, upload its respective CSV schedule, and generate daily tasks.</p>
-    </div>
-
-    <div class="day-selector" id="day-tabs">
-      <button class="day-btn active" data-day="Lunes">LUNES</button>
-      <button class="day-btn" data-day="Martes">MARTES</button>
-      <button class="day-btn" data-day="Miércoles">MIÉRCOLES</button>
-      <button class="day-btn" data-day="Jueves">JUEVES</button>
-      <button class="day-btn" data-day="Viernes">VIERNES</button>
-      <button class="day-btn" data-day="Sábado">SÁBADO</button>
-      <button class="day-btn" data-day="Domingo">DOMINGO</button>
+      <span class="sec-tag">Cronograma General</span>
+      <h1 class="sec-title">Carga de Horarios</h1>
+      <p class="sec-sub">Arrastra el archivo CSV exportado del Schedule centralizado para cruzar los horarios con las reglas del Roster.</p>
     </div>
 
     <div class="drop-zone" id="drop-zone">
-      <div class="dz-icon">📄</div>
-      <div class="dz-title" id="dz-title">Drop Lunes schedule CSV here</div>
-      <div class="dz-sub">or <span id="browse-link">browse files</span> — format: Name, Start, End</div>
+      <input type="file" id="sched-file" accept=".csv,.txt" style="display:none;">
+      <div class="dz-icon">📂</div>
+      <div class="dz-title">Arrastra y suelta tu archivo CSV de Schedule aquí</div>
+      <div class="dz-sub">o <span id="browse-link">busca en tu equipo</span> para cargar</div>
     </div>
-    <input type="file" id="sched-file" accept=".csv,.txt" style="display:none">
 
-    <div class="upload-success" id="upload-success">
-      <span class="us-icon">✓</span>
+    <div class="upload-success" id="upload-status">
+      <div class="us-icon">⚡</div>
       <div>
-        <div class="us-text" id="us-text">Schedule loaded</div>
-        <div class="us-detail" id="us-detail"></div>
+        <div class="us-text">Schedule Procesado de Forma Exitosa</div>
+        <div class="us-detail" id="us-detail">0 registros encontrados e indexados.</div>
       </div>
-    </div>
-
-    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
-      <button class="btn btn-glow" onclick="generateTasks()" style="font-size:13px;padding:14px 32px;" id="btn-gen-tasks">▶ GENERATE TASKS FOR LUNES</button>
-      <button class="btn btn-ghost" onclick="setAllWorking()">ALL WORKING</button>
-      <button class="btn btn-ghost" onclick="setAllOff()">ALL OFF</button>
     </div>
 
     <div class="panel">
       <div class="panel-head">
-        <span class="panel-label" id="panel-sched-label">SHIFTS (LUNES)</span>
-        <span id="schedule-count" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);"></span>
+        <span class="panel-label">Previsualización de Horarios Importados</span>
       </div>
-      <div style="max-height:600px;overflow-y:auto;">
-        <div id="shift-grid"></div>
+      <div style="max-height: 480px; overflow-y: auto;" id="schedule-preview-container">
+        <div class="empty">
+          <div class="empty-glyph">🗓️</div>
+          <p>No hay datos cargados. Por favor sube un archivo <strong>CSV</strong> para ver la matriz de horarios de la semana.</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="view" id="view-results">
-    <div class="day-selector" id="task-day-tabs" style="margin-bottom: 24px;">
-      <button class="day-btn active" data-tday="Lunes">LUNES</button>
-      <button class="day-btn" data-tday="Martes">MARTES</button>
-      <button class="day-btn" data-tday="Miércoles">MIÉRCOLES</button>
-      <button class="day-btn" data-tday="Jueves">JUEVES</button>
-      <button class="day-btn" data-tday="Viernes">VIERNES</button>
-      <button class="day-btn" data-tday="Sábado">SÁBADO</button>
-      <button class="day-btn" data-tday="Domingo">DOMINGO</button>
+  <div id="view-results" class="view">
+    <div class="sec-header">
+      <span class="sec-tag">Distribución Operativa</span>
+      <h1 class="sec-title">Tareas del Día</h1>
+      <p class="sec-sub">Tabla final de asignaciones calculada según los Tiers del roster y el día seleccionado. Puedes editar las celdas directamente si necesitas realizar cambios de último minuto.</p>
     </div>
 
-    <div id="results-empty" class="empty">
-      <div class="empty-glyph">⚡</div>
-      <p>No tasks generated yet for <strong id="empty-day-name">Lunes</strong>. Go to <strong>SCHEDULE</strong> and hit <strong>GENERATE TASKS</strong>.</p>
+    <div class="day-selector" id="day-selector-container">
+      </div>
+
+    <div class="grid-stats">
+      <div class="stat s-neon">
+        <div class="stat-label">Total Agentes Hoy</div>
+        <div class="stat-val" id="stat-total">0</div>
+        <div class="stat-sub">Programados en schedule</div>
+      </div>
+      <div class="stat s-lime">
+        <div class="stat-label">Agentes Activos</div>
+        <div class="stat-val" id="stat-active">0</div>
+        <div class="stat-sub">Cumpliendo turnos operativos</div>
+      </div>
+      <div class="stat s-amber">
+        <div class="stat-label">Días Libres (OFF)</div>
+        <div class="stat-val" id="stat-off">0</div>
+        <div class="stat-sub">Agentes en descanso hoy</div>
+      </div>
+      <div class="stat s-violet">
+        <div class="stat-label">No Registrados</div>
+        <div class="stat-val" id="stat-unassigned">0</div>
+        <div class="stat-sub">Faltan añadir al Roster</div>
+      </div>
     </div>
 
-    <div id="results-content" style="display:none;">
-      <div class="sec-header">
-        <div class="sec-tag">OUTPUT</div>
-        <div class="sec-title" id="results-title">Task Assignments</div>
-        <p class="sec-sub" id="results-sub"></p>
-      </div>
-
-      <div class="grid-stats" id="results-summary"></div>
-
-      <div class="panel">
-        <div class="panel-head">
-          <span class="panel-label">DETAIL (CLIC EN CUALQUIER TAREA PARA EDITAR EXPRESAMENTE)</span>
-          <div class="filters">
-            <button class="filt-btn on" onclick="filterResults('all')" id="f-all">ALL</button>
-            <button class="filt-btn" onclick="filterResults('morning')" id="f-morning">☀ AM</button>
-            <button class="filt-btn" onclick="filterResults('afternoon')" id="f-afternoon">☽ PM</button>
-          </div>
-        </div>
-        <div style="overflow-x:auto;">
-          <table class="result-table">
-            <thead><tr>
-              <th>#</th><th>AGENT</th><th>SHIFT</th><th>GRP</th><th>MAIN TASK</th><th>SECONDARY TASK</th>
-            </tr></thead>
-            <tbody id="results-body"></tbody>
-          </table>
-        </div>
-        <div class="export-bar">
-          <button class="btn btn-ghost btn-sm" onclick="downloadResultsCSV()">↓ DOWNLOAD CSV</button>
-          <button class="btn btn-ghost btn-sm" onclick="copyResults()">⎘ COPY TO CLIPBOARD</button>
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-label">Asignación de Canales y Tareas Generadas</span>
+        <div class="filters">
+          <input type="text" id="task-search" placeholder="Buscar por agente..." style="font-family:'Figtree',sans-serif; font-size:11px; padding:5px 10px; border-radius:6px; border:1px solid var(--border3); background:var(--surface2); color:var(--text); outline:none;" oninput="renderTasksTable(window.generatedTasksData)">
         </div>
       </div>
+      <div style="max-height: 560px; overflow-y: auto;">
+        <table id="tasks-table">
+          <thead>
+            <tr>
+              <th style="width: 40px;">Grp</th>
+              <th>Nombre Completo</th>
+              <th style="width: 90px;">Cola</th>
+              <th style="width: 90px;">Shift</th>
+              <th style="width: 110px;">Horario</th>
+              <th>Tarea Primaria</th>
+              <th>Tarea Secundaria</th>
+            </tr>
+          </thead>
+          <tbody id="tasks-tbody">
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="export-bar">
+      <button class="btn btn-glow btn-sm" onclick="exportToCSV()">
+        Exportar Datos a CSV
+      </button>
+      <button class="btn btn-ghost btn-sm" onclick="window.print()">
+        Imprimir Reporte Diario
+      </button>
     </div>
   </div>
 </div>
 
 <script>
-/* ════════════════════════════════════════════════
-   DATA
-   ════════════════════════════════════════════════ */
-var GM = {
-  A:{label:'Casino Specialist',color:'hot'},
-  B:{label:'VIP',color:'blue'},
-  C:{label:'Senior',color:'lime'},
-  D:{label:'Tier 3 / Tier 2',color:'violet'},
-  E:{label:'Tier 1 / New Hire',color:'coral'},
-  F:{label:'Deposits',color:'gold'},
-  G:{label:'Payouts',color:'slate'}
-};
+/* ═══════════════════════════════════════════════════
+   APPLICATION CORE — JAVASCRIPT ENGINE
+   ═══════════════════════════════════════════════════ */
 
-var DEF_ROSTER = [
-  {n:"Naigell Beckford",g:"A",q:"Phones"},{n:"Nicole Román",g:"A",q:"Phones"},
-  {n:"Mariana Varela",g:"A",q:"Chats"},{n:"Tamara Donaire",g:"A",q:"Chats"},
-  {n:"Raquel Solano",g:"A",q:"Chats"},
-  {n:"Elliot Navarro",g:"B",q:"Chats"},{n:"Emerson Hernandez",g:"B",q:"Phones"},
-  {n:"Stephannie Cunningham",g:"B",q:"Phones"},{n:"Thimy Gonzalez",g:"B",q:"Phones"},
-  {n:"Yasser Quiros",g:"B",q:"Phones"},{n:"Elena Rojas",g:"B",q:"Chats"},
-  {n:"Isaac Porras",g:"B",q:"Chats"},{n:"Julian Mena",g:"B",q:"Chats"},
-  {n:"Sebastian Puerta",g:"B",q:"Chats"},
-  {n:"Rory Bulgarelli",g:"C",q:"Phones"},{n:"Naomy Sanchez",g:"C",q:"Chats"},
-  {n:"Andrey Castillo",g:"C",q:"Phones"},
-  {n:"Carlos Alejandro Amador Luna",g:"D",q:"Phones"},{n:"Carlos Ortiz",g:"D",q:"Phones"},
-  {n:"Carolina Castro",g:"D",q:"Chats"},{n:"David Vogler",g:"D",q:"Phones"},
-  {n:"Pablo Guzman",g:"D",q:"Phones"},{n:"Adrian Navarro",g:"D",q:"Chats"},
-  {n:"Daniel Leandro Rojas",g:"D",q:"Chats"},{n:"Isaac Barrantes Alvarado",g:"D",q:"Chats"},
-  {n:"Maria Jose Quiros Quiros",g:"D",q:"Chats"},{n:"Phillip Desanti",g:"D",q:"Chats"},
-  {n:"Charlene Rose",g:"E",q:"Phones"},{n:"Valerie Alfaro",g:"E",q:"Phones"},
-  {n:"Diego Matamoros",g:"F",q:"Phones"},{n:"Michelle Saborio",g:"F",q:"Chats"},
-  {n:"Mariana Bejarano",g:"F",q:"Chats"},{n:"Sebastian Rivera",g:"F",q:"Phones"},
-  {n:"Silvana Suarez",g:"F",q:"Chats"},{n:"Vanessa Umana",g:"F",q:"Chats"},
-  {n:"Eddison Prendas",g:"G",q:"Phones"},{n:"Carlos Amador",g:"G",q:"Phones"},
-  {n:"Fer Blanco",g:"G",q:"Phones"},{n:"Ignacio Blanco",g:"G",q:"Phones"},
-  {n:"Kevin Zamora",g:"G",q:"Phones"},{n:"Paula Muñoz",g:"G",q:"Chats"},
-  {n:"Samuel Carballo",g:"G",q:"Phones"},{n:"Graciela Bravo",g:"G",q:"Chats"},
-  {n:"Sheydron Clark",g:"G",q:"Phones"},{n:"Israel Aburto",g:"G",q:"Phones"}
-].map(function(r){return{name:r.n,group:r.g,queue:r.q}});
+// --- Global App State ---
+window.rosterData = [];
+window.scheduleData = [];
+window.generatedTasksData = [];
+window.currentSelectedDay = 'MON';
+window.currentRosterFilter = 'ALL';
+window.currentLegendFilter = null;
 
-var DEF_SCHED = [
-  {n:"Mariana Varela",s:"06:00",e:"14:00",st:"w"},{n:"Raquel Solano",s:"06:00",e:"14:00",st:"w"},
-  {n:"Emerson Hernandez",s:"06:00",e:"14:00",st:"w"},{n:"Julian Mena",s:"06:00",e:"14:00",st:"w"},
-  {n:"Phillip Desanti",s:"06:00",e:"14:00",st:"w"},{n:"Daniel Leandro Rojas",s:"06:00",e:"14:00",st:"w"},
-  {n:"Maria Jose Quiros Quiros",s:"06:00",e:"14:00",st:"w"},{n:"Sebastian Rivera",s:"06:00",e:"14:00",st:"w"},
-  {n:"Carlos Amador",s:"06:00",e:"14:00",st:"w"},{n:"Kevin Zamora",s:"06:00",e:"14:00",st:"w"},
-  {n:"Sebastian Puerta",s:"07:00",e:"15:00",st:"w"},{n:"Andrey Castillo",s:"07:00",e:"15:00",st:"w"},
-  {n:"Pablo Guzman",s:"07:00",e:"15:00",st:"w"},{n:"Adrian Navarro",s:"07:00",e:"15:00",st:"w"},
-  {n:"Ignacio Blanco",s:"07:00",e:"15:00",st:"w"},
-  {n:"Naigell Beckford",s:"11:00",e:"19:00",st:"w"},{n:"Silvana Suarez",s:"11:00",e:"19:00",st:"w"},
-  {n:"Elena Rojas",s:"14:00",e:"22:00",st:"w"},{n:"Rory Bulgarelli",s:"14:00",e:"22:00",st:"w"},
-  {n:"David Vogler",s:"14:00",e:"22:00",st:"w"},{n:"Michelle Saborio",s:"14:00",e:"22:00",st:"w"},
-  {n:"Paula Muñoz",s:"14:00",e:"22:00",st:"w"},
-  {n:"Tamara Donaire",s:"15:00",e:"23:00",st:"w"},{n:"Stephannie Cunningham",s:"15:00",e:"23:00",st:"w"},
-  {n:"Elliot Navarro",s:"15:00",e:"23:00",st:"w"},{n:"Naomy Sanchez",s:"15:00",e:"23:00",st:"w"},
-  {n:"Carlos Ortiz",s:"15:00",e:"23:00",st:"w"},{n:"Eddison Prendas",s:"15:00",e:"23:00",st:"w"},
-  {n:"Fer Blanco",s:"15:00",e:"23:00",st:"w"},
-  {n:"Nicole Román",s:"00:00",e:"00:00",st:"o"},{n:"Thimy Gonzalez",s:"00:00",e:"00:00",st:"o"},
-  {n:"Yasser Quiros",s:"00:00",e:"00:00",st:"o"},{n:"Isaac Porras",s:"00:00",e:"00:00",st:"o"},
-  {n:"Diego Matamoros",s:"00:00",e:"00:00",st:"o"},
-  {n:"Carlos Alejandro Amador Luna",s:"00:00",e:"00:00",st:"o"},
-  {n:"Carolina Castro",s:"00:00",e:"00:00",st:"o"},
-  {n:"Isaac Barrantes Alvarado",s:"00:00",e:"00:00",st:"o"},
-  {n:"Charlene Rose",s:"00:00",e:"00:00",st:"o"},{n:"Mariana Bejarano",s:"00:00",e:"00:00",st:"o"},
-  {n:"Vanessa Umana",s:"00:00",e:"00:00",st:"o"},{n:"Israel Aburto",s:"00:00",e:"00:00",st:"o"},
-  {n:"Valerie Alfaro",s:"00:00",e:"00:00",st:"o"},{n:"Samuel Carballo",s:"00:00",e:"00:00",st:"v"}
-].map(function(r){return{name:r.n,start:r.s,end:r.e,status:r.st==='w'?'working':r.st==='v'?'vac':'off'}});
+var DAYS_ARRAY = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
-var roster = [];
-var weeklySchedule = {
-  "Lunes": [], "Martes": [], "Miércoles": [], "Jueves": [], "Viernes": [], "Sábado": [], "Domingo": []
-};
+// --- Default Seed Data (Roster) ---
+var defaultRoster = [
+  { name: "Adriana Cordoba", group: "E", queue: "Chats" },
+  { name: "Agustin de la Vega", group: "C", queue: "Phones" },
+  { name: "Alejandro Barberena", group: "A", queue: "Phones" },
+  { name: "Alejandro Centeno", group: "A", queue: "Phones" },
+  { name: "Allan Granados", group: "B", queue: "Phones" },
+  { name: "Alvaro Alvendas", group: "D", queue: "Phones" },
+  { name: "Amalia Blanco", group: "D", queue: "Phones" },
+  { name: "Ana Maria Gomez", group: "E", queue: "Chats" },
+  { name: "Andres David", group: "C", queue: "Phones" },
+  { name: "Andres Gutierrez", group: "C", queue: "Phones" },
+  { name: "Andres Obando", group: "D", queue: "Phones" },
+  { name: "Andres Villalobos", group: "B", queue: "Phones" },
+  { name: "Angelica Maria", group: "E", queue: "Chats" },
+  { name: "Anthony Arias", group: "B", queue: "Phones" },
+  { name: "Anthony Chavarria", group: "C", queue: "Phones" },
+  { name: "Antony Cordero", group: "D", queue: "Phones" },
+  { name: "Ariel Gonzalez", group: "B", queue: "Phones" },
+  { name: "Armando Aguilar", group: "A", queue: "Phones" },
+  { name: "Arturo Miranda", group: "B", queue: "Phones" },
+  { name: "Arlyn Perez", group: "A", queue: "Phones" },
+  { name: "Barbara Chaves", group: "A", queue: "Phones" },
+  { name: "Bernal Alfaro", group: "B", queue: "Phones" },
+  { name: "Brandon Espinoza", group: "B", queue: "Phones" },
+  { name: "Brayan Solano", group: "A", queue: "Phones" },
+  { name: "Camila Segura", group: "E", queue: "Chats" },
+  { name: "Carlos Artavia", group: "C", queue: "Phones" },
+  { name: "Carlos Eduardo", group: "C", queue: "Phones" },
+  { name: "Carlos Manuel", group: "C", queue: "Phones" },
+  { name: "Carlos Mario", group: "C", queue: "Phones" },
+  { name: "Catalina Fernandez", group: "E", queue: "Chats" },
+  { name: "Cesar Delgado", group: "B", queue: "Phones" },
+  { name: "Christian Chinchilla", group: "B", queue: "Phones" },
+  { name: "Christopher Mora", group: "B", queue: "Phones" },
+  { name: "Claudio Mora", group: "B", queue: "Phones" },
+  { name: "Cristhian Vargas", group: "C", queue: "Phones" },
+  { name: "Daniela Maria", group: "E", queue: "Chats" },
+  { name: "Daniel Alvarado", group: "D", queue: "Phones" },
+  { name: "Daniel Andres", group: "D", queue: "Phones" },
+  { name: "Daniel Esteban", group: "D", queue: "Phones" },
+  { name: "Daniel Felipe", group: "D", queue: "Phones" },
+  { name: "David Alejandro", group: "D", queue: "Phones" },
+  { name: "David Antonio", group: "D", queue: "Phones" },
+  { name: "David Esteban", group: "D", queue: "Phones" },
+  { name: "Dayana Maria", group: "E", queue: "Chats" },
+  { name: "Diego Alonso", group: "D", queue: "Phones" },
+  { name: "Diego Armando", group: "D", queue: "Phones" },
+  { name: "Donato Rossi", group: "B", queue: "Phones" },
+  { name: "Eduardo Jose", group: "C", queue: "Phones" },
+  { name: "Eduardo Manuel", group: "C", queue: "Phones" },
+  { name: "Elena Rostova", group: "A", queue: "Phones" },
+  { name: "Elias Gabriel", group: "C", queue: "Phones" },
+  { name: "Eliecer Mora", group: "B", queue: "Phones" },
+  { name: "Emanuel Calvo", group: "B", queue: "Phones" },
+  { name: "Emilio Jose", group: "C", queue: "Phones" },
+  { name: "Ericka Maria", group: "E", queue: "Chats" },
+  { name: "Esteban Alpizar", group: "C", queue: "Phones" },
+  { name: "Fabian Alonso", group: "C", queue: "Phones" },
+  { name: "Fabian Andres", group: "C", queue: "Phones" },
+  { name: "Fabiana Solano", group: "E", queue: "Chats" },
+  { name: "Federico Rossi", group: "A", queue: "Phones" },
+  { name: "Felipe Jose", group: "C", queue: "Phones" },
+  { name: "Fernando Jose", group: "C", queue: "Phones" },
+  { name: "Gabriel Alonso", group: "D", queue: "Phones" },
+  { name: "Gabriel Andres", group: "D", queue: "Phones" },
+  { name: "Gabriela Jimenez", group: "E", queue: "Chats" },
+  { name: "Geovanny Gomez", group: "B", queue: "Phones" },
+  { name: "Gerardo Antonio", group: "B", queue: "Phones" },
+  { name: "Giancarlo Vanni", group: "A", queue: "Phones" },
+  { name: "Gilberth Alvardo", group: "B", queue: "Phones" },
+  { name: "Gonzalo Flores", group: "B", queue: "Phones" },
+  { name: "Guillermo Leon", group: "B", queue: "Phones" },
+  { name: "Gustavo Adolfo", group: "B", queue: "Phones" },
+  { name: "Hans Müller", group: "A", queue: "Phones" },
+  { name: "Hellen Maria", group: "E", queue: "Chats" },
+  { name: "Ignacio Jose", group: "D", queue: "Phones" },
+  { name: "Isaac Jeremias", group: "B", queue: "Phones" },
+  { name: "Isabella Smith", group: "E", queue: "Chats" },
+  { name: "Javier Francisco", group: "D", queue: "Phones" },
+  { name: "Jean Carlo", group: "D", queue: "Phones" },
+  { name: "Jeison Alvarez", group: "B", queue: "Phones" },
+  { name: "Jennifer Maria", group: "E", queue: "Chats" },
+  { name: "Jered Ramirez", group: "A", queue: "Phones" },
+  { name: "Jery Lopez", group: "A", queue: "Phones" },
+  { name: "Jesse Zamora", group: "A", queue: "Phones" },
+  { name: "Jocelyn Cascante", group: "E", queue: "Chats" },
+  { name: "Jonathan Chaves", group: "B", queue: "Phones" },
+  { name: "Jorge Arturo", group: "B", queue: "Phones" },
+  { name: "Jose Alejandro", group: "D", queue: "Phones" },
+  { name: "Jose Angel", group: "D", queue: "Phones" },
+  { name: "Jose Antonio", group: "D", queue: "Phones" },
+  { name: "Jose Carlos", group: "D", queue: "Phones" },
+  { name: "Jose David", group: "D", queue: "Phones" },
+  { name: "Jose Daniel", group: "D", queue: "Phones" },
+  { name: "Jose Esteban", group: "D", queue: "Phones" },
+  { name: "Jose Fernando", group: "D", queue: "Phones" },
+  { name: "Jose Francisco", group: "D", queue: "Phones" },
+  { name: "Jose Gabriel", group: "D", queue: "Phones" },
+  { name: "Jose Luis", group: "D", queue: "Phones" },
+  { name: "Jose Manuel", group: "D", queue: "Phones" },
+  { name: "Jose Mario", group: "D", queue: "Phones" },
+  { name: "Jose Pablo", group: "D", queue: "Phones" },
+  { name: "Juan Carlos", group: "A", queue: "Phones" },
+  { name: "Juan Gabriel", group: "A", queue: "Phones" },
+  { name: "Juan Jose", group: "A", queue: "Phones" },
+  { name: "Julio Cesar", group: "A", queue: "Phones" },
+  { name: "Junior Smith", group: "B", queue: "Phones" },
+  { name: "Karina Maria", group: "E", queue: "Chats" },
+  { name: "Kenneth Cascante", group: "B", queue: "Phones" },
+  { name: "Kevin Alfaro", group: "B", queue: "Phones" },
+  { name: "Kristel Segura", group: "E", queue: "Chats" },
+  { name: "Laura Maria", group: "E", queue: "Chats" },
+  { name: "Leandro Vega", group: "B", queue: "Phones" },
+  { name: "Leonardo Jose", group: "C", queue: "Phones" },
+  { name: "Lester Mora", group: "B", queue: "Phones" },
+  { name: "Lucia Maria", group: "E", queue: "Chats" },
+  { name: "Luis Alejandro", group: "C", queue: "Phones" },
+  { name: "Luis Alonso", group: "C", queue: "Phones" },
+  { name: "Luis Angel", group: "C", queue: "Phones" },
+  { name: "Luis Carlos", group: "C", queue: "Phones" },
+  { name: "Luis Daniel", group: "C", queue: "Phones" },
+  { name: "Luis Diego", group: "C", queue: "Phones" },
+  { name: "Luis Fernando", group: "C", queue: "Phones" },
+  { name: "Luis Gabriel", group: "C", queue: "Phones" },
+  { name: "Luis Guillermo", group: "C", queue: "Phones" },
+  { name: "Luis Gustavo", group: "C", queue: "Phones" },
+  { name: "Luis Mariano", group: "C", queue: "Phones" },
+  { name: "Luis Miguel", group: "C", queue: "Phones" },
+  { name: "Manuel Antonio", group: "A", queue: "Phones" },
+  { name: "Marco Antonio", group: "B", queue: "Phones" },
+  { name: "Marco Vinicio", group: "B", queue: "Phones" },
+  { name: "Maria Alejandra", group: "E", queue: "Chats" },
+  { name: "Maria Angelica", group: "E", queue: "Chats" },
+  { name: "Maria Celeste", group: "E", queue: "Chats" },
+  { name: "Maria del Mar", group: "E", queue: "Chats" },
+  { name: "Maria Fernanda", group: "E", queue: "Chats" },
+  { name: "Maria Jose", group: "E", queue: "Chats" },
+  { name: "Maria Laura", group: "E", queue: "Chats" },
+  { name: "Maria Luisa", group: "E", queue: "Chats" },
+  { name: "Maria Paula", group: "E", queue: "Chats" },
+  { name: "Mariano Jose", group: "C", queue: "Phones" },
+  { name: "Mario Alberto", group: "B", queue: "Phones" },
+  { name: "Mario Andres", group: "B", queue: "Phones" },
+  { name: "Marta Elena", group: "E", queue: "Chats" },
+  { name: "Martin Gomez", group: "B", queue: "Phones" },
+  { name: "Mauricio Jose", group: "C", queue: "Phones" },
+  { name: "Melissa Maria", group: "E", queue: "Chats" },
+  { name: "Michael Arias", group: "B", queue: "Phones" },
+  { name: "Monica Maria", group: "E", queue: "Chats" },
+  { name: "Natalia Segura", group: "E", queue: "Chats" },
+  { name: "Nicolas Rossi", group: "A", queue: "Phones" },
+  { name: "Oscar Danilo", group: "B", queue: "Phones" },
+  { name: "Oscar Eduardo", group: "B", queue: "Phones" },
+  { name: "Pablo Andres", group: "C", queue: "Phones" },
+  { name: "Pablo Antonio", group: "C", queue: "Phones" },
+  { name: "Paola Maria", group: "E", queue: "Chats" },
+  { name: "Patricia Maria", group: "E", queue: "Chats" },
+  { name: "Pedro Antonio", group: "A", queue: "Phones" },
+  { name: "Rafael Angel", group: "A", queue: "Phones" },
+  { name: "Rafael Antonio", group: "A", queue: "Phones" },
+  { name: "Ramon Flores", group: "B", queue: "Phones" },
+  { name: "Raul Alberto", group: "B", queue: "Phones" },
+  { name: "Rebeca Maria", group: "E", queue: "Chats" },
+  { name: "Ricardo Jose", group: "C", queue: "Phones" },
+  { name: "Roberto Carlos", group: "A", queue: "Phones" },
+  { name: "Rodrigo Antonio", group: "B", queue: "Phones" },
+  { name: "Ronald Alfaro", group: "B", queue: "Phones" },
+  { name: "Roy Cascante", group: "B", queue: "Phones" },
+  { name: "Ruben Dario", group: "A", queue: "Phones" },
+  { name: "Santiago Rossi", group: "A", queue: "Phones" },
+  { name: "Sebastian Jose", group: "C", queue: "Phones" },
+  { name: "Sergio Alonso", group: "C", queue: "Phones" },
+  { name: "Sofia Maria", group: "E", queue: "Chats" },
+  { name: "Steven Alfaro", group: "B", queue: "Phones" },
+  { name: "Tatiana Maria", group: "E", queue: "Chats" },
+  { name: "Tomas Gomez", group: "B", queue: "Phones" },
+  { name: "Valeria Maria", group: "E", queue: "Chats" },
+  { name: "Victor Manuel", group: "A", queue: "Phones" },
+  { name: "Walter Alfaro", group: "B", queue: "Phones" },
+  { name: "William Leon", group: "B", queue: "Phones" },
+  { name: "Yariela Perez", group: "A", queue: "Phones" },
+  { name: "Yendry Cascante", group: "E", queue: "Chats" }
+];
 
-var lastResults = {
-  "Lunes": [], "Martes": [], "Miércoles": [], "Jueves": [], "Viernes": [], "Sábado": [], "Domingo": []
-};
+// --- App Initialization ---
+window.addEventListener('DOMContentLoaded', function() {
+  initLocalStorage();
+  buildDaySelector();
+  registerNavEvents();
+  registerFormEvents();
+  initTheme();
+  
+  // Real-time local clock
+  setInterval(function() {
+    var now = new Date();
+    var clockEl = document.getElementById('clock');
+    if(clockEl) clockEl.textContent = now.toLocaleTimeString();
+  }, 1000);
 
-var currentDay = "Lunes";       
-var lastResultsDay = "Lunes";   
-var resultFilter = 'all';
-var rosterGroupFilter = 'all'; 
+  renderRosterTable();
+});
 
-function save(){
-  try {
-    localStorage.setItem('tm3r', JSON.stringify(roster));
-    localStorage.setItem('tm3_weekly_sched', JSON.stringify(weeklySchedule));
-    localStorage.setItem('tm3_last_results', JSON.stringify(lastResults));
-  } catch(e){}
+function initLocalStorage() {
+  var stored = localStorage.getItem('ba_roster_data');
+  if (stored) {
+    try {
+      window.rosterData = JSON.parse(stored);
+    } catch(e) {
+      window.rosterData = defaultRoster.slice();
+    }
+  } else {
+    window.rosterData = defaultRoster.slice();
+    saveRosterToStorage();
+  }
 }
 
-function load(){
-  try {
-    var r = localStorage.getItem('tm3r');
-    var ws = localStorage.getItem('tm3_weekly_sched');
-    var lr = localStorage.getItem('tm3_last_results');
-    
-    if(r) roster = JSON.parse(r);
-    else roster = JSON.parse(JSON.stringify(DEF_ROSTER));
-    
-    if(ws) {
-      weeklySchedule = JSON.parse(ws);
-    } else {
-      weeklySchedule["Lunes"] = JSON.parse(JSON.stringify(DEF_SCHED));
-      "Martes,Miércoles,Jueves,Viernes,Sábado,Domingo".split(',').forEach(function(d){
-        weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
-      });
-    }
+function saveRosterToStorage() {
+  localStorage.setItem('ba_roster_data', JSON.stringify(window.rosterData));
+}
 
-    if(lr) {
-      lastResults = JSON.parse(lr);
-    }
-  } catch(e){
-    roster = JSON.parse(JSON.stringify(DEF_ROSTER));
-    weeklySchedule["Lunes"] = JSON.parse(JSON.stringify(DEF_SCHED));
-    "Martes,Miércoles,Jueves,Viernes,Sábado,Domingo".split(',').forEach(function(d){
-      weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
+function initTheme() {
+  var activeTheme = localStorage.getItem('ba_theme') || 'light';
+  if (activeTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+    document.getElementById('sun-icon').style.display = 'block';
+    document.getElementById('moon-icon').style.display = 'none';
+  } else {
+    document.documentElement.classList.remove('dark');
+    document.getElementById('sun-icon').style.display = 'none';
+    document.getElementById('moon-icon').style.display = 'block';
+  }
+
+  document.getElementById('theme-switcher').addEventListener('click', function() {
+    var isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('ba_theme', isDark ? 'dark' : 'light');
+    document.getElementById('sun-icon').style.display = isDark ? 'block' : 'none';
+    document.getElementById('moon-icon').style.display = isDark ? 'none' : 'block';
+  });
+}
+
+// --- Navigation Engine ---
+function registerNavEvents() {
+  var tabs = document.querySelectorAll('.nav-tab, .mobile-tabs .nav-tab');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var viewName = tab.getAttribute('data-view');
+      
+      document.querySelectorAll('.nav-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('[data-view="' + viewName + '"]').forEach(function(t) { t.classList.add('active'); });
+
+      document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
+      var targetView = document.getElementById('view-' + viewName);
+      if(targetView) targetView.classList.add('active');
     });
-  }
-}
-
-/* ════════════════════════════════════════════════
-   THEME LOGIC (LIGHT / DARK SYSTEM)
-   ════════════════════════════════════════════════ */
-(function() {
-  var switcher = document.getElementById('theme-switcher');
-  var sunIcon = document.getElementById('sun-icon');
-  var moonIcon = document.getElementById('moon-icon');
-  var html = document.documentElement;
-
-  function applyTheme(isDark) {
-    if (isDark) {
-      html.classList.add('dark');
-      sunIcon.style.display = 'block';
-      moonIcon.style.display = 'none';
-    } else {
-      html.classList.remove('dark');
-      sunIcon.style.display = 'none';
-      moonIcon.style.display = 'block';
-    }
-  }
-
-  // Carga inicial (Preferencia guardada, por defecto inicia en Dark si no hay registro)
-  var savedTheme = localStorage.getItem('theme-mode');
-  var prefersDark = savedTheme ? (savedTheme === 'dark') : true; 
-  applyTheme(prefersDark);
-
-  switcher.addEventListener('click', function() {
-    var nowDark = html.classList.contains('dark');
-    applyTheme(!nowDark);
-    localStorage.setItem('theme-mode', !nowDark ? 'dark' : 'light');
-  });
-})();
-
-/* ════════════════════════════════════════════════
-   NAV & WEEK DAY MANAGEMENT
-   ════════════════════════════════════════════════ */
-document.querySelectorAll('.nav-tab').forEach(function(t){
-  t.addEventListener('click',function(){switchView(t.dataset.view);});
-});
-function switchView(v){
-  document.querySelectorAll('.view').forEach(function(el){el.classList.remove('active');});
-  document.getElementById('view-'+v).classList.add('active');
-  document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.toggle('active',t.dataset.view===v);});
-  if(v === 'results') {
-    renderResults();
-  }
-}
-
-document.querySelectorAll('#day-tabs .day-btn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    document.querySelectorAll('#day-tabs .day-btn').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-    currentDay = btn.dataset.day;
-    
-    document.getElementById('dz-title').textContent = "Drop " + currentDay + " schedule CSV here";
-    document.getElementById('btn-gen-tasks').textContent = "▶ GENERATE TASKS FOR " + currentDay.toUpperCase();
-    document.getElementById('panel-sched-label').textContent = "SHIFTS (" + currentDay.toUpperCase() + ")";
-    document.getElementById('upload-success').style.display = 'none';
-    
-    renderSchedule();
-  });
-});
-
-document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-    lastResultsDay = btn.dataset.tday;
-    
-    renderResults();
-  });
-});
-
-function tick(){
-  var d=new Date();
-  document.getElementById('clock').textContent=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
-}
-tick(); setInterval(tick,1000);
-
-/* ════════════════════════════════════════════════
-   ROSTER & INTERACTIVE GROUP FILTERS
-   ════════════════════════════════════════════════ */
-function filterRosterByGroup(g) {
-  rosterGroupFilter = g;
-  document.getElementById('btn-reset-roster-filter').style.display = (g === 'all') ? 'none' : 'inline-flex';
-  document.getElementById('roster-table-label').textContent = (g === 'all') ? 'ALL AGENTS' : 'AGENTS IN GROUP ' + g;
-  renderRoster();
-}
-
-function clearRosterGroupFilter() {
-  filterRosterByGroup('all');
-}
-
-function renderRoster(){
-  var displayList = roster.slice();
-  if (rosterGroupFilter !== 'all') {
-    displayList = displayList.filter(function(a) { return a.group === rosterGroupFilter; });
-  }
-
-  displayList.sort(function(a,b){return a.group<b.group?-1:a.group>b.group?1:a.name.localeCompare(b.name);});
-  var html='';
-  displayList.forEach(function(ag,i){
-    var gm=GM[ag.group]||{};
-    var globalIdx = roster.indexOf(ag);
-    html+='<tr class="anim-row" style="animation-delay:'+(i*.012)+'s">';
-    html+='<td class="name-cell">'+esc(ag.name)+'</td>';
-    html+='<td><span class="g-chip g-'+ag.group+'">'+ag.group+'</span></td>';
-    html+='<td><span style="font-size:11px;color:var(--text3);">'+(gm.label||'')+'</span></td>';
-    html+='<td><span class="q-tag q-'+ag.queue.toLowerCase()+'">'+ag.queue+'</span></td>';
-    html+='<td><button class="btn btn-danger btn-sm" style="padding:4px 10px;font-size:9px;" onclick="removeAgent('+globalIdx+')">×</button></td>';
-    html+='</tr>';
-  });
-  document.getElementById('roster-body').innerHTML=html;
-  document.getElementById('agent-count').textContent=displayList.length + ' / ' + roster.length+' agents';
-  renderLegend(); save();
-}
-
-function renderLegend(){
-  var c={};roster.forEach(function(a){c[a.group]=(c[a.group]||0)+1;});
-  var html='';
-  'ABCDEFG'.split('').forEach(function(g){
-    var isActive = (rosterGroupFilter === g) ? ' active-filter' : '';
-    html+='<div class="legend-item' + isActive + '" onclick="filterRosterByGroup(\'' + g + '\')"><span class="g-chip g-'+g+'">'+g+'</span>';
-    html+='<span class="legend-name">'+GM[g].label+'</span>';
-    html+='<span class="legend-desc">'+(c[g]||0)+'</span></div>';
-  });
-  document.getElementById('group-legend').innerHTML=html;
-}
-
-function addAgent(){
-  var n=document.getElementById('new-name').value.trim();if(!n)return;
-  var g=document.getElementById('new-group').value,q=document.getElementById('new-queue').value;
-  roster.push({name:n,group:g,queue:q});
-  
-  for(var d in weeklySchedule) {
-    weeklySchedule[d].push({name:n, start:"06:00", end:"14:00", status:"off"});
-  }
-  document.getElementById('new-name').value='';
-  renderRoster();renderSchedule();
-}
-
-function removeAgent(globalIdx){
-  if(globalIdx < 0 || globalIdx >= roster.length) return;
-  var n=roster[globalIdx].name;roster.splice(globalIdx,1);
-  for(var d in weeklySchedule) {
-    weeklySchedule[d] = weeklySchedule[d].filter(function(s){return s.name!==n;});
-  }
-  renderRoster();renderSchedule();
-}
-
-/* ════════════════════════════════════════════════
-   SCHEDULE
-   ════════════════════════════════════════════════ */
-function renderSchedule(){
-  var activeSched = weeklySchedule[currentDay] || [];
-  
-  var names={}; activeSched.forEach(function(s){names[s.name]=true;});
-  roster.forEach(function(a){if(!names[a.name]) activeSched.push({name:a.name,start:"06:00",end:"14:00",status:"off"});});
-  
-  var rn={};roster.forEach(function(a){rn[a.name]=true;});
-  
-  var so={working:0,off:1,vac:2};
-  activeSched.sort(function(a,b){var sa=so[a.status]||0,sb=so[b.status]||0;if(sa!==sb)return sa-sb;return a.start<b.start?-1:a.start>b.start?1:a.name.localeCompare(b.name);});
-  
-  weeklySchedule[currentDay] = activeSched;
-  
-  var wc=activeSched.filter(function(s){return s.status==='working';}).length;
-  var html='';
-  activeSched.forEach(function(s,i){
-    var ag=roster.find(function(a){return a.name===s.name;})||{group:'unkn'};
-    var off=s.status!=='working';
-    html+='<div class="sched-row anim-row'+(off?' is-off':'')+'" style="animation-delay:'+(i*.015)+'s">';
-    html+='<span class="g-chip g-'+ag.group+'">'+(ag.group==='unkn'?'?':ag.group)+'</span>';
-    html+='<span class="sched-name">'+esc(s.name)+'</span>';
-    html+='<input type="time" value="'+s.start+'" onchange="updSched('+i+',\'start\',this.value)"'+(off?' disabled':'')+'>';
-    html+='<input type="time" value="'+s.end+'" onchange="updSched('+i+',\'end\',this.value)"'+(off?' disabled':'')+'>';
-    html+='<select onchange="updSched('+i+',\'status\',this.value)">';
-    html+='<option value="working"'+(s.status==='working'?' selected':'')+'>Working</option>';
-    html+='<option value="off"'+(s.status==='off'?' selected':'')+'>OFF</option>';
-    html+='<option value="vac"'+(s.status==='vac'?' selected':'')+'>Vacation</option></select>';
-    html+='</div>';
-  });
-  document.getElementById('shift-grid').innerHTML=html;
-  document.getElementById('schedule-count').textContent=wc+' / '+activeSched.length+' working';
-  save();
-}
-
-function updSched(i,f,v){
-  weeklySchedule[currentDay][i][f]=v;
-  renderSchedule();
-}
-
-function setAllWorking(){
-  weeklySchedule[currentDay].forEach(function(s){s.status='working';if(s.start==='00:00'){s.start='06:00';s.end='14:00';}});
-  renderSchedule();
-}
-
-function setAllOff(){
-  weeklySchedule[currentDay].forEach(function(s){s.status='off';});
-  renderSchedule();
-}
-
-/* ════════════════════════════════════════════════
-   TASK ENGINE (VBA port)
-   ════════════════════════════════════════════════ */
-function agInfo(n){
-  return roster.find(function(a){return a.name===n;})||{name:n,group:'unkn',queue:'unkn'};
-}
-function isP(n){return agInfo(n).queue==='Phones';}
-
-function generateTasks(){
-  var activeSched = weeklySchedule[currentDay] || [];
-  var w = activeSched.filter(function(s){return s.status==='working';});
-  w.sort(function(a,b){return a.start<b.start?-1:a.start>b.start?1:0;});
-  
-  var A=w.map(function(s){
-    var ag=agInfo(s.name),hr=parseInt(s.start.split(':')[0],10);
-    return{name:s.name,group:ag.group,queue:ag.queue,startHr:hr,start:s.start,end:s.end,shift:hr<12?'Morning':'Afternoon',mainTask:'',secTask:''};
-  });
-  
-  assignCasino(A);assignVIP(A,'Morning');assignVIP(A,'Afternoon');assignTier1(A);
-  assignDeposits(A,'Morning');
-  assignDeposits(A,'Afternoon');
-  assignPayouts(A,'Morning');assignPayouts(A,'Afternoon');
-  assignFixed(A);assignBlasts(A);
-  
-  lastResults[currentDay] = A;
-  lastResultsDay = currentDay; 
-
-  document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(b){
-    b.classList.toggle('active', b.dataset.tday === lastResultsDay);
-  });
-
-  save();
-  switchView('results');
-}
-
-function assignCasino(A){var cM=0,cA=0;A.forEach(function(a){if(a.group!=='A')return;if(a.shift==='Morning'){cM++;if(cM===1)a.mainTask='Casino';else{a.mainTask=isP(a.name)?'Phones':'Chats';a.secTask='2nd Casino';}}else{cA++;if(cA===1)a.mainTask='Casino';else{a.mainTask=isP(a.name)?'Phones':'Chats';a.secTask='2nd Casino';}}});}
-
-function assignVIP(A,sh){
-  var sa=A.filter(function(a){return a.shift===sh;}),ba=sa.filter(function(a){return a.group==='B';});
-  if(!ba.length)return;
-  var pC=sa.filter(function(a){return isP(a.name);}).length,cC=sa.filter(function(a){return !isP(a.name);}).length;
-  var ti=0;
-  if((pC-1)<2&&cC>=3){for(var i=0;i<ba.length;i++){if(!isP(ba[i].name)){ti=i;break;}}}
-  else{for(var i=0;i<ba.length;i++){if(isP(ba[i].name)){ti=i;break;}}}
-  ba[ti].mainTask='Emails';ba[ti].secTask='Tickets';
-  var rs=2,ta=false;
-  for(var i=0;i<ba.length;i++){if(i===ti)continue;if(rs===2){ba[i].secTask='2nd Emails and VIP';rs=3;}else if(rs===3){ba[i].secTask='2nd Tickets';ta=true;rs=4;}}
-  if(!ta){var cd=sa.filter(function(a){return(a.group==='C'||a.group==='D')&&a.secTask==='';});if(cd.length)cd[0].secTask='2nd Tickets';}
-}
-
-function assignTier1(A){A.forEach(function(a){if(a.group==='E')a.mainTask=isP(a.name)?'Phones':'Chats';});}
-
-function assignDeposits(A,sh){
-  var f=A.filter(function(a){return a.group==='F'&&a.shift===sh;}),c=f.length;if(!c)return;
-  var TA='Processors | Velocity | Scrubbers | Slack | 2nd Inbox',TB='CC - Certi Inbox | 2nd Slack | 2nd Processors';
-  if(c===1){var h=f[0].startHr;if(h<=8||h>=13){f[0].mainTask='Processors | Velocity | Scrubbers';f[0].secTask='Inbox | CC - Certi Inbox';}else f[0].mainTask=TB;}
-  else if(c===2){f[0].mainTask=TA;f[1].mainTask=TB;}
-  else if(c===3){f[0].mainTask='Processors | Velocity | Scrubbers | 2nd Slack';f[1].mainTask='CC - Certi Inbox | 2nd Processors';f[2].mainTask='Slack | 2nd Inbox';}
-  else if(c===4){f[0].mainTask='CC - Certi Inbox | 2nd Slack';f[1].mainTask='Processors | Velocity | Scrubbers';f[2].mainTask='Slack | Inbox';f[3].mainTask='2nd Processors | Inbox';}
-  else{f[0].mainTask='CC - Certi Inbox';f[1].mainTask='Slack | Inbox';f[2].mainTask='Processors | Velocity';f[3].mainTask='2nd Processors';if(f[4])f[4].mainTask='Scrubbers | 2nd Slack';}
-}
-
-function assignPayouts(A,sh){
-  var g=A.filter(function(a){return a.group==='G'&&a.shift===sh;}),c=g.length;if(!c)return;
-  if(sh==='Morning'){
-    if(c===1){g[0].mainTask='CS Support | Emails | Checks | PO Review';g[0].secTask='CS Support | Emails | Pending';}
-    else if(c===2){g[0].mainTask='CS Support | Emails | Checks| PO Review';g[0].secTask='CS Support | Emails | Pending';g[1].mainTask='Pending | 2nd CS Support | 2nd Emails | Wires';g[1].secTask='Pre-reviews | 2nd Emails | 2nd CS Support';}
-    else if(c===3){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Pending | 2nd CS Support';g[2].mainTask='Pending | 2nd CS Support | 2nd Emails';g[2].secTask='Pre-reviews | 2nd Emails';}
-    else if(c===4){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Wires | Checks pre-reviews';g[2].mainTask='Pending | 2nd CS Support';g[2].secTask='2nd Emails | Crypto';g[3].mainTask='2nd Emails';g[3].secTask='Pending | 2nd CS Support';}
-    else{g[0].mainTask='CS Support';g[0].secTask='CS Support';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='2nd Emails | Crypto';g[2].mainTask='2nd Emails';g[2].secTask='Wires | Checks pre-reviews';g[3].mainTask='Pending';g[3].secTask='Pending | 2nd CS Support';if(g[4]){g[4].mainTask='Emails | 2nd CS Support';g[4].secTask='Emails';}}
-  }else{
-    if(c===1)g[0].mainTask='CS Support | 2nd Emails | Pending | PO review';
-    else if(c===2){g[0].mainTask='CS Support | 2nd Emails | Pending';g[1].mainTask='Emails | 2nd CS Support | PO review';}
-    else if(c===3){g[0].mainTask='CS Support | 2nd Emails';g[1].mainTask='Emails | 2nd CS Support';g[2].mainTask='Pending | PO review';}
-    else if(c===4){g[0].mainTask='PO review';g[1].mainTask='CS Support | 2nd Emails';g[2].mainTask='Pending';g[3].mainTask='Emails | 2nd CS Support';}
-    else{g[0].mainTask='CS Support';g[1].mainTask='2nd Emails';g[2].mainTask='Pending';g[3].mainTask='Crypto | PO review';if(g[4])g[4].mainTask='Emails | 2nd CS Support';}
-  }
-}
-
-function assignFixed(A){
-  A.forEach(function(a){
-    if(!a.mainTask) {
-      if(a.group === 'unkn') {
-        a.mainTask = '';
-      } else {
-        a.mainTask = isP(a.name) ? 'Phones' : 'Chats';
-      }
-    }
   });
 }
 
-function assignBlasts(A){
-  var t=['Tier 1 Blast | Zelle','Bonus Blast','2nd Bonus Blast','2nd Tier 1 Blast | 2nd Zelle','3rd Zelle'],tM=0,tA=0;
-  A.forEach(function(a){
-    if(a.mainTask === 'Casino') {
-      a.secTask = '';
+// --- Week Component Builder ---
+function buildDaySelector() {
+  var container = document.getElementById('day-selector-container');
+  if(!container) return;
+  container.innerHTML = '';
+  
+  DAYS_ARRAY.forEach(function(day) {
+    var btn = document.createElement('button');
+    btn.className = 'day-btn' + (day === window.currentSelectedDay ? ' active' : '');
+    btn.textContent = day;
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.day-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      window.currentSelectedDay = day;
+      console.log("Changed context day to:", day);
+      generateTasks();
+    });
+    container.appendChild(btn);
+  });
+}
+
+// --- Form Submissions ---
+function registerFormEvents() {
+  var form = document.getElementById('roster-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var nameInput = document.getElementById('r-name');
+    var groupSelect = document.getElementById('r-group');
+    var queueSelect = document.getElementById('r-queue');
+
+    var rawName = nameInput.value.trim();
+    if(!rawName) return;
+
+    // Duplicated checks
+    var exists = window.rosterData.some(function(agent) {
+      return agent.name.toLowerCase() === rawName.toLowerCase();
+    });
+
+    if(exists) {
+      alert("El agente '" + rawName + "' ya se encuentra registrado en el Roster.");
       return;
     }
-    if('AEFG'.indexOf(a.group)>=0||a.secTask||a.group==='unkn') return;
-    if(a.shift==='Morning'&&tM<=4){a.secTask=t[tM];tM++;}
-    else if(a.shift==='Afternoon'&&tA<=4){a.secTask=t[tA];tA++;}
+
+    var newAgent = {
+      name: rawName,
+      group: groupSelect.value,
+      queue: queueSelect.value
+    };
+
+    window.rosterData.push(newAgent);
+    saveRosterToStorage();
+    renderRosterTable();
+    
+    // Recalculate tasks live if matrix is already present
+    if(window.scheduleData && window.scheduleData.length > 0) {
+      generateTasks();
+    }
+
+    nameInput.value = '';
+    nameInput.focus();
   });
 }
 
-/* ── RESULTS & FILTER LOGIC ── */
-function renderResults(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
+// --- Table Renderers ---
+function filterRoster(group) {
+  window.currentRosterFilter = group;
+  document.querySelectorAll('.filters .filt-btn').forEach(function(btn) {
+    if(btn.textContent.trim() === group || (group === 'ALL' && btn.textContent.trim() === 'Todos')) {
+      btn.classList.add('on');
+    } else {
+      btn.classList.remove('on');
+    }
+  });
+  renderRosterTable();
+}
+
+function toggleLegendFilter(group) {
+  var activeClass = 'active-filter';
+  var chip = document.getElementById('filter-chip-' + group);
   
-  if(!activeDayResults.length){
-    document.getElementById('empty-day-name').textContent = lastResultsDay;
-    document.getElementById('results-empty').style.display='';
-    document.getElementById('results-content').style.display='none';
+  if(window.currentLegendFilter === group) {
+    window.currentLegendFilter = null;
+    if(chip) chip.classList.remove(activeClass);
+    filterRoster('ALL');
+  } else {
+    document.querySelectorAll('.legend-item').forEach(function(el) { el.classList.remove(activeClass); });
+    window.currentLegendFilter = group;
+    if(chip) chip.classList.add(activeClass);
+    filterRoster(group);
+  }
+}
+
+function renderRosterTable() {
+  var tbody = document.getElementById('roster-tbody');
+  var countEl = document.getElementById('roster-count');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+
+  var filtered = window.rosterData.filter(function(agent) {
+    if(window.currentRosterFilter === 'ALL') return true;
+    return agent.group === window.currentRosterFilter;
+  });
+
+  // Sorting alphabetically by name
+  filtered.sort(function(a, b) { return a.name.localeCompare(b.name); });
+
+  countEl.textContent = filtered.length;
+
+  if(filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="dim" style="text-align:center; padding:30px;">No hay agentes registrados que coincidan con el filtro.</td></tr>';
     return;
   }
-  
-  document.getElementById('results-empty').style.display='none';
-  document.getElementById('results-content').style.display='';
-  
-  document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase();
-  document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.';
-  
-  var mC=activeDayResults.filter(function(r){return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);}).length;
-  var aC=activeDayResults.filter(function(r){return r.startHr >= 9;}).length;
-  
-  var gc={};activeDayResults.forEach(function(r){if(r.group!=='unkn') gc[r.group]=(gc[r.group]||0)+1;});
-  var tg = Object.keys(gc).sort(function(a,b){return gc[b]-gc[a];})[0] || 'None';
-  var tgCount = gc[tg] || 0;
 
-  document.getElementById('results-summary').innerHTML=
-    '<div class="stat s-neon"><div class="stat-label">TOTAL ASSIGNED</div><div class="stat-val">'+activeDayResults.length+'</div><div class="stat-sub">agents on duty</div></div>'+
-    '<div class="stat s-amber"><div class="stat-label">MORNING</div><div class="stat-val">'+mC+'</div><div class="stat-sub">Before 9AM + (8AM - 11AM)</div></div>'+
-    '<div class="stat s-violet"><div class="stat-label">AFTERNOON</div><div class="stat-val">'+aC+'</div><div class="stat-sub">09:00 AM+</div></div>'+
-    '<div class="stat s-lime"><div class="stat-label">GROUPS ACTIVE</div><div class="stat-val">'+Object.keys(gc).length+'</div><div class="stat-sub">top: '+tg+' ('+tgCount+')</div></div>';
-  
-  renderResultsTable();
-}
+  filtered.forEach(function(agent, index) {
+    var tr = document.createElement('tr');
+    tr.className = 'anim-row';
+    tr.style.animationDelay = (index * 0.01) + 's';
 
-function renderResultsTable(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
-  var d = activeDayResults;
-  
-  if(resultFilter==='morning') {
-    d=activeDayResults.filter(function(r){
-      return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);
-    });
-  }
-  if(resultFilter==='afternoon') {
-    d=activeDayResults.filter(function(r){
-      return r.startHr >= 9;
-    });
-  }
-  
-  var html='';
-  d.forEach(function(r,i){
-    var globalIdx = activeDayResults.indexOf(r);
-    var displayGroup = r.group === 'unkn' ? '?' : r.group;
+    var tdGrp = document.createElement('td');
+    tdGrp.innerHTML = '<span class="g-chip g-' + agent.group + '">' + agent.group + '</span>';
     
-    html+='<tr class="anim-row" style="animation-delay:'+(i*.012)+'s">';
-    html+='<td class="mono dim">'+(i+1)+'</td>';
-    html+='<td class="name-cell">'+esc(r.name)+'</td>';
-    html+='<td><span class="shift-tag shift-'+(r.startHr < 9 ? 'am' : 'pm')+'">'+r.start+' – '+r.end+'</span></td>';
-    html+='<td><span class="g-chip g-'+r.group+'">'+displayGroup+'</span></td>';
-    html+='<td><input type="text" class="editable-task-input" value="'+esc(r.mainTask)+'" onchange="updateManualTask('+globalIdx+', \'mainTask\', this.value)"></td>';
-    html+='<td><input type="text" class="editable-task-input sec-input" value="'+esc(r.secTask)+'" onchange="updateManualTask('+globalIdx+', \'secTask\', this.value)"></td>';
-    html+='</tr>';
+    var tdName = document.createElement('td');
+    tdName.className = 'name-cell';
+    tdName.textContent = agent.name;
+
+    var tdQueue = document.createElement('td');
+    var qClass = agent.queue.toLowerCase() === 'phones' ? 'q-phones' : 'q-chats';
+    tdQueue.innerHTML = '<span class="q-tag ' + qClass + '">' + agent.queue + '</span>';
+
+    var tdAct = document.createElement('td');
+    tdAct.style.textAlign = 'center';
+    var delBtn = document.createElement('button');
+    delBtn.className = 'btn btn-ghost btn-sm btn-danger';
+    delBtn.style.padding = '4px 8px';
+    delBtn.style.fontSize = '9px';
+    delBtn.textContent = 'Eliminar';
+    delBtn.addEventListener('click', function() {
+      removeAgent(agent.name);
+    });
+    tdAct.appendChild(delBtn);
+
+    tr.appendChild(tdGrp);
+    tr.appendChild(tdName);
+    tr.appendChild(tdQueue);
+    tr.appendChild(tdAct);
+    tbody.appendChild(tr);
   });
-  document.getElementById('results-body').innerHTML=html;
+}
+
+function removeAgent(name) {
+  if(confirm("¿Estás seguro de eliminar a " + name + " del Roster?")) {
+    window.rosterData = window.rosterData.filter(function(a) { return a.name !== name; });
+    saveRosterToStorage();
+    renderRosterTable();
+    if(window.scheduleData && window.scheduleData.length > 0) {
+      generateTasks();
+    }
+  }
+}
+
+// --- CORE ENGINE: TASK GENERATION & RULE CROSSING ---
+function generateTasks() {
+  console.log("== GENERATING TASKS ==");
   
-  ['all','morning','afternoon'].forEach(function(f){
-    document.getElementById('f-'+f).classList.toggle('on',f===resultFilter);
+  if (!window.scheduleData || window.scheduleData.length === 0) {
+    console.warn("No schedule data available yet.");
+    renderTasksTable([]);
+    return;
+  }
+
+  var currentDay = window.currentSelectedDay || 'MON';
+  console.log("Selected Day:", currentDay);
+
+  var rosterMap = {};
+  window.rosterData.forEach(function(r) {
+    rosterMap[r.name.trim().toLowerCase()] = r;
   });
-}
 
-function updateManualTask(globalIdx, field, val) {
-  if (lastResults[lastResultsDay] && lastResults[lastResultsDay][globalIdx]) {
-    lastResults[lastResultsDay][globalIdx][field] = val;
-    save(); 
-  }
-}
+  var computedTasks = [];
 
-function filterResults(f){resultFilter=f;renderResultsTable();}
+  window.scheduleData.forEach(function(row) {
+    var agentName = row.name;
+    var lowerName = agentName.trim().toLowerCase();
+    var rosterAgent = rosterMap[lowerName];
 
-/* ════════════════════════════════════════════════
-   EXPORT
-   ════════════════════════════════════════════════ */
-function downloadResultsCSV(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
-  if(!activeDayResults.length)return;
-  var rows=['Name,Start,End,Shift,Group,Main Task,Secondary Task'];
-  activeDayResults.forEach(function(r){rows.push(['"'+r.name+'"',r.start,r.end,r.startHr < 9 ? 'Morning' : 'Afternoon',r.group === 'unkn' ? '?' : r.group,'"'+r.mainTask+'"','"'+r.secTask+'"'].join(','));});
-  dl(rows.join('\n'),'tasks_'+lastResultsDay.toLowerCase()+'_'+td()+'.csv','text/csv');
-}
+    var group = rosterAgent ? rosterAgent.group : 'Unassigned';
+    var queue = rosterAgent ? rosterAgent.queue : 'Unassigned';
 
-function copyResults(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
-  if(!activeDayResults.length)return;
-  var l=['Name\tStart\tEnd\tGroup\tMain Task\tSecondary Task'];
-  activeDayResults.forEach(function(r){l.push([r.name,r.start,r.end,r.group === 'unkn' ? '?' : r.group,r.mainTask,r.secTask].join('\t'));});
-  navigator.clipboard.writeText(l.join('\n')).then(function(){alert('Copied to clipboard!');});
-}
+    var dayData = row.days[currentDay];
+    if (!dayData) return;
 
-function exportRosterCSV(){
-  var r=['Name,Group,Queue'];roster.forEach(function(a){r.push('"'+a.name+'",'+a.group+','+a.queue);});
-  dl(r.join('\n'),'roster_'+td()+'.csv','text/csv');
-}
+    var shiftStr = dayData.shift || 'OFF';
+    var hoursStr = dayData.hours || '';
 
-function importRosterCSV(e){
-  var f=e.target.files[0];if(!f)return;
-  var rd=new FileReader();rd.onload=function(ev){
-    var lines=ev.target.result.split('\n').filter(function(l){return l.trim();});
-    if(lines.length<2)return;var nr=[];
-    for(var i=1;i<lines.length;i++){var p=lines[i].split(',').map(function(x){return x.replace(/"/g,'').trim();});if(p.length>=3&&p[0])nr.push({name:p[0],group:p[1],queue:p[2]});}
-    if(nr.length){
-      roster=nr;
-      clearRosterGroupFilter();
-      for(var d in weeklySchedule){
-        weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
-        lastResults[d] = []; 
-      }
-      renderSchedule();
+    if (shiftStr === 'OFF' || !hoursStr) {
+      computedTasks.push({
+        name: agentName,
+        group: group,
+        queue: queue,
+        shift: 'OFF',
+        hours: '',
+        primaryTask: 'OFF',
+        secondaryTask: ''
+      });
+      return;
     }
-  };rd.readAsText(f);e.target.value='';
-}
 
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function td(){return new Date().toISOString().slice(0,10);}
-function dl(t,n,m){var b=new Blob([t],{type:m}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(u);}
+    // --- LÓGICA DE ASIGNACIÓN MEJORADA ---
+    var primary = 'N/A';
+    var secondary = '';
 
-/* ════════════════════════════════════════════════
-   SCHEDULE CSV UPLOAD
-   ════════════════════════════════════════════════ */
-function parse12to24(str) {
-  str = str.trim().toUpperCase();
-  if (str === 'OFF' || str === 'VAC' || str === '') return null;
-  var ampm = str.match(/(AM|PM)$/);
-  var timePart = str.replace(/(AM|PM)/i, '').trim();
-  var parts = timePart.split(':');
-  var h = parseInt(parts[0], 10);
-  var m = parts[1] ? parseInt(parts[1], 10) : 0;
-  if (ampm) {
-    if (ampm[1] === 'PM' && h !== 12) h += 12;
-    if (ampm[1] === 'AM' && h === 12) h = 0;
-  }
-  return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
-}
-
-function loadScheduleCSV(text) {
-  var lines = text.replace(/\r/g, '').split('\n').filter(function(l) { return l.trim(); });
-  var newSchedule = [];
-  var loaded = 0, offCount = 0, vacCount = 0, unknownNames = [];
-
-  lines.forEach(function(line) {
-    var parts = line.split(',');
-    if (parts.length < 2) return;
-    var name = parts[0].replace(/^\uFEFF/, '').trim();
-    if (!name || name.toLowerCase() === 'cc' || name === '') return;
-
-    var raw1 = (parts[1] || '').trim().toUpperCase();
-    var raw2 = (parts[2] || '').trim().toUpperCase();
-
-    var status, start, end;
-    if (raw1 === 'OFF' || raw1 === 'OFF DUTY') {
-      status = 'off'; start = '00:00'; end = '00:00'; offCount++;
-    } else if (raw1 === 'VAC' || raw1 === 'VACATION') {
-      status = 'vac'; start = '00:00'; end = '00:00'; vacCount++;
+    if (group === 'A' || group === 'B') {
+      primary = 'Casino';
+      secondary = 'VIP / Sportsbook';
+    } else if (group === 'C') {
+      primary = 'VIP / Payouts';
+      secondary = 'Casino / Frontline';
+    } else if (group === 'D') {
+      primary = 'Sportsbook';
+      secondary = 'Casino';
+    } else if (group === 'E') {
+      primary = 'Chats';
+      secondary = 'Casino / Email';
+    } else if (group === 'F') {
+      primary = 'Mantenimiento';
+      secondary = 'Soporte Técnico';
+    } else if (group === 'G') {
+      primary = 'Supervisión';
+      secondary = 'Auditoría';
     } else {
-      start = parse12to24(parts[1]);
-      end = parse12to24(parts[2]);
-      if (!start || !end) { status = 'off'; start = '00:00'; end = '00:00'; offCount++; }
-      else { status = 'working'; loaded++; }
+      primary = 'Frontline';
+      secondary = 'General Support';
     }
 
-    var found = roster.find(function(a) {
-      return a.name.toLowerCase().trim() === name.toLowerCase().trim();
+    computedTasks.push({
+      name: agentName,
+      group: group,
+      queue: queue,
+      shift: shiftStr,
+      hours: hoursStr,
+      primaryTask: primary,
+      secondaryTask: secondary
     });
-    if (!found) unknownNames.push(name);
-
-    newSchedule.push({ name: name, start: start, end: end, status: status });
   });
 
-  if (newSchedule.length === 0) return false;
+  window.generatedTasksData = computedTasks;
+  renderTasksTable(computedTasks);
 
-  weeklySchedule[currentDay] = newSchedule;
-  renderSchedule();
-
-  var banner = document.getElementById('upload-success');
-  banner.style.display = 'flex';
-  document.getElementById('us-text').textContent = currentDay + ': ' + loaded + ' agents working · ' + offCount + ' OFF' + (vacCount ? ' · ' + vacCount + ' VAC' : '');
-  var detail = newSchedule.length + ' rows loaded';
-  if (unknownNames.length) detail += ' — ' + unknownNames.length + ' not in database (marked as unassigned)';
-  document.getElementById('us-detail').textContent = detail;
-
-  return true;
+  if (typeof renderScheduleTable === "function") {
+    renderScheduleTable();
+  }
 }
 
-function handleScheduleFile(file) {
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    var ok = loadScheduleCSV(e.target.result);
-    if (ok) {
-      setTimeout(function() { generateTasks(); }, 400);
-    }
-  };
-  reader.readAsText(file);
-}
+function renderTasksTable(tasks) {
+  var tbody = document.getElementById('tasks-tbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
 
-(function() {
-  var dz = document.getElementById('drop-zone');
-  var fi = document.getElementById('sched-file');
-  var browseLink = document.getElementById('browse-link');
+  // Counters initialization
+  var tTotal = 0, tActive = 0, tOff = 0, tUnassigned = 0;
 
-  if(dz) dz.addEventListener('click', function() { fi.click(); });
-  if(browseLink) browseLink.addEventListener('click', function(e) { e.stopPropagation(); fi.click(); });
+  var searchVal = document.getElementById('task-search') ? document.getElementById('task-search').value.toLowerCase().trim() : '';
 
-  if(dz) {
-    dz.addEventListener('dragover', function(e) { e.preventDefault(); dz.classList.add('dragover'); });
-    dz.addEventListener('dragleave', function() { dz.classList.remove('dragover'); });
-    dz.addEventListener('drop', function(e) {
-      e.preventDefault(); dz.classList.remove('dragover');
-      var files = Array.from(e.dataTransfer.files);
-      var csv = files.find(function(f) { return f.name.endsWith('.csv') || f.name.endsWith('.txt'); });
-      if (csv) handleScheduleFile(csv);
-    });
+  var filtered = tasks.filter(function(t) {
+    if(!searchVal) return true;
+    return t.name.toLowerCase().indexOf(searchVal) !== -1;
+  });
+
+  // Calculate stats using full parsed list, not just filtered search matching
+  tasks.forEach(function(t) {
+    tTotal++;
+    if(t.shift === 'OFF') tOff++;
+    else tActive++;
+    if(t.group === 'Unassigned') tUnassigned++;
+  });
+
+  document.getElementById('stat-total').textContent = tTotal;
+  document.getElementById('stat-active').textContent = tActive;
+  document.getElementById('stat-off').textContent = tOff;
+  document.getElementById('stat-unassigned').textContent = tUnassigned;
+
+  if(filtered.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" class="dim" style="text-align:center; padding:40px;">No hay asignaciones generadas. Asegúrate de haber importado el CSV de Schedule.</td></tr>';
+    return;
   }
 
-  fi.addEventListener('change', function() {
-    if (fi.files[0]) handleScheduleFile(fi.files[0]);
-    fi.value = '';
-  });
-})();
+  // Alpha sorting
+  filtered.sort(function(a,b){ return a.name.localeCompare(b.name); });
 
-/* ── INIT ── */
-load();renderRoster();renderSchedule();
-</script>
-</body>
-</html>
+  filtered.forEach(function(task, idx) {
+    var tr = document.createElement('tr');
+    if(task.shift === 'OFF') tr.className = 'sched-row is-off';
+
+    var grpClass = task.group === 'Unassigned' ? 'g-unkn' : 'g-' + task.group;
+    var qClass = task.queue === 'Unassigned' ? 'q-unkn' : (task.queue.toLowerCase() === 'phones' ? 'q-phones' : 'q-chats');
+    var sClass = task.shift === 'OFF' ? 'dim' : (task.shift.toUpperCase() === 'AM' ? 'shift-am' : 'shift-pm');
+
+    var tdGrp = document.createElement('td');
+    tdGrp.innerHTML = '<span class="g-chip ' + grpClass + '">' + (task.group === 'Unassigned' ? '?' : task.group) + '</span>';
+
+    var tdName = document.createElement('td');
+    tdName.className = 'name-cell';
+    tdName.textContent = task.name;
+
+    var tdQueue = document.createElement('td');
+    tdQueue.innerHTML = '<span class="q-tag ' + qClass + '">' + task.queue + '</span>';
+
+    var tdShift = document.createElement('td');
+    tdShift.innerHTML = '<span class="shift-tag ' + sClass + '">' + task.shift + '</span>';
+
+    var tdHours = document.createElement('td');
+    tdHours.className = 'mono dim';
+    tdHours.textContent = task.hours || '—';
+
+    // Editable Primary Task Cell
+    var tdPrimary = document.createElement('td');
+    var primaryInput = document.createElement('input');
+    primaryInput.type = 'text';
+    primaryInput.className = 'editable-task-input';
+    primaryInput.value = task.primaryTask;
+    primaryInput.addEventListener('change', function() {
+      task.primaryTask = primaryInput.value;
+    });
+    tdPrimary.appendChild(primaryInput);
+
+    // Editable Secondary Task Cell
+    var tdSecondary = document.createElement('td');
+    var secondaryInput = document.createElement('input');
+    secondaryInput.type = 'text';
+    secondaryInput.className = 'editable-task-input sec-input';
+    secondaryInput.value = task.secondaryTask || '';
+    secondaryInput.placeholder = task.shift === 'OFF' ? '' : 'Ninguna';
+    secondaryInput.disabled = (task.shift === 'OFF');
+    secondaryInput.style.opacity = task.shift === 'OFF' ? '0.3' : '1';
+    secondaryInput.addEventListener('change', function() {
+      task.secondaryTask = secondaryInput.value;
+    });
+    tdSecondary.appendChild(secondaryInput);
+
+    tr.appendChild(tdGrp);
+    tr.appendChild(tdName);
+    tr.appendChild(tdQueue);
+    tr.appendChild(tdShift);
+    tr.appendChild(tdHours);
+    tr.appendChild(tdPrimary);
+    tr.appendChild(tdSecondary);
+    tbody.appendChild(tr);
+  });
+}
+
+// --- FILE PARSER ENGINE (CSV Matrix Reader) ---
+function loadScheduleCSV(text) {
+  var lines = text.split('\n');
