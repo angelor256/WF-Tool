@@ -322,6 +322,8 @@ html.dark .day-btn.active {
 .stat.s-lime::before { background: var(--lime); }
 .stat.s-violet::before { background: var(--violet); }
 .stat.s-amber::before { background: var(--amber); }
+.stat.s-blue::before { background: var(--blue); }
+.stat.s-coral::before { background: var(--coral); }
 .stat-label {
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
   font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
@@ -335,6 +337,8 @@ html.dark .day-btn.active {
 .stat.s-lime .stat-val { color: var(--lime); }
 .stat.s-violet .stat-val { color: var(--violet); }
 .stat.s-amber .stat-val { color: var(--amber); }
+.stat.s-blue .stat-val { color: var(--blue); }
+.stat.s-coral .stat-val { color: var(--coral); }
 .stat-sub { font-size: 11px; color: var(--text3); margin-top: 6px; }
 
 /* ── TABLE ── */
@@ -357,7 +361,7 @@ tbody tr:last-child { border-bottom: none; }
 td { padding: 9px 14px; white-space: nowrap; }
 td.name-cell { font-weight: 600; color: var(--text); }
 td.task-cell { white-space: normal; max-width: 280px; font-size: 11px; color: var(--text2); line-height: 1.5; }
-td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+td.mono font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
 td.dim { color: var(--text3); }
 
 /* ── EDITABLE TEXT INPUTS IN TASKS TABLE ── */
@@ -790,6 +794,7 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
         <p class="sec-sub" id="results-sub"></p>
       </div>
 
+      <!-- Live metrics grid view component -->
       <div class="grid-stats" id="results-summary"></div>
 
       <div class="panel">
@@ -960,7 +965,6 @@ function load(){
     }
   }
 
-  // Carga inicial (Preferencia guardada, por defecto inicia en Dark si no hay registro)
   var savedTheme = localStorage.getItem('theme-mode');
   var prefersDark = savedTheme ? (savedTheme === 'dark') : true; 
   applyTheme(prefersDark);
@@ -1108,8 +1112,8 @@ function renderSchedule(){
   var wc=activeSched.filter(function(s){return s.status==='working';}).length;
   var html='';
   activeSched.forEach(function(s,i){
-    var ag=roster.find(function(a){return a.name===s.name;})||{group:'unkn'};
-    var off=s.status!=='working';
+    var ag=roster.find(function(a){return a.name===s.name;})||{group:'unkn'},
+    off=s.status!=='working';
     html+='<div class="sched-row anim-row'+(off?' is-off':'')+'" style="animation-delay:'+(i*.015)+'s">';
     html+='<span class="g-chip g-'+ag.group+'">'+(ag.group==='unkn'?'?':ag.group)+'</span>';
     html+='<span class="sched-name">'+esc(s.name)+'</span>';
@@ -1262,20 +1266,46 @@ function renderResults(){
   document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase();
   document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.';
   
-  var mC=activeDayResults.filter(function(r){return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);}).length;
-  var aC=activeDayResults.filter(function(r){return r.startHr >= 9;}).length;
-  
-  var gc={};activeDayResults.forEach(function(r){if(r.group!=='unkn') gc[r.group]=(gc[r.group]||0)+1;});
-  var tg = Object.keys(gc).sort(function(a,b){return gc[b]-gc[a];})[0] || 'None';
-  var tgCount = gc[tg] || 0;
-
+  // Set up scaffolding structure for the real-time counters
   document.getElementById('results-summary').innerHTML=
-    '<div class="stat s-neon"><div class="stat-label">TOTAL ASSIGNED</div><div class="stat-val">'+activeDayResults.length+'</div><div class="stat-sub">agents on duty</div></div>'+
-    '<div class="stat s-amber"><div class="stat-label">MORNING</div><div class="stat-val">'+mC+'</div><div class="stat-sub">Before 9AM + (8AM - 11AM)</div></div>'+
-    '<div class="stat s-violet"><div class="stat-label">AFTERNOON</div><div class="stat-val">'+aC+'</div><div class="stat-sub">09:00 AM+</div></div>'+
-    '<div class="stat s-lime"><div class="stat-label">GROUPS ACTIVE</div><div class="stat-val">'+Object.keys(gc).length+'</div><div class="stat-sub">top: '+tg+' ('+tgCount+')</div></div>';
+    '<div class="stat s-neon"><div class="stat-label">TOTAL ASSIGNED</div><div class="stat-val" id="count-total">0</div><div class="stat-sub">agents on duty</div></div>'+
+    '<div class="stat s-amber"><div class="stat-label">MORNING (AM)</div><div class="stat-val" id="count-morning">0</div><div class="stat-sub">Before 9AM + (8AM-11AM)</div></div>'+
+    '<div class="stat s-violet"><div class="stat-label">AFTERNOON (PM)</div><div class="stat-val" id="count-afternoon">0</div><div class="stat-sub">09:00 AM+ shifts</div></div>'+
+    '<div class="stat s-blue"><div class="stat-label">MAIN: CHATS</div><div class="stat-val" id="count-chats">0</div><div class="stat-sub">Assigned to active chats</div></div>'+
+    '<div class="stat s-coral"><div class="stat-label">MAIN: PHONES</div><div class="stat-val" id="count-phones">0</div><div class="stat-sub">Assigned to active phones</div></div>';
   
   renderResultsTable();
+  recalculateMetrics(); // Fire the real-time recalculation counter logic
+}
+
+function recalculateMetrics() {
+  var activeDayResults = lastResults[lastResultsDay] || [];
+  
+  var mC = 0, aC = 0, chatCount = 0, phoneCount = 0;
+  
+  activeDayResults.forEach(function(r) {
+    // 1. Calculate Shift Blocks
+    if (r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11)) {
+      mC++;
+    } else if (r.startHr >= 9) {
+      aC++;
+    }
+    
+    // 2. Exact match task strings tracking clean inputs
+    var main = String(r.mainTask || '').trim().toLowerCase();
+    if (main === 'chats') {
+      chatCount++;
+    } else if (main === 'phones') {
+      phoneCount++;
+    }
+  });
+  
+  // Assign metric strings smoothly to DOM element blocks
+  document.getElementById('count-total').textContent = activeDayResults.length;
+  document.getElementById('count-morning').textContent = mC;
+  document.getElementById('count-afternoon').textContent = aC;
+  document.getElementById('count-chats').textContent = chatCount;
+  document.getElementById('count-phones').textContent = phoneCount;
 }
 
 function renderResultsTable(){
@@ -1303,8 +1333,9 @@ function renderResultsTable(){
     html+='<td class="name-cell">'+esc(r.name)+'</td>';
     html+='<td><span class="shift-tag shift-'+(r.startHr < 9 ? 'am' : 'pm')+'">'+r.start+' – '+r.end+'</span></td>';
     html+='<td><span class="g-chip g-'+r.group+'">'+displayGroup+'</span></td>';
-    html+='<td><input type="text" class="editable-task-input" value="'+esc(r.mainTask)+'" onchange="updateManualTask('+globalIdx+', \'mainTask\', this.value)"></td>';
-    html+='<td><input type="text" class="editable-task-input sec-input" value="'+esc(r.secTask)+'" onchange="updateManualTask('+globalIdx+', \'secTask\', this.value)"></td>';
+    // Changed event trigger to `oninput` for responsive counter update fields
+    html+='<td><input type="text" class="editable-task-input" value="'+esc(r.mainTask)+'" oninput="updateManualTask('+globalIdx+', \'mainTask\', this.value)"></td>';
+    html+='<td><input type="text" class="editable-task-input sec-input" value="'+esc(r.secTask)+'" oninput="updateManualTask('+globalIdx+', \'secTask\', this.value)"></td>';
     html+='</tr>';
   });
   document.getElementById('results-body').innerHTML=html;
@@ -1318,6 +1349,9 @@ function updateManualTask(globalIdx, field, val) {
   if (lastResults[lastResultsDay] && lastResults[lastResultsDay][globalIdx]) {
     lastResults[lastResultsDay][globalIdx][field] = val;
     save(); 
+    if (field === 'mainTask') {
+      recalculateMetrics(); // Instant metric evaluation loop matching text values
+    }
   }
 }
 
