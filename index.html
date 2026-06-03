@@ -1247,35 +1247,66 @@ function assignBlasts(A){
 
 /* ── RESULTS & FILTER LOGIC ── */
 function renderResults(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
+  var activeDayResults = lastResults[lastResultsDay] || []; [cite: 925]
   
-  if(!activeDayResults.length){
-    document.getElementById('empty-day-name').textContent = lastResultsDay;
-    document.getElementById('results-empty').style.display='';
-    document.getElementById('results-content').style.display='none';
-    return;
-  }
+  if(!activeDayResults.length){ [cite: 925]
+    document.getElementById('empty-day-name').textContent = lastResultsDay; [cite: 926]
+    document.getElementById('results-empty').style.display=''; [cite: 926]
+    document.getElementById('results-content').style.display='none'; [cite: 926]
+    return; [cite: 926]
+  } [cite: 926]
   
-  document.getElementById('results-empty').style.display='none';
-  document.getElementById('results-content').style.display='';
+  document.getElementById('results-empty').style.display='none'; [cite: 926]
+  document.getElementById('results-content').style.display=''; [cite: 926]
   
-  document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase();
-  document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.';
+  document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase(); [cite: 926]
+  document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.'; [cite: 927]
   
-  var mC=activeDayResults.filter(function(r){return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);}).length;
-  var aC=activeDayResults.filter(function(r){return r.startHr >= 9;}).length;
-  
-  var gc={};activeDayResults.forEach(function(r){if(r.group!=='unkn') gc[r.group]=(gc[r.group]||0)+1;});
-  var tg = Object.keys(gc).sort(function(a,b){return gc[b]-gc[a];})[0] || 'None';
-  var tgCount = gc[tg] || 0;
+  // 1. Clasificación base de agentes por horario (Mañana vs Tarde) [cite: 928]
+  var morningAgents = activeDayResults.filter(function(r){
+    return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);
+  });
+  var afternoonAgents = activeDayResults.filter(function(r){
+    return r.startHr >= 9;
+  });
 
-  document.getElementById('results-summary').innerHTML=
-    '<div class="stat s-neon"><div class="stat-label">TOTAL ASSIGNED</div><div class="stat-val">'+activeDayResults.length+'</div><div class="stat-sub">agents on duty</div></div>'+
-    '<div class="stat s-amber"><div class="stat-label">MORNING</div><div class="stat-val">'+mC+'</div><div class="stat-sub">Before 9AM + (8AM - 11AM)</div></div>'+
-    '<div class="stat s-violet"><div class="stat-label">AFTERNOON</div><div class="stat-val">'+aC+'</div><div class="stat-sub">09:00 AM+</div></div>'+
-    '<div class="stat s-lime"><div class="stat-label">GROUPS ACTIVE</div><div class="stat-val">'+Object.keys(gc).length+'</div><div class="stat-sub">top: '+tg+' ('+tgCount+')</div></div>';
+  // 2. Conteo exacto en el bloque de la Mañana según su Main Task
+  var morningPhones = morningAgents.filter(function(r){ return r.mainTask === 'Phones'; }).length;
+  var morningChats  = morningAgents.filter(function(r){ return r.mainTask === 'Chats'; }).length;
   
-  renderResultsTable();
+  // 3. Conteo exacto en el bloque de la Tarde según su Main Task
+  var afternoonPhones = afternoonAgents.filter(function(r){ return r.mainTask === 'Phones'; }).length;
+  var afternoonChats  = afternoonAgents.filter(function(r){ return r.mainTask === 'Chats'; }).length;
+  
+  // Análisis de grupos activos [cite: 929]
+  var gc={}; activeDayResults.forEach(function(r){if(r.group!=='unkn') gc[r.group]=(gc[r.group]||0)+1;}); [cite: 929]
+  var tg = Object.keys(gc).sort(function(a,b){return gc[b]-gc[a];})[0] || 'None'; [cite: 929]
+  var tgCount = gc[tg] || 0; [cite: 929]
+
+  // Renderizado dinámico de las tarjetas con la información detallada
+  document.getElementById('results-summary').innerHTML= [cite: 930]
+    '<div class="stat s-neon">' + [cite: 930]
+      '<div class="stat-label">TOTAL ASSIGNED</div>' + [cite: 930]
+      '<div class="stat-val">' + activeDayResults.length + '</div>' + [cite: 930]
+      '<div class="stat-sub">agents on duty</div>' + [cite: 930]
+    '</div>' +
+    '<div class="stat s-amber">' + [cite: 930]
+      '<div class="stat-label">MORNING (AM)</div>' + [cite: 930]
+      '<div class="stat-val">' + morningAgents.length + '</div>' +
+      '<div class="stat-sub">☎ Phones: <strong>' + morningPhones + '</strong> | 💬 Chats: <strong>' + morningChats + '</strong></div>' +
+    '</div>' +
+    '<div class="stat s-violet">' + [cite: 930]
+      '<div class="stat-label">AFTERNOON (PM)</div>' + [cite: 930]
+      '<div class="stat-val">' + afternoonAgents.length + '</div>' +
+      '<div class="stat-sub">☎ Phones: <strong>' + afternoonPhones + '</strong> | 💬 Chats: <strong>' + afternoonChats + '</strong></div>' +
+    '</div>' +
+    '<div class="stat s-lime">' + [cite: 930]
+      '<div class="stat-label">GROUPS ACTIVE</div>' + [cite: 930]
+      '<div class="stat-val">' + Object.keys(gc).length + '</div>' + [cite: 930]
+      '<div class="stat-sub">top: ' + tg + ' (' + tgCount + ')</div>' + [cite: 930]
+    '</div>';
+  
+  renderResultsTable(); [cite: 930]
 }
 
 function renderResultsTable(){
