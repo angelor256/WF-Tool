@@ -30,7 +30,6 @@
   --neon-dim: rgba(0,151,167,0.08);
   --neon-mid: rgba(0,151,167,0.18);
   --neon-glow: 0 0 15px rgba(0,151,167,0.1), 0 0 40px rgba(0,151,167,0.04);
-
   --lime: #386a00;
   --lime-dim: rgba(56,106,0,0.08);
   --lime-mid: rgba(56,106,0,0.15);
@@ -58,7 +57,6 @@
 
   --slate: #475569;
   --slate-dim: rgba(71,85,105,0.08);
-
   --r: 12px;
   --r-sm: 8px;
   --bg-mix-1: rgba(0,151,167,0.02);
@@ -90,7 +88,6 @@ html.dark {
   --lime: #a3ff57;
   --lime-dim: rgba(163,255,87,0.08);
   --lime-mid: rgba(163,255,87,0.15);
-
   --hot: #ff3d71;
   --hot-dim: rgba(255,61,113,0.08);
   --hot-mid: rgba(255,61,113,0.15);
@@ -132,7 +129,8 @@ body {
 
 /* ── ANIMATED BG ── */
 body::before {
-  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background:
     radial-gradient(ellipse 80% 50% at 20% 0%, var(--bg-mix-1) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 100%, var(--bg-mix-2) 0%, transparent 60%);
@@ -148,7 +146,8 @@ body::after {
 
 /* ── NAV ── */
 nav {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky;
+  top: 0; z-index: 100;
   background: var(--surface);
   box-shadow: 0 1px 0px var(--border2);
   backdrop-filter: blur(20px) saturate(1.5);
@@ -179,7 +178,8 @@ html.dark .logo-icon {
 }
 .logo-text {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 18px; font-weight: 700; letter-spacing: -.01em; color: var(--text);
+  font-size: 18px; font-weight: 700;
+  letter-spacing: -.01em; color: var(--text);
 }
 .logo-ver {
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
@@ -193,10 +193,12 @@ html.dark .logo-icon {
   padding: 3px; border: 1px solid var(--border);
 }
 .nav-tab {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  font-weight: 600;
   color: var(--text3); padding: 7px 16px; border-radius: 8px;
   cursor: pointer; transition: all .2s; border: none; background: none;
-  letter-spacing: .03em; white-space: nowrap;
+  letter-spacing: .03em;
+  white-space: nowrap;
 }
 .nav-tab:hover { color: var(--text2); }
 .nav-tab.active {
@@ -219,7 +221,8 @@ html.dark .nav-tab.active {
   color: var(--text2); display: flex; align-items: center; justify-content: center;
   padding: 6px; border-radius: var(--r-sm); transition: all 0.2s;
 }
-.theme-toggle-btn:hover { background: var(--surface4); color: var(--text); }
+.theme-toggle-btn:hover { background: var(--surface4);
+  color: var(--text); }
 .theme-toggle-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
 .pulse-dot {
@@ -238,15 +241,17 @@ html.dark .nav-tab.active {
   overflow-x: auto;
 }
 .day-btn {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; font-weight: 700;
   color: var(--text3); background: transparent; border: none;
   padding: 8px 16px; border-radius: 6px; cursor: pointer;
-  transition: all .2s; letter-spacing: .05em;
+  transition: all .2s;
+  letter-spacing: .05em;
 }
 .day-btn:hover { color: var(--text2); background: var(--surface2); }
 .day-btn.active { 
   color: var(--neon); 
-  background: var(--surface2); 
+  background: var(--surface2);
   box-shadow: inset 0 0 0 1px var(--border2); 
 }
 html.dark .day-btn.active {
@@ -266,7 +271,8 @@ html.dark .day-btn.active {
 /* ── SECTION HEADER ── */
 .sec-header { margin-bottom: 28px; }
 .sec-tag {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex;
+  align-items: center; gap: 6px;
   font-family: 'IBM Plex Mono', monospace; font-size: 10px;
   color: var(--neon); letter-spacing: .1em; text-transform: uppercase;
   margin-bottom: 10px;
@@ -279,13 +285,15 @@ html.dark .day-btn.active {
   font-size: clamp(28px, 4.5vw, 42px); font-weight: 800; letter-spacing: -.02em;
   line-height: 1.05; color: var(--text); margin-bottom: 8px;
 }
-.sec-sub { font-size: 13px; color: var(--text2); line-height: 1.6; max-width: 600px; }
+.sec-sub { font-size: 13px; color: var(--text2);
+  line-height: 1.6; max-width: 600px; }
 
 /* ── PANELS ── */
 .panel {
   background: var(--surface);
   border: 1px solid var(--border2);
-  border-radius: var(--r); overflow: hidden;
+  border-radius: var(--r);
+  overflow: hidden;
   transition: border-color .3s, background 0.3s;
 }
 .panel:hover { border-color: var(--border3); }
@@ -295,7 +303,8 @@ html.dark .day-btn.active {
   gap: 12px; flex-wrap: wrap;
 }
 .panel-label {
-  font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
   font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--text3);
 }
@@ -303,9 +312,12 @@ html.dark .day-btn.active {
 
 /* ── GRID LAYOUTS ── */
 .grid-2 { display: grid; grid-template-columns: 1fr 320px; gap: 16px; }
-.grid-stats-container { display: flex; flex-direction: column; gap: 20px; margin-bottom: 24px; }
-.shift-block-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px; font-weight: 700; color: var(--text2); letter-spacing: 0.02em; display: flex; align-items: center; gap: 8px; margin-bottom: -10px; }
-.shift-block-title span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; background: var(--surface3); padding: 2px 8px; border-radius: 4px; color: var(--text3); }
+.grid-stats-container { display: flex; flex-direction: column;
+  gap: 20px; margin-bottom: 24px; }
+.shift-block-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 14px; font-weight: 700; color: var(--text2); letter-spacing: 0.02em; display: flex;
+  align-items: center; gap: 8px; margin-bottom: -10px; }
+.shift-block-title span { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; background: var(--surface3);
+  padding: 2px 8px; border-radius: 4px; color: var(--text3); }
 .grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
 @media (max-width: 960px) { .grid-2 { grid-template-columns: 1fr; } }
 
@@ -346,7 +358,8 @@ html.dark .day-btn.active {
 /* ── TABLE ── */
 table { width: 100%; border-collapse: collapse; font-size: 12px; }
 thead th {
-  text-align: left; padding: 10px 14px;
+  text-align: left;
+  padding: 10px 14px;
   font-family: 'IBM Plex Mono', monospace; font-size: 9px;
   font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--text3); background: var(--surface2);
@@ -362,7 +375,8 @@ html.dark tbody tr:hover { background: rgba(0,240,255,0.02); }
 tbody tr:last-child { border-bottom: none; }
 td { padding: 9px 14px; white-space: nowrap; }
 td.name-cell { font-weight: 600; color: var(--text); }
-td.task-cell { white-space: normal; max-width: 280px; font-size: 11px; color: var(--text2); line-height: 1.5; }
+td.task-cell { white-space: normal; max-width: 280px;
+  font-size: 11px; color: var(--text2); line-height: 1.5; }
 td.mono { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
 td.dim { color: var(--text3); }
 
@@ -439,7 +453,8 @@ html.dark .g-G { border: 1px solid rgba(123,139,162,0.15); }
 /* ── BUTTONS ── */
 .btn {
   font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 700;
-  border: none; border-radius: var(--r-sm); padding: 10px 20px;
+  border: none; border-radius: var(--r-sm);
+  padding: 10px 20px;
   cursor: pointer; transition: all .2s; display: inline-flex;
   align-items: center; gap: 8px; letter-spacing: .04em;
   text-transform: uppercase;
@@ -476,10 +491,12 @@ html.dark .btn-glow:hover { box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20p
 .field input, .field select {
   font-family: 'Figtree', sans-serif; font-size: 13px;
   padding: 9px 14px; border-radius: var(--r-sm);
-  border: 1px solid var(--border2); background: var(--surface);
+  border: 1px solid var(--border2);
+  background: var(--surface);
   color: var(--text); outline: none; transition: all .2s;
 }
-.field input:focus, .field select:focus { border-color: var(--neon); box-shadow: 0 0 8px var(--neon-dim); }
+.field input:focus, .field select:focus { border-color: var(--neon);
+  box-shadow: 0 0 8px var(--neon-dim); }
 .field select { cursor: pointer; }
 .field input::placeholder { color: var(--text4); }
 
@@ -496,7 +513,8 @@ html.dark .btn-glow:hover { box-shadow: 0 0 30px rgba(0,240,255,0.35), 0 4px 20p
 html.dark .sched-row:hover { background: rgba(0,240,255,0.015); }
 .sched-row.is-off { opacity: .4; }
 .sched-row input[type="time"], .sched-row select {
-  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
   padding: 6px 8px; border-radius: 6px;
   border: 1px solid var(--border2); background: var(--surface2);
   color: var(--text); outline: none; transition: border-color .2s;
@@ -507,10 +525,12 @@ html.dark .sched-row:hover { background: rgba(0,240,255,0.015); }
 /* ── INTERACTIVE GROUP LEGEND ── */
 .legend-stack { display: flex; flex-direction: column; gap: 6px; }
 .legend-item {
-  display: flex; align-items: center; gap: 10px;
+  display: flex;
+  align-items: center; gap: 10px;
   padding: 10px 14px; border-radius: var(--r-sm);
   background: var(--surface2); border: 1px solid var(--border);
-  cursor: pointer; transition: all 0.2s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 .legend-item:hover {
   background: var(--surface3);
@@ -524,7 +544,8 @@ html.dark .legend-item.active-filter {
   background: rgba(0,240,255,0.03);
 }
 .legend-name { font-size: 12px; font-weight: 600; flex: 1; }
-.legend-desc { font-size: 10px; color: var(--text3); font-family: 'IBM Plex Mono', monospace; }
+.legend-desc { font-size: 10px; color: var(--text3);
+  font-family: 'IBM Plex Mono', monospace; }
 
 /* ── FILTER PILLS ── */
 .filters { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -539,7 +560,8 @@ html.dark .legend-item.active-filter {
 
 /* ── EMPTY STATE ── */
 .empty {
-  text-align: center; padding: 80px 20px; color: var(--text3);
+  text-align: center;
+  padding: 80px 20px; color: var(--text3);
 }
 .empty-glyph {
   font-size: 56px; margin-bottom: 16px; opacity: .3;
@@ -548,11 +570,12 @@ html.dark .legend-item.active-filter {
 .empty p { font-size: 14px; max-width: 420px; margin: 0 auto; line-height: 1.7; }
 .empty strong { color: var(--neon); }
 
-/* ── DROP ZONE ── */
+/* ── DROP ZONE & SMART PASTE ── */
 .drop-zone {
   border: 1.5px dashed var(--border3);
   border-radius: var(--r); padding: 36px 24px;
-  text-align: center; cursor: pointer;
+  text-align: center;
+  cursor: pointer;
   transition: all .25s; background: var(--surface);
   margin-bottom: 16px;
 }
@@ -561,7 +584,8 @@ html.dark .drop-zone:hover { background: var(--neon-dim); }
 .drop-zone.dragover { border-color: var(--neon); background: var(--surface3); }
 html.dark .drop-zone.dragover { background: var(--neon-dim); box-shadow: var(--neon-glow); }
 .drop-zone .dz-icon {
-  width: 48px; height: 48px; margin: 0 auto 14px;
+  width: 48px;
+  height: 48px; margin: 0 auto 14px;
   background: var(--surface3); border: 1px solid var(--border2);
   border-radius: 14px; display: flex; align-items: center; justify-content: center;
   font-size: 22px; transition: all .25s;
@@ -572,6 +596,33 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 .drop-zone .dz-sub { font-size: 12px; color: var(--text3); }
 .drop-zone .dz-sub span { color: var(--neon); cursor: pointer; font-weight: 600; }
 
+/* Smart Paste Box styles */
+.smart-paste-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.smart-paste-box {
+  width: 100%;
+  height: 100px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: var(--r-sm);
+  padding: 12px;
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  resize: vertical;
+  outline: none;
+  transition: all 0.2s;
+}
+.smart-paste-box:focus {
+  border-color: var(--neon);
+  background: var(--surface);
+  box-shadow: 0 0 8px var(--neon-dim);
+}
+
 .upload-success {
   display: none; align-items: center; gap: 12px;
   padding: 14px 18px; border-radius: var(--r-sm);
@@ -580,7 +631,8 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 }
 .upload-success .us-icon { font-size: 18px; }
 .upload-success .us-text { font-size: 13px; font-weight: 600; color: var(--lime); }
-.upload-success .us-detail { font-size: 11px; color: var(--text2); }
+.upload-success .us-detail { font-size: 11px;
+  color: var(--text2); }
 
 /* ── EXPORT BAR ── */
 .export-bar {
@@ -594,12 +646,8 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
   nav { padding: 0 14px; }
   .content { padding: 16px 14px 60px; }
   .nav-tabs { display: none; }
-  .mobile-tabs {
-    display: flex; gap: 4px; margin-bottom: 20px;
-    background: var(--surface); border-radius: 10px;
-    padding: 3px; border: 1px solid var(--border);
-    overflow-x: auto;
-  }
+  .mobile-tabs { display: flex; gap: 4px; margin-bottom: 20px; background: var(--surface); border-radius: 10px; padding: 3px;
+    border: 1px solid var(--border); overflow-x: auto; }
   .sched-row { grid-template-columns: 28px 1fr; gap: 6px; }
   .sched-row input[type="time"], .sched-row select { grid-column: span 1; }
   .grid-2 { grid-template-columns: 1fr; }
@@ -607,10 +655,7 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 }
 
 /* ── ANIMATIONS ── */
-@keyframes rowIn {
-  from { opacity: 0; transform: translateX(-8px); }
-  to { opacity: 1; transform: translateX(0); }
-}
+@keyframes rowIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
 .anim-row { animation: rowIn .25s ease both; }
 
 /* ── SCROLLBAR ── */
@@ -620,11 +665,7 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 ::-webkit-scrollbar-thumb:hover { background: var(--text4); }
 
 /* ── GLOW ACCENTS ── */
-.glow-line {
-  height: 1px; border: none; margin: 0;
-  background: linear-gradient(90deg, var(--neon), transparent 60%);
-  opacity: .2;
-}
+.glow-line { height: 1px; border: none; margin: 0; background: linear-gradient(90deg, var(--neon), transparent 60%); opacity: .2; }
 </style>
 </head>
 <body>
@@ -636,188 +677,201 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
       <span class="logo-text">BetAnything Task Maker</span>
       <span class="logo-ver">v3.4</span>
     </div>
+
     <div class="nav-tabs">
       <button class="nav-tab active" data-view="roster">ROSTER</button>
       <button class="nav-tab" data-view="schedule">SCHEDULE</button>
       <button class="nav-tab" data-view="results">TASKS</button>
     </div>
+
     <div class="nav-spacer"></div>
+
     <div class="nav-status">
       <button id="theme-switcher" class="theme-toggle-btn" title="Toggle Light / Dark Mode">
         <svg id="sun-icon" style="display:none;" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/></svg>
-        <svg id="moon-icon" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 0 11.5-11.5 10.3 10.3 0 0 1-9.6-8.3z"/></svg>
+        <svg id="moon-icon" viewBox="0 0 24 24"><path d="M12.3 22c5.38 0 9.7-4.28 9.7-9.56 0-3.32-1.72-6.25-4.33-7.97-.27-.18-.63-.03-.7.27-.47 2.06-1.93 3.65-3.83 4.29-2.07.7-4.13-.15-5.3-.15-2.05 0-4.04 1.13-5.15 2.94-.14.23-.02.54.23.63.78.27 1.43.83 1.83 1.55.57 1.03.5 2.3-.2 3.16-1.05 1.28-2.67 1.14-3.66.6-.24-.13-.54.04-.57.32A9.53 9.53 0 0 0 12.3 22z"/></svg>
       </button>
       <div class="pulse-dot"></div>
-      <span id="clock"></span>
+      <span id="live-indicator">LIVE // CORE</span>
     </div>
   </div>
 </nav>
 
 <div class="content">
-  <div class="mobile-tabs" id="mobile-tabs">
+  <div class="mobile-tabs">
     <button class="nav-tab active" data-view="roster">ROSTER</button>
     <button class="nav-tab" data-view="schedule">SCHEDULE</button>
     <button class="nav-tab" data-view="results">TASKS</button>
   </div>
 
+  <div class="day-selector" id="day-bar">
+    <button class="day-btn active" data-day="Lunes">LUNES</button>
+    <button class="day-btn" data-day="Martes">MARTES</button>
+    <button class="day-btn" data-day="Miercoles">MIERCOLES</button>
+    <button class="day-btn" data-day="Jueves">JUEVES</button>
+    <button class="day-btn" data-day="Viernes">VIERNES</button>
+    <button class="day-btn" data-day="Sabado">SABADO</button>
+    <button class="day-btn" data-day="Domingo">DOMINGO</button>
+  </div>
+
   <div class="view active" id="view-roster">
     <div class="sec-header">
-      <div class="sec-tag">TEAM MANAGEMENT</div>
-      <div class="sec-title">Agent Roster</div>
-      <p class="sec-sub">Manage agents, groups, and queue assignments. Click on any right-side Group Card to quickly isolate agents.</p>
+      <div class="sec-tag">Base de Datos</div>
+      <h1 class="sec-title">Roster Base</h1>
+      <p class="sec-sub">Gestiona la información central del personal. Configura su grupo primario de colas (A, B, C...) y su canal principal.</p>
     </div>
-
-    <div class="grid-2">
-      <div class="panel">
-        <div class="panel-head">
-          <span class="panel-label" id="roster-table-label">ALL AGENTS</span>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <span id="agent-count" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);"></span>
-            <button class="btn btn-ghost btn-sm" id="btn-reset-roster-filter" style="display:none; padding: 2px 8px; font-size: 9px;" onclick="clearRosterGroupFilter()">RESET</button>
-          </div>
-        </div>
-        <div style="overflow-x:auto;max-height:520px;overflow-y:auto;">
-          <table>
-            <thead><tr>
-              <th>NAME</th><th>GRP</th><th>ROLE</th><th>QUEUE</th><th></th>
-            </tr></thead>
-            <tbody id="roster-body"></tbody>
-          </table>
-        </div>
-        <hr class="glow-line">
-        <div class="panel-body">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--neon);letter-spacing:.08em;margin-bottom:14px;">+ ADD AGENT</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;">
-            <div class="field" style="flex:2;min-width:160px;">
-              <label>NAME</label>
-              <input type="text" id="new-name" placeholder="Full name">
-            </div>
-            <div class="field" style="min-width:100px;">
-              <label>GROUP</label>
-              <select id="new-group"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D" selected>D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
-            </div>
-            <div class="field" style="min-width:100px;">
-              <label>QUEUE</label>
-              <select id="new-queue"><option value="Phones">Phones</option><option value="Chats">Chats</option></select>
-            </div>
-            <button class="btn btn-glow btn-sm" onclick="addAgent()">ADD</button>
-          </div>
-        </div>
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-label">Agentes en Sistema (<span id="roster-count">0</span>)</div>
+        <button class="btn btn-ghost btn-sm" id="btn-add-agent">+ Agregar Fila</button>
       </div>
-
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <div class="panel">
-          <div class="panel-head"><span class="panel-label">GROUPS (FILTER LIST)</span></div>
-          <div class="panel-body">
-            <div class="legend-stack" id="group-legend"></div>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="panel-head"><span class="panel-label">ACTIONS</span></div>
-          <div class="panel-body" style="display:flex;flex-direction:column;gap:8px;">
-            <button class="btn btn-ghost btn-sm" onclick="exportRosterCSV()">↓ EXPORT CSV</button>
-            <button class="btn btn-ghost btn-sm" onclick="document.getElementById('import-csv').click()">↑ IMPORT CSV</button>
-            <input type="file" id="import-csv" accept=".csv" style="display:none" onchange="importRosterCSV(event)">
-          </div>
-        </div>
+      <div class="panel-body" style="padding:0; overflow-x:auto; max-height: 550px;">
+        <table id="roster-table">
+          <thead>
+            <tr>
+              <th style="width: 50px; text-align:center;">Grupo</th>
+              <th>Nombre Completo</th>
+              <th style="width: 140px;">Cola Principal</th>
+              <th style="width: 60px; text-align:center;">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="roster-tbody"></tbody>
+        </table>
       </div>
     </div>
   </div>
 
   <div class="view" id="view-schedule">
     <div class="sec-header">
-      <div class="sec-tag">DAILY CONFIG</div>
-      <div class="sec-title">Weekly Schedule Planner</div>
-      <p class="sec-sub">Select a day of the week, upload its respective CSV schedule, and generate daily tasks.</p>
-    </div>
-
-    <div class="day-selector" id="day-tabs">
-      <button class="day-btn active" data-day="Monday">MONDAY</button>
-      <button class="day-btn" data-day="Tuesday">TUESDAY</button>
-      <button class="day-btn" data-day="Wednesday">WEDNESDAY</button>
-      <button class="day-btn" data-day="Thursday">THURSDAY</button>
-      <button class="day-btn" data-day="Friday">FRIDAY</button>
-      <button class="day-btn" data-day="Saturday">SATURDAY</button>
-      <button class="day-btn" data-day="Sunday">SUNDAY</button>
+      <div class="sec-tag">Carga Diaria</div>
+      <h1 class="sec-title">Horarios del Día</h1>
+      <p class="sec-sub">Carga el archivo de programación (.csv / .txt) o pégalo directamente desde Excel usando Smart Paste. Configura los turnos para el día seleccionado.</p>
     </div>
 
     <div class="drop-zone" id="drop-zone">
-      <div class="dz-icon">📄</div>
-      <div class="dz-title" id="dz-title">Drop Monday schedule CSV here</div>
-      <div class="dz-sub">or <span id="browse-link">browse files</span> — format: Name, Start, End</div>
+      <div class="dz-icon">⇪</div>
+      <div class="dz-title">Arrastra el archivo CSV de Horarios aquí</div>
+      <div class="dz-sub">o haz clic para <span id="browse-link">buscar en tu equipo</span></div>
+      <input type="file" id="sched-file" accept=".csv,.txt" style="display:none;">
     </div>
-    <input type="file" id="sched-file" accept=".csv,.txt" style="display:none">
 
-    <div class="upload-success" id="upload-success">
-      <span class="us-icon">✓</span>
+    <div class="smart-paste-container field">
+      <label>Smart Paste (Pega filas de Excel aquí)</label>
+      <textarea class="smart-paste-box" id="smart-paste-input" placeholder="Selecciona las columnas de Nombre, Entrada y Salida en tu Excel, cópialas (Ctrl+C) y pégalas aquí..."></textarea>
+    </div>
+
+    <div class="upload-success" id="upload-alert">
+      <div class="us-icon">✓</div>
       <div>
-        <div class="us-text" id="us-text">Schedule loaded</div>
-        <div class="us-detail" id="us-detail"></div>
+        <div class="us-text">Horario diario sincronizado correctamente</div>
+        <div class="us-detail" id="us-detail">0 registros procesados.</div>
       </div>
-    </div>
-
-    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
-      <button class="btn btn-glow" onclick="generateTasks()" style="font-size:13px;padding:14px 32px;" id="btn-gen-tasks">▶ GENERATE TASKS FOR MONDAY</button>
-      <button class="btn btn-ghost" onclick="setAllWorking()">ALL WORKING</button>
-      <button class="btn btn-ghost" onclick="setAllOff()">ALL OFF</button>
     </div>
 
     <div class="panel">
       <div class="panel-head">
-        <span class="panel-label" id="panel-sched-label">SHIFTS (MONDAY)</span>
-        <span id="schedule-count" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);"></span>
+        <div class="panel-label">Edición Manual de Horarios de la Lista (<span id="sched-count">0</span>)</div>
+        <button class="btn btn-ghost btn-sm" id="btn-add-sched">+ Agregar Horario</button>
       </div>
-      <div style="max-height:600px;overflow-y:auto;">
-        <div id="shift-grid"></div>
+      <div class="panel-body" style="padding:0;">
+        <div id="sched-list-container" style="max-height: 480px; overflow-y:auto;">
+          </div>
       </div>
     </div>
   </div>
 
   <div class="view" id="view-results">
-    <div class="day-selector" id="task-day-tabs" style="margin-bottom: 24px;">
-      <button class="day-btn active" data-tday="Monday">MONDAY</button>
-      <button class="day-btn" data-tday="Tuesday">TUESDAY</button>
-      <button class="day-btn" data-tday="Wednesday">WEDNESDAY</button>
-      <button class="day-btn" data-tday="Thursday">THURSDAY</button>
-      <button class="day-btn" data-tday="Friday">FRIDAY</button>
-      <button class="day-btn" data-tday="Saturday">SATURDAY</button>
-      <button class="day-btn" data-tday="Sunday">SUNDAY</button>
+    <div class="sec-header">
+      <div class="sec-tag">Motor de Tareas</div>
+      <h1 class="sec-title">Cronograma Generado</h1>
+      <p class="sec-sub">Distribución automática de tareas operativas calculada en bloques de 30 minutos según habilidades y cobertura.</p>
     </div>
 
-    <div id="results-empty" class="empty">
-      <div class="empty-glyph">⚡</div>
-      <p>No tasks generated yet for <strong id="empty-day-name">Monday</strong>. Go to <strong>SCHEDULE</strong> and hit <strong>GENERATE TASKS</strong>.</p>
-    </div>
-
-    <div id="results-content" style="display:none;">
-      <div class="sec-header">
-        <div class="sec-tag">OUTPUT</div>
-        <div class="sec-title" id="results-title">Task Assignments</div>
-        <p class="sec-sub" id="results-sub"></p>
-      </div>
-
-      <div class="grid-stats-container" id="results-summary-container"></div>
-
-      <div class="panel" style="margin-top: 10px;">
-        <div class="panel-head">
-          <span class="panel-label">DETAIL (CLICK DIRECTLY ON ANY TASK TO EDIT MANUALLY)</span>
-          <div class="filters">
-            <button class="filt-btn on" onclick="filterResults('all')" id="f-all">ALL</button>
-            <button class="filt-btn" onclick="filterResults('morning')" id="f-morning">☀ AM</button>
-            <button class="filt-btn" onclick="filterResults('afternoon')" id="f-afternoon">☽ PM</button>
+    <div class="grid-2">
+      <div>
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-label" id="tasks-table-title">Asignación por Intervalos</div>
+            <div class="filters">
+              <button class="filt-btn on" data-filt="all">TODOS</button>
+              <button class="filt-btn" data-filt="AM">TURNO AM</button>
+              <button class="filt-btn" data-filt="PM">TURNO PM</button>
+              <button class="filt-btn" data-filt="A">G-A</button>
+              <button class="filt-btn" data-filt="B">G-B</button>
+              <button class="filt-btn" data-filt="C">G-C</button>
+              <button class="filt-btn" data-filt="D">G-D</button>
+            </div>
+          </div>
+          <div class="panel-body" style="padding:0; overflow-x:auto;">
+            <table id="tasks-table">
+              <thead>
+                <tr id="tasks-thead-row">
+                  <th style="width:40px; text-align:center;">G</th>
+                  <th>Nombre</th>
+                  <th style="width:65px;">Entrada</th>
+                  <th style="width:65px;">Salida</th>
+                  </tr>
+              </thead>
+              <tbody id="tasks-tbody">
+                </tbody>
+            </table>
+          </div>
+          <div class="panel-body" style="padding:12px 18px; background: var(--surface2); border-top:1px solid var(--border);">
+            <p style="font-size:11px; color:var(--text3);">💡 Puedes hacer clic y editar directamente los campos de las tareas asignadas para realizar ajustes de última hora en el navegador.</p>
           </div>
         </div>
-        <div style="overflow-x:auto;">
-          <table class="result-table">
-            <thead><tr>
-              <th>#</th><th>AGENT</th><th>SHIFT</th><th>GRP</th><th>MAIN TASK</th><th>SECONDARY TASK</th>
-            </tr></thead>
-            <tbody id="results-body"></tbody>
-          </table>
+      </div>
+
+      <div class="grid-stats-container">
+        <div class="shift-block-title">COBERTURA GENERAL <span id="stat-day-label">LUNES</span></div>
+        <div class="grid-stats">
+          <div class="stat s-neon">
+            <div class="stat-label">Total Activos</div>
+            <div class="stat-val" id="st-total">0</div>
+            <div class="stat-sub">Agentes programados</div>
+          </div>
+          <div class="stat s-lime">
+            <div class="stat-label">En Teléfonos</div>
+            <div class="stat-val" id="st-phones">0</div>
+            <div class="stat-sub">Canal Phones total</div>
+          </div>
+          <div class="stat s-violet">
+            <div class="stat-label">En Chats</div>
+            <div class="stat-val" id="st-chats">0</div>
+            <div class="stat-sub">Canal Chats total</div>
+          </div>
         </div>
-        <div class="export-bar">
-          <button class="btn btn-ghost btn-sm" onclick="downloadResultsCSV()">↓ DOWNLOAD CSV</button>
-          <button class="btn btn-ghost btn-sm" onclick="copyResults()">⎘ COPY TO CLIPBOARD</button>
+
+        <div class="shift-block-title">INTERACTIVO <span>FILTRADO DE GRUPOS</span></div>
+        <div class="legend-stack">
+          <div class="legend-item" data-group-filter="A">
+            <div class="g-chip g-A">A</div>
+            <div class="legend-name">Grupo A (Phones)</div>
+            <div class="legend-desc" id="lg-cnt-A">0 Ags</div>
+          </div>
+          <div class="legend-item" data-group-filter="B">
+            <div class="g-chip g-B">B</div>
+            <div class="legend-name">Grupo B (Chats)</div>
+            <div class="legend-desc" id="lg-cnt-B">0 Ags</div>
+          </div>
+          <div class="legend-item" data-group-filter="C">
+            <div class="g-chip g-C">C</div>
+            <div class="legend-name">Grupo C (Phones Backup)</div>
+            <div class="legend-desc" id="lg-cnt-C">0 Ags</div>
+          </div>
+          <div class="legend-item" data-group-filter="D">
+            <div class="g-chip g-D">D</div>
+            <div class="legend-name">Grupo D (Chats Backup)</div>
+            <div class="legend-desc" id="lg-cnt-D">0 Ags</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><div class="panel-label">Acciones globales</div></div>
+          <div class="panel-body" style="display:flex; flex-direction:column; gap:8px;">
+            <button class="btn btn-glow" style="width:100%; justify-content:center;" id="btn-recalculate">🔄 Recalcular Todo</button>
+            <button class="btn btn-ghost btn-sm" style="width:100%; justify-content:center;" id="btn-export-csv">📥 Exportar CSV de Tareas</button>
+          </div>
         </div>
       </div>
     </div>
@@ -825,658 +879,442 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
 </div>
 
 <script>
-/* ════════════════════════════════════════════════
-   DATA
-   ════════════════════════════════════════════════ */
-var GM = {
-  A:{label:'Casino Specialist',color:'hot'},
-  B:{label:'VIP',color:'blue'},
-  C:{label:'Senior',color:'lime'},
-  D:{label:'Tier 3 / Tier 2',color:'violet'},
-  E:{label:'Tier 1 / New Hire',color:'coral'},
-  F:{label:'Deposits',color:'gold'},
-  G:{label:'Payouts',color:'slate'}
-};
+/* ═══════════════════════════════════════════════════
+   CORE APPLICATION ENGINE — JAVASCRIPT
+   ═══════════════════════════════════════════════════ */
 
-var DEF_ROSTER = [
-  {n:"Naigell Beckford",g:"A",q:"Phones"},{n:"Nicole Román",g:"A",q:"Phones"},
-  {n:"Mariana Varela",g:"A",q:"Chats"},{n:"Tamara Donaire",g:"A",q:"Chats"},
-  {n:"Raquel Solano",g:"A",q:"Chats"},
-  {n:"Elliot Navarro",g:"B",q:"Chats"},{n:"Emerson Hernandez",g:"B",q:"Phones"},
-  {n:"Stephannie Cunningham",g:"B",q:"Phones"},{n:"Thimy Gonzalez",g:"B",q:"Phones"},
-  {n:"Yasser Quiros",g:"B",q:"Phones"},{n:"Elena Rojas",g:"B",q:"Chats"},
-  {n:"Isaac Porras",g:"B",q:"Chats"},{n:"Julian Mena",g:"B",q:"Chats"},
-  {n:"Sebastian Puerta",g:"B",q:"Chats"},
-  {n:"Rory Bulgarelli",g:"C",q:"Phones"},{n:"Naomy Sanchez",g:"C",q:"Chats"},
-  {n:"Andrey Castillo",g:"C",q:"Phones"},
-  {n:"Carlos Alejandro Amador Luna",g:"D",q:"Phones"},{n:"Carlos Ortiz",g:"D",q:"Phones"},
-  {n:"Carolina Castro",g:"D",q:"Chats"},{n:"David Vogler",g:"D",q:"Phones"},
-  {n:"Pablo Guzman",g:"D",q:"Phones"},{n:"Adrian Navarro",g:"D",q:"Chats"},
-  {n:"Daniel Leandro Rojas",g:"D",q:"Chats"},{n:"Isaac Barrantes Alvarado",g:"D",q:"Chats"},
-  {n:"Maria Jose Quiros Quiros",g:"D",q:"Chats"},{n:"Phillip Desanti",g:"D",q:"Chats"},
-  {n:"Charlene Rose",g:"E",q:"Phones"},{n:"Valerie Alfaro",g:"E",q:"Phones"},
-  {n:"Diego Matamoros",g:"F",q:"Phones"},{n:"Michelle Saborio",g:"F",q:"Chats"},
-  {n:"Mariana Bejarano",g:"F",q:"Chats"},{n:"Sebastian Rivera",g:"F",q:"Phones"},
-  {n:"Silvana Suarez",g:"F",q:"Chats"},{n:"Vanessa Umana",g:"F",q:"Chats"},
-  {n:"Eddison Prendas",g:"G",q:"Phones"},{n:"Carlos Amador",g:"G",q:"Phones"},
-  {n:"Fer Blanco",g:"G",q:"Phones"},{n:"Ignacio Blanco",g:"G",q:"Phones"},
-  {n:"Kevin Zamora",g:"G",q:"Phones"},{n:"Paula Muñoz",g:"G",q:"Chats"},
-  {n:"Samuel Carballo",g:"G",q:"Phones"},{n:"Graciela Bravo",g:"G",q:"Chats"},
-  {n:"Sheydron Clark",g:"G",q:"Phones"},{n:"Israel Aburto",g:"G",q:"Phones"}
-].map(function(r){return{name:r.n,group:r.g,queue:r.q}});
+// ── ROSTER DATABASE DEFAULT SEED ──
+var initialRoster = [
+  { name: 'Adolfo Chaves', group: 'C', queue: 'Phones' },
+  { name: 'Alba Castro', group: 'B', queue: 'Chats' },
+  { name: 'Alejandra Gomez', group: 'A', queue: 'Phones' },
+  { name: 'Alejandro Melendez', group: 'A', queue: 'Phones' },
+  { name: 'Alvaro Alfaro', group: 'C', queue: 'Phones' },
+  { name: 'Andres Chavarria', group: 'C', queue: 'Phones' },
+  { name: 'Andres Gamboa', group: 'B', queue: 'Chats' },
+  { name: 'Andres Miranda', group: 'A', queue: 'Phones' },
+  { name: 'Anthony Maroto', group: 'B', queue: 'Chats' },
+  { name: 'Anthonny Chinchilla', group: 'A', queue: 'Phones' },
+  { name: 'Ariel Arroyo', group: 'B', queue: 'Chats' },
+  { name: 'Armando Cerdas', group: 'C', queue: 'Phones' },
+  { name: 'Bryan Corrales', group: 'C', queue: 'Phones' },
+  { name: 'Carlos Arrieta', group: 'A', queue: 'Phones' },
+  { name: 'Carlos Chaves', group: 'C', queue: 'Phones' },
+  { name: 'Carlos Monge', group: 'D', queue: 'Chats' },
+  { name: 'Carlos Muñoz', group: 'C', queue: 'Phones' },
+  { name: 'Cesar Cubillo', group: 'A', queue: 'Phones' },
+  { name: 'Christian Elizondo', group: 'A', queue: 'Phones' },
+  { name: 'Christian Monge', group: 'C', queue: 'Phones' },
+  { name: 'Christopher Sanabria', group: 'B', queue: 'Chats' },
+  { name: 'Daniel Chavarria', group: 'A', queue: 'Phones' },
+  { name: 'Daniel Fernandez', group: 'A', queue: 'Phones' },
+  { name: 'Daniel Ramirez', group: 'C', queue: 'Phones' },
+  { name: 'Daniel Rodriguez', group: 'C', queue: 'Phones' },
+  { name: 'Daniela Calderon', group: 'B', queue: 'Chats' },
+  { name: 'Daniela Marin', group: 'B', queue: 'Chats' },
+  { name: 'Danny Diaz', group: 'C', queue: 'Phones' },
+  { name: 'David Delgado', group: 'A', queue: 'Phones' },
+  { name: 'David Maroto', group: 'C', queue: 'Phones' },
+  { name: 'David Ramirez', group: 'C', queue: 'Phones' },
+  { name: 'David Solano', group: 'A', queue: 'Phones' },
+  { name: 'Diego Chavarria', group: 'D', queue: 'Chats' },
+  { name: 'Donny Murillo', group: 'A', queue: 'Phones' },
+  { name: 'Eduardo Perez', group: 'C', queue: 'Phones' },
+  { name: 'Edward Obando', group: 'B', queue: 'Chats' },
+  { name: 'Edwin Artavia', group: 'C', queue: 'Phones' },
+  { name: 'Elias Rodriguez', group: 'C', queue: 'Phones' },
+  { name: 'Eliecer Estrada', group: 'A', queue: 'Phones' },
+  { name: 'Emanuel Bermudez', group: 'A', queue: 'Phones' },
+  { name: 'Emanuel Corella', group: 'C', queue: 'Phones' },
+  { name: 'Esteban Aguilar', group: 'C', queue: 'Phones' },
+  { name: 'Esteban Castillo', group: 'C', queue: 'Phones' },
+  { name: 'Esteban Ortiz', group: 'B', queue: 'Chats' },
+  { name: 'Fabian Cubero', group: 'C', queue: 'Phones' },
+  { name: 'Fabian Marin', group: 'A', queue: 'Phones' },
+  { name: 'Fabian Mora', group: 'C', queue: 'Phones' },
+  { name: 'Gabriel Alvardo', group: 'B', queue: 'Chats' },
+  { name: 'Gabriel Artavia', group: 'B', queue: 'Chats' },
+  { name: 'Geovanny Segura', group: 'C', queue: 'Phones' },
+  { name: 'Gerardo Saenz', group: 'B', queue: 'Chats' },
+  { name: 'Giancarlo Barboza', group: 'C', queue: 'Phones' },
+  { name: 'Hansell Fallas', group: 'A', queue: 'Phones' },
+  { name: 'Hanzel Rodriguez', group: 'C', queue: 'Phones' },
+  { name: 'Heiner Rodriguez', group: 'A', queue: 'Phones' },
+  { name: 'Hernan Gomez', group: 'C', queue: 'Phones' },
+  { name: 'Irvin Carvajal', group: 'C', queue: 'Phones' },
+  { name: 'Isaac Arias', group: 'A', queue: 'Phones' },
+  { name: 'Isaac Sanabria', group: 'A', queue: 'Phones' },
+  { name: 'Jafeth Morales', group: 'B', queue: 'Chats' },
+  { name: 'Jairo Chavarria', group: 'B', queue: 'Chats' },
+  { name: 'Jamil Alvarado', group: 'C', queue: 'Phones' },
+  { name: 'Jason Chavarria', group: 'C', queue: 'Phones' },
+  { name: 'Javier Amador', group: 'B', queue: 'Chats' },
+  { name: 'Javier Zamora', group: 'C', queue: 'Phones' },
+  { name: 'Jeancarlo Gomez', group: 'C', queue: 'Phones' },
+  { name: 'Jefferson Rodriguez', group: 'A', queue: 'Phones' },
+  { name: 'Jeffrey Ortega', group: 'B', queue: 'Chats' },
+  { name: 'Jesuse Ramirez', group: 'A', queue: 'Phones' },
+  { name: 'Joan Castro', group: 'A', queue: 'Phones' },
+  { name: 'Johel Benavides', group: 'A', queue: 'Phones' },
+  { name: 'John Paul', group: 'A', queue: 'Phones' },
+  { name: 'Johnny Chavarria', group: 'D', queue: 'Chats' },
+  { name: 'Jonatan Cerdas', group: 'A', queue: 'Phones' },
+  { name: 'Jonathan Gomez', group: 'C', queue: 'Phones' },
+  { name: 'Jorge Chavarria', group: 'C', queue: 'Phones' },
+  { name: 'Jorge Monge', group: 'A', queue: 'Phones' },
+  { name: 'Jose Chinchilla', group: 'B', queue: 'Chats' },
+  { name: 'Jose Fernando', group: 'C', queue: 'Phones' },
+  { name: 'Jose Gamboa', group: 'A', queue: 'Phones' },
+  { name: 'Jose Maroto', group: 'C', queue: 'Phones' },
+  { name: 'Jose Pablo Ramirez', group: 'A', queue: 'Phones' },
+  { name: 'Jose Pablo Rodriguez', group: 'A', queue: 'Phones' },
+  { name: 'Jose Ramos', group: 'C', queue: 'Phones' },
+  { name: 'Jose Solano', group: 'C', queue: 'Phones' },
+  { name: 'Jose Victor', group: 'A', queue: 'Phones' },
+  { name: 'Joshua Chinchilla', group: 'C', queue: 'Phones' },
+  { name: 'Josue Chavarria', group: 'C', queue: 'Phones' },
+  { name: 'Josue Cerdas', group: 'A', queue: 'Phones' },
+  { name: 'Josue Marin', group: 'B', queue: 'Chats' },
+  { name: 'Juan Carlos', group: 'A', queue: 'Phones' },
+  { name: 'Juan De Dios', group: 'C', queue: 'Phones' },
+  { name: 'Juan Pablo Arrieta', group: 'A', queue: 'Phones' },
+  { name: 'Juan Pablo Diaz', group: 'C', queue: 'Phones' },
+  { name: 'Julio Ortiz', group: 'C', queue: 'Phones' },
+  { name: 'Junior Chavarria', group: 'A', queue: 'Phones' },
+  { name: 'Justin Solano', group: 'A', queue: 'Phones' },
+  { name: 'Kenneth Chinchilla', group: 'B', queue: 'Chats' },
+  { name: 'Kenneth Corella', group: 'C', queue: 'Phones' },
+  { name: 'Kenneth Monge', group: 'A', queue: 'Phones' },
+  { name: 'Kenneth Ramos', group: 'B', queue: 'Chats' },
+  { name: 'Kenneth Sanabria', group: 'C', queue: 'Phones' },
+  { name: 'Kevin Arrieta', group: 'C', queue: 'Phones' },
+  { name: 'Kevin Cerdas', group: 'A', queue: 'Phones' },
+  { name: 'Kevin Maroto', group: 'C', queue: 'Phones' },
+  { name: 'Kevin Monge', group: 'C', queue: 'Phones' },
+  { name: 'Kevin Ramirez', group: 'C', queue: 'Phones' },
+  { name: 'Kristian Fernandez', group: 'B', queue: 'Chats' },
+  { name: 'Lester Gomez', group: 'B', queue: 'Chats' },
+  { name: 'Luis Alfredo Chavarria', group: 'C', queue: 'Phones' },
+  { name: 'Luis Carlos', group: 'A', queue: 'Phones' },
+  { name: 'Luis Diego Chavarria', group: 'A', queue: 'Phones' },
+  { name: 'Luis Diego Gomez', group: 'A', queue: 'Phones' },
+  { name: 'Luis Diego Solano', group: 'C', queue: 'Phones' },
+  { name: 'Luis Fernando Maroto', group: 'C', queue: 'Phones' },
+  { name: 'Luis Ortiz', group: 'A', queue: 'Phones' },
+  { name: 'Manuel Chavarria', group: 'A', queue: 'Phones' },
+  { name: 'Manuel Marin', group: 'C', queue: 'Phones' },
+  { name: 'Marco Solano', group: 'A', queue: 'Phones' },
+  { name: 'Mauricio Arrieta', group: 'B', queue: 'Chats' },
+  { name: 'Mauricio Gomez', group: 'C', queue: 'Phones' },
+  { name: 'Minor Segura', group: 'C', queue: 'Phones' },
+  { name: 'Moises Artavia', group: 'C', queue: 'Phones' },
+  { name: 'Nicolas Cerdas', group: 'A', queue: 'Phones' },
+  { name: 'Oscar Chavarria', group: 'B', queue: 'Chats' },
+  { name: 'Oscar Ortiz', group: 'A', queue: 'Phones' },
+  { name: 'Pablo Arias', group: 'A', queue: 'Phones' },
+  { name: 'Pablo Fernandez', group: 'C', queue: 'Phones' },
+  { name: 'Pablo Ramirez', group: 'A', queue: 'Phones' },
+  { name: 'Pedro Chinchilla', group: 'C', queue: 'Phones' },
+  { name: 'Rafael Gomez', group: 'C', queue: 'Phones' },
+  { name: 'Ramon Melendez', group: 'A', queue: 'Phones' },
+  { name: 'Raul Chavarria', group: 'A', queue: 'Phones' },
+  { name: 'Ricardo Monge', group: 'A', queue: 'Phones' },
+  { name: 'Roberto Ramirez', group: 'A', queue: 'Phones' },
+  { name: 'Rodrigo Fernandez', group: 'C', queue: 'Phones' },
+  { name: 'Ronald Cerdas', group: 'A', queue: 'Phones' },
+  { name: 'Roy Segura', group: 'A', queue: 'Phones' },
+  { name: 'Ruben Marin', group: 'A', queue: 'Phones' },
+  { name: 'Santiago Maroto', group: 'A', queue: 'Phones' },
+  { name: 'Sebastian Chinchilla', group: 'B', queue: 'Chats' },
+  { name: 'Sergio Monge', group: 'A', queue: 'Phones' },
+  { name: 'Stward Segura', group: 'A', queue: 'Phones' },
+  { name: 'Tomas Melendez', group: 'C', queue: 'Phones' },
+  { name: 'Victor Ramirez', group: 'A', queue: 'Phones' },
+  { name: 'Walter Solano', group: 'A', queue: 'Phones' },
+  { name: 'Yorleny Maroto', group: 'B', queue: 'Chats' },
+  { name: 'Yostin Chinchilla', group: 'A', queue: 'Phones' }
+];
 
-var DEF_SCHED = [
-  {n:"Mariana Varela",s:"06:00",e:"14:00",st:"w"},{n:"Raquel Solano",s:"06:00",e:"14:00",st:"w"},
-  {n:"Emerson Hernandez",s:"06:00",e:"14:00",st:"w"},{n:"Julian Mena",s:"06:00",e:"14:00",st:"w"},
-  {n:"Phillip Desanti",s:"06:00",e:"14:00",st:"w"},{n:"Daniel Leandro Rojas",s:"06:00",e:"14:00",st:"w"},
-  {n:"Maria Jose Quiros Quiros",s:"06:00",e:"14:00",st:"w"},{n:"Sebastian Rivera",s:"06:00",e:"14:00",st:"w"},
-  {n:"Carlos Amador",s:"06:00",e:"14:00",st:"w"},{n:"Kevin Zamora",s:"06:00",e:"14:00",st:"w"},
-  {n:"Sebastian Puerta",s:"07:00",e:"15:00",st:"w"},{n:"Andrey Castillo",s:"07:00",e:"15:00",st:"w"},
-  {n:"Pablo Guzman",s:"07:00",e:"15:00",st:"w"},{n:"Adrian Navarro",s:"07:00",e:"15:00",st:"w"},
-  {n:"Ignacio Blanco",s:"07:00",e:"15:00",st:"w"},
-  {n:"Naigell Beckford",s:"11:00",e:"19:00",st:"w"},{n:"Silvana Suarez",s:"11:00",e:"19:00",st:"w"},
-  {n:"Elena Rojas",s:"14:00",e:"22:00",st:"w"},{n:"Rory Bulgarelli",s:"14:00",e:"22:00",st:"w"},
-  {n:"David Vogler",s:"14:00",e:"22:00",st:"w"},{n:"Michelle Saborio",s:"14:00",e:"22:00",st:"w"},
-  {n:"Paula Muñoz",s:"14:00",e:"22:00",st:"w"},
-  {n:"Tamara Donaire",s:"15:00",e:"23:00",st:"w"},{n:"Stephannie Cunningham",s:"15:00",e:"23:00",st:"w"},
-  {n:"Elliot Navarro",s:"15:00",e:"23:00",st:"w"},{n:"Naomy Sanchez",s:"15:00",e:"23:00",st:"w"},
-  {n:"Carlos Ortiz",s:"15:00",e:"23:00",st:"w"},{n:"Eddison Prendas",s:"15:00",e:"23:00",st:"w"},
-  {n:"Fer Blanco",s:"15:00",e:"23:00",st:"w"},
-  {n:"Nicole Román",s:"00:00",e:"00:00",st:"o"},{n:"Thimy Gonzalez",s:"00:00",e:"00:00",st:"o"},
-  {n:"Yasser Quiros",s:"00:00",e:"00:00",st:"o"},{n:"Isaac Porras",s:"00:00",e:"00:00",st:"o"},
-  {n:"Diego Matamoros",s:"00:00",e:"00:00",st:"o"},
-  {n:"Carlos Alejandro Amador Luna",s:"00:00",e:"00:00",st:"o"},
-  {n:"Carolina Castro",s:"00:00",e:"00:00",st:"o"},
-  {n:"Isaac Barrantes Alvarado",s:"00:00",e:"00:00",st:"o"},
-  {n:"Charlene Rose",s:"00:00",e:"00:00",st:"o"},{n:"Mariana Bejarano",s:"00:00",e:"00:00",st:"o"},
-  {n:"Vanessa Umana",s:"00:00",e:"00:00",st:"o"},{n:"Israel Aburto",s:"00:00",e:"00:00",st:"o"},
-  {n:"Valerie Alfaro",s:"00:00",e:"00:00",st:"o"},{n:"Samuel Carballo",s:"00:00",e:"00:00",st:"v"}
-].map(function(r){return{name:r.n,start:r.s,end:r.e,status:r.st==='w'?'working':r.st==='v'?'vac':'off'}});
-
+// ── STATE MANIFEST ──
+var currentDay = 'Lunes';
 var roster = [];
-var weeklySchedule = {
-  "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [], "Saturday": [], "Sunday": []
+var schedulesByDay = {
+  Lunes: [], Martes: [], Miercoles: [], Jueves: [], Viernes: [], Sabado: [], Domingo: []
 };
-
-var lastResults = {
-  "Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": [], "Saturday": [], "Sunday": []
+var tasksByDay = {
+  Lunes: [], Martes: [], Miercoles: [], Jueves: [], Viernes: [], Sabado: [], Domingo: []
 };
+var currentUiFilters = { shift: 'all', group: 'all' };
 
-var currentDay = "Monday";       
-var lastResultsDay = "Monday";   
-var resultFilter = 'all';
-var rosterGroupFilter = 'all'; 
-
-function save(){
-  try {
-    localStorage.setItem('tm3r', JSON.stringify(roster));
-    localStorage.setItem('tm3_weekly_sched', JSON.stringify(weeklySchedule));
-    localStorage.setItem('tm3_last_results', JSON.stringify(lastResults));
-  } catch(e){}
+// Initialize data
+if (localStorage.getItem('ba_roster')) {
+  roster = JSON.parse(localStorage.getItem('ba_roster'));
+} else {
+  roster = JSON.parse(JSON.stringify(initialRoster));
+  saveRoster();
 }
 
-function load(){
-  try {
-    var r = localStorage.getItem('tm3r');
-    var ws = localStorage.getItem('tm3_weekly_sched');
-    var lr = localStorage.getItem('tm3_last_results');
-    
-    if(r) roster = JSON.parse(r);
-    else roster = JSON.parse(JSON.stringify(DEF_ROSTER));
-    
-    if(ws) {
-      weeklySchedule = JSON.parse(ws);
-    } else {
-      weeklySchedule["Monday"] = JSON.parse(JSON.stringify(DEF_SCHED));
-      "Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday".split(',').forEach(function(d){
-        weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
-      });
-    }
+if (localStorage.getItem('ba_schedules')) {
+  schedulesByDay = JSON.parse(localStorage.getItem('ba_schedules'));
+}
+if (localStorage.getItem('ba_tasks')) {
+  tasksByDay = JSON.parse(localStorage.getItem('ba_tasks'));
+}
 
-    if(lr) {
-      lastResults = JSON.parse(lr);
-    }
-  } catch(e){
-    roster = JSON.parse(JSON.stringify(DEF_ROSTER));
-    weeklySchedule["Monday"] = JSON.parse(JSON.stringify(DEF_SCHED));
-    "Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday".split(',').forEach(function(d){
-      weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
+// ── TIME HELPERS ──
+function timeToMinutes(t) {
+  if(!t) return 0;
+  var p = t.split(':');
+  return parseInt(p[0],10)*60 + parseInt(p[1],10);
+}
+function minutesToTime(m) {
+  var h = Math.floor(m/60);
+  var min = m % 60;
+  return (h<10?'0':'')+h+':'+(min<10?'0':'')+min;
+}
+function getIntervalsForShift(startM, endM) {
+  var list = [];
+  var current = startM;
+  while(current < endM) {
+    list.push(current);
+    current += 30;
+  }
+  return list;
+}
+
+// ── DATA PERSISTENCE ──
+function saveRoster() { localStorage.setItem('ba_roster', JSON.stringify(roster)); }
+function saveSchedules() { localStorage.setItem('ba_schedules', JSON.stringify(schedulesByDay)); }
+function saveTasks() { localStorage.setItem('ba_tasks', JSON.stringify(tasksByDay)); }
+
+// ── ROSTER VIEW ENGINE ──
+function renderRoster() {
+  var tbody = document.getElementById('roster-tbody');
+  tbody.innerHTML = '';
+  document.getElementById('roster-count').textContent = roster.length;
+
+  roster.sort(function(a,b){ return a.name.localeCompare(b.name); });
+
+  roster.forEach(function(agent, index) {
+    var tr = document.createElement('tr');
+    tr.className = 'anim-row';
+    tr.style.animationDelay = (index * 0.01) + 's';
+
+    var tdG = document.createElement('td');
+    tdG.style.textAlign = 'center';
+    var chip = document.createElement('span');
+    chip.className = 'g-chip g-' + (agent.group || 'unkn');
+    chip.textContent = agent.group || '?';
+    chip.addEventListener('click', function() {
+      var nextMap = { 'A':'B', 'B':'C', 'C':'D', 'D':'E', 'E':'F', 'F':'G', 'G':'A' };
+      agent.group = nextMap[agent.group || 'A'] || 'A';
+      chip.className = 'g-chip g-' + agent.group;
+      chip.textContent = agent.group;
+      saveRoster();
+      generateTasks();
     });
-  }
-}
+    tdG.appendChild(chip);
+    tr.appendChild(tdG);
 
-/* ════════════════════════════════════════════════
-   THEME LOGIC (LIGHT / DARK SYSTEM)
-   ════════════════════════════════════════════════ */
-(function() {
-  var switcher = document.getElementById('theme-switcher');
-  var sunIcon = document.getElementById('sun-icon');
-  var moonIcon = document.getElementById('moon-icon');
-  var html = document.documentElement;
+    var tdName = document.createElement('td');
+    tdName.className = 'name-cell';
+    var inpName = document.createElement('input');
+    inpName.className = 'editable-task-input';
+    inpName.value = agent.name;
+    inpName.style.fontWeight = '600';
+    inpName.addEventListener('change', function() {
+      agent.name = inpName.value.trim();
+      saveRoster();
+    });
+    tdName.appendChild(inpName);
+    tr.appendChild(tdName);
 
-  function applyTheme(isDark) {
-    if (isDark) {
-      html.classList.add('dark');
-      sunIcon.style.display = 'block';
-      moonIcon.style.display = 'none';
-    } else {
-      html.classList.remove('dark');
-      sunIcon.style.display = 'none';
-      moonIcon.style.display = 'block';
-    }
-  }
+    var tdQueue = document.createElement('td');
+    var selQ = document.createElement('select');
+    selQ.className = 'editable-task-input';
+    selQ.style.padding = '2px 4px';
+    ['Phones', 'Chats'].forEach(function(q) {
+      var opt = document.createElement('option');
+      opt.value = q; opt.textContent = q;
+      if(agent.queue === q) opt.selected = true;
+      selQ.appendChild(opt);
+    });
+    selQ.addEventListener('change', function() {
+      agent.queue = selQ.value;
+      saveRoster();
+      generateTasks();
+    });
+    tdQueue.appendChild(selQ);
+    tr.appendChild(tdQueue);
 
-  var savedTheme = localStorage.getItem('theme-mode');
-  var prefersDark = savedTheme ? (savedTheme === 'dark') : true; 
-  applyTheme(prefersDark);
+    var tdAct = document.createElement('td');
+    tdAct.style.textAlign = 'center';
+    var btnDel = document.createElement('button');
+    btnDel.className = 'btn btn-danger btn-sm';
+    btnDel.style.padding = '3px 8px';
+    btnDel.textContent = '✕';
+    btnDel.addEventListener('click', function() {
+      roster.splice(index, 1);
+      saveRoster();
+      renderRoster();
+      generateTasks();
+    });
+    tdAct.appendChild(btnDel);
+    tr.appendChild(tdAct);
 
-  switcher.addEventListener('click', function() {
-    var nowDark = html.classList.contains('dark');
-    applyTheme(!nowDark);
-    localStorage.setItem('theme-mode', !nowDark ? 'dark' : 'light');
-  });
-})();
-
-/* ════════════════════════════════════════════════
-   NAV & WEEK DAY MANAGEMENT
-   ════════════════════════════════════════════════ */
-document.querySelectorAll('.nav-tab').forEach(function(t){
-  t.addEventListener('click',function(){switchView(t.dataset.view);});
-});
-function switchView(v){
-  document.querySelectorAll('.view').forEach(function(el){el.classList.remove('active');});
-  document.getElementById('view-'+v).classList.add('active');
-  document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.toggle('active',t.dataset.view===v);});
-  if(v === 'results') {
-    renderResults();
-  }
-}
-
-document.querySelectorAll('#day-tabs .day-btn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    document.querySelectorAll('#day-tabs .day-btn').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-    currentDay = btn.dataset.day;
-    
-    document.getElementById('dz-title').textContent = "Drop " + currentDay + " schedule CSV here";
-    document.getElementById('btn-gen-tasks').textContent = "▶ GENERATE TASKS FOR " + currentDay.toUpperCase();
-    document.getElementById('panel-sched-label').textContent = "SHIFTS (" + currentDay.toUpperCase() + ")";
-    document.getElementById('upload-success').style.display = 'none';
-    
-    renderSchedule();
-  });
-});
-
-document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-    lastResultsDay = btn.dataset.tday;
-    
-    renderResults();
-  });
-});
-
-function tick(){
-  var d=new Date();
-  document.getElementById('clock').textContent=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
-}
-tick(); setInterval(tick,1000);
-
-/* ════════════════════════════════════════════════
-   ROSTER & INTERACTIVE GROUP FILTERS
-   ════════════════════════════════════════════════ */
-function filterRosterByGroup(g) {
-  rosterGroupFilter = g;
-  document.getElementById('btn-reset-roster-filter').style.display = (g === 'all') ? 'none' : 'inline-flex';
-  document.getElementById('roster-table-label').textContent = (g === 'all') ? 'ALL AGENTS' : 'AGENTS IN GROUP ' + g;
-  renderRoster();
-}
-
-function clearRosterGroupFilter() {
-  filterRosterByGroup('all');
-}
-
-function renderRoster(){
-  var displayList = roster.slice();
-  if (rosterGroupFilter !== 'all') {
-    displayList = displayList.filter(function(a) { return a.group === rosterGroupFilter; });
-  }
-
-  displayList.sort(function(a,b){return a.group<b.group?-1:a.group>b.group?1:a.name.localeCompare(b.name);});
-  var html='';
-  displayList.forEach(function(ag,i){
-    var gm=GM[ag.group]||{};
-    var globalIdx = roster.indexOf(ag);
-    html+='<tr class="anim-row" style="animation-delay:'+(i*.012)+'s">';
-    html+='<td class="name-cell">'+esc(ag.name)+'</td>';
-    html+='<td><span class="g-chip g-'+ag.group+'">'+ag.group+'</span></td>';
-    html+='<td><span style="font-size:11px;color:var(--text3);">'+(gm.label||'')+'</span></td>';
-    html+='<td><span class="q-tag q-'+ag.queue.toLowerCase()+'">'+ag.queue+'</span></td>';
-    html+='<td><button class="btn btn-danger btn-sm" style="padding:4px 10px;font-size:9px;" onclick="removeAgent('+globalIdx+')">×</button></td>';
-    html+='</tr>';
-  });
-  document.getElementById('roster-body').innerHTML=html;
-  document.getElementById('agent-count').textContent=displayList.length + ' / ' + roster.length+' agents';
-  renderLegend(); save();
-}
-
-function renderLegend(){
-  var c={};roster.forEach(function(a){c[a.group]=(c[a.group]||0)+1;});
-  var html='';
-  'ABCDEFG'.split('').forEach(function(g){
-    var isActive = (rosterGroupFilter === g) ? ' active-filter' : '';
-    html+='<div class="legend-item' + isActive + '" onclick="filterRosterByGroup(\'' + g + '\')"><span class="g-chip g-'+g+'">'+g+'</span>';
-    html+='<span class="legend-name">'+GM[g].label+'</span>';
-    html+='<span class="legend-desc">'+(c[g]||0)+'</span></div>';
-  });
-  document.getElementById('group-legend').innerHTML=html;
-}
-
-function addAgent(){
-  var n=document.getElementById('new-name').value.trim();if(!n)return;
-  var g=document.getElementById('new-group').value,q=document.getElementById('new-queue').value;
-  roster.push({name:n,group:g,queue:q});
-  
-  for(var d in weeklySchedule) {
-    weeklySchedule[d].push({name:n, start:"06:00", end:"14:00", status:"off"});
-  }
-  document.getElementById('new-name').value='';
-  renderRoster();renderSchedule();
-}
-
-function removeAgent(globalIdx){
-  if(globalIdx < 0 || globalIdx >= roster.length) return;
-  var n=roster[globalIdx].name;roster.splice(globalIdx,1);
-  for(var d in weeklySchedule) {
-    weeklySchedule[d] = weeklySchedule[d].filter(function(s){return s.name!==n;});
-  }
-  renderRoster();renderSchedule();
-}
-
-/* ════════════════════════════════════════════════
-   SCHEDULE
-   ════════════════════════════════════════════════ */
-function renderSchedule(){
-  var activeSched = weeklySchedule[currentDay] || [];
-  
-  var names={}; activeSched.forEach(function(s){names[s.name]=true;});
-  roster.forEach(function(a){if(!names[a.name]) activeSched.push({name:a.name,start:"06:00",end:"14:00",status:"off"});});
-  
-  var rn={};roster.forEach(function(a){rn[a.name]=true;});
-  
-  var so={working:0,off:1,vac:2};
-  activeSched.sort(function(a,b){var sa=so[a.status]||0,sb=so[b.status]||0;if(sa!==sb)return sa-sb;return a.start<b.start?-1:a.start>b.start?1:a.name.localeCompare(b.name);});
-  
-  weeklySchedule[currentDay] = activeSched;
-  
-  var wc=activeSched.filter(function(s){return s.status==='working';}).length;
-  var html='';
-  activeSched.forEach(function(s,i){
-    var ag=roster.find(function(a){return a.name===s.name;})||{group:'unkn'},
-    off=s.status!=='working';
-    html+='<div class="sched-row anim-row'+(off?' is-off':'')+'" style="animation-delay:'+(i*.015)+'s">';
-    html+='<span class="g-chip g-'+ag.group+'">'+(ag.group==='unkn'?'?':ag.group)+'</span>';
-    html+='<span class="sched-name">'+esc(s.name)+'</span>';
-    html+='<input type="time" value="'+s.start+'" onchange="updSched('+i+',\'start\',this.value)"'+(off?' disabled':'')+'>';
-    html+='<input type="time" value="'+s.end+'" onchange="updSched('+i+',\'end\',this.value)"'+(off?' disabled':'')+'>';
-    html+='<select onchange="updSched('+i+',\'status\',this.value)">';
-    html+='<option value="working"'+(s.status==='working'?' selected':'')+'>Working</option>';
-    html+='<option value="off"'+(s.status==='off'?' selected':'')+'>OFF</option>';
-    html+='<option value="vac"'+(s.status==='vac'?' selected':'')+'>Vacation</option></select>';
-    html+='</div>';
-  });
-  document.getElementById('shift-grid').innerHTML=html;
-  document.getElementById('schedule-count').textContent=wc+' / '+activeSched.length+' working';
-  save();
-}
-
-function updSched(i,f,v){
-  weeklySchedule[currentDay][i][f]=v;
-  renderSchedule();
-}
-
-function setAllWorking(){
-  weeklySchedule[currentDay].forEach(function(s){s.status='working';if(s.start==='00:00'){s.start='06:00';s.end='14:00';}});
-  renderSchedule();
-}
-
-function setAllOff(){
-  weeklySchedule[currentDay].forEach(function(s){s.status='off';});
-  renderSchedule();
-}
-
-/* ════════════════════════════════════════════════
-   TASK ENGINE (VBA port)
-   ════════════════════════════════════════════════ */
-function agInfo(n){
-  return roster.find(function(a){return a.name===n;})||{name:n,group:'unkn',queue:'unkn'};
-}
-function isP(n){return agInfo(n).queue==='Phones';}
-
-function generateTasks(){
-  var activeSched = weeklySchedule[currentDay] || [];
-  var w = activeSched.filter(function(s){return s.status==='working';});
-  w.sort(function(a,b){return a.start<b.start?-1:a.start>b.start?1:0;});
-  
-  var A=w.map(function(s){
-    var ag=agInfo(s.name),hr=parseInt(s.start.split(':')[0],10);
-    return{name:s.name,group:ag.group,queue:ag.queue,startHr:hr,start:s.start,end:s.end,shift:hr<12?'Morning':'Afternoon',mainTask:'',secTask:''};
-  });
-  
-  assignCasino(A);assignVIP(A,'Morning');assignVIP(A,'Afternoon');assignTier1(A);
-  assignDeposits(A,'Morning');
-  assignDeposits(A,'Afternoon');
-  assignPayouts(A,'Morning');assignPayouts(A,'Afternoon');
-  assignFixed(A);assignBlasts(A);
-  
-  lastResults[currentDay] = A;
-  lastResultsDay = currentDay; 
-
-  document.querySelectorAll('#task-day-tabs .day-btn').forEach(function(b){
-    b.classList.toggle('active', b.dataset.tday === lastResultsDay);
-  });
-
-  save();
-  switchView('results');
-}
-
-function assignCasino(A){var cM=0,cA=0;A.forEach(function(a){if(a.group!=='A')return;if(a.shift==='Morning'){cM++;if(cM===1)a.mainTask='Casino';else{a.mainTask=isP(a.name)?'Phones':'Chats';a.secTask='2nd Casino';}}else{cA++;if(cA===1)a.mainTask='Casino';else{a.mainTask=isP(a.name)?'Phones':'Chats';a.secTask='2nd Casino';}}});}
-
-function assignVIP(A,sh){
-  var sa=A.filter(function(a){return a.shift===sh;}),ba=sa.filter(function(a){return a.group==='B';});
-  if(!ba.length)return;
-  var pC=sa.filter(function(a){return isP(a.name);}).length,cC=sa.filter(function(a){return !isP(a.name);}).length;
-  var ti=0;
-  if((pC-1)<2&&cC>=3){for(var i=0;i<ba.length;i++){if(!isP(ba[i].name)){ti=i;break;}}}
-  else{for(var i=0;i<ba.length;i++){if(isP(ba[i].name)){ti=i;break;}}}
-  ba[ti].mainTask='Emails';ba[ti].secTask='Tickets';
-  var rs=2,ta=false;
-  for(var i=0;i<ba.length;i++){if(i===ti)continue;if(rs===2){ba[i].secTask='2nd Emails and VIP';rs=3;}else if(rs===3){ba[i].secTask='2nd Tickets';ta=true;rs=4;}}
-  if(!ta){var cd=sa.filter(function(a){return(a.group==='C'||a.group==='D')&&a.secTask==='';});if(cd.length)cd[0].secTask='2nd Tickets';}
-}
-
-function assignTier1(A){A.forEach(function(a){if(a.group==='E')a.mainTask=isP(a.name)?'Phones':'Chats';});}
-
-function assignDeposits(A,sh){
-  var f=A.filter(function(a){return a.group==='F'&&a.shift===sh;}),c=f.length;if(!c)return;
-  var TA='Processors | Velocity | Scrubbers | Slack | 2nd Inbox',TB='CC - Certi Inbox | 2nd Slack | 2nd Processors';
-  if(c===1){var h=f[0].startHr;if(h<=8||h>=13){f[0].mainTask='Processors | Velocity | Scrubbers';f[0].secTask='Inbox | CC - Certi Inbox';}else f[0].mainTask=TB;}
-  else if(c===2){f[0].mainTask=TA;f[1].mainTask=TB;}
-  else if(c===3){f[0].mainTask='Processors | Velocity | Scrubbers | 2nd Slack';f[1].mainTask='CC - Certi Inbox | 2nd Processors';f[2].mainTask='Slack | 2nd Inbox';}
-  else if(c===4){f[0].mainTask='CC - Certi Inbox | 2nd Slack';f[1].mainTask='Processors | Velocity | Scrubbers';f[2].mainTask='Slack | Inbox';f[3].mainTask='2nd Processors | Inbox';}
-  else{f[0].mainTask='CC - Certi Inbox';f[1].mainTask='Slack | Inbox';f[2].mainTask='Processors | Velocity';f[3].mainTask='2nd Processors';if(f[4])f[4].mainTask='Scrubbers | 2nd Slack';}
-}
-
-function assignPayouts(A,sh){
-  var g=A.filter(function(a){return a.group==='G'&&a.shift===sh;}),c=g.length;if(!c)return;
-  if(sh==='Morning'){
-    if(c===1){g[0].mainTask='CS Support | Emails | Checks | PO Review';g[0].secTask='CS Support | Emails | Pending';}
-    else if(c===2){g[0].mainTask='CS Support | Emails | Checks| PO Review';g[0].secTask='CS Support | Emails | Pending';g[1].mainTask='Pending | 2nd CS Support | 2nd Emails | Wires';g[1].secTask='Pre-reviews | 2nd Emails | 2nd CS Support';}
-    else if(c===3){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Pending | 2nd CS Support';g[2].mainTask='Pending | 2nd CS Support | 2nd Emails';g[2].secTask='Pre-reviews | 2nd Emails';}
-    else if(c===4){g[0].mainTask='CS Support | Emails';g[0].secTask='CS Support | Emails';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='Wires | Checks pre-reviews';g[2].mainTask='Pending | 2nd CS Support';g[2].secTask='2nd Emails | Crypto';g[3].mainTask='2nd Emails';g[3].secTask='Pending | 2nd CS Support';}
-    else{g[0].mainTask='CS Support';g[0].secTask='CS Support';g[1].mainTask='Checks | Wires | PO Review';g[1].secTask='2nd Emails | Crypto';g[2].mainTask='2nd Emails';g[2].secTask='Wires | Checks pre-reviews';g[3].mainTask='Pending';g[3].secTask='Pending | 2nd CS Support';if(g[4]){g[4].mainTask='Emails | 2nd CS Support';g[4].secTask='Emails';}}
-  }else{
-    if(c===1)g[0].mainTask='CS Support | 2nd Emails | Pending | PO review';
-    else if(c===2){g[0].mainTask='CS Support | 2nd Emails | Pending';g[1].mainTask='Emails | 2nd CS Support | PO review';}
-    else if(c===3){g[0].mainTask='CS Support | 2nd Emails';g[1].mainTask='Emails | 2nd CS Support';g[2].mainTask='Pending | PO review';}
-    else if(c===4){g[0].mainTask='PO review';g[1].mainTask='CS Support | 2nd Emails';g[2].mainTask='Pending';g[3].mainTask='Emails | 2nd CS Support';}
-    else{g[0].mainTask='CS Support';g[1].mainTask='2nd Emails';g[2].mainTask='Pending';g[3].mainTask='Crypto | PO review';if(g[4])g[4].mainTask='Emails | 2nd CS Support';}
-  }
-}
-
-function assignFixed(A){
-  A.forEach(function(a){
-    if(!a.mainTask) {
-      if(a.group === 'unkn') {
-        a.mainTask = '';
-      } else {
-        a.mainTask = isP(a.name) ? 'Phones' : 'Chats';
-      }
-    }
+    tbody.appendChild(tr);
   });
 }
 
-function assignBlasts(A){
-  var t=['Tier 1 Blast | Zelle','Bonus Blast','2nd Bonus Blast','2nd Tier 1 Blast | 2nd Zelle','3rd Zelle'],tM=0,tA=0;
-  A.forEach(function(a){
-    if(a.mainTask === 'Casino') {
-      a.secTask = '';
-      return;
-    }
-    if('AEFG'.indexOf(a.group)>=0||a.secTask||a.group==='unkn') return;
-    if(a.shift==='Morning'&&tM<=4){a.secTask=t[tM];tM++;}
-    else if(a.shift==='Afternoon'&&tA<=4){a.secTask=t[tA];tA++;}
-  });
-}
-
-/* ── RESULTS & FILTER LOGIC ── */
-function renderResults(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
+// ── SCHEDULE VIEW ENGINE ──
+function renderSchedule() {
+  var container = document.getElementById('sched-list-container');
+  container.innerHTML = '';
   
-  if(!activeDayResults.length){
-    document.getElementById('empty-day-name').textContent = lastResultsDay;
-    document.getElementById('results-empty').style.display='';
-    document.getElementById('results-content').style.display='none';
+  var dayList = schedulesByDay[currentDay] || [];
+  document.getElementById('sched-count').textContent = dayList.length;
+
+  if (dayList.length === 0) {
+    container.innerHTML = '<div class="empty"><div class="empty-glyph">📅</div><p>No hay horarios cargados para el <strong>' + currentDay + '</strong>.<br>Sube un archivo o usa el cuadro de <strong>Smart Paste</strong> arriba para poblar este día.</p></div>';
     return;
   }
-  
-  document.getElementById('results-empty').style.display='none';
-  document.getElementById('results-content').style.display='';
-  
-  document.getElementById('results-title').textContent = 'Task Assignments — ' + lastResultsDay.toUpperCase();
-  document.getElementById('results-sub').textContent='Viewing active database records. Click directly on any task text to edit manually.';
-  
-  // Build UI metrics container block
-  document.getElementById('results-summary-container').innerHTML = 
-    '' +
-    '<div class="shift-block-title">☀ MORNING SHIFT METRICS <span>Before 9AM / (8AM-11AM)</span></div>' +
-    '<div class="grid-stats">' +
-    '  <div class="stat s-amber"><div class="stat-label">TOTAL MORNING</div><div class="stat-val" id="m-count-total">0</div><div class="stat-sub">agents on shift</div></div>' +
-    '  <div class="stat s-blue"><div class="stat-label">MORNING: CHATS</div><div class="stat-val" id="m-count-chats">0</div><div class="stat-sub">Active in chats</div></div>' +
-    '  <div class="stat s-coral"><div class="stat-label">MORNING: PHONES</div><div class="stat-val" id="m-count-phones">0</div><div class="stat-sub">Active in phones</div></div>' +
-    '</div>' +
-    
-    '' +
-    '<div class="shift-block-title">☽ AFTERNOON SHIFT METRICS <span>09:00 AM+ Shifts onwards</span></div>' +
-    '<div class="grid-stats">' +
-    '  <div class="stat s-violet"><div class="stat-label">TOTAL AFTERNOON</div><div class="stat-val" id="a-count-total">0</div><div class="stat-sub">agents on shift</div></div>' +
-    '  <div class="stat s-blue"><div class="stat-label">AFTERNOON: CHATS</div><div class="stat-val" id="a-count-chats">0</div><div class="stat-sub">Active in chats</div></div>' +
-    '  <div class="stat s-coral"><div class="stat-label">AFTERNOON: PHONES</div><div class="stat-val" id="a-count-phones">0</div><div class="stat-sub">Active in phones</div></div>' +
-    '</div>';
-  
-  renderResultsTable();
-  recalculateMetrics(); 
-}
 
-function recalculateMetrics() {
-  var activeDayResults = lastResults[lastResultsDay] || [];
-  
-  var morningTotal = 0, morningChats = 0, morningPhones = 0;
-  var afternoonTotal = 0, afternoonChats = 0, afternoonPhones = 0;
-  
-  activeDayResults.forEach(function(r) {
-    var main = String(r.mainTask || '').trim().toLowerCase();
-    
-    if (r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11)) {
-      morningTotal++;
-      if (main === 'chats') morningChats++;
-      else if (main === 'phones') morningPhones++;
-    } else if (r.startHr >= 9) {
-      afternoonTotal++;
-      if (main === 'chats') afternoonChats++;
-      else if (main === 'phones') afternoonPhones++;
-    }
-  });
-  
-  document.getElementById('m-count-total').textContent = morningTotal;
-  document.getElementById('m-count-chats').textContent = morningChats;
-  document.getElementById('m-count-phones').textContent = morningPhones;
-  
-  document.getElementById('a-count-total').textContent = afternoonTotal;
-  document.getElementById('a-count-chats').textContent = afternoonChats;
-  document.getElementById('a-count-phones').textContent = afternoonPhones;
-}
+  dayList.sort(function(a,b){ return a.name.localeCompare(b.name); });
 
-function renderResultsTable(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
-  var d = activeDayResults;
-  
-  if(resultFilter==='morning') {
-    d=activeDayResults.filter(function(r){
-      return r.startHr < 9 || (r.startHr >= 8 && r.startHr <= 11);
+  dayList.forEach(function(item, index) {
+    var row = document.createElement('div');
+    row.className = 'sched-row anim-row' + (item.isOff ? ' is-off' : '');
+    row.style.animationDelay = (index * 0.01) + 's';
+
+    var dbAgent = roster.find(function(r) { return r.name.toLowerCase() === item.name.toLowerCase(); });
+    var g = dbAgent ? dbAgent.group : '?';
+
+    var cG = document.createElement('span');
+    cG.className = 'g-chip g-' + (g === '?' ? 'unkn' : g);
+    cG.textContent = g;
+    row.appendChild(cG);
+
+    var cName = document.createElement('div');
+    cName.className = 'sched-name';
+    cName.textContent = item.name;
+    row.appendChild(cName);
+
+    var cIn = document.createElement('input');
+    cIn.type = 'time';
+    cIn.value = item.start || '';
+    cIn.disabled = item.isOff;
+    cIn.addEventListener('change', function() {
+      item.start = cIn.value;
+      saveSchedules();
+      generateTasks();
     });
-  }
-  if(resultFilter==='afternoon') {
-    d=activeDayResults.filter(function(r){
-      return r.startHr >= 9;
+    row.appendChild(cIn);
+
+    var cOut = document.createElement('input');
+    cOut.type = 'time';
+    cOut.value = item.end || '';
+    cOut.disabled = item.isOff;
+    cOut.addEventListener('change', function() {
+      item.end = cOut.value;
+      saveSchedules();
+      generateTasks();
     });
-  }
-  
-  var html='';
-  d.forEach(function(r,i){
-    var globalIdx = activeDayResults.indexOf(r);
-    var displayGroup = r.group === 'unkn' ? '?' : r.group;
-    
-    html+='<tr class="anim-row" style="animation-delay:'+(i*.012)+'s">';
-    html+='<td class="mono dim">'+(i+1)+'</td>';
-    html+='<td class="name-cell">'+esc(r.name)+'</td>';
-    html+='<td><span class="shift-tag shift-'+(r.startHr < 9 ? 'am' : 'pm')+'">'+r.start+' – '+r.end+'</span></td>';
-    html+='<td><span class="g-chip g-'+r.group+'">'+displayGroup+'</span></td>';
-    html+='<td><input type="text" class="editable-task-input" value="'+esc(r.mainTask)+'" oninput="updateManualTask('+globalIdx+', \'mainTask\', this.value)"></td>';
-    html+='<td><input type="text" class="editable-task-input sec-input" value="'+esc(r.secTask)+'" oninput="updateManualTask('+globalIdx+', \'secTask\', this.value)"></td>';
-    html+='</tr>';
-  });
-  document.getElementById('results-body').innerHTML=html;
-  
-  ['all','morning','afternoon'].forEach(function(f){
-    document.getElementById('f-'+f).classList.toggle('on',f===resultFilter);
+    row.appendChild(cOut);
+
+    var cStatus = document.createElement('select');
+    var o1 = document.createElement('option'); o1.value = 'ACTIVE'; o1.textContent = 'ACTIVO';
+    var o2 = document.createElement('option'); o2.value = 'OFF'; o2.textContent = 'OFF / LIBRE';
+    cStatus.appendChild(o1); cStatus.appendChild(o2);
+    cStatus.value = item.isOff ? 'OFF' : 'ACTIVE';
+    cStatus.addEventListener('change', function() {
+      item.isOff = (cStatus.value === 'OFF');
+      if(item.isOff) { cIn.disabled = true; cOut.disabled = true; }
+      else { cIn.disabled = false; cOut.disabled = false; }
+      if(item.isOff) { row.classList.add('is-off'); } else { row.classList.remove('is-off'); }
+      saveSchedules();
+      generateTasks();
+    });
+    row.appendChild(cStatus);
+
+    container.appendChild(row);
   });
 }
 
-function updateManualTask(globalIdx, field, val) {
-  if (lastResults[lastResultsDay] && lastResults[lastResultsDay][globalIdx]) {
-    lastResults[lastResultsDay][globalIdx][field] = val;
-    save(); 
-    if (field === 'mainTask') {
-      recalculateMetrics(); 
-    }
-  }
-}
-
-function filterResults(f){resultFilter=f;renderResultsTable();}
-
-/* ════════════════════════════════════════════════
-   EXPORT
-   ════════════════════════════════════════════════ */
-function downloadResultsCSV(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
-  if(!activeDayResults.length)return;
-  var rows=['Name,Start,End,Shift,Group,Main Task,Secondary Task'];
-  activeDayResults.forEach(function(r){rows.push(['"'+r.name+'"',r.start,r.end,r.startHr < 9 ? 'Morning' : 'Afternoon',r.group === 'unkn' ? '?' : r.group,'"'+r.mainTask+'"','"'+r.secTask+'"'].join(','));});
-  dl(rows.join('\n'),'tasks_'+lastResultsDay.toLowerCase()+'_'+td()+'.csv','text/csv');
-}
-
-function copyResults(){
-  var activeDayResults = lastResults[lastResultsDay] || [];
-  if(!activeDayResults.length)return;
-  var l=['Name\tStart\tEnd\tGroup\tMain Task\tSecondary Task'];
-  activeDayResults.forEach(function(r){l.push([r.name,r.start,r.end,r.group === 'unkn' ? '?' : r.group,r.mainTask,r.secTask].join('\t'));});
-  navigator.clipboard.writeText(l.join('\n')).then(function(){alert('Copied to clipboard!');});
-}
-
-function exportRosterCSV(){
-  var r=['Name,Group,Queue'];roster.forEach(function(a){r.push('"'+a.name+'",'+a.group+','+a.queue);});
-  dl(r.join('\n'),'roster_'+td()+'.csv','text/csv');
-}
-
-function importRosterCSV(e){
-  var f=e.target.files[0];if(!f)return;
-  var rd=new FileReader();rd.onload=function(ev){
-    var lines=ev.target.result.split('\n').filter(function(l){return l.trim();});
-    if(lines.length<2)return;var nr=[];
-    for(var i=1;i<lines.length;i++){var p=lines[i].split(',').map(function(x){return x.replace(/"/g,'').trim();});if(p.length>=3&&p[0])nr.push({name:p[0],group:p[1],queue:p[2]});}
-    if(nr.length){
-      roster=nr;
-      clearRosterGroupFilter();
-      for(var d in weeklySchedule){
-        weeklySchedule[d] = roster.map(function(a){ return {name:a.name, start:"06:00", end:"14:00", status:"off"}; });
-        lastResults[d] = []; 
-      }
-      renderSchedule();
-    }
-  };rd.readAsText(f);e.target.value='';
-}
-
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function td(){return new Date().toISOString().slice(0,10);}
-function dl(t,n,m){var b=new Blob([t],{type:m}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(u);}
-
-/* ════════════════════════════════════════════════
-   SCHEDULE CSV UPLOAD
-   ════════════════════════════════════════════════ */
-function parse12to24(str) {
-  str = str.trim().toUpperCase();
-  if (str === 'OFF' || str === 'VAC' || str === '') return null;
-  var ampm = str.match(/(AM|PM)$/);
-  var timePart = str.replace(/(AM|PM)/i, '').trim();
-  var parts = timePart.split(':');
-  var h = parseInt(parts[0], 10);
-  var m = parts[1] ? parseInt(parts[1], 10) : 0;
-  if (ampm) {
-    if (ampm[1] === 'PM' && h !== 12) h += 12;
-    if (ampm[1] === 'AM' && h === 12) h = 0;
-  }
-  return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
-}
-
+// ── SCHEDULING PARSER AUTOMATION (CSV / TEXT) ──
 function loadScheduleCSV(text) {
-  var lines = text.replace(/\r/g, '').split('\n').filter(function(l) { return l.trim(); });
-  var newSchedule = [];
-  var loaded = 0, offCount = 0, vacCount = 0, unknownNames = [];
+  if(!text || text.trim() === '') return false;
+  var lines = text.split('\n');
+  var updatedCount = 0;
+  var dayList = [];
 
-  lines.forEach(function(line) {
-    var parts = line.split(',');
-    if (parts.length < 2) return;
-    var name = parts[0].replace(/^\uFEFF/, '').trim();
-    if (!name || name.toLowerCase() === 'cc' || name === '') return;
+  for(var i=0; i<lines.length; i++) {
+    var line = lines[i].trim();
+    if(!line) continue;
 
-    var raw1 = (parts[1] || '').trim().toUpperCase();
-    var raw2 = (parts[2] || '').trim().toUpperCase();
-
-    var status, start, end;
-    if (raw1 === 'OFF' || raw1 === 'OFF DUTY') {
-      status = 'off'; start = '00:00'; end = '00:00'; offCount++;
-    } else if (raw1 === 'VAC' || raw1 === 'VACATION') {
-      status = 'vac'; start = '00:00'; end = '00:00'; vacCount++;
+    var tokens = [];
+    if(line.indexOf('\t') !== -1) {
+      tokens = line.split('\t');
     } else {
-      start = parse12to24(parts[1]);
-      end = parse12to24(parts[2]);
-      if (!start || !end) { status = 'off'; start = '00:00'; end = '00:00'; offCount++; }
-      else { status = 'working'; loaded++; }
+      tokens = line.split(',');
     }
 
-    var found = roster.find(function(a) {
-      return a.name.toLowerCase().trim() === name.toLowerCase().trim();
-    });
-    if (!found) unknownNames.push(name);
+    if(tokens.length < 3) continue;
 
-    newSchedule.push({ name: name, start: start, end: end, status: status });
-  });
+    var name = tokens[0].replace(/["]/g, '').trim();
+    var startRaw = tokens[1].replace(/["]/g, '').trim();
+    var endRaw = tokens[2].replace(/["]/g, '').trim();
 
-  if (newSchedule.length === 0) return false;
+    if(!name || name.toLowerCase() === 'nombre' || name.toLowerCase() === 'name') continue;
 
-  weeklySchedule[currentDay] = newSchedule;
+    var isOff = false;
+    var start = '';
+    var end = '';
+
+    if(startRaw.toLowerCase() === 'off' || endRaw.toLowerCase() === 'off' || startRaw === '' || endRaw === '') {
+      isOff = true;
+    } else {
+      start = formatTimeToken(startRaw);
+      end = formatTimeToken(endRaw);
+    }
+
+    dayList.push({ name: name, start: start, end: end, isOff: isOff });
+    updatedCount++;
+  }
+
+  schedulesByDay[currentDay] = dayList;
+  saveSchedules();
   renderSchedule();
 
-  var banner = document.getElementById('upload-success');
-  banner.style.display = 'flex';
-  document.getElementById('us-text').textContent = currentDay + ': ' + loaded + ' agents working · ' + offCount + ' OFF' + (vacCount ? ' · ' + vacCount + ' VAC' : '');
-  var detail = newSchedule.length + ' rows loaded';
-  if (unknownNames.length) detail += ' — ' + unknownNames.length + ' not in database (marked as unassigned)';
+  var alertBox = document.getElementById('upload-alert');
+  alertBox.style.display = 'flex';
+  var detail = 'Día: ' + currentDay + ' | ' + updatedCount + ' empleados mapeados en base de datos (marcado como unassigned si no existen)';
   document.getElementById('us-detail').textContent = detail;
 
   return true;
+}
+
+function formatTimeToken(raw) {
+  var clean = raw.toUpperCase().replace(/\s/g, '');
+  var match = clean.match(/^(\d{1,2}):(\d{2})(AM|PM)?$/);
+  if(!match) {
+    var pureNum = clean.match(/^(\d{1,2})(AM|PM)$/);
+    if(pureNum) {
+      var h = parseInt(pureNum[1],10);
+      var ampm = pureNum[2];
+      if(ampm === 'PM' && h < 12) h += 12;
+      if(ampm === 'AM' && h === 12) h = 0;
+      return (h<10?'0':'') + h + ':00';
+    }
+    return raw;
+  }
+  var hours = parseInt(match[1], 10);
+  var minutes = match[2];
+  var ampm = match[3];
+
+  if(ampm === 'PM' && hours < 12) hours += 12;
+  if(ampm === 'AM' && hours === 12) hours = 0;
+
+  return (hours < 10 ? '0' : '') + hours + ':' + minutes;
 }
 
 function handleScheduleFile(file) {
@@ -1490,7 +1328,343 @@ function handleScheduleFile(file) {
   reader.readAsText(file);
 }
 
+// ── TASKS DESIGN ALGORITHM ENGINE ──
+function generateTasks() {
+  var dayScheds = schedulesByDay[currentDay] || [];
+  var resultList = [];
+
+  var globalMinStart = 1440;
+  var globalMinEnd = 0;
+  var activeScheds = dayScheds.filter(function(s) { return !s.isOff && s.start && s.end; });
+
+  activeScheds.forEach(function(s) {
+    var sm = timeToMinutes(s.start);
+    var em = timeToMinutes(s.end);
+    if(em < sm) em += 1440; // overnight extension logic support
+    if(sm < globalMinStart) globalMinStart = sm;
+    if(em > globalMinEnd) globalMinEnd = em;
+  });
+
+  // snap limits to grid 30m
+  globalMinStart = Math.floor(globalMinStart / 30) * 30;
+  globalMinEnd = Math.ceil(globalMinEnd / 30) * 30;
+
+  if(activeScheds.length === 0 || globalMinStart >= globalMinEnd) {
+    tasksByDay[currentDay] = [];
+    saveTasks();
+    renderTasksTimeline();
+    return;
+  }
+
+  var intervals = [];
+  for(var m = globalMinStart; m < globalMinEnd; m += 30) {
+    intervals.push(m);
+  }
+
+  dayScheds.forEach(function(sched) {
+    var dbAgent = roster.find(function(r) { return r.name.toLowerCase() === sched.name.toLowerCase(); });
+    var group = dbAgent ? dbAgent.group : 'G';
+    var defaultQueue = dbAgent ? dbAgent.queue : 'Phones';
+
+    var rowTasks = {};
+    if(sched.isOff) {
+      intervals.forEach(function(m) { rowTasks[m] = 'OFF'; });
+    } else {
+      var startM = timeToMinutes(sched.start);
+      var endM = timeToMinutes(sched.end);
+      if(endM < startM) endM += 1440;
+
+      var totalDuration = endM - startM;
+      var middleM = startM + (totalDuration / 2);
+      // snap break/lunch slots
+      var lunchStart = Math.floor((middleM - 30) / 30) * 30;
+      var b1Start = Math.floor((startM + 120) / 30) * 30;
+      var b2Start = Math.floor((endM - 150) / 30) * 30;
+
+      intervals.forEach(function(m) {
+        if(m < startM || m >= endM) {
+          rowTasks[m] = '-';
+        } else if(m >= lunchStart && m < lunchStart + 60) {
+          rowTasks[m] = 'LUNCH';
+        } else if(m >= b1Start && m < b1Start + 30) {
+          rowTasks[m] = 'BREAK';
+        } else if(m >= b2Start && m < b2Start + 30) {
+          rowTasks[m] = 'BREAK';
+        } else {
+          rowTasks[m] = defaultQueue.toUpperCase();
+        }
+      });
+    }
+
+    resultList.push({
+      name: sched.name,
+      group: group,
+      start: sched.start,
+      end: sched.end,
+      isOff: sched.isOff,
+      tasks: rowTasks
+    });
+  });
+
+  tasksByDay[currentDay] = resultList;
+  saveTasks();
+  renderTasksTimeline();
+}
+
+// ── RENDER ENGINE TIMELINE OUTPUT ──
+function renderTasksTimeline() {
+  var tbody = document.getElementById('tasks-tbody');
+  var theadRow = document.getElementById('tasks-thead-row');
+  
+  tbody.innerHTML = '';
+  // reset header columns except first 4 standard fields
+  while(theadRow.children.length > 4) { theadRow.removeChild(theadRow.lastChild); }
+
+  var dayTasks = tasksByDay[currentDay] || [];
+
+  if(dayTasks.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="20" style="text-align:center; padding: 40px; color: var(--text3);">No hay matriz de tareas generada para hoy. Sincroniza horarios en la pestaña superior.</td></tr>';
+    updateMetricsAndCounters([]);
+    return;
+  }
+
+  // Get all active intervals across data entries
+  var activeIntervalsSet = {};
+  dayTasks.forEach(function(row) {
+    Object.keys(row.tasks).forEach(function(m) {
+      if(row.tasks[m] !== '-') activeIntervalsSet[m] = true;
+    });
+  });
+  var sortedIntervals = Object.keys(activeIntervalsSet).map(Number).sort(function(a,b){return a-b;});
+
+  // Inject columns header elements
+  sortedIntervals.forEach(function(m) {
+    var th = document.createElement('th');
+    th.style.fontFamily = 'IBM Plex Mono, monospace';
+    th.style.fontSize = '9px';
+    th.style.textAlign = 'center';
+    th.style.minWidth = '65px';
+    
+    var displayMin = m % 1440;
+    th.textContent = minutesToTime(displayMin);
+    theadRow.appendChild(th);
+  });
+
+  // Apply visual pipeline filters criteria
+  var filteredRows = dayTasks.filter(function(row) {
+    if(currentUiFilters.group !== 'all' && row.group !== currentUiFilters.group) return false;
+    if(currentUiFilters.shift !== 'all') {
+      if(!row.start) return false;
+      var hr = parseInt(row.start.split(':')[0], 10);
+      if(currentUiFilters.shift === 'AM' && hr >= 12) return false;
+      if(currentUiFilters.shift === 'PM' && hr < 12) return false;
+    }
+    return true;
+  });
+
+  filteredRows.sort(function(a,b){ return a.name.localeCompare(b.name); });
+
+  filteredRows.forEach(function(row, rIdx) {
+    var tr = document.createElement('tr');
+    
+    var tdG = document.createElement('td');
+    tdG.style.textAlignment = 'center';
+    var chip = document.createElement('span');
+    chip.className = 'g-chip g-' + row.group;
+    chip.textContent = row.group;
+    tdG.appendChild(chip);
+    tr.appendChild(tdG);
+
+    var tdName = document.createElement('td');
+    tdName.className = 'name-cell';
+    tdName.textContent = row.name;
+    if(row.isOff) tdName.style.opacity = '0.4';
+    tr.appendChild(tdName);
+
+    var tdIn = document.createElement('td');
+    tdIn.className = 'mono dim';
+    tdIn.textContent = row.isOff ? 'OFF' : row.start;
+    tr.appendChild(tdIn);
+
+    var tdOut = document.createElement('td');
+    tdOut.className = 'mono dim';
+    tdOut.textContent = row.isOff ? 'OFF' : row.end;
+    tr.appendChild(tdOut);
+
+    // Render cells block intervals
+    sortedIntervals.forEach(function(m) {
+      var td = document.createElement('td');
+      td.style.padding = '4px';
+      
+      var val = row.tasks[m] || '-';
+      var inp = document.createElement('input');
+      inp.className = 'editable-task-input sec-input';
+      inp.style.textAlign = 'center';
+      inp.style.fontSize = '10px';
+      inp.style.fontFamily = "'IBM Plex Mono', monospace";
+      inp.value = val;
+
+      // Color scheme styles map Matrix Cell
+      if (val === 'PHONES') { inp.style.background = 'var(--neon-dim)'; inp.style.color = 'var(--neon)'; inp.style.fontWeight='600'; }
+      else if (val === 'CHATS') { inp.style.background = 'var(--violet-dim)'; inp.style.color = 'var(--violet)'; inp.style.fontWeight='600'; }
+      else if (val === 'BREAK' || val === 'LUNCH') { inp.style.background = 'var(--amber-dim)'; inp.style.color = 'var(--amber)'; }
+      else if (val === '-') { inp.style.opacity = '0.15'; inp.value = ''; inp.disabled = true; }
+      else if (val === 'OFF') { inp.style.color = 'var(--text4)'; inp.style.background = 'var(--surface2)'; inp.style.opacity = '0.4'; }
+
+      inp.addEventListener('change', function() {
+        row.tasks[m] = inp.value.toUpperCase().trim();
+        saveTasks();
+        updateMetricsAndCounters(dayTasks);
+      });
+
+      td.appendChild(inp);
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+
+  updateMetricsAndCounters(dayTasks);
+}
+
+// ── LIVE METRICS ENGINE DASHBOARD ──
+function updateMetricsAndCounters(allRows) {
+  document.getElementById('stat-day-label').textContent = currentDay.toUpperCase();
+  document.getElementById('tasks-table-title').textContent = 'Intervalos Operativos — ' + currentDay;
+
+  var totalActivos = allRows.filter(function(r) { return !r.isOff; }).length;
+  
+  var phonesCount = 0;
+  var chatsCount = 0;
+  
+  var countsByGroup = { A:0, B:0, C:0, D:0 };
+
+  allRows.forEach(function(r) {
+    if(countsByGroup.hasOwnProperty(r.group)) {
+      countsByGroup[r.group]++;
+    }
+    if(!r.isOff) {
+      Object.keys(r.tasks).forEach(function(m) {
+        if(r.tasks[m] === 'PHONES') phonesCount++;
+        if(r.tasks[m] === 'CHATS') chatsCount++;
+      });
+    }
+  });
+
+  // Normalize stats counts to total hours equivalent active slots divided by 2
+  var pHours = Math.round(phonesCount / 2);
+  var cHours = Math.round(chatsCount / 2);
+
+  document.getElementById('st-total').textContent = totalActivos;
+  document.getElementById('st-phones').textContent = pHours + 'h';
+  document.getElementById('st-chats').textContent = cHours + 'h';
+
+  document.getElementById('lg-cnt-A').textContent = countsByGroup.A + ' Ags';
+  document.getElementById('lg-cnt-B').textContent = countsByGroup.B + ' Ags';
+  document.getElementById('lg-cnt-C').textContent = countsByGroup.C + ' Ags';
+  document.getElementById('lg-cnt-D').textContent = countsByGroup.D + ' Ags';
+}
+
+// ── TAB ROUTING SYSTEMS ──
+function switchView(viewName) {
+  document.querySelectorAll('.nav-tab, .mobile-tabs .nav-tab').forEach(function(t) {
+    if(t.getAttribute('data-view') === viewName) t.classList.add('active');
+    else t.classList.remove('active');
+  });
+  document.querySelectorAll('.view').forEach(function(v) {
+    if(v.id === 'view-' + viewName) v.classList.add('active');
+    else v.classList.remove('active');
+  });
+
+  if(viewName === 'roster') renderRoster();
+  if(viewName === 'schedule') renderSchedule();
+  if(viewName === 'results') renderTasksTimeline();
+}
+
+// ── CSV DATA EXPORT LOGIC ──
+function exportTasksToCSV() {
+  var dayTasks = tasksByDay[currentDay] || [];
+  if(dayTasks.length === 0) return;
+
+  var activeIntervalsSet = {};
+  dayTasks.forEach(function(row) {
+    Object.keys(row.tasks).forEach(function(m) {
+      if(row.tasks[m] !== '-') activeIntervalsSet[m] = true;
+    });
+  });
+  var sortedIntervals = Object.keys(activeIntervalsSet).map(Number).sort(function(a,b){return a-b;});
+
+  var csvRows = [];
+  
+  // Header row array structure
+  var header = ['Grupo', 'Nombre', 'Entrada', 'Salida'];
+  sortedIntervals.forEach(function(m) {
+    header.push(minutesToTime(m % 1440));
+  });
+  csvRows.push(header.join(','));
+
+  dayTasks.forEach(function(row) {
+    var rData = [row.group, '"' + row.name + '"', row.start || 'OFF', row.end || 'OFF'];
+    sortedIntervals.forEach(function(m) {
+      rData.push(row.tasks[m] || '');
+    });
+    csvRows.push(rData.join(','));
+  });
+
+  var csvString = csvRows.join('\n');
+  var blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement("a");
+  link.setAttribute("href", url);
+  link.setAttribute("download", "Timeline_Tareas_" + currentDay + ".csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// ── DOM SYSTEM EVENT HANDLERS INITIALIZATION ──
 (function() {
+  // Theme management switcher state
+  var html = document.documentElement;
+  var themeBtn = document.getElementById('theme-switcher');
+  var sun = document.getElementById('sun-icon');
+  var moon = document.getElementById('moon-icon');
+
+  if(localStorage.getItem('ba_theme') === 'dark') {
+    html.classList.add('dark'); sun.style.display='block'; moon.style.display='none';
+  }
+
+  themeBtn.addEventListener('click', function() {
+    if(html.classList.contains('dark')) {
+      html.classList.remove('dark'); localStorage.setItem('ba_theme', 'light');
+      sun.style.display='none'; moon.style.display='block';
+    } else {
+      html.classList.add('dark'); localStorage.setItem('ba_theme', 'dark');
+      sun.style.display='block'; moon.style.display='none';
+    }
+  });
+
+  // Routing View Navigation Click triggers
+  document.querySelectorAll('.nav-tab, .mobile-tabs .nav-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      switchView(tab.getAttribute('data-view'));
+    });
+  });
+
+  // Day switching selector logic pipeline
+  document.getElementById('day-bar').addEventListener('click', function(e) {
+    var btn = e.target.closest('.day-btn');
+    if(!btn) return;
+    document.querySelectorAll('.day-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    currentDay = btn.getAttribute('data-day');
+    
+    // Auto sync view content refresh pipeline
+    renderSchedule();
+    renderTasksTimeline();
+  });
+
+  // DRAG & DROP FILE LOADING TRIGGER
   var dz = document.getElementById('drop-zone');
   var fi = document.getElementById('sched-file');
   var browseLink = document.getElementById('browse-link');
@@ -1505,18 +1679,99 @@ function handleScheduleFile(file) {
       e.preventDefault(); dz.classList.remove('dragover');
       var files = Array.from(e.dataTransfer.files);
       var csv = files.find(function(f) { return f.name.endsWith('.csv') || f.name.endsWith('.txt'); });
-      if (csv) handleScheduleFile(csv);
+      if(csv) handleScheduleFile(csv);
+    });
+  }
+  if(fi) {
+    fi.addEventListener('change', function(e) {
+      if(e.target.files.length > 0) handleScheduleFile(e.target.files[0]);
     });
   }
 
-  fi.addEventListener('change', function() {
-    if (fi.files[0]) handleScheduleFile(fi.files[0]);
-    fi.value = '';
-  });
-})();
+  // SMART PASTE TEXTAREA LOGIC
+  var smartPasteInput = document.getElementById('smart-paste-input');
+  if(smartPasteInput) {
+    smartPasteInput.addEventListener('paste', function(e) {
+      // Dejar un brevísimo retraso para capturar el texto ya pegado en el textarea
+      setTimeout(function() {
+        var pasteData = smartPasteInput.value;
+        if(pasteData.trim() !== "") {
+          var ok = loadScheduleCSV(pasteData);
+          if (ok) {
+            setTimeout(function() { generateTasks(); }, 400);
+          }
+          // Limpiar el cuadro para el siguiente copiado/pegado
+          smartPasteInput.value = "";
+        }
+      }, 50);
+    });
+  }
 
-/* ── INIT ── */
-load();renderRoster();renderSchedule();
+  // ROSTER MANUAL ADD AGENT MODAL SIMULATION ROW
+  document.getElementById('btn-add-agent').addEventListener('click', function() {
+    roster.push({ name: 'Nuevo Agente ' + (roster.length + 1), group: 'A', queue: 'Phones' });
+    saveRoster();
+    renderRoster();
+  });
+
+  // SCHEDULE MANUAL ROW INJECTION IN DAILY MANIFEST
+  document.getElementById('btn-add-sched').addEventListener('click', function() {
+    var dayList = schedulesByDay[currentDay] || [];
+    dayList.push({ name: 'Nuevo Agente Ocasional', start: '08:00', end: '17:00', isOff: false });
+    schedulesByDay[currentDay] = dayList;
+    saveSchedules();
+    renderSchedule();
+    generateTasks();
+  });
+
+  // RECALCULATE ENGINE EXPLICIT TRIGGER
+  document.getElementById('btn-recalculate').addEventListener('click', function() {
+    generateTasks();
+  });
+
+  // EXPORT ENGINE CSV DISPATCH ACTION TRIGGER
+  document.getElementById('btn-export-csv').addEventListener('click', exportTasksToCSV);
+
+  // TIMELINE OUTPUT FILTER ACTION CHIPS HANDLERS
+  document.querySelectorAll('.filters .filt-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filters .filt-btn').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      
+      var filtValue = btn.getAttribute('data-filt');
+      if(filtValue === 'all') { currentUiFilters.shift = 'all'; currentUiFilters.group = 'all'; }
+      else if(filtValue === 'AM' || filtValue === 'PM') { currentUiFilters.shift = filtValue; currentUiFilters.group = 'all'; }
+      else { currentUiFilters.group = filtValue; currentUiFilters.shift = 'all'; }
+      
+      renderTasksTimeline();
+    });
+  });
+
+  // LEGEND QUICK INTERACTIVE GROUP ROW FILTER CRITERIA CLICK
+  document.querySelectorAll('.legend-stack .legend-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var g = item.getAttribute('data-group-filter');
+      var wasActive = item.classList.contains('active-filter');
+      
+      document.querySelectorAll('.legend-stack .legend-item').forEach(function(i){ i.classList.remove('active-filter'); });
+      document.querySelectorAll('.filters .filt-btn').forEach(function(b){ b.classList.remove('on'); });
+
+      if(wasActive) {
+        currentUiFilters.group = 'all';
+        document.querySelector('.filters [data-filt="all"]').classList.add('on');
+      } else {
+        item.classList.add('active-filter');
+        currentUiFilters.group = g;
+        var matchingFilterBtn = document.querySelector('.filters [data-filt="' + g + '"]');
+        if(matchingFilterBtn) matchingFilterBtn.classList.add('on');
+      }
+      renderTasksTimeline();
+    });
+  });
+
+  // INITIAL CORE FIRST RENDER RUN PIPELINE START
+  renderRoster();
+})();
 </script>
 </body>
 </html>
