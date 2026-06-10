@@ -728,7 +728,7 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
     <div class="sec-header">
       <div class="sec-tag">DAILY CONFIG</div>
       <div class="sec-title">Weekly Schedule Planner</div>
-      <p class="sec-sub">Select a day of the week, upload its respective CSV schedule, and generate daily tasks.</p>
+      <p class="sec-sub">Select a day of the week, upload its respective CSV schedule, or paste text directly to generate daily tasks.</p>
     </div>
 
     <div class="day-selector" id="day-tabs">
@@ -747,6 +747,23 @@ html.dark .drop-zone:hover .dz-icon { background: var(--neon-dim); border-color:
       <div class="dz-sub">or <span id="browse-link">browse files</span> — format: Name, Start, End</div>
     </div>
     <input type="file" id="sched-file" accept=".csv,.txt" style="display:none">
+
+    <!-- ── SMART PASTE ZONE ── -->
+    <div class="panel" style="margin-top: 16px; margin-bottom: 20px;">
+      <div class="panel-head">
+        <span class="panel-label">📋 Smart Paste (Pegar desde Excel o Texto)</span>
+      </div>
+      <div class="panel-body" style="display: flex; flex-direction: column; gap: 10px;">
+        <p style="font-size: 12px; color: var(--text3);">
+          Copia las columnas de Excel (Nombre, Hora Entrada, Hora Salida) y pégalas aquí directamente. Soporta nombres con espacios, tabulaciones y estados como <code>OFF</code>.
+        </p>
+        <textarea id="smart-paste-area" placeholder="Ejemplo:&#10;Mariana Varela	06:00 AM	02:00 PM&#10;Raquel Solano	OFF" 
+                  style="width: 100%; height: 100px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 10px; border-radius: var(--r-sm); border: 1px solid var(--border2); background: var(--surface2); color: var(--text); resize: vertical; outline: none; transition: border-color .2s;"></textarea>
+        <button class="btn btn-ghost btn-sm" onclick="processSmartPaste()" style="align-self: flex-end;">
+          ⚡ Procesar Texto Pegado
+        </button>
+      </div>
+    </div>
 
     <div class="upload-success" id="upload-success">
       <span class="us-icon">✓</span>
@@ -1413,7 +1430,7 @@ function td(){return new Date().toISOString().slice(0,10);}
 function dl(t,n,m){var b=new Blob([t],{type:m}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(u);}
 
 /* ════════════════════════════════════════════════
-   SCHEDULE CSV UPLOAD
+   SCHEDULE CSV UPLOAD & SMART PASTE LOGIC
    ════════════════════════════════════════════════ */
 function parse12to24(str) {
   str = str.trim().toUpperCase();
@@ -1428,6 +1445,84 @@ function parse12to24(str) {
     if (ampm[1] === 'AM' && h === 12) h = 0;
   }
   return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+}
+
+function processSmartPaste() {
+  var txt = document.getElementById('smart-paste-area').value;
+  if (!txt.trim()) {
+    alert("Por favor, pega algún texto antes de procesar.");
+    return;
+  }
+
+  var lines = txt.split(/\r?\n/);
+  var loadedList = [];
+  var workCount = 0;
+  var offCount = 0;
+
+  lines.forEach(function(line) {
+    if (!line.trim()) return;
+
+    // Detectar tabulaciones de Excel o múltiples espacios como separadores
+    var parts = line.split(/\t| {2,}/);
+    
+    // Si la estructura no está clara, usar una expresión regular secundaria
+    if (parts.length < 2) {
+      var match = line.match(/^([^0-9\t]+)\s+(.+)$/);
+      if (match) {
+        parts = [match[1].trim(), match[2].trim()];
+        var subParts = parts[1].split(/\s+/);
+        if (subParts.length >= 2) {
+          if ((subParts[1] === 'AM' || subParts[1] === 'PM') && subParts.length >= 4) {
+            parts = [parts[0], subParts[0] + ' ' + subParts[1], subParts[2] + ' ' + subParts[3]];
+          } else {
+            parts = [parts[0]].concat(subParts);
+          }
+        }
+      }
+    }
+
+    var name = (parts[0] || '').trim();
+    if (!name) return;
+
+    var raw1 = (parts[1] || '').trim().toUpperCase();
+    var raw2 = (parts[2] || '').trim().toUpperCase();
+
+    var status, start, end;
+
+    if (raw1 === 'OFF' || raw1 === 'OFF DUTY' || raw1 === '' || raw1.indexOf('OFF') >= 0) {
+      status = 'off'; start = '00:00'; end = '00:00'; offCount++;
+    } else {
+      status = 'working';
+      start = parse12to24(raw1);
+      end = parse12to24(raw2 || raw1);
+      if (!start || !end) { status = 'off'; start = '00:00'; end = '00:00'; offCount++; status = 'off'; }
+      else { workCount++; }
+    }
+
+    loadedList.push({ name: name, start: start, end: end, status: status });
+  });
+
+  if (loadedList.length === 0) {
+    alert("No se pudieron extraer datos válidos. Revisa el formato.");
+    return;
+  }
+
+  weeklySchedule[currentDay] = loadedList;
+  renderSchedule();
+
+  var banner = document.getElementById('upload-success');
+  if (banner) {
+    banner.style.display = 'flex';
+    document.getElementById('us-text').textContent = currentDay + ' (Smart Paste): ' + workCount + ' working · ' + offCount + ' OFF';
+    document.getElementById('us-detail').textContent = loadedList.length + ' rows processed successfully from text.';
+  }
+
+  document.getElementById('smart-paste-area').value = '';
+
+  // Autogenerar los tasks de inmediato tras procesar el pegado inteligente
+  setTimeout(function() { 
+    generateTasks(); 
+  }, 400);
 }
 
 function loadScheduleCSV(text) {
