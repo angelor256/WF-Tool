@@ -161,6 +161,9 @@
   }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 </head>
 <body>
 <div id="app"></div>
@@ -310,15 +313,57 @@ let state = {
   resyncConfirm: false,
 };
 
+// ============================================================
+// FIREBASE CONFIG — paste your own project's config here.
+// Get it from: Firebase Console → Project settings → General →
+// "Your apps" → SDK setup and configuration → Config.
+// Leave apiKey as "YOUR_API_KEY" to skip Firebase and fall back
+// to Claude.ai storage / this browser's local storage instead.
+// ============================================================
+const FIREBASE_CONFIG = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID",
+};
+
+let firebaseReady = false;
+let fsDb = null;
+
+async function initFirebase(){
+  if(FIREBASE_CONFIG.apiKey === "YOUR_API_KEY") return false; // not configured yet
+  if(typeof firebase === 'undefined') return false; // SDK failed to load (offline?)
+  try{
+    firebase.initializeApp(FIREBASE_CONFIG);
+    fsDb = firebase.firestore();
+    await firebase.auth().signInAnonymously();
+    firebaseReady = true;
+    return true;
+  }catch(e){
+    console.error('Firebase init failed:', e);
+    firebaseReady = false;
+    return false;
+  }
+}
+
 // window.storage only exists inside Claude.ai (it's what lets you and Cris
-// share data live). When this file is downloaded and opened directly in a
-// browser, that API doesn't exist — so we fall back to this browser's
-// localStorage, and if even that's blocked, to a plain in-memory object so
-// the app never just dies with a blank screen.
+// share data live there). When this file is hosted elsewhere (e.g. Firebase
+// Hosting) or opened directly as a file, that API doesn't exist, so storage
+// falls back in this order: Firebase Firestore (if configured above) →
+// Claude.ai cloud storage (if running inside Claude.ai) → this browser's
+// localStorage → a plain in-memory object, so the app never just dies with
+// a blank screen.
 const hasCloudStorage = (typeof window.storage !== 'undefined') && window.storage && typeof window.storage.get === 'function';
 const memStore = {};
 
 async function storageGet(key, shared){
+  if(firebaseReady){
+    const snap = await fsDb.collection('wfcontrol').doc(key).get();
+    if(!snap.exists) throw new Error('missing');
+    return {value: snap.data().value};
+  }
   if(hasCloudStorage) return await window.storage.get(key, shared);
   try{
     const raw = localStorage.getItem('wfcontrol:'+key);
@@ -330,6 +375,10 @@ async function storageGet(key, shared){
   }
 }
 async function storageSet(key, value, shared){
+  if(firebaseReady){
+    await fsDb.collection('wfcontrol').doc(key).set({value, updatedAt: Date.now()});
+    return {value};
+  }
   if(hasCloudStorage) return await window.storage.set(key, value, shared);
   try{ localStorage.setItem('wfcontrol:'+key, value); }
   catch(e){ memStore[key] = value; }
@@ -337,6 +386,7 @@ async function storageSet(key, value, shared){
 }
 
 async function loadData(){
+  await initFirebase();
   try{
     const r = await storageGet('wf:employees', true);
     state.employees = JSON.parse(r.value);
@@ -448,7 +498,7 @@ function renderSidebar(){
       `).join('')}
     </div>
     <div class="sidebar-footer">
-      <div class="who"><b>Equipo Workforce</b><br>${hasCloudStorage ? 'Datos compartidos entre vos y Cris.' : 'Modo local: datos guardados solo en este navegador.'}</div>
+      <div class="who"><b>Equipo Workforce</b><br>${firebaseReady ? 'Datos guardados en Firebase (compartidos).' : hasCloudStorage ? 'Datos compartidos entre vos y Cris.' : 'Modo local: datos guardados solo en este navegador.'}</div>
       <button class="btn ghost small" id="resyncBtn" style="margin-top:10px;width:100%;">↻ Resincronizar desde Notion</button>
     </div>
   </div>`;
