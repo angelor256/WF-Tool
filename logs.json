@@ -1,0 +1,2202 @@
+[
+ {
+  "id": "ntnlog_1",
+  "employeeId": "cs_29",
+  "date": "2026-05-13",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_2",
+  "employeeId": "extra_82",
+  "date": "2026-05-13",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_3",
+  "employeeId": "cs_23",
+  "date": "2026-05-13",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_4",
+  "employeeId": "cs_19",
+  "date": "2026-05-13",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_5",
+  "employeeId": "extra_75",
+  "date": "2026-05-13",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_6",
+  "employeeId": "cs_46",
+  "date": "2026-05-13",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_7",
+  "employeeId": "cs_63",
+  "date": "2026-05-14",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_8",
+  "employeeId": "extra_76",
+  "date": "2026-05-14",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_9",
+  "employeeId": "extra_75",
+  "date": "2026-05-14",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_10",
+  "employeeId": "extra_89",
+  "date": "2026-05-14",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_11",
+  "employeeId": "extra_79",
+  "date": "2026-05-15",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_12",
+  "employeeId": "cs_49",
+  "date": "2026-05-15",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_13",
+  "employeeId": "extra_81",
+  "date": "2026-05-15",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_14",
+  "employeeId": "cs_12",
+  "date": "2026-05-15",
+  "type": "nota",
+  "detail": "Incapacidad medico privado (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_15",
+  "employeeId": "cs_58",
+  "date": "2026-05-15",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_16",
+  "employeeId": "cs_20",
+  "date": "2026-05-16",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_17",
+  "employeeId": "extra_81",
+  "date": "2026-05-16",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_18",
+  "employeeId": "cs_19",
+  "date": "2026-05-16",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_19",
+  "employeeId": "cs_23",
+  "date": "2026-05-16",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_20",
+  "employeeId": "cs_47",
+  "date": "2026-05-17",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_21",
+  "employeeId": "cs_20",
+  "date": "2026-05-18",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_22",
+  "employeeId": "extra_84",
+  "date": "2026-05-18",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_23",
+  "employeeId": "cs_42",
+  "date": "2026-05-18",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_24",
+  "employeeId": "extra_78",
+  "date": "2026-05-18",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_25",
+  "employeeId": "cs_34",
+  "date": "2026-05-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_26",
+  "employeeId": "cs_45",
+  "date": "2026-05-19",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_27",
+  "employeeId": "cs_3",
+  "date": "2026-05-19",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_28",
+  "employeeId": "cs_40",
+  "date": "2026-05-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_29",
+  "employeeId": "cs_38",
+  "date": "2026-05-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_30",
+  "employeeId": "extra_95",
+  "date": "2026-05-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_31",
+  "employeeId": "cs_43",
+  "date": "2026-05-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_32",
+  "employeeId": "extra_78",
+  "date": "2026-05-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_33",
+  "employeeId": "extra_83",
+  "date": "2026-05-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_34",
+  "employeeId": "cs_57",
+  "date": "2026-05-19",
+  "type": "nota",
+  "detail": "Permiso de paternidad (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_35",
+  "employeeId": "extra_96",
+  "date": "2026-05-19",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_36",
+  "employeeId": "cs_20",
+  "date": "2026-05-20",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_37",
+  "employeeId": "extra_87",
+  "date": "2026-05-20",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_38",
+  "employeeId": "cs_65",
+  "date": "2026-05-20",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_39",
+  "employeeId": "cs_47",
+  "date": "2026-05-20",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_40",
+  "employeeId": "cs_28",
+  "date": "2026-05-20",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_41",
+  "employeeId": "extra_80",
+  "date": "2026-05-20",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_42",
+  "employeeId": "cs_28",
+  "date": "2026-05-21",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_43",
+  "employeeId": "extra_82",
+  "date": "2026-05-21",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_44",
+  "employeeId": "cs_41",
+  "date": "2026-05-21",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_45",
+  "employeeId": "cs_16",
+  "date": "2026-05-21",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_46",
+  "employeeId": "cs_29",
+  "date": "2026-05-22",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_47",
+  "employeeId": "cs_8",
+  "date": "2026-05-22",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_48",
+  "employeeId": "cs_7",
+  "date": "2026-05-22",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_49",
+  "employeeId": "extra_83",
+  "date": "2026-05-22",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_50",
+  "employeeId": "cs_38",
+  "date": "2026-05-22",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_51",
+  "employeeId": "cs_47",
+  "date": "2026-05-23",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_52",
+  "employeeId": "cs_46",
+  "date": "2026-05-23",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_53",
+  "employeeId": "cs_22",
+  "date": "2026-05-23",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_54",
+  "employeeId": "cs_50",
+  "date": "2026-05-24",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_55",
+  "employeeId": "cs_40",
+  "date": "2026-05-24",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_56",
+  "employeeId": "cs_26",
+  "date": "2026-05-24",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_57",
+  "employeeId": "cs_56",
+  "date": "2026-05-24",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_58",
+  "employeeId": "extra_91",
+  "date": "2026-05-25",
+  "type": "nota",
+  "detail": "Incapacidad medico privado (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_59",
+  "employeeId": "cs_47",
+  "date": "2026-05-25",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_60",
+  "employeeId": "extra_82",
+  "date": "2026-05-26",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_61",
+  "employeeId": "cs_57",
+  "date": "2026-05-27",
+  "type": "nota",
+  "detail": "Permiso de paternidad (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_62",
+  "employeeId": "cs_46",
+  "date": "2026-05-27",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_63",
+  "employeeId": "cs_72",
+  "date": "2026-05-27",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_64",
+  "employeeId": "cs_22",
+  "date": "2026-05-28",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_65",
+  "employeeId": "cs_34",
+  "date": "2026-05-28",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_66",
+  "employeeId": "cs_48",
+  "date": "2026-05-28",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_67",
+  "employeeId": "extra_76",
+  "date": "2026-05-28",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_68",
+  "employeeId": "extra_79",
+  "date": "2026-05-28",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_69",
+  "employeeId": "extra_76",
+  "date": "2026-05-28",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_70",
+  "employeeId": "cs_28",
+  "date": "2026-05-29",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_71",
+  "employeeId": "extra_77",
+  "date": "2026-05-29",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_72",
+  "employeeId": "extra_76",
+  "date": "2026-05-29",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_73",
+  "employeeId": "extra_90",
+  "date": "2026-05-29",
+  "type": "nota",
+  "detail": "Incapacidad medico empresa (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_74",
+  "employeeId": "cs_39",
+  "date": "2026-05-30",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_75",
+  "employeeId": "cs_9",
+  "date": "2026-05-30",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_76",
+  "employeeId": "extra_83",
+  "date": "2026-05-30",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_77",
+  "employeeId": "extra_93",
+  "date": "2026-05-30",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_78",
+  "employeeId": "cs_47",
+  "date": "2026-05-30",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_79",
+  "employeeId": "cs_28",
+  "date": "2026-05-31",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_80",
+  "employeeId": "extra_92",
+  "date": "2026-06-01",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_81",
+  "employeeId": "cs_38",
+  "date": "2026-06-01",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_82",
+  "employeeId": "extra_86",
+  "date": "2026-06-01",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_83",
+  "employeeId": "cs_50",
+  "date": "2026-06-02",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_84",
+  "employeeId": "cs_46",
+  "date": "2026-06-02",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_85",
+  "employeeId": "cs_16",
+  "date": "2026-06-02",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_86",
+  "employeeId": "cs_57",
+  "date": "2026-06-03",
+  "type": "nota",
+  "detail": "Permiso de paternidad (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_87",
+  "employeeId": "cs_38",
+  "date": "2026-06-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_88",
+  "employeeId": "extra_80",
+  "date": "2026-06-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_89",
+  "employeeId": "cs_58",
+  "date": "2026-06-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_90",
+  "employeeId": "cs_67",
+  "date": "2026-06-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_91",
+  "employeeId": "cs_9",
+  "date": "2026-06-03",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_92",
+  "employeeId": "cs_37",
+  "date": "2026-06-04",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_93",
+  "employeeId": "cs_71",
+  "date": "2026-06-04",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_94",
+  "employeeId": "cs_47",
+  "date": "2026-06-04",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_95",
+  "employeeId": "extra_94",
+  "date": "2026-06-04",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_96",
+  "employeeId": "cs_39",
+  "date": "2026-06-04",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_97",
+  "employeeId": "cs_41",
+  "date": "2026-06-04",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_98",
+  "employeeId": "extra_79",
+  "date": "2026-06-05",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_99",
+  "employeeId": "extra_76",
+  "date": "2026-06-05",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_100",
+  "employeeId": "cs_72",
+  "date": "2026-06-05",
+  "type": "nota",
+  "detail": "Incapacidad medico empresa (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_101",
+  "employeeId": "extra_75",
+  "date": "2026-06-06",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_102",
+  "employeeId": "cs_5",
+  "date": "2026-06-06",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_103",
+  "employeeId": "cs_21",
+  "date": "2026-06-06",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_104",
+  "employeeId": "extra_76",
+  "date": "2026-06-07",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_105",
+  "employeeId": "cs_41",
+  "date": "2026-06-07",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_106",
+  "employeeId": "cs_20",
+  "date": "2026-06-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_107",
+  "employeeId": "cs_71",
+  "date": "2026-06-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_108",
+  "employeeId": "cs_29",
+  "date": "2026-06-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_109",
+  "employeeId": "extra_75",
+  "date": "2026-06-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_110",
+  "employeeId": "extra_85",
+  "date": "2026-06-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_111",
+  "employeeId": "extra_80",
+  "date": "2026-06-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_112",
+  "employeeId": "cs_8",
+  "date": "2026-06-08",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_113",
+  "employeeId": "cs_13",
+  "date": "2026-06-09",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_114",
+  "employeeId": "cs_20",
+  "date": "2026-06-09",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_115",
+  "employeeId": "cs_57",
+  "date": "2026-06-10",
+  "type": "nota",
+  "detail": "Permiso de paternidad (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_116",
+  "employeeId": "extra_81",
+  "date": "2026-06-10",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_117",
+  "employeeId": "cs_48",
+  "date": "2026-06-10",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_118",
+  "employeeId": "extra_81",
+  "date": "2026-06-10",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_119",
+  "employeeId": "cs_63",
+  "date": "2026-06-10",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_120",
+  "employeeId": "extra_80",
+  "date": "2026-06-11",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_121",
+  "employeeId": "cs_56",
+  "date": "2026-06-11",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_122",
+  "employeeId": "extra_77",
+  "date": "2026-06-12",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_123",
+  "employeeId": "cs_19",
+  "date": "2026-06-12",
+  "type": "nota",
+  "detail": "Incapacidad medico empresa (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_124",
+  "employeeId": "cs_37",
+  "date": "2026-06-12",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_125",
+  "employeeId": "cs_41",
+  "date": "2026-06-12",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_126",
+  "employeeId": "cs_20",
+  "date": "2026-06-12",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_127",
+  "employeeId": "cs_28",
+  "date": "2026-06-14",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_128",
+  "employeeId": "cs_35",
+  "date": "2026-06-14",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_129",
+  "employeeId": "cs_70",
+  "date": "2026-06-14",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_130",
+  "employeeId": "extra_75",
+  "date": "2026-06-14",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_131",
+  "employeeId": "cs_50",
+  "date": "2026-06-15",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_132",
+  "employeeId": "cs_35",
+  "date": "2026-06-15",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_133",
+  "employeeId": "extra_76",
+  "date": "2026-06-15",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_134",
+  "employeeId": "cs_28",
+  "date": "2026-06-15",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_135",
+  "employeeId": "cs_73",
+  "date": "2026-06-16",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_136",
+  "employeeId": "cs_16",
+  "date": "2026-06-16",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_137",
+  "employeeId": "cs_46",
+  "date": "2026-06-16",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_138",
+  "employeeId": "extra_82",
+  "date": "2026-06-17",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_139",
+  "employeeId": "cs_33",
+  "date": "2026-06-17",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_140",
+  "employeeId": "cs_41",
+  "date": "2026-06-18",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_141",
+  "employeeId": "extra_77",
+  "date": "2026-06-18",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_142",
+  "employeeId": "cs_38",
+  "date": "2026-06-18",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_143",
+  "employeeId": "extra_77",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_144",
+  "employeeId": "cs_62",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_145",
+  "employeeId": "cs_29",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_146",
+  "employeeId": "cs_40",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_147",
+  "employeeId": "cs_22",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_148",
+  "employeeId": "cs_64",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_149",
+  "employeeId": "extra_87",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_150",
+  "employeeId": "extra_75",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_151",
+  "employeeId": "cs_51",
+  "date": "2026-06-19",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_152",
+  "employeeId": "cs_33",
+  "date": "2026-06-20",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_153",
+  "employeeId": "extra_76",
+  "date": "2026-06-21",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_154",
+  "employeeId": "extra_78",
+  "date": "2026-06-21",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_155",
+  "employeeId": "extra_81",
+  "date": "2026-06-21",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_156",
+  "employeeId": "cs_5",
+  "date": "2026-06-22",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_157",
+  "employeeId": "cs_26",
+  "date": "2026-06-22",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_158",
+  "employeeId": "extra_76",
+  "date": "2026-06-22",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_159",
+  "employeeId": "cs_16",
+  "date": "2026-06-22",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_160",
+  "employeeId": "cs_39",
+  "date": "2026-06-23",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_161",
+  "employeeId": "extra_76",
+  "date": "2026-06-23",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_162",
+  "employeeId": "cs_7",
+  "date": "2026-06-23",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_163",
+  "employeeId": "extra_82",
+  "date": "2026-06-23",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_164",
+  "employeeId": "cs_4",
+  "date": "2026-06-23",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_165",
+  "employeeId": "cs_3",
+  "date": "2026-06-23",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_166",
+  "employeeId": "cs_5",
+  "date": "2026-06-23",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_167",
+  "employeeId": "extra_85",
+  "date": "2026-06-23",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_168",
+  "employeeId": "extra_77",
+  "date": "2026-06-24",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_169",
+  "employeeId": "extra_76",
+  "date": "2026-06-25",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_170",
+  "employeeId": "cs_63",
+  "date": "2026-06-25",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_171",
+  "employeeId": "extra_75",
+  "date": "2026-06-26",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_172",
+  "employeeId": "cs_35",
+  "date": "2026-06-26",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_173",
+  "employeeId": "cs_12",
+  "date": "2026-06-26",
+  "type": "ausencia",
+  "detail": "Ausencia justificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_174",
+  "employeeId": "cs_51",
+  "date": "2026-06-26",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_175",
+  "employeeId": "cs_29",
+  "date": "2026-06-27",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_176",
+  "employeeId": "cs_73",
+  "date": "2026-06-30",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_177",
+  "employeeId": "extra_84",
+  "date": "2026-07-01",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_178",
+  "employeeId": "cs_51",
+  "date": "2026-07-01",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_179",
+  "employeeId": "cs_41",
+  "date": "2026-07-02",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_180",
+  "employeeId": "cs_9",
+  "date": "2026-07-03",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_181",
+  "employeeId": "cs_7",
+  "date": "2026-07-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_182",
+  "employeeId": "extra_88",
+  "date": "2026-07-03",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_183",
+  "employeeId": "extra_86",
+  "date": "2026-07-04",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_184",
+  "employeeId": "extra_78",
+  "date": "2026-07-05",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_185",
+  "employeeId": "cs_38",
+  "date": "2026-07-06",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_186",
+  "employeeId": "cs_56",
+  "date": "2026-07-06",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_187",
+  "employeeId": "cs_20",
+  "date": "2026-07-06",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_188",
+  "employeeId": "cs_13",
+  "date": "2026-07-06",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_189",
+  "employeeId": "cs_66",
+  "date": "2026-07-06",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_190",
+  "employeeId": "cs_73",
+  "date": "2026-07-06",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_191",
+  "employeeId": "extra_80",
+  "date": "2026-07-06",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_192",
+  "employeeId": "extra_77",
+  "date": "2026-07-07",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_193",
+  "employeeId": "extra_80",
+  "date": "2026-07-07",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_194",
+  "employeeId": "cs_49",
+  "date": "2026-07-08",
+  "type": "nota",
+  "detail": "Incapacidad medico privado (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_195",
+  "employeeId": "extra_75",
+  "date": "2026-07-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_196",
+  "employeeId": "cs_51",
+  "date": "2026-07-08",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_197",
+  "employeeId": "extra_77",
+  "date": "2026-07-09",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_198",
+  "employeeId": "cs_41",
+  "date": "2026-07-09",
+  "type": "nota",
+  "detail": "Incapacidad medico privado (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_199",
+  "employeeId": "cs_43",
+  "date": "2026-07-10",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_200",
+  "employeeId": "extra_77",
+  "date": "2026-07-10",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_201",
+  "employeeId": "extra_75",
+  "date": "2026-07-10",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_202",
+  "employeeId": "extra_76",
+  "date": "2026-07-10",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_203",
+  "employeeId": "cs_46",
+  "date": "2026-07-11",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_204",
+  "employeeId": "extra_75",
+  "date": "2026-07-11",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_205",
+  "employeeId": "cs_51",
+  "date": "2026-07-11",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_206",
+  "employeeId": "cs_3",
+  "date": "2026-07-12",
+  "type": "nota",
+  "detail": "Incapacidad medico privado (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_207",
+  "employeeId": "cs_29",
+  "date": "2026-07-13",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_208",
+  "employeeId": "cs_42",
+  "date": "2026-07-13",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_209",
+  "employeeId": "cs_40",
+  "date": "2026-07-13",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_210",
+  "employeeId": "cs_63",
+  "date": "2026-07-13",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_211",
+  "employeeId": "cs_70",
+  "date": "2026-07-14",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_212",
+  "employeeId": "cs_27",
+  "date": "2026-07-15",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_213",
+  "employeeId": "cs_47",
+  "date": "2026-07-16",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_214",
+  "employeeId": "cs_19",
+  "date": "2026-07-18",
+  "type": "ausencia",
+  "detail": "Ausencia justificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_215",
+  "employeeId": "cs_40",
+  "date": "2026-07-18",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_216",
+  "employeeId": "extra_79",
+  "date": "2026-07-18",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_217",
+  "employeeId": "cs_23",
+  "date": "2026-07-18",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_218",
+  "employeeId": "cs_27",
+  "date": "2026-07-18",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_219",
+  "employeeId": "cs_20",
+  "date": "2026-07-18",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_220",
+  "employeeId": "cs_41",
+  "date": "2026-07-20",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_221",
+  "employeeId": "cs_3",
+  "date": "2026-07-20",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_222",
+  "employeeId": "cs_51",
+  "date": "2026-07-20",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_223",
+  "employeeId": "cs_36",
+  "date": "2026-07-21",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_224",
+  "employeeId": "extra_97",
+  "date": "2026-07-21",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_225",
+  "employeeId": "cs_73",
+  "date": "2026-07-21",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_226",
+  "employeeId": "cs_52",
+  "date": "2026-07-22",
+  "type": "nota",
+  "detail": "Incapacidad medico empresa (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_227",
+  "employeeId": "cs_56",
+  "date": "2026-07-22",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_228",
+  "employeeId": "cs_8",
+  "date": "2026-07-22",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_229",
+  "employeeId": "cs_23",
+  "date": "2026-07-22",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_230",
+  "employeeId": "cs_73",
+  "date": "2026-07-22",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_231",
+  "employeeId": "extra_77",
+  "date": "2026-07-23",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_232",
+  "employeeId": "extra_79",
+  "date": "2026-07-24",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_233",
+  "employeeId": "cs_5",
+  "date": "2026-07-24",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_234",
+  "employeeId": "cs_9",
+  "date": "2026-07-24",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_235",
+  "employeeId": "cs_23",
+  "date": "2026-07-25",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_236",
+  "employeeId": "cs_33",
+  "date": "2026-07-25",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_237",
+  "employeeId": "extra_77",
+  "date": "2026-07-25",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_238",
+  "employeeId": "cs_64",
+  "date": "2026-07-26",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_239",
+  "employeeId": "cs_13",
+  "date": "2026-07-26",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_240",
+  "employeeId": "cs_27",
+  "date": "2026-07-26",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_241",
+  "employeeId": "extra_90",
+  "date": "2026-07-27",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_242",
+  "employeeId": "cs_16",
+  "date": "2026-07-27",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_243",
+  "employeeId": "cs_41",
+  "date": "2026-07-29",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_244",
+  "employeeId": "cs_5",
+  "date": "2026-07-29",
+  "type": "nota",
+  "detail": "Incapacidad medico empresa (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_245",
+  "employeeId": "cs_4",
+  "date": "2026-07-29",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_246",
+  "employeeId": "extra_78",
+  "date": "2026-07-29",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_247",
+  "employeeId": "cs_22",
+  "date": "2026-07-31",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_248",
+  "employeeId": "cs_33",
+  "date": "2026-07-31",
+  "type": "nota",
+  "detail": "Incapacidad medico privado (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_249",
+  "employeeId": "extra_78",
+  "date": "2026-07-31",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_250",
+  "employeeId": "cs_5",
+  "date": "2026-07-31",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_251",
+  "employeeId": "cs_66",
+  "date": "2026-08-01",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_252",
+  "employeeId": "extra_79",
+  "date": "2026-08-01",
+  "type": "ausencia",
+  "detail": "Ausencia injustificada (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_253",
+  "employeeId": "cs_5",
+  "date": "2026-08-01",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_254",
+  "employeeId": "cs_4",
+  "date": "2026-08-01",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_255",
+  "employeeId": "cs_18",
+  "date": "2026-08-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_256",
+  "employeeId": "cs_23",
+  "date": "2026-08-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_257",
+  "employeeId": "cs_27",
+  "date": "2026-08-03",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_258",
+  "employeeId": "cs_22",
+  "date": "2026-08-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_259",
+  "employeeId": "cs_22",
+  "date": "2026-08-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_260",
+  "employeeId": "cs_18",
+  "date": "2026-08-03",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_261",
+  "employeeId": "cs_63",
+  "date": "2026-08-04",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_262",
+  "employeeId": "cs_19",
+  "date": "2026-08-05",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_263",
+  "employeeId": "cs_16",
+  "date": "2026-08-05",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_264",
+  "employeeId": "cs_40",
+  "date": "2026-08-05",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_265",
+  "employeeId": "cs_27",
+  "date": "2026-08-06",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_266",
+  "employeeId": "extra_81",
+  "date": "2026-08-06",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_267",
+  "employeeId": "cs_10",
+  "date": "2026-08-07",
+  "type": "nota",
+  "detail": "Incapacidad CCSS/INS (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_268",
+  "employeeId": "cs_70",
+  "date": "2026-08-07",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_269",
+  "employeeId": "cs_23",
+  "date": "2026-08-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_270",
+  "employeeId": "cs_27",
+  "date": "2026-08-08",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_271",
+  "employeeId": "extra_85",
+  "date": "2026-08-09",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_272",
+  "employeeId": "cs_20",
+  "date": "2026-08-10",
+  "type": "tardanza",
+  "detail": "Tardanza >5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_273",
+  "employeeId": "cs_53",
+  "date": "2026-08-10",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_275",
+  "employeeId": "cs_17",
+  "date": "2026-08-10",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ },
+ {
+  "id": "ntnlog_274",
+  "employeeId": "cs_73",
+  "date": "2026-08-11",
+  "type": "tardanza",
+  "detail": "Tardanza <5 min (Notion)",
+  "days": null
+ }
+]

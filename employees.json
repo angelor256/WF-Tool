@@ -1,0 +1,875 @@
+[
+ {
+  "id": "cs_1",
+  "name": "Israel Aburto Fallas",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_2",
+  "name": "Valerie Alfaro Martinez",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_3",
+  "name": "Carlos Alejandro Amador Luna",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_4",
+  "name": "Carlos Alberto Amador Munoz",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_5",
+  "name": "Isaac Barrantes Alvarado",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_6",
+  "name": "Carlos Barrantes Gutierrez",
+  "team": "Floor Support",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_7",
+  "name": "Mariana Bejarano Fallas",
+  "team": "3rd Party Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_8",
+  "name": "Ignacio Blanco Quesada",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_9",
+  "name": "Maria Fernanda Blanco Villalobos",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING"
+ },
+ {
+  "id": "cs_10",
+  "name": "Graciela Bravo Astua",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_11",
+  "name": "Rory Bulgarelli Salas",
+  "team": "Seniors",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING"
+ },
+ {
+  "id": "cs_12",
+  "name": "Samuel Carballo Webb",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING"
+ },
+ {
+  "id": "cs_13",
+  "name": "Jose Maria Cartin Peralta",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR"
+ },
+ {
+  "id": "cs_14",
+  "name": "Luis Eduardo Carvajal Mejias",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_15",
+  "name": "Andrey Castillo Pizarro",
+  "team": "Seniors",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_16",
+  "name": "Carolina Castro Arrieta",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_17",
+  "name": "Luis David Castro Solis",
+  "team": "Customer Service Night Shift",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_18",
+  "name": "Ixchel Naomy Coto Chaves",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_19",
+  "name": "Keisha Melania Cross Brown",
+  "team": "Tier 1",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_20",
+  "name": "Stephannie Cunningham Chacon",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_21",
+  "name": "Phillip De Jesus Desanti Quiros",
+  "team": "Tier 3",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_22",
+  "name": "Tamara Donaire Garcia",
+  "team": "3rd Party Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR"
+ },
+ {
+  "id": "cs_23",
+  "name": "Maria Jose Fallas Guerrero",
+  "team": "Training",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR"
+ },
+ {
+  "id": "cs_24",
+  "name": "Thimy Fabian Gonzalez Chaves",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_25",
+  "name": "Anilu Guzman Villalobos",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_26",
+  "name": "Emerson Hernandez Conejo",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_27",
+  "name": "Nyssa Alexandria Kittell",
+  "team": "Tier 1",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_28",
+  "name": "Daniel Leandro Rojas",
+  "team": "Otro departamento",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_29",
+  "name": "Eckart Lutz Martin",
+  "team": "Floor Support",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_30",
+  "name": "Valeria Madriz Segura",
+  "team": "Otro",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: EXECUTIVE ASSISTANT TO THE CEO"
+ },
+ {
+  "id": "cs_31",
+  "name": "Draylin Sarai Marenco Diaz",
+  "team": "Otro departamento (Sales)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR PROCESSING SPECIALIST"
+ },
+ {
+  "id": "cs_32",
+  "name": "Javier Emilio Martinez Suarez",
+  "team": "Tier 1",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_33",
+  "name": "Diego Matamoros Rodriguez",
+  "team": "Tier 3",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_34",
+  "name": "Julian Mena Mata",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR"
+ },
+ {
+  "id": "cs_35",
+  "name": "Kendall Montoya Barquero",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING"
+ },
+ {
+  "id": "cs_36",
+  "name": "Isabelle Morales Urbina",
+  "team": "Floor Support",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR"
+ },
+ {
+  "id": "cs_37",
+  "name": "Elliot Navarro Araya",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_38",
+  "name": "Adrian Jesus Navarro Benavides",
+  "team": "Tier 3",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_39",
+  "name": "Carlos Eduardo Ortiz Jacamo",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_40",
+  "name": "Doris Pena Hernandez",
+  "team": "Floor Support",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_41",
+  "name": "Isaac Porras Lopez",
+  "team": "3rd Party Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR"
+ },
+ {
+  "id": "cs_42",
+  "name": "Eddison Prendas Jimenez",
+  "team": "Tier 3",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_43",
+  "name": "Sebastian Puerta Velez",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_44",
+  "name": "Maria Jose Quiros Quiros",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_45",
+  "name": "Yasser Quiros Venegas",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_46",
+  "name": "Angelo Samuel Ramirez Porras",
+  "team": "Workforce",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_47",
+  "name": "Victor Daniel Ramirez Zamora",
+  "team": "Training",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_48",
+  "name": "Pablo Retana Solano",
+  "team": "Training",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_49",
+  "name": "Sebastian Rivera Bolanos",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_50",
+  "name": "Elena Rojas Avila",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING"
+ },
+ {
+  "id": "cs_51",
+  "name": "Alejandro Rojas Barrantes",
+  "team": "Tier 2",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_52",
+  "name": "Nicole Roman Jimenez",
+  "team": "3rd Party Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR"
+ },
+ {
+  "id": "cs_53",
+  "name": "Luis Fernando Ruiz Aguilar",
+  "team": "Otro departamento (Lotto)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_54",
+  "name": "Michelle Saborio Arauz",
+  "team": "Customer Service Night Shift",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_55",
+  "name": "Kevin Salazar Cisneros",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING"
+ },
+ {
+  "id": "cs_56",
+  "name": "Nicolle Naomy Sanchez Porras",
+  "team": "Seniors",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING"
+ },
+ {
+  "id": "cs_57",
+  "name": "Cristopher Sandoval Montenegro",
+  "team": "Workforce",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_58",
+  "name": "Natalia Sibaja Retana",
+  "team": "Training",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_59",
+  "name": "Madeiline Christine Smith Ayala",
+  "team": "Sin equipo asignado (New Hire)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_60",
+  "name": "Keylor Andres Solis Garro",
+  "team": "Tier 1",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_61",
+  "name": "Edson Steward Retana",
+  "team": "Customer Service Night Shift",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_62",
+  "name": "Silvana Suarez Montero",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_63",
+  "name": "Kendra Temple Rojas",
+  "team": "Training",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_64",
+  "name": "Ilsa Vanessa Umana Harley",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_65",
+  "name": "Nicole Valverde Vargas",
+  "team": "Supervisors",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING SUPERVISOR"
+ },
+ {
+  "id": "cs_66",
+  "name": "Mariana Varela Gomez",
+  "team": "3rd Party Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_67",
+  "name": "Esteban Josue Vargas Garro",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SENIOR"
+ },
+ {
+  "id": "cs_68",
+  "name": "Adriana Vasquez Angulo",
+  "team": "Floor Support",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_69",
+  "name": "Alfredo Jose Villalobos Camacho",
+  "team": "Supervisors",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: SUPERVISOR"
+ },
+ {
+  "id": "cs_70",
+  "name": "David Vogler Mora",
+  "team": "VIP Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_71",
+  "name": "Naigell Wilchard Beckford",
+  "team": "3rd Party Squad",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_72",
+  "name": "Marlon Anthony Wright Samuels",
+  "team": "Tier 1",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "cs_73",
+  "name": "Kevin Andres Zamora Espinoza",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: PROCESSING"
+ },
+ {
+  "id": "cs_74",
+  "name": "Josue Zamora Urena",
+  "team": "Processing",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Puesto Softland: CLERK"
+ },
+ {
+  "id": "extra_75",
+  "name": "Nicolas Arce Barrios",
+  "team": "Otro departamento (Lotto)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_76",
+  "name": "Pablo Andres Guzman Vargas",
+  "team": "INACTIVO",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_77",
+  "name": "Sheydron Alejandro Clark Zuniga",
+  "team": "INACTIVO",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_78",
+  "name": "Jose David Shedden Madrigal",
+  "team": "Customer Service Night Shift",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_79",
+  "name": "Mauricio Alvarado Cerna",
+  "team": "Seniors",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_80",
+  "name": "Jose Pablo Robles Diaz",
+  "team": "Customer Service Night Shift",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_81",
+  "name": "Marcela Perez Moraga",
+  "team": "Otro departamento (Lotto)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_82",
+  "name": "Denisse Lucia Delgado Solis",
+  "team": "Otro departamento (Lotto)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_83",
+  "name": "Jefferson Andres Jimenez Zuniga",
+  "team": "INACTIVO",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_84",
+  "name": "Stephan Vargas Sancho",
+  "team": "Otro departamento (Lotto)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_85",
+  "name": "David Roberto Cruz Duran",
+  "team": "Seniors",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_86",
+  "name": "Brandon Rodriguez Markland",
+  "team": "Otro departamento (Lotto)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_87",
+  "name": "Jan Leonardo Sarstedt Villalobos",
+  "team": "INACTIVO",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_88",
+  "name": "Gloriana Maria Corrales Esquivel",
+  "team": "Otro departamento (Lotto)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_89",
+  "name": "Fabian Stif Leal Mata",
+  "team": "Otro departamento (Lotto)",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_90",
+  "name": "Arianna Carolina Luengas Rozo",
+  "team": "QA",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_91",
+  "name": "Daniel Alonso Gonzalez Poveda",
+  "team": "Customer Service Night Shift",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_92",
+  "name": "Maria Paula Munoz Matarrita",
+  "team": "INACTIVO",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_93",
+  "name": "Charlene Yenorie Rose Matheus",
+  "team": "INACTIVO",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_94",
+  "name": "Kemar Andre Clare Clare",
+  "team": "INACTIVO",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_95",
+  "name": "Angelo Samuel Ramirez Porras (dup)",
+  "team": "Workforce",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_96",
+  "name": "Viberth Eduardo Gonzalez Wingrove",
+  "team": "QA",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ },
+ {
+  "id": "extra_97",
+  "name": "Maryann Rojas Arroyo",
+  "team": "INACTIVO",
+  "group": "",
+  "channel": "N/A",
+  "vacDays": 12,
+  "notes": "Importado de Notion (no en roster CS activo / otro depto)"
+ }
+]

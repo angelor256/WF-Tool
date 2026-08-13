@@ -1,0 +1,7 @@
+{
+ "syncedAt": "2026-08-12T00:00:00Z",
+ "employees": 97,
+ "logs": 275,
+ "windowDays": 90,
+ "note": "actualizado a mano con fechas reales de Notion; reemplazar con datos del GitHub Action en cuanto corra"
+}
