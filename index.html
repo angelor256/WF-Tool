@@ -320,14 +320,13 @@ let state = {
 // Leave apiKey as "YOUR_API_KEY" to skip Firebase and fall back
 // to Claude.ai storage / this browser's local storage instead.
 // ============================================================
-const firebaseConfig = {
+const FIREBASE_CONFIG = {
   apiKey: "AIzaSyDcLa55jCMRMbFswzueLNl40n9iFkk88T0",
   authDomain: "wf-tool.firebaseapp.com",
   projectId: "wf-tool",
   storageBucket: "wf-tool.firebasestorage.app",
   messagingSenderId: "998338959076",
   appId: "1:998338959076:web:15294d03e00c7900c2fef1",
-  measurementId: "G-TR0M1KCY1W"
 };
 
 let firebaseReady = false;
